@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                  
+                                                    
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical" android:tag="layout/activity_general_setting_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:context=".Setting.GeneralSettingActivity">
+
+
+        <include layout="@layout/toolbar_xml" />
+
+        <LinearLayout
+            android:id="@+id/layOverAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!--<LinearLayout-->
+                <!--android:id="@+id/layout_choose_pic"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:visibility="visible">-->
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="60dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/folder_image">-->
+
+                <!--<ImageView-->
+                <!--android:id="@+id/img_choose_folder"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_marginLeft="15dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginRight="15dp"-->
+                <!--android:paddingLeft="5dp"-->
+                <!--android:src="@drawable/ic_image" />-->
+                <!--</LinearLayout>-->
+                <LinearLayout
+                    android:id="@+id/general_setting_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/folder_image">
+
+                        <ImageView
+                            android:id="@+id/img_choose_folder"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:paddingLeft="5dp"
+                            android:src="@drawable/ic_image" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/choose_photo_id"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_folder" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="Choose Photo"
+                                android:textColor="@color/cardview_dark_background" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:src="@drawable/ic_folder" />-->
+
+                    <!--<TextView-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:text="Choose Photo" />-->
+
+                    <!--</LinearLayout>-->
+
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/take_camera_id"
+                                android:layout_width="20dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_camera" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="Take Photo"
+                                android:textColor="@color/cardview_dark_background" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LayName"
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/edit_text_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="Name"
+                            android:inputType="textCapCharacters"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/edit_text_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LayAddress"
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/edit_text_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="Address"
+                            android:inputType="textCapCharacters"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/LayLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:visibility="visible">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#cccccc" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Laybtnsave"
+                    android:layout_width="378dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="00dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorBgcash">
+
+                    <Button
+                        android:id="@+id/btn_add_general_settings"
+                        android:layout_width="328dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="21dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/my_login_button"
+                        android:gravity="center|center_horizontal"
+                        android:lineSpacingExtra="8sp"
+                        android:text="SAVE" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+         

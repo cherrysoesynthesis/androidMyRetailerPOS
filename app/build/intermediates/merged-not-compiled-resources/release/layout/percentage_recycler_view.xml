@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                  
+                                                                         
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="370dp"
+        android:layout_height="fill_parent"
+        android:background="@color/colorBgcash" android:tag="layout/percentage_recycler_view_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:context="com.dcs.myretailer.app.Cashier.TabFragmentPercentage">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/LayAmount"
+                android:layout_width="325dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/linear_product_circle3"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:textColorHint="@color/dark_blue">
+
+                    <EditText
+                        android:id="@+id/edit_text_discount_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/linear_product_circle"
+                        android:editable="false"
+                        android:hint="AMOUNT"
+                        android:inputType="none"
+                        android:textColor="@color/mine_shaft"
+                        android:textColorHint="@color/dark_blue"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorBgcash"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/percentage_recyclerview_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorBgcash">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_apply"
+                    android:layout_width="328dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="false"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/my_login_button"
+                    android:lineSpacingExtra="8sp"
+                    android:text="APPLY" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+         

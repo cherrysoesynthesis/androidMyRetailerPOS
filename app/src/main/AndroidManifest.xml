@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.dcs.myretailer.app"> <!-- android:versionCode="14" -->
+<!--    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />-->
+
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="com.pax.permission.ICC" />
+    <uses-permission android:name="com.pax.permission.PICC" />
+    <uses-permission android:name="com.pax.permission.MAGCARD" />
+    <uses-permission android:name="com.pax.permission.PRINTER" />
+    <uses-permission android:name="com.pax.permission.PED" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACTION_IMAGE_CAPTURE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- <uses-permission android:name="com.pax.permission.ICC" /> -->
+    <!-- <uses-permission android:name="com.pax.permission.PICC" /> -->
+    <!-- <uses-permission android:name="com.pax.permission.MAGCARD" /> -->
+    <!-- <uses-permission android:name="com.pax.permission.PRINTER" /> -->
+    <!-- <uses-permission android:name="com.pax.permission.PED" /> &lt;!&ndash; android:versionName="3.0.1 Beta &ndash;&gt; -->
+    <!-- 3.00.000 Beta -->
+    <!-- android:versionCode="14" -->
+    <!-- android:versionName="1.05.999 Beta" -->
+    <uses-permission android:name="android.permission.MANAGE_NEWLAND_GUEST_DISPLAY" />
+    <uses-permission android:name="android.permission.MANAGE_NEWLAND" />
+    <uses-permission android:name="android.permission.MANAGE_NEWLANDUART3" /> <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+    <!-- <supports-screens android:smallScreens="true" -->
+    <!-- android:normalScreens="true" -->
+    <!-- android:largeScreens="true" -->
+    <!-- android:xlargeScreens="true" -->
+    <!-- android:anyDensity="true" /> -->
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="true" /> <!-- <uses-sdk -->
+    <!-- android:minSdkVersion="14" -->
+    <!-- android:targetSdkVersion="28" -->
+    <!-- tools:ignore="GradleOverrides" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <!-- <uses-permission android:name="android.Manifest.permission.READ_PHONE_STATE" /> -->
+<!--    <uses-permission android:name="android.permission.INTERNET" />-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" /> <!-- <uses-permission android:name="android.permission.BLUETOOTH" /> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:name=".e600.printer.DemoApp"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/myretailerlogo2_none"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:launchMode="singleTop"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:node="replace"
+        tools:replace="android:appComponentFactory">
+        <activity android:name=".ZCloseResyncActivity" />
+        <activity android:name=".LicenseKeyActivity" /> <!-- <activity android:name=".RemarkMainActivity"></activity> -->
+        <activity android:name=".Login.SampleActivity" />
+        <activity android:name=".RemarksBarcodeActivity" />
+        <activity android:name=".presentation.MajorActivity" />
+        <activity android:name=".Setting.StockManagement.StockAgentDetatilsActivity" />
+        <activity android:name=".Setting.StockManagement.StockManagementActivity" />
+        <activity android:name=".TransferImageIntoServerActivity" />
+        <activity android:name=".Report.ActivityGenReport" />
+        <activity android:name=".AddModifierActivity" />
+        <activity android:name=".Setting.ModifierActivity" />
+        <activity android:name=".Setting.ActivityMapSetup" />
+        <activity android:name=".Setting.PrinterListActivity" />
+        <activity android:name=".Setting.AddPermissionGroupActivity" />
+        <activity android:name=".Setting.PermissionGroupActivity" />
+        <activity android:name=".Cashier.ItemDiscountActivity" />
+        <activity android:name=".Setting.ReportSettingActivity" />
+        <activity android:name=".Setting.PaymentListActivity" />
+        <activity android:name=".Setting.AddNewVouchersAndDiscountActivity" />
+        <activity android:name=".Setting.AddNewConfigurationActivity" />
+        <activity android:name=".Setting.ConfigurationHostActivity" />
+        <activity android:name=".Setting.AddTaxConfigurationsActivity" />
+        <activity android:name=".TransactionDetailsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Setting.ActivityMapButtonSetup" />
+        <activity android:name=".Setting.AddStaffManagementActivity" />
+        <activity android:name=".Setting.AddTaxConfigurationActivity" />
+        <activity android:name=".Setting.AddNewCategoryActivity" />
+        <activity android:name=".Setting.AddPaymentTypeActivity" />
+        <activity android:name=".Setting.AddNewProductActivity" />
+        <activity android:name=".Setting.CategoryManagementActivity" />
+        <activity android:name=".Setting.ProductManagementActivity" />
+        <activity android:name=".Setting.HardwareActivity" />
+        <activity android:name=".Setting.VouchersAndDiscountsActivity" />
+        <activity android:name=".Setting.TaxConfigurationActivity" />
+        <activity android:name=".Setting.ReceiptEditorActivity" />
+        <activity android:name=".Setting.SupportActivity" />
+        <activity android:name=".Setting.SyncActivity" />
+        <activity android:name=".Setting.StaffManagementActivity" />
+        <activity android:name=".Setting.GeneralSettingActivity" />
+        <activity
+            android:name=".Setting.PosConfigurationActivity"
+            android:label="@string/title_activity_pos_configuration"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Setting.DatabaseImportExportActivity" />
+        <activity android:name=".Setting.SettingActivity" />
+        <activity android:name=".Report.ReportActivity" />
+        <activity android:name=".Checkout.PaymentCashSuccesActivity" />
+        <activity android:name=".CashLayoutActivity" />
+        <activity android:name=".APIActivity" />
+        <activity android:name=".CheckOutActivity" /> <!-- <activity android:name=".BottonDialoLogBoxActivity" /> -->
+        <activity android:name=".ScanActivity" />
+        <activity android:name=".Cashier.RemarkScanActivity" />
+        <activity android:name=".Setting.ScanProductActivity" />
+        <activity android:name=".Setting.ScanVoucherActivity" />
+        <activity android:name=".DragAndPlaceActivity" />
+        <activity
+            android:name=".Cashier.MainActivity"
+            android:label="@string/title_activity_main">
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".SearchResultsActivity" />
+        </activity>
+        <activity android:name=".HeaderAndFooterActivity" /> <!-- <activity android:name=".Login.SampleActivity"> -->
+        <activity android:name=".RemarkMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Search results activity -->
+        <!-- <activity -->
+        <!-- android:name=".SearchResultsActivity" -->
+        <!-- android:parentActivityName=".Cashier.MainActivity"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.SEARCH" /> -->
+        <!-- </intent-filter> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.searchable" -->
+        <!-- android:resource="@xml/searchable" /> -->
+        <!-- </activity> -->
+        <activity android:name=".BarChartActivity" />
+        <activity
+            android:name="com.karumi.dexter.DexterActivity"
+            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

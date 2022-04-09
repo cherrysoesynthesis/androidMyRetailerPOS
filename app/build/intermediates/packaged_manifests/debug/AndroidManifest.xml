@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dcs.myretailer.app"
+    android:versionCode="15"
+    android:versionName="3.3.20" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="32" /> <!-- android:versionCode="14" -->
+    <!-- <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" /> -->
+
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="com.pax.permission.ICC" />
+    <uses-permission android:name="com.pax.permission.PICC" />
+    <uses-permission android:name="com.pax.permission.MAGCARD" />
+    <uses-permission android:name="com.pax.permission.PRINTER" />
+    <uses-permission android:name="com.pax.permission.PED" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACTION_IMAGE_CAPTURE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- <uses-permission android:name="com.pax.permission.ICC" /> -->
+    <!-- <uses-permission android:name="com.pax.permission.PICC" /> -->
+    <!-- <uses-permission android:name="com.pax.permission.MAGCARD" /> -->
+    <!-- <uses-permission android:name="com.pax.permission.PRINTER" /> -->
+    <!-- <uses-permission android:name="com.pax.permission.PED" /> &lt;!&ndash; android:versionName="3.0.1 Beta &ndash;&gt; -->
+    <!-- 3.00.000 Beta -->
+    <!-- android:versionCode="14" -->
+    <!-- android:versionName="1.05.999 Beta" -->
+    <uses-permission android:name="android.permission.MANAGE_NEWLAND_GUEST_DISPLAY" />
+    <uses-permission android:name="android.permission.MANAGE_NEWLAND" />
+    <uses-permission android:name="android.permission.MANAGE_NEWLANDUART3" /> <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+    <!-- <supports-screens android:smallScreens="true" -->
+    <!-- android:normalScreens="true" -->
+    <!-- android:largeScreens="true" -->
+    <!-- android:xlargeScreens="true" -->
+    <!-- android:anyDensity="true" /> -->
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="true" /> <!-- <uses-sdk -->
+    <!-- android:minSdkVersion="14" -->
+    <!-- android:targetSdkVersion="28" -->
+    <!-- tools:ignore="GradleOverrides" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <!-- <uses-permission android:name="android.Manifest.permission.READ_PHONE_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" /> <!-- <uses-permission android:name="android.permission.BLUETOOTH" /> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
+    <application
+        android:name="com.dcs.myretailer.app.e600.printer.DemoApp"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx"
+        android:debuggable="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/myretailerlogo2_none"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:launchMode="singleTop"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+        <activity android:name="com.dcs.myretailer.app.ZCloseResyncActivity" />
+        <activity android:name="com.dcs.myretailer.app.LicenseKeyActivity" /> <!-- <activity android:name=".RemarkMainActivity"></activity> -->
+        <activity android:name="com.dcs.myretailer.app.Login.SampleActivity" />
+        <activity android:name="com.dcs.myretailer.app.RemarksBarcodeActivity" />
+        <activity android:name="com.dcs.myretailer.app.presentation.MajorActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.StockManagement.StockAgentDetatilsActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.StockManagement.StockManagementActivity" />
+        <activity android:name="com.dcs.myretailer.app.TransferImageIntoServerActivity" />
+        <activity android:name="com.dcs.myretailer.app.Report.ActivityGenReport" />
+        <activity android:name="com.dcs.myretailer.app.AddModifierActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.ModifierActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.ActivityMapSetup" />
+        <activity android:name="com.dcs.myretailer.app.Setting.PrinterListActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.AddPermissionGroupActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.PermissionGroupActivity" />
+        <activity android:name="com.dcs.myretailer.app.Cashier.ItemDiscountActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.ReportSettingActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.PaymentListActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.AddNewVouchersAndDiscountActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.AddNewConfigurationActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.ConfigurationHostActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.AddTaxConfigurationsActivity" />
+        <activity android:name="com.dcs.myretailer.app.TransactionDetailsActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.dcs.myretailer.app.Setting.ActivityMapButtonSetup" />
+        <activity android:name="com.dcs.myretailer.app.Setting.AddStaffManagementActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.AddTaxConfigurationActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.AddNewCategoryActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.AddPaymentTypeActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.AddNewProductActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.CategoryManagementActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.ProductManagementActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.HardwareActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.VouchersAndDiscountsActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.TaxConfigurationActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.ReceiptEditorActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.SupportActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.SyncActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.StaffManagementActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.GeneralSettingActivity" />
+        <activity
+            android:name="com.dcs.myretailer.app.Setting.PosConfigurationActivity"
+            android:label="@string/title_activity_pos_configuration"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.dcs.myretailer.app.Setting.DatabaseImportExportActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.SettingActivity" />
+        <activity android:name="com.dcs.myretailer.app.Report.ReportActivity" />
+        <activity android:name="com.dcs.myretailer.app.Checkout.PaymentCashSuccesActivity" />
+        <activity android:name="com.dcs.myretailer.app.CashLayoutActivity" />
+        <activity android:name="com.dcs.myretailer.app.APIActivity" />
+        <activity android:name="com.dcs.myretailer.app.CheckOutActivity" /> <!-- <activity android:name=".BottonDialoLogBoxActivity" /> -->
+        <activity android:name="com.dcs.myretailer.app.ScanActivity" />
+        <activity android:name="com.dcs.myretailer.app.Cashier.RemarkScanActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.ScanProductActivity" />
+        <activity android:name="com.dcs.myretailer.app.Setting.ScanVoucherActivity" />
+        <activity android:name="com.dcs.myretailer.app.DragAndPlaceActivity" />
+        <activity
+            android:name="com.dcs.myretailer.app.Cashier.MainActivity"
+            android:label="@string/title_activity_main" >
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".SearchResultsActivity" />
+        </activity>
+        <activity android:name="com.dcs.myretailer.app.HeaderAndFooterActivity" /> <!-- <activity android:name=".Login.SampleActivity"> -->
+        <activity android:name="com.dcs.myretailer.app.RemarkMainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Search results activity -->
+        <!-- <activity -->
+        <!-- android:name=".SearchResultsActivity" -->
+        <!-- android:parentActivityName=".Cashier.MainActivity"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.SEARCH" /> -->
+        <!-- </intent-filter> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.searchable" -->
+        <!-- android:resource="@xml/searchable" /> -->
+        <!-- </activity> -->
+        <activity android:name="com.dcs.myretailer.app.BarChartActivity" />
+        <activity
+            android:name="com.karumi.dexter.DexterActivity"
+            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.dcs.myretailer.app.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

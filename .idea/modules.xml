@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/androidMyRetailerPOS.iml" filepath="$PROJECT_DIR$/.idea/modules/androidMyRetailerPOS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/androidMyRetailerPOS.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/androidMyRetailerPOS.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commonlib/androidMyRetailerPOS.commonlib.iml" filepath="$PROJECT_DIR$/.idea/modules/commonlib/androidMyRetailerPOS.commonlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fileBrowser/androidMyRetailerPOS.fileBrowser.iml" filepath="$PROJECT_DIR$/.idea/modules/fileBrowser/androidMyRetailerPOS.fileBrowser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/glwrapper/androidMyRetailerPOS.glwrapper.iml" filepath="$PROJECT_DIR$/.idea/modules/glwrapper/androidMyRetailerPOS.glwrapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qrcodescanner/androidMyRetailerPOS.qrcodescanner.iml" filepath="$PROJECT_DIR$/.idea/modules/qrcodescanner/androidMyRetailerPOS.qrcodescanner.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                  
+                                              
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical" android:tag="layout/activity_floor_map_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" tools:context=".Setting.FloorMapActivity">
+
+        <include layout="@layout/toolbar_xml" />
+
+
+        <LinearLayout
+            android:id="@+id/layOverAll"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout_add_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/linear_product_circle4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/linear_product_circle4">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColorHint="@color/color_blue">
+
+                        <EditText
+                            android:id="@+id/edit_text_receipt_editor_header"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="TABLE NAME"
+                            android:inputType="textCapCharacters"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/mine_shaft"
+                            android:textSize="14sp" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColorHint="@color/color_blue">
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!--<![CDATA[-->
+
+            <!--android:layout_height="wrap_content">-->
+
+            <!--]]>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="10dp">
+
+                <Button
+                    android:id="@+id/btn_add"
+                    android:layout_width="150dp"
+                    android:layout_height="35dp"
+                    android:layout_centerHorizontal="false"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/mybutton"
+                    android:gravity="center|center_horizontal"
+                    android:lineSpacingExtra="8sp"
+                    android:text="ADD"
+                    android:textColor="@color/cardview_light_background" />
+
+                <Button
+                    android:id="@+id/btn_delete"
+                    android:layout_width="150dp"
+                    android:layout_height="35dp"
+                    android:layout_centerHorizontal="false"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/mybutton"
+                    android:gravity="center|center_horizontal"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Remove"
+                    android:textColor="@color/cardview_light_background" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/linear_product_circle4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/linear_product_circle4"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DEFAULT COLOR"
+                        android:textColor="@color/dark_blue" />
+
+                    <LinearLayout
+                        android:id="@+id/choose_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_color"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20sp"
+                            android:text="#FFFFFF"
+                            android:textColor="@color/mine_shaft" />
+                    </LinearLayout>
+
+                    <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="4dp"-->
+                    <!--android:textColorHint="@color/color_blue">-->
+
+                    <!--<EditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="DEFAULT COLOR"-->
+                    <!--android:inputType="textCapCharacters"-->
+                    <!--android:textAllCaps="true"-->
+                    <!--android:textColor="@color/mine_shaft"-->
+                    <!--android:textColorHint="@color/mine_shaft"-->
+                    <!--android:text="#FFFFFF"-->
+                    <!--android:textSize="14sp" />-->
+
+
+                    <!--</android.support.design.widget.TextInputLayout>-->
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColorHint="@color/color_blue">
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/linear_product_circle4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/lay_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/linear_product_circle4" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColorHint="@color/color_blue">
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="378dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorBgcash">
+
+                <Button
+                    android:id="@+id/btn_add_floor_map"
+                    android:layout_width="328dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="false"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/my_login_button"
+                    android:gravity="center|center_horizontal"
+                    android:lineSpacingExtra="8sp"
+                    android:text="ADD" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+         

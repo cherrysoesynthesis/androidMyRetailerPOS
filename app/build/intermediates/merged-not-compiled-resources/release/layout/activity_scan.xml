@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="false"
+    android:layout_centerVertical="false"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical"
+    tools:context=".ScanActivity">
+<include layout="@layout/toolbar_xml"/>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:id="@+id/scanner_frame"
+    android:layout_height="fill_parent">
+
+    <SurfaceView android:id="@+id/preview_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"/>
+
+    <!--<com.google.zxing.jar.client.android.ViewfinderView-->
+        <!--android:id="@+id/viewfinder_view"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"/>-->
+
+    <me.dm7.barcodescanner.core.ViewFinderView
+        android:id="@+id/viewfinder_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+
+    <!--android:background="@color/transparent"-->
+</FrameLayout>
+    <Button
+        android:text="Enter Details Manually"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/manual_entry"
+        android:layout_alignParentBottom="true"
+        />
+</LinearLayout>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_centerInParent="false"-->
+    <!--android:layout_centerVertical="false"-->
+    <!--android:background="@android:color/darker_gray"-->
+    <!--android:orientation="vertical"-->
+    <!--tools:context=".ScanActivity">-->
+
+    <!--<include layout="@layout/toolbar_xml"/>-->
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginTop="20sp"-->
+        <!--android:text="Place QR Code within box to detect. Once scanned, remove from box and scan next item."-->
+        <!--android:textSize="18sp" />-->
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="50dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:gravity="center_horizontal"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="14sp"&ndash;&gt;-->
+        <!--&lt;!&ndash;tools:text="Place QR Code within box to detect. Once scanned, remove from box and scan next item.Place QR Code within box to detect. Once scanned, remove from box and scan next item.Place QR Code within box to detect. Once scanned, remove from box and scan next item.Place QR Code within box to detect. Once scanned, remove from box and scan next item.Place QR Code within box to detect. Once scanned, remove from box and scan next item.Place QR Code within box to detect. Once scanned, remove from box and scan next item.Place QR Code within box to detect. Once scanned, remove from box and scan next item." />&ndash;&gt;-->
+
+    <!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="250dp"-->
+        <!--android:layout_height="250dp"-->
+        <!--android:layout_marginLeft="55dp"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:background="@drawable/borders" />-->
+    <!--&lt;!&ndash;<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"&ndash;&gt;-->
+    <!--&lt;!&ndash;xmlns:app="http://schemas.android.com/apk/res-auto"&ndash;&gt;-->
+    <!--&lt;!&ndash;xmlns:tools="http://schemas.android.com/tools"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_centerInParent="false"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_centerVertical="false"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:background="@color/cardview_shadow_start_color"&ndash;&gt;-->
+    <!--&lt;!&ndash;tools:context=".ScanActivity">&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<FrameLayout&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="200dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="200dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:background="@drawable/qr_code_reader_square" />&ndash;&gt;-->
+    <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+<!--</LinearLayout>-->

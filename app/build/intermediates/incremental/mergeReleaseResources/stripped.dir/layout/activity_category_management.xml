@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                  
+                                                        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorBgcash" android:tag="layout/activity_category_management_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:context=".Setting.CategoryManagementActivity">
+
+        <include layout="@layout/toolbar_xml"/>
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerView_categories_list"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_centerVertical="true" />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_categories_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/allproduct_bg_color_1" />
+    </LinearLayout>
+         

@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">MyRetailerPos</string>
+    <!--<string name="app_name">New UI Design</string>-->
+    <string name="app_login">Login</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_pos_configuration">PosConfigurationActivity</string>
+
+    <string name="str_ok">OK</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="str_updir">Up Dir</string>
+    <string name="str_mkdir">Create Folder</string>
+    <string name="str_rename">Rename</string>
+    <string name="str_del">Delete</string>
+    <string name="str_location">Directory:</string>
+    <string name="str_opendialog">Open...</string>
+    <string name="str_savedialog">Save...</string>
+    <string name="str_emptyfilename">Name is empty!</string>
+    <string name="str_noselected">No File/Folder selected!</string>
+    <string name="str_dircantsave">Selected location cannot be save!</string>
+    <string name="str_titleoverwrite">Overwrite?</string>
+    <string name="str_overwrite">Overwrite</string>
+    <string name="str_filenotexist">%s is not exist!</string>
+    <string name="str_nopermission">"You don't have the permission to access the file!"</string>
+    <string name="str_overwrite_ask">%s is already exist, overwrite?</string>
+    <string name="str_delete_title">Delete?</string>
+    <string name="str_delete_ask">Are you sure you want to delete %s?</string>
+    <string name="str_delete_ok">Deleted %s!</string>
+    <string name="str_delete_err">Failed to delete or no permission!</string>
+    <string name="str_yes">Yes</string>
+    <string name="str_no">No</string>
+    <string name="str_rename_title">Rename...</string>
+    <string name="str_samefilename">Same name already existed!</string>
+    <string name="str_rename_ok">Renamed to %s!</string>
+    <string name="str_rename_err">Cannot rename because of invalid name!</string>
+    <string name="str_mkdir_title">Create Folder...</string>
+    <string name="str_mkdir_err">Cannot Create Folder in this Directory!</string>
+    <string name="str_mkdir_err2">Cannot create folder because of invalid folder name!</string>
+    <string name="str_mkdir_ok">Folder %s created!</string>
+    <string name="str_filecount">Files: %d</string>
+    <string name="str_sizecount">Size: %s</string>
+    <string name="str_byte">%d byte(s)</string>
+    <string name="str_kbyte">%.02f KB(s)</string>
+    <string name="str_mbyte">%.02f MB(s)</string>
+    <string name="str_gbyte">%.02f GB(s)</string>
+    <string name="str_tbyte">%.02f TB(s)</string>
+</resources>

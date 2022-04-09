@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ZCloseResynActivity"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/layProductCategory"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/linear_product_circle3"
+        android:visibility="visible">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:textColorHint="@color/dark_blue">
+
+            <EditText
+                android:id="@+id/edit_product_category"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/linear_product_circle"
+                android:hint="Product Category"
+                android:text="Select Product Category"
+
+                android:textAllCaps="false"
+                android:textColor="@color/mine_shaft"
+                android:textColorHint="@color/dark_blue"
+                android:textSize="14sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp">
+
+            <ImageView
+                android:id="@+id/img_product_category"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_arrow_down_grey_500" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                  
+                                                   
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/colorBgcash" android:tag="layout/activity_receipt_editor_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" tools:context=".Setting.ReceiptEditorActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical" android:tag="binding_1">
+            <include layout="@layout/toolbar_xml"/>
+
+            <LinearLayout
+                android:id="@+id/layOverAll"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_add_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/linear_product_circle4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/linear_product_circle4">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColorHint="@color/color_blue">
+
+                            <EditText
+                                android:id="@+id/edit_text_receipt_editor_header"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="HEADER (MAX 20 LINES)"
+
+
+                                android:textColor="@color/mine_shaft"
+                                android:textColorHint="@color/mine_shaft"
+                                android:textSize="14sp" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColorHint="@color/color_blue">
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lay1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/linear_product_circle4"
+                        android:orientation="vertical">
+
+                        <!--<android.support.design.widget.TextInputLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="4dp"-->
+                        <!--android:textColorHint="@color/color_blue">-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/edit_text_receipt_editor_header_2"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!---->
+                        <!---->
+                        <!--android:textColor="@color/mine_shaft"-->
+                        <!--android:textColorHint="@color/mine_shaft"-->
+                        <!--android:textSize="14sp" />-->
+
+
+                        <!--</android.support.design.widget.TextInputLayout>-->
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--<![CDATA[-->
+
+                <!--android:layout_height="wrap_content">-->
+
+                <!--]]>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="10dp">
+
+                    <Button
+                        android:id="@+id/btn_add"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/mybutton"
+                        android:gravity="center|center_horizontal"
+                        android:lineSpacingExtra="8sp"
+                        android:text="ADD"
+                        android:textColor="@color/cardview_light_background" />
+
+                    <Button
+                        android:id="@+id/btn_delete"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/mybutton"
+                        android:gravity="center|center_horizontal"
+                        android:lineSpacingExtra="8sp"
+                        android:text="Remove"
+                        android:textColor="@color/cardview_light_background" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorBgcash" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearFooter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/linear_product_circle4">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColorHint="@color/color_blue">
+
+                            <EditText
+                                android:id="@+id/edit_text_receipt_editor_footer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="FOOTER (MAX 20 LINES)"
+
+
+                                android:textColor="@color/mine_shaft"
+                                android:textColorHint="@color/mine_shaft"
+                                android:textSize="14sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lay2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/linear_product_circle4"
+                        android:orientation="vertical">
+
+                        <!--<android.support.design.widget.TextInputLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="4dp"-->
+                        <!--android:textColorHint="@color/color_blue">-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/edit_text_receipt_editor_header_2"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!---->
+                        <!---->
+                        <!--android:textColor="@color/mine_shaft"-->
+                        <!--android:textColorHint="@color/mine_shaft"-->
+                        <!--android:textSize="14sp" />-->
+
+
+                        <!--</android.support.design.widget.TextInputLayout>-->
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="10dp">
+
+                    <Button
+                        android:id="@+id/btn_add_footer"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/mybutton"
+                        android:gravity="center|center_horizontal"
+                        android:lineSpacingExtra="8sp"
+                        android:text="ADD"
+                        android:textColor="@color/cardview_light_background" />
+
+                    <Button
+                        android:id="@+id/btn_delete_footer"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/mybutton"
+                        android:gravity="center|center_horizontal"
+                        android:lineSpacingExtra="8sp"
+                        android:text="Remove"
+                        android:textColor="@color/cardview_light_background" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorBgcash" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:text="Options"
+                        android:textColor="@color/cardview_dark_background" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/general_setting_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/folder_image">
+
+                        <ImageView
+                            android:id="@+id/img_choose_folder"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:paddingLeft="5dp"
+                            android:src="@drawable/ic_image" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/choose_photo_id"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_folder" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="Choose Photo"
+                                android:textColor="@color/cardview_dark_background" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:src="@drawable/ic_folder" />-->
+
+                    <!--<TextView-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:text="Choose Photo" />-->
+
+                    <!--</LinearLayout>-->
+
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/take_camera_id"
+                                android:layout_width="20dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_camera" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="Take Photo"
+                                android:textColor="@color/cardview_dark_background" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Layprintlogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/chk_print_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/light_greyish"
+                        android:buttonTint="@color/mine_shaft"
+                        android:checked="false"
+                        android:padding="10dp"
+                        android:textColor="@color/cardview_dark_background" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/light_greyish"
+                        android:padding="10dp"
+                        android:text="Print Logo"
+                        android:textColor="@color/cardview_dark_background" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layFontAssets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/edit_select_font_assets"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="Font Assets"
+                            android:text="Select Font Assets"
+
+                            android:textAllCaps="false"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/img_zclose"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/ic_arrow_down_grey_500" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Laybtn"
+                    android:layout_width="378dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorBgcash">
+
+                    <Button
+                        android:id="@+id/btn_add_receipt_editor"
+                        android:layout_width="328dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="21dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/my_login_button"
+                        android:gravity="center|center_horizontal"
+                        android:lineSpacingExtra="8sp"
+                        android:text="SAVE" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+         

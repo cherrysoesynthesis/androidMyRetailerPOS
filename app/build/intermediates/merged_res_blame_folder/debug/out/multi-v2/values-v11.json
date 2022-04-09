@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Cherry\\.gradle\\caches\\transforms-2\\files-2.1\\f49d1d950732aae6eb2ab7ab13ab3f11\\jetified-zxing-android-embedded-3.0.3\\res\\values-v11\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "190",
+                        "endLines": "5",
+                        "endColumns": "10",
+                        "endOffsets": "285"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "3",
+                        "endColumns": "10",
+                        "endOffsets": "150"
+                    }
+                }
+            ]
+        }
+    ]
+}

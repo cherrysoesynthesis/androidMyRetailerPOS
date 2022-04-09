@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                  
+                                                                   
+
+    <com.chauthai.swipereveallayout.SwipeRevealLayout
+        android:id="@+id/swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        app:dragEdge="right"
+        app:mode="same_level" android:tag="layout/row_list_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" tools:context="com.dcs.myretailer.app.Cashier.RecyclerAdapter">
+
+
+        <FrameLayout
+            android:id="@+id/delete_layout"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorBg"
+            android:visibility="gone">
+
+            <!--<TextView-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/qr_code_reader_square"-->
+            <!--android:gravity="center"-->
+            <!--android:text="Delete"-->
+            <!--android:textColor="@android:color/white" />-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_delete_red_red_16_px" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27dp"
+                    android:text="Clear Bill"
+                    android:textColor="@color/greyish"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/front_layout"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <!--<TextView-->
+            <!--android:text="AAAA"-->
+            <!--android:id="@+id/text"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="18sp"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:textColor="@color/mine_shaft"/>-->
+            <LinearLayout
+                android:id="@+id/Lay1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBgcash">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardview_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:background="@drawable/default_cover"
+
+                    app:cardBackgroundColor="@color/cardview_light_background">
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/ic_icon_myretailer_background"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <!--android:background="@drawable/layout_bill_bg"-->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp">
+
+                            <CheckBox
+                                android:visibility="gone"
+                                android:id="@+id/checkb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginRight="5dp"
+                                android:button="@drawable/custom_checkbox"
+                                android:scaleX="1"
+                                android:scaleY="1" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="195dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/bill_no"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BILL #0001"
+                                android:textColor="@color/mine_shaft" />
+
+                            <TextView
+                                android:id="@+id/total_items"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total items: 3"
+                                android:textColor="#a9aaad"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/datetime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="02 Nov 2019, 10:55 am"
+                                android:textColor="#a9aaad"
+                                android:textSize="10sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp">
+
+                            <TextView
+                                android:id="@+id/total_amount"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="right"
+                                android:text="$56.53"
+                                android:textColor="@color/mine_shaft" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBgcash" />
+        </FrameLayout>
+
+
+    </com.chauthai.swipereveallayout.SwipeRevealLayout>
+         

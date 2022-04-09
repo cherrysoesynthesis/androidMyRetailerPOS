@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/dialog_bg"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/linear_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/close_cashier_float_amt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_close_black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="70dp"
+                    android:text="Select Date"
+                    android:textColor="#1d1d1d"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <!--<view xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:id="@+id/divider"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="#30111111" />-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#cccccc" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Lay1"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/linear_product_circle3"
+            android:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/dark_blue">
+
+                <EditText
+                    android:id="@+id/edit_text_datecount"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/linear_product_circle"
+                    android:hint="DATE RANGE"
+                    android:inputType="textCapCharacters"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mine_shaft"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayStarting"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/linear_product_circle3"
+            android:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/dark_blue">
+
+                <EditText
+                    android:id="@+id/edit_text_starting"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/linear_product_circle"
+                    android:hint="STARTING"
+                    android:inputType="textCapCharacters"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mine_shaft"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp">
+
+                <ImageView
+                    android:id="@+id/img_text_starting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_arrow_down_grey_500" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/LayEnding"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/linear_product_circle3"
+            android:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/dark_blue">
+
+                <EditText
+                    android:id="@+id/edit_text_ending"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/linear_product_circle"
+                    android:hint="ENDING"
+                    android:inputType="textCapCharacters"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mine_shaft"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp">
+
+                <ImageView
+                    android:id="@+id/img_text_ending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_arrow_down_grey_500" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayPrevious"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/linear_product_circle3"
+            android:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/dark_blue">
+
+                <EditText
+                    android:id="@+id/type_name"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/linear_product_circle"
+                    android:hint="Previous Report"
+                    android:inputType="textCapCharacters"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mine_shaft"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp">
+
+                <ImageView
+                    android:id="@+id/btn_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_arrow_down_grey_500" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingTop="20dp">-->
+
+        <!--<android.support.v7.widget.CardView-->
+        <!--android:id="@+id/cardview_id"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:background="@drawable/default_cover">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="320dp"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:background="@color/light_greyish"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:text="CASHIER FLOAT AMOUNT"-->
+        <!--android:textColor="#a9aaad"-->
+        <!--android:textSize="10sp" />-->
+
+        <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:text="$5689.50"-->
+        <!--android:textColor="#1d1d1d"-->
+        <!--android:textCursorDrawable="@drawable/custom_edit_text_cursor" />-->
+
+        <!--</LinearLayout>-->
+
+        <!--</android.support.v7.widget.CardView>-->
+
+
+        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+        <!--<LinearLayout-->
+        <!--android:visibility="visible"-->
+        <!--android:layout_width="325dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:background="@drawable/linear_product_circle3">-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="0dp"-->
+        <!--android:textColorHint="@color/dark_blue">-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/edit_text_date_range"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/linear_product_circle"-->
+        <!--android:hint="DATE RANGE"-->
+        <!--android:inputType="textCapCharacters"-->
+        <!--android:text="$5689.50"-->
+        <!--android:textAllCaps="true"-->
+        <!--android:textColor="@color/mine_shaft"-->
+        <!--android:textColorHint="@color/dark_blue"-->
+        <!--android:textSize="14sp" />-->
+
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="325dp"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:background="@color/cardview_light_background"-->
+        <!--android:orientation="vertical"-->
+        <!--android:visibility="visible">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="STARTING"-->
+        <!--android:textColor="@color/colorAccent" />-->
+        <!--</LinearLayout>-->
+
+        <!--&lt;!&ndash;<android.support.design.widget.TextInputLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColorHint="@color/dark_blue">&ndash;&gt;-->
+
+        <!--<Button-->
+        <!--android:id="@+id/edit_text_starting"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/linear_product_circle3"-->
+        <!--android:hint="STARTING"-->
+        <!--android:inputType="textCapCharacters"-->
+        <!--android:text="04/28/20"-->
+        <!--android:textAllCaps="true"-->
+        <!--android:textColor="@color/mine_shaft"-->
+        <!--android:textColorHint="@color/dark_blue"-->
+        <!--android:textSize="14sp" />-->
+
+        <!--&lt;!&ndash;</android.support.design.widget.TextInputLayout>&ndash;&gt;-->
+
+        <!--</LinearLayout>-->
+        <!--<LinearLayout-->
+        <!--android:visibility="visible"-->
+        <!--android:layout_width="325dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:background="@drawable/linear_product_circle3">-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="0dp"-->
+        <!--android:textColorHint="@color/dark_blue">-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/edit_text_ending"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/linear_product_circle"-->
+        <!--android:hint="ENDING"-->
+        <!--android:inputType="textCapCharacters"-->
+        <!--android:text="$5689.50"-->
+        <!--android:textAllCaps="true"-->
+        <!--android:textColor="@color/mine_shaft"-->
+        <!--android:textColorHint="@color/dark_blue"-->
+        <!--android:textSize="14sp" />-->
+
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="325dp"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:background="@color/cardview_light_background"-->
+        <!--android:orientation="vertical"-->
+        <!--android:visibility="visible">-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="ENDING"-->
+        <!--android:textColor="@color/colorAccent" />-->
+        <!--</LinearLayout>-->
+
+        <!--&lt;!&ndash;<android.support.design.widget.TextInputLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColorHint="@color/dark_blue">&ndash;&gt;-->
+
+        <!--<Button-->
+        <!--android:id="@+id/edit_text_ending"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/linear_product_circle3"-->
+        <!--android:hint="ENDING"-->
+        <!--android:inputType="textCapCharacters"-->
+        <!--android:text="04/28/20"-->
+        <!--android:textAllCaps="true"-->
+        <!--android:textColor="@color/mine_shaft"-->
+        <!--android:textColorHint="@color/dark_blue"-->
+        <!--android:textSize="14sp" />-->
+
+        <!--&lt;!&ndash;</android.support.design.widget.TextInputLayout>&ndash;&gt;-->
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/dateView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="150dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:text="Set the Date"-->
+        <!--android:textColor="@android:color/background_dark"-->
+        <!--android:textStyle="bold" />-->
+
+        <!--<CalendarView-->
+        <!--android:id="@+id/calender"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"></CalendarView>-->
+        <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="20dp">
+
+            <!--<Button-->
+            <!--android:layout_width="280dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/mybutton"-->
+            <!--android:text="CONFIRM FLOAT"-->
+            <!--android:textColor="@color/cardview_light_background" />-->
+
+            <Button
+                android:id="@+id/btn_apply_date_range"
+                android:layout_width="320dp"
+                android:layout_height="35dp"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/mybutton"
+                android:gravity="center|center_horizontal"
+                android:lineSpacingExtra="8sp"
+                android:text="APPLY"
+                android:textColor="@color/cardview_light_background" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

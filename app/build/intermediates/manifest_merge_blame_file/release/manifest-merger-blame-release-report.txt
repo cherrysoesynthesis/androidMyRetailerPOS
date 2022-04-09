@@ -1,0 +1,427 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.dcs.myretailer.app"
+4    android:versionCode="15"
+5    android:versionName="3.3.20" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" /> <!-- android:versionCode="14" -->
+9-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml
+10    <!-- <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" /> -->
+11
+12    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+12-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:7:5-86
+12-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:7:22-83
+13    <uses-permission android:name="com.pax.permission.ICC" />
+13-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:8:5-62
+13-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:8:22-59
+14    <uses-permission android:name="com.pax.permission.PICC" />
+14-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:9:5-63
+14-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:9:22-60
+15    <uses-permission android:name="com.pax.permission.MAGCARD" />
+15-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:10:5-66
+15-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:10:22-63
+16    <uses-permission android:name="com.pax.permission.PRINTER" />
+16-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:11:5-66
+16-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:11:22-63
+17    <uses-permission android:name="com.pax.permission.PED" />
+17-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:12:5-62
+17-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:12:22-59
+18    <uses-permission android:name="android.permission.CAMERA" />
+18-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:13:5-65
+18-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:13:22-62
+19    <uses-permission android:name="android.permission.ACTION_IMAGE_CAPTURE" />
+19-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:14:5-79
+19-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:14:22-76
+20    <uses-permission android:name="android.permission.BLUETOOTH" />
+20-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:15:5-68
+20-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:15:22-65
+21    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+21-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:16:5-74
+21-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:16:22-71
+22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+22-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:17:5-76
+22-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:17:22-73
+23    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+23-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:18:5-76
+23-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:18:22-73
+24    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+24-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:19:5-79
+24-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:19:22-76
+25    <uses-permission android:name="android.permission.INTERNET" />
+25-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:20:5-67
+25-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:20:22-64
+26    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- <uses-permission android:name="com.pax.permission.ICC" /> -->
+26-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:21:5-75
+26-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:21:22-72
+27    <!-- <uses-permission android:name="com.pax.permission.PICC" /> -->
+28    <!-- <uses-permission android:name="com.pax.permission.MAGCARD" /> -->
+29    <!-- <uses-permission android:name="com.pax.permission.PRINTER" /> -->
+30    <!-- <uses-permission android:name="com.pax.permission.PED" /> &lt;!&ndash; android:versionName="3.0.1 Beta &ndash;&gt; -->
+31    <!-- 3.00.000 Beta -->
+32    <!-- android:versionCode="14" -->
+33    <!-- android:versionName="1.05.999 Beta" -->
+34    <uses-permission android:name="android.permission.MANAGE_NEWLAND_GUEST_DISPLAY" />
+34-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:29:5-87
+34-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:29:22-84
+35    <uses-permission android:name="android.permission.MANAGE_NEWLAND" />
+35-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:30:5-73
+35-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:30:22-70
+36    <uses-permission android:name="android.permission.MANAGE_NEWLANDUART3" /> <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+36-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:31:5-78
+36-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:31:22-75
+37    <!-- <supports-screens android:smallScreens="true" -->
+38    <!-- android:normalScreens="true" -->
+39    <!-- android:largeScreens="true" -->
+40    <!-- android:xlargeScreens="true" -->
+41    <!-- android:anyDensity="true" /> -->
+42    <uses-feature
+42-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:37:5-39:35
+43        android:name="android.hardware.usb.host"
+43-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:38:9-49
+44        android:required="true" /> <!-- <uses-sdk -->
+44-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:39:9-32
+45    <!-- android:minSdkVersion="14" -->
+46    <!-- android:targetSdkVersion="28" -->
+47    <!-- tools:ignore="GradleOverrides" /> -->
+48    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+49    <!-- <uses-permission android:name="android.Manifest.permission.READ_PHONE_STATE" /> -->
+50    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+51    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+51-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:46:5-79
+51-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:46:22-76
+52    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+52-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:47:5-81
+52-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:47:22-78
+53    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+53-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:48:5-80
+53-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:48:22-77
+54    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" /> <!-- <uses-permission android:name="android.permission.BLUETOOTH" /> -->
+54-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:49:5-81
+54-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:49:22-78
+55    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+55-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:50:5-79
+55-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:50:22-76
+56    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+56-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:51:5-81
+56-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:51:22-78
+57    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+57-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:52:5-71
+57-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:52:22-68
+58    <uses-permission android:name="android.permission.WAKE_LOCK" />
+58-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:53:5-68
+58-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:53:22-65
+59    <uses-permission android:name="android.permission.READ_CALENDAR" />
+59-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:54:5-72
+59-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:54:22-69
+60    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+60-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:55:5-73
+60-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:55:22-70
+61    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+61-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:56:5-78
+61-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:56:22-75
+62
+63    <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+64    <uses-feature
+64-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:26:5-28:36
+65        android:name="android.hardware.camera"
+65-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:27:9-47
+66        android:required="false" />
+66-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:28:9-33
+67    <uses-feature
+67-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:29:5-31:36
+68        android:name="android.hardware.camera.front"
+68-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:30:9-53
+69        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+69-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:31:9-33
+70    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+71    <uses-feature
+71-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:34:5-36:36
+72        android:name="android.hardware.camera.autofocus"
+72-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:35:9-57
+73        android:required="false" />
+73-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:36:9-33
+74    <uses-feature
+74-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:37:5-39:36
+75        android:name="android.hardware.camera.flash"
+75-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:38:9-53
+76        android:required="false" />
+76-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:39:9-33
+77    <uses-feature
+77-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:40:5-42:36
+78        android:name="android.hardware.screen.landscape"
+78-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:41:9-57
+79        android:required="false" />
+79-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:42:9-33
+80    <uses-feature
+80-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:43:5-45:36
+81        android:name="android.hardware.wifi"
+81-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:44:9-45
+82        android:required="false" />
+82-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:45:9-33
+83
+84    <application
+84-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:58:5-171:19
+85        android:name="com.dcs.myretailer.app.e600.printer.DemoApp"
+85-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:59:9-45
+86        android:allowBackup="true"
+86-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:60:9-35
+87        android:appComponentFactory="androidx"
+87-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:61:9-47
+88        android:hardwareAccelerated="true"
+88-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:62:9-43
+89        android:icon="@drawable/myretailerlogo2_none"
+89-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:63:9-54
+90        android:label="@string/app_name"
+90-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:64:9-41
+91        android:largeHeap="true"
+91-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:65:9-33
+92        android:launchMode="singleTop"
+92-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:66:9-39
+93        android:requestLegacyExternalStorage="true"
+93-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:67:9-52
+94        android:supportsRtl="true"
+94-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:68:9-35
+95        android:theme="@style/AppTheme"
+95-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:69:9-40
+96        android:usesCleartextTraffic="true" >
+96-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:70:9-44
+97        <activity android:name="com.dcs.myretailer.app.ZCloseResyncActivity" />
+97-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:73:9-58
+97-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:73:19-55
+98        <activity android:name="com.dcs.myretailer.app.LicenseKeyActivity" /> <!-- <activity android:name=".RemarkMainActivity"></activity> -->
+98-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:74:9-56
+98-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:74:19-53
+99        <activity android:name="com.dcs.myretailer.app.Login.SampleActivity" />
+99-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:75:9-58
+99-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:75:19-55
+100        <activity android:name="com.dcs.myretailer.app.RemarksBarcodeActivity" />
+100-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:76:9-60
+100-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:76:19-57
+101        <activity android:name="com.dcs.myretailer.app.presentation.MajorActivity" />
+101-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:77:9-64
+101-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:77:19-61
+102        <activity android:name="com.dcs.myretailer.app.Setting.StockManagement.StockAgentDetatilsActivity" />
+102-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:78:9-88
+102-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:78:19-85
+103        <activity android:name="com.dcs.myretailer.app.Setting.StockManagement.StockManagementActivity" />
+103-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:79:9-85
+103-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:79:19-82
+104        <activity android:name="com.dcs.myretailer.app.TransferImageIntoServerActivity" />
+104-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:80:9-69
+104-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:80:19-66
+105        <activity android:name="com.dcs.myretailer.app.Report.ActivityGenReport" />
+105-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:81:9-62
+105-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:81:19-59
+106        <activity android:name="com.dcs.myretailer.app.AddModifierActivity" />
+106-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:82:9-57
+106-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:82:19-54
+107        <activity android:name="com.dcs.myretailer.app.Setting.ModifierActivity" />
+107-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:83:9-62
+107-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:83:19-59
+108        <activity android:name="com.dcs.myretailer.app.Setting.ActivityMapSetup" />
+108-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:84:9-62
+108-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:84:19-59
+109        <activity android:name="com.dcs.myretailer.app.Setting.PrinterListActivity" />
+109-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:85:9-65
+109-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:85:19-62
+110        <activity android:name="com.dcs.myretailer.app.Setting.AddPermissionGroupActivity" />
+110-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:86:9-72
+110-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:86:19-69
+111        <activity android:name="com.dcs.myretailer.app.Setting.PermissionGroupActivity" />
+111-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:87:9-69
+111-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:87:19-66
+112        <activity android:name="com.dcs.myretailer.app.Cashier.ItemDiscountActivity" />
+112-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:88:9-66
+112-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:88:19-63
+113        <activity android:name="com.dcs.myretailer.app.Setting.ReportSettingActivity" />
+113-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:89:9-67
+113-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:89:19-64
+114        <activity android:name="com.dcs.myretailer.app.Setting.PaymentListActivity" />
+114-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:90:9-65
+114-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:90:19-62
+115        <activity android:name="com.dcs.myretailer.app.Setting.AddNewVouchersAndDiscountActivity" />
+115-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:91:9-79
+115-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:91:19-76
+116        <activity android:name="com.dcs.myretailer.app.Setting.AddNewConfigurationActivity" />
+116-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:92:9-73
+116-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:92:19-70
+117        <activity android:name="com.dcs.myretailer.app.Setting.ConfigurationHostActivity" />
+117-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:93:9-71
+117-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:93:19-68
+118        <activity android:name="com.dcs.myretailer.app.Setting.AddTaxConfigurationsActivity" />
+118-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:94:9-74
+118-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:94:19-71
+119        <activity android:name="com.dcs.myretailer.app.TransactionDetailsActivity" >
+119-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:95:9-99:20
+119-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:95:19-61
+120            <intent-filter>
+120-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:96:13-98:29
+121                <action android:name="android.intent.action.SEND" />
+121-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:97:17-69
+121-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:97:25-66
+122            </intent-filter>
+123        </activity>
+124        <activity android:name="com.dcs.myretailer.app.Setting.ActivityMapButtonSetup" />
+124-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:100:9-68
+124-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:100:19-65
+125        <activity android:name="com.dcs.myretailer.app.Setting.AddStaffManagementActivity" />
+125-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:101:9-72
+125-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:101:19-69
+126        <activity android:name="com.dcs.myretailer.app.Setting.AddTaxConfigurationActivity" />
+126-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:102:9-73
+126-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:102:19-70
+127        <activity android:name="com.dcs.myretailer.app.Setting.AddNewCategoryActivity" />
+127-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:103:9-68
+127-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:103:19-65
+128        <activity android:name="com.dcs.myretailer.app.Setting.AddPaymentTypeActivity" />
+128-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:104:9-68
+128-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:104:19-65
+129        <activity android:name="com.dcs.myretailer.app.Setting.AddNewProductActivity" />
+129-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:105:9-67
+129-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:105:19-64
+130        <activity android:name="com.dcs.myretailer.app.Setting.CategoryManagementActivity" />
+130-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:106:9-72
+130-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:106:19-69
+131        <activity android:name="com.dcs.myretailer.app.Setting.ProductManagementActivity" />
+131-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:107:9-71
+131-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:107:19-68
+132        <activity android:name="com.dcs.myretailer.app.Setting.HardwareActivity" />
+132-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:108:9-62
+132-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:108:19-59
+133        <activity android:name="com.dcs.myretailer.app.Setting.VouchersAndDiscountsActivity" />
+133-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:109:9-74
+133-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:109:19-71
+134        <activity android:name="com.dcs.myretailer.app.Setting.TaxConfigurationActivity" />
+134-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:110:9-70
+134-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:110:19-67
+135        <activity android:name="com.dcs.myretailer.app.Setting.ReceiptEditorActivity" />
+135-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:111:9-67
+135-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:111:19-64
+136        <activity android:name="com.dcs.myretailer.app.Setting.SupportActivity" />
+136-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:112:9-61
+136-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:112:19-58
+137        <activity android:name="com.dcs.myretailer.app.Setting.SyncActivity" />
+137-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:113:9-58
+137-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:113:19-55
+138        <activity android:name="com.dcs.myretailer.app.Setting.StaffManagementActivity" />
+138-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:114:9-69
+138-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:114:19-66
+139        <activity android:name="com.dcs.myretailer.app.Setting.GeneralSettingActivity" />
+139-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:115:9-68
+139-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:115:19-65
+140        <activity
+140-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:116:9-119:59
+141            android:name="com.dcs.myretailer.app.Setting.PosConfigurationActivity"
+141-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:117:13-61
+142            android:label="@string/title_activity_pos_configuration"
+142-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:118:13-69
+143            android:theme="@style/AppTheme.NoActionBar" />
+143-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:119:13-56
+144        <activity android:name="com.dcs.myretailer.app.Setting.DatabaseImportExportActivity" />
+144-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:120:9-74
+144-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:120:19-71
+145        <activity android:name="com.dcs.myretailer.app.Setting.SettingActivity" />
+145-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:121:9-61
+145-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:121:19-58
+146        <activity android:name="com.dcs.myretailer.app.Report.ReportActivity" />
+146-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:122:9-59
+146-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:122:19-56
+147        <activity android:name="com.dcs.myretailer.app.Checkout.PaymentCashSuccesActivity" />
+147-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:123:9-72
+147-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:123:19-69
+148        <activity android:name="com.dcs.myretailer.app.CashLayoutActivity" />
+148-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:124:9-56
+148-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:124:19-53
+149        <activity android:name="com.dcs.myretailer.app.APIActivity" />
+149-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:125:9-49
+149-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:125:19-46
+150        <activity android:name="com.dcs.myretailer.app.CheckOutActivity" /> <!-- <activity android:name=".BottonDialoLogBoxActivity" /> -->
+150-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:126:9-54
+150-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:126:19-51
+151        <activity android:name="com.dcs.myretailer.app.ScanActivity" />
+151-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:127:9-50
+151-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:127:19-47
+152        <activity android:name="com.dcs.myretailer.app.Cashier.RemarkScanActivity" />
+152-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:128:9-64
+152-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:128:19-61
+153        <activity android:name="com.dcs.myretailer.app.Setting.ScanProductActivity" />
+153-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:129:9-65
+153-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:129:19-62
+154        <activity android:name="com.dcs.myretailer.app.Setting.ScanVoucherActivity" />
+154-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:130:9-65
+154-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:130:19-62
+155        <activity android:name="com.dcs.myretailer.app.DragAndPlaceActivity" />
+155-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:131:9-58
+155-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:131:19-55
+156        <activity
+156-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:132:9-138:20
+157            android:name="com.dcs.myretailer.app.Cashier.MainActivity"
+157-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:133:13-49
+158            android:label="@string/title_activity_main" >
+158-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:134:13-56
+159            <meta-data
+159-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:135:13-137:58
+160                android:name="android.app.default_searchable"
+160-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:136:17-62
+161                android:value=".SearchResultsActivity" />
+161-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:137:17-55
+162        </activity>
+163        <activity android:name="com.dcs.myretailer.app.HeaderAndFooterActivity" /> <!-- <activity android:name=".Login.SampleActivity"> -->
+163-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:139:9-61
+163-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:139:19-58
+164        <activity android:name="com.dcs.myretailer.app.RemarkMainActivity" >
+164-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:140:9-146:20
+164-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:140:19-53
+165            <intent-filter>
+165-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:141:13-145:29
+166                <action android:name="android.intent.action.MAIN" />
+166-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:142:17-69
+166-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:142:25-66
+167
+168                <category android:name="android.intent.category.LAUNCHER" />
+168-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:144:17-77
+168-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:144:27-74
+169            </intent-filter>
+170        </activity> <!-- Search results activity -->
+171        <!-- <activity -->
+172        <!-- android:name=".SearchResultsActivity" -->
+173        <!-- android:parentActivityName=".Cashier.MainActivity"> -->
+174        <!-- <intent-filter> -->
+175        <!-- <action android:name="android.intent.action.SEARCH" /> -->
+176        <!-- </intent-filter> -->
+177        <!-- <meta-data -->
+178        <!-- android:name="android.app.searchable" -->
+179        <!-- android:resource="@xml/searchable" /> -->
+180        <!-- </activity> -->
+181        <activity android:name="com.dcs.myretailer.app.BarChartActivity" />
+181-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:157:9-54
+181-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:157:19-51
+182        <activity
+182-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:158:9-160:72
+183            android:name="com.karumi.dexter.DexterActivity"
+183-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:159:13-60
+184            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+184-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:160:13-69
+185
+186        <provider
+187            android:name="androidx.core.content.FileProvider"
+187-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:163:13-62
+188            android:authorities="com.dcs.myretailer.app.provider"
+188-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:164:13-60
+189            android:exported="false"
+189-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:165:13-37
+190            android:grantUriPermissions="true" >
+190-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:166:13-47
+191            <meta-data
+191-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:167:13-169:54
+192                android:name="android.support.FILE_PROVIDER_PATHS"
+192-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:168:17-67
+193                android:resource="@xml/file_paths" />
+193-->C:\AndroidStudioProjects\PinLockView-master\androidMyRetailerPOSV3.3.18_UpdateTransZRead\app\src\main\AndroidManifest.xml:169:17-51
+194        </provider>
+195    </application>
+196
+197</manifest>

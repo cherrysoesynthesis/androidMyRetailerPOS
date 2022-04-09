@@ -1,0 +1,306 @@
+[
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_add_new_category.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_add_new_category.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_permission_group.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_permission_group.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_report.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_report.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_payment_list.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_payment_list.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_check_out_listview.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_check_out_listview.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_tax_configuration.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_tax_configuration.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_button_listview.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_button_listview.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_report_setting.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_report_setting.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_floor_map.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_floor_map.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_product_management.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_product_management.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_support.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_support.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_add_tax_configurations.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_add_tax_configurations.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_pos_configuration_imin.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_pos_configuration_imin.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_sample.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_sample.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\row_list.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\row_list.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\checkout_payment_list.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\checkout_payment_list.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\percentage_recycler_view.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\percentage_recycler_view.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_report_product.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_report_product.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_remark_main.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_remark_main.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_mapbutton_setup.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_mapbutton_setup.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_cash_layout.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_cash_layout.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_add_new_product.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_add_new_product.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_staff_management.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_staff_management.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_pos_configuration.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_pos_configuration.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_add_payment_type.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_add_payment_type.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_modifier.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_modifier.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_stock_in.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_stock_in.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_receipt_editor.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_receipt_editor.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_transaction_details_listview.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_transaction_details_listview.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\product_main_page_list.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\product_main_page_list.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\recyclerview_paymentype_row.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\recyclerview_paymentype_row.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_report_category.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_report_category.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_payment_cash_succes.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_payment_cash_succes.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_manage_bill_dialog.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_manage_bill_dialog.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_sync.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_sync.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_report_date_sheet_dialog.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_report_date_sheet_dialog.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_category_management.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_category_management.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\item_discount_item_amount_book.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\item_discount_item_amount_book.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_vouchers_and_discounts.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_vouchers_and_discounts.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_add_quick_product_sheet_dialog.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_add_quick_product_sheet_dialog.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_add_new_vouchers_and_discount.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_add_new_vouchers_and_discount.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_map_setup.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_map_setup.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_stock_management.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_stock_management.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_z_close_resync.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_z_close_resync.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_edit_product_sheet_dialog.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_edit_product_sheet_dialog.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_item_discount.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_item_discount.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_database_import_export.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_database_import_export.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_setting.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\item_zcloser_resync_item_book.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\item_zcloser_resync_item_book.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_stock_agent_listview.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_stock_agent_listview.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\item_payment_checkout_item_book.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\item_payment_checkout_item_book.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_transaction_details.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_transaction_details.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\onhandqty_layout.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\onhandqty_layout.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_report_overall.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_report_overall.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\billlist_mainpage_list.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\billlist_mainpage_list.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_configuration_host.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_configuration_host.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_add_modifier.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_add_modifier.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_add_product_sheet_dialog.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_add_product_sheet_dialog.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\checkout_bill_information_show.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\checkout_bill_information_show.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\checkout_bill_information_ordersummary.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\checkout_bill_information_ordersummary.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_first.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_first.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\cardveiw_item_book.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\cardveiw_item_book.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_license_key.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_license_key.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_report_x_listview.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_report_x_listview.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\fragment_reportx_product.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\fragment_reportx_product.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_add_new_configuration.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_add_new_configuration.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\category_main_page_list.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\category_main_page_list.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\recyclerview_item.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\recyclerview_item.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\item_discount_item_book.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\item_discount_item_book.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\cardveiwnoimage_item_book.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\cardveiwnoimage_item_book.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_check_out.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_check_out.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_printer_list.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_printer_list.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_hardware.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_hardware.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_general_setting.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_general_setting.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\stripped.dir\\layout\\activity_stock_adjustment.xml",
+        "source": "C:\\AndroidStudioProjects\\PinLockView-master\\androidMyRetailerPOSV3.3.18_UpdateTransZRead\\app\\src\\main\\res\\layout\\activity_stock_adjustment.xml"
+    }
+]

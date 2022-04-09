@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: C./AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/libs/iminPrinterSDK.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/iminPrinterSDK.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
