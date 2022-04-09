@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                  
+                                      
+    
+           
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" android:tag="layout/activity_check_out_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" tools:context=".CheckOutActivity">
+
+        <include layout="@layout/toolbar_xml" />
+
+        <ScrollView
+            android:id="@+id/checkOutScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBgcash"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/layCheckoutOverAll"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:background="@color/allproduct_bg_color"
+                android:orientation="vertical" android:tag="binding_1">
+
+
+                <include
+                    android:id="@+id/checkoutInfo"
+                    layout="@layout/checkout_bill_information_show" />
+
+                <include
+                    android:id="@+id/checkoutOrderSummary"
+                    layout="@layout/checkout_bill_information_ordersummary" />
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+        <include
+            android:id="@+id/checkoutPaymentList"
+            layout="@layout/checkout_payment_list" />
+    </LinearLayout>
+         

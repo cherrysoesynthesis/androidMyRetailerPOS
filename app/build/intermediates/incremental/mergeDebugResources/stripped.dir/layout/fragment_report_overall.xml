@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                  
+                                                                        
+<ScrollView
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorBgcash" android:tag="layout/fragment_report_overall_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" tools:context="com.dcs.myretailer.app.Report.ReportOverallFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/LayTotalSales"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@color/colorBgcash"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txttotalQty"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text="Total Sales (0 item sold)"
+                android:textColor="@color/mine_shaft"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txttotalPriceAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:text="$0.00"
+                android:textColor="@color/dark_blue"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/BarChart"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- TODO: Update blank fragment layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#cccccc" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Sales Summary"
+                    android:textColor="@color/mine_shaft"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#cccccc" />
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/ReportOverallSaleSummaryListView"
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="0dp"
+                android:divider="@color/cardview_shadow_start_color"
+                android:dividerHeight="0dp"
+                android:footerDividersEnabled="false"
+                android:padding="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBgcash"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="210dp"
+                    android:layout_height="match_parent"
+                    android:text="Total Nett Sales"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/total_net_sales"
+                    android:layout_width="115dp"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:text="$00.00"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#cccccc" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="0dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:text="Transactions"
+                    android:textColor="@color/mine_shaft"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#cccccc" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ListView
+                    android:id="@+id/ReportOverallTransactionListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="10000dp"
+                    android:layout_marginLeft="0dp"
+                    android:divider="@color/cardview_shadow_start_color"
+                    android:dividerHeight="1dp" />
+            </LinearLayout>
+            <!--</FrameLayout>-->
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+         

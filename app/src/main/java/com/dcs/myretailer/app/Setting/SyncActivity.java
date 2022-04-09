@@ -2359,17 +2359,15 @@ public static  void SyncSales(Context context,RequestQueue queue1, String url, f
             double inclTaxValue = 0.0;
             double SalesTaxRate = 0.0;
             String SalesTaxType = "";
-            Log.i("SDFSDF__","hwid___"+hwid);
+
             for (int s1 = 0 ; s1 < 1 ; s1 ++){
 
-                Log.i("SDFSDF__","hwid___"+s1);
+
                 inclTaxValue = Double.parseDouble(hwid[0]);
                 SalesTaxRate = Double.parseDouble(String.format("%.2f", Double.parseDouble(hwid[1])));
                 SalesTaxType = hwid[2];
 
-                Log.i("SDFSDF__","hinclTaxValue___"+inclTaxValue);
-                Log.i("SDFSDF__","hSalesTaxRate___"+SalesTaxRate);
-                Log.i("SDFSDF__","hSalesTaxType___"+SalesTaxType);
+
             }
             if (Double.valueOf(statusSyncTotalTax) == 0.0 ) {
                 statusSyncTotalTax = inclTaxValue;

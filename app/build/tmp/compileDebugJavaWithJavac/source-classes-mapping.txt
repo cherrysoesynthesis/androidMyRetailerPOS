@@ -63,6 +63,8 @@ com/dcs/myretailer/app/Setting/FontSizeSheetFragment.java
  com.dcs.myretailer.app.Setting.FontSizeSheetFragment$ListAdapter
  com.dcs.myretailer.app.Setting.FontSizeSheetFragment$ListAdapter$1
  com.dcs.myretailer.app.Setting.FontSizeSheetFragment$ListAdapter$ViewHolder
+com/dcs/myretailer/app/TestGit.java
+ com.dcs.myretailer.app.TestGit
 com/dcs/myretailer/app/Setting/DiscountTypeSheetFragment.java
  com.dcs.myretailer.app.Setting.DiscountTypeSheetFragment
  com.dcs.myretailer.app.Setting.DiscountTypeSheetFragment$ListAdapter
