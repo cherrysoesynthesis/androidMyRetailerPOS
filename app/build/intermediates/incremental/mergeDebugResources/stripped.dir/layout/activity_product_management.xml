@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                  
+                                                       
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBgcash" android:tag="layout/activity_product_management_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" tools:context=".Setting.ProductManagementActivity">
+
+    <include layout="@layout/toolbar_xml"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/product_management_recyclerview_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:background="@color/colorBgcash" />
+</LinearLayout>
+         
