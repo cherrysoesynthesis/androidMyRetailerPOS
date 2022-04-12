@@ -3,6 +3,7 @@ package com.dcs.myretailer.app.Checkout;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -115,11 +116,14 @@ public class PaymentTypesCheckoutAdapter extends RecyclerView.Adapter<PaymentTyp
     int qrval = 0;
     public static String payment_remarks = "";
     ItemPaymentCheckoutItemBookBinding binding = null;
-    public PaymentTypesCheckoutAdapter(Context mContext, ArrayList<PaymentTypes> mPaymentType, String str, String bill_type) {
+    public static Resources resourceVal = null;
+    public PaymentTypesCheckoutAdapter(Context mContext, ArrayList<PaymentTypes> mPaymentType,
+                                       String str, String bill_type, Resources resourceVal) {
         this.mContext = mContext;
         this.mPaymentType = mPaymentType;
         this.str = str;
         this.bill_type = bill_type;
+        this.resourceVal = resourceVal;
     }
 
     @Override
@@ -392,6 +396,11 @@ public class PaymentTypesCheckoutAdapter extends RecyclerView.Adapter<PaymentTyp
 //                                        "0", String.valueOf(amount), mContext,"cash","");
 
 
+
+                    String chkKitchenPrinter = Query.GetOptions(27);
+                    if (chkKitchenPrinter.equals("1")) {
+                        CashLayoutActivity.KitChenPrinterFun(mContext, resourceVal, CheckOutActivity.BillNo);
+                    }
 
 
                     if (finalChk_print_receipt_paper.equals("1")) {

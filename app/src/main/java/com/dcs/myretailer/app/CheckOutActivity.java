@@ -1,5 +1,6 @@
 package com.dcs.myretailer.app;
 
+import static com.dcs.myretailer.app.TransactionDetailsActivity.resourceVal;
 import static com.dcs.myretailer.app.TransactionDetailsActivity.sldTaxID;
 
 import android.annotation.SuppressLint;
@@ -8,6 +9,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -309,6 +311,7 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
         appContext = CheckOutActivity.this;
         dal = getDal();
 
+        resourceVal = getResources();
 
         //CheckoutScrollView();
 
@@ -324,7 +327,7 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
         binding.checkoutOrderSummary.btnRemoveDiscountCheckout.setOnClickListener(this);
         binding.checkoutOrderSummary.addMemberIcon.setOnClickListener(this);
 
-        PaymentTypesCheckoutAdapterShowFun(appContext,BillNo);
+        PaymentTypesCheckoutAdapterShowFun(appContext,BillNo,resourceVal);
 
         if (Status.equals("TabFragmentPercentage_CheckoutForItem")) {
 
@@ -1012,7 +1015,7 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
 //        home_scroll.addView(home_linear, new LinearLayout.LayoutParams(480, 800));
     }
 
-    public static void PaymentTypesCheckoutAdapterShowFun(Context appContext,String BillNo) {
+    public static void PaymentTypesCheckoutAdapterShowFun(Context appContext,String BillNo, Resources resourceVal) {
 
             getPaymentsAll();
 
@@ -1029,7 +1032,7 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
 
             }
             myAdapter = new PaymentTypesCheckoutAdapter(appContext,
-                    paymentTypesClass, "product", bill_type);
+                    paymentTypesClass, "product", bill_type, resourceVal);
 
             GridLayoutManager gridLayoutManager = new GridLayoutManager(appContext, 4);
             binding.checkoutPaymentList.paymentTypeRecyclerviewId.setLayoutManager(gridLayoutManager);
@@ -5861,7 +5864,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //updateAmountDisFun();
         //updatePercentageDisFun();
 
-        PaymentTypesCheckoutAdapterShowFun(appContext,BillNo);
+        PaymentTypesCheckoutAdapterShowFun(appContext,BillNo,resourceVal);
 
     }
 

@@ -244,6 +244,10 @@
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\activity_add_new_vouchers_and_discount.xml"
     },
     {
+        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_kitchen_printer.xml",
+        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\activity_kitchen_printer.xml"
+    },
+    {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_product_management.xml",
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\activity_product_management.xml"
     },

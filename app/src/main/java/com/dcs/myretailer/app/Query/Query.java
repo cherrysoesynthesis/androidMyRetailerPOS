@@ -34,6 +34,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 
 import com.android.volley.NetworkResponse;
@@ -71,6 +72,7 @@ import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.IngenicoModule;
 import com.dcs.myretailer.app.Jeripay.BillJeripay;
 import com.dcs.myretailer.app.Jeripay.BillJeripayDetails;
+import com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterModel;
 import com.dcs.myretailer.app.Mercatus.BillMercatus;
 import com.dcs.myretailer.app.Mercatus.BillMercatusDetails;
 import com.dcs.myretailer.app.Mercatus.BillMercatusMallLoyaltyDetails;
@@ -13348,19 +13350,19 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                 String display = c.getString(4);
                 String product = c.getString(5);
                 String terminal_type = c.getString(6);
-                if (chkStatus.equals(Constraints.MODEL)){
+                if (chkStatus.toUpperCase().equals(Constraints.MODEL.toUpperCase())){
                     retVal = model;
-                } else if (chkStatus.equals(Constraints.BOARD)){
+                } else if (chkStatus.toUpperCase().equals(Constraints.BOARD.toUpperCase())){
                     retVal = board;
-                } else if (chkStatus.equals(Constraints.BRAND)){
+                } else if (chkStatus.toUpperCase().equals(Constraints.BRAND.toUpperCase())){
                     retVal = brand;
-                } else if (chkStatus.equals(Constraints.DEVICE)){
+                } else if (chkStatus.toUpperCase().equals(Constraints.DEVICE.toUpperCase())){
                     retVal = device;
-                } else if (chkStatus.equals(Constraints.DISPLAY)){
+                } else if (chkStatus.toUpperCase().equals(Constraints.DISPLAY.toUpperCase())){
                     retVal = display;
-                } else if (chkStatus.equals(Constraints.PRODUCT)){
+                } else if (chkStatus.toUpperCase().equals(Constraints.PRODUCT.toUpperCase())){
                     retVal = product;
-                } else if (chkStatus.equals(Constraints.TERMINAL_TYPE)){
+                } else if (chkStatus.toUpperCase().equals(Constraints.TERMINAL_TYPE.toUpperCase())){
                     retVal = terminal_type.toUpperCase();
                 }
             }
@@ -13577,6 +13579,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public static void PrintingValueSetForIMINReport(IminPrintUtils mIminPrintUtils, String colText1, String colText2) {
         try {
             if (colText2.equals(Constraints.HEADER)){
@@ -14253,6 +14256,67 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
         }else {
             return deviceHeight;
         }
+    }
+
+
+    public static void SaveKitchenPrinter(KitchenPrinterModel kpmodel) {
+        DBFunc.ExecQuery("delete from KitchenPrinter ",true);
+        String sql = "INSERT INTO KitchenPrinter (OpenDeviceName,OpenDeviceMacAddress,DateTime) " +
+                "VALUES ('" + DBFunc.PurifyString(kpmodel.getOpenDeviceName()) + "'," +
+                "'"+DBFunc.PurifyString(kpmodel.getOpenDeviceMacAddress()) + "'," +
+                "" + System.currentTimeMillis() + ")";
+        Log.i("__sql","sql_KitchenPrinter__"+sql);
+        DBFunc.ExecQuery(sql, true);
+    }
+    public static KitchenPrinterModel GetKitchenPrinter() {
+        KitchenPrinterModel kpm = new KitchenPrinterModel();
+        String sql = "SELECT OpenDeviceName,OpenDeviceMacAddress,ConnectionType,PrinterModel,PrinterName " +
+                "FROM KitchenPrinter ";
+        Log.i("sql____","sql____"+sql);
+        Cursor c = DBFunc.Query(sql, true);
+        if (c != null) {
+            if (c.moveToNext()) {
+                kpm.setOpenDeviceName(c.getString(0));
+                kpm.setOpenDeviceMacAddress(c.getString(1));
+                kpm.setConnectionType(c.getString(2));
+                kpm.setPrinterModel(c.getString(3));
+                kpm.setPrinterName(c.getString(4));
+            }
+            c.close();
+        }
+        return kpm;
+    }
+
+    public static String GetDtFromSales(String billNo) {
+        String dt = "";
+        String sql = "SELECT strftime('" + Constraints.sqldateformat_kitchenprinter_dmy + "', DateTime / 1000, 'unixepoch')," +
+                "strftime('" + Constraints.sqldateformat_kitchenprinter_h + "', DateTime / 1000, 'unixepoch'), " +
+                "strftime('" + Constraints.sqldateformat_kitchenprinter_m + "', DateTime / 1000, 'unixepoch'), " +
+                "strftime('" + Constraints.sqldateformat_kitchenprinter_s + "', DateTime / 1000, 'unixepoch') " +
+                " FROM Sales WHERE BillNo = '" + billNo + "' ";
+        Log.i("SDQL", "sql_" + sql);
+        Cursor c = DBFunc.Query(sql, false);
+        if (c != null) {
+            if (c.moveToNext()) {
+                String dmy = c.getString(0);
+                String hh = c.getString(1);
+
+                Log.i("DSfsd___","dt____"+Integer.parseInt(hh));
+                Integer hh_intval = Integer.parseInt(hh) + 8;
+                Integer mm = c.getInt(2);
+                Integer ss = c.getInt(3);
+
+                if (hh_intval > 12){
+                    hh_intval = hh_intval - 12;
+                }
+
+                //dt = dmy + " " + hh + ":" + mm + ":" + ss;
+                dt = dmy + " " + hh_intval + ":" + mm + ":" + ss;
+            }
+            c.close();
+        }
+        Log.i("DSfsd___","dt____"+dt);
+        return dt;
     }
 }
 

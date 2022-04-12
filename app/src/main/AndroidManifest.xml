@@ -159,6 +159,12 @@
             android:name="com.karumi.dexter.DexterActivity"
             android:theme="@style/Dexter.Internal.Theme.Transparent" />
 
+        <activity android:name=".KitchenPrinter.KitchenPrinterActivity"></activity>
+
+        <activity android:name=".KitchenPrinter.DiscoverPrinterActivity" android:label="@string/app_name" android:screenOrientation="portrait"></activity>
+
+
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

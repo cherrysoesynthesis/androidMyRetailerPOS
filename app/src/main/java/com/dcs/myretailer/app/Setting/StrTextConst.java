@@ -921,6 +921,8 @@ public class StrTextConst {
         {put(137,"JeriFood");}
         {put(138,"Barcode on Receipt");}
         {put(139,"Item Remarks for ICNO");}
+        {put(140,"ZClose");}
+        {put(141,"Kitchen Printer");}
 //        {put(136,"Tax Inclusive");}
     };
 

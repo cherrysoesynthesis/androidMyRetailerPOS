@@ -876,6 +876,10 @@
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\drawable\\ic_notifications_black_24dp.xml"
     },
     {
+        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\layout_text_color_selector.xml.flat",
+        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\text_color_selector.xml"
+    },
+    {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_addcategory.png.flat",
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\drawable-xxhdpi\\ic_addcategory.png"
     },
@@ -1150,6 +1154,10 @@
     {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\drawable_myretailerlogo_ize1.png.flat",
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\drawable\\myretailerlogo_ize1.png"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi_store.png.flat",
+        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\drawable-nodpi\\store.png"
     },
     {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_logo.png.flat",
@@ -1650,6 +1658,10 @@
     {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_down_grey_500.png.flat",
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\drawable\\ic_arrow_down_grey_500.png"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_kitchen_printer.xml.flat",
+        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\activity_kitchen_printer.xml"
     },
     {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_support.png.flat",
@@ -2632,6 +2644,10 @@
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\activity_sync_listview.xml"
     },
     {
+        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_at.xml.flat",
+        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\list_at.xml"
+    },
+    {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logotruth.png.flat",
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\drawable\\logotruth.png"
     },
@@ -3058,6 +3074,10 @@
     {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_productmanagement.png.flat",
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_productmanagement.png"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\layout_discovery.xml.flat",
+        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\discovery.xml"
     },
     {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_more_white.png.flat",

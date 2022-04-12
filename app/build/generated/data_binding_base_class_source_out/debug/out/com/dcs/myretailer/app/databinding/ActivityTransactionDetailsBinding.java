@@ -96,6 +96,9 @@ public abstract class ActivityTransactionDetailsBinding extends ViewDataBinding 
   public final ImageView imgReprint;
 
   @NonNull
+  public final ImageView imgReprintKitchenprinter;
+
+  @NonNull
   public final ImageView imgResyncBillno;
 
   @NonNull
@@ -219,14 +222,15 @@ public abstract class ActivityTransactionDetailsBinding extends ViewDataBinding 
       TextView btnRefundOrCheckouttxt, CardView cardLay, CardView cardView111,
       CardView cardView111111, MyListView checkOutListView, LinearLayout headerlay,
       LinearLayout headerlay1, ImageView imgRefreshBill, ImageView imgReprint,
-      ImageView imgResyncBillno, TextView incTaxNamee, MyListView itemsListView,
-      TextView jeripayInvoiceNo, LinearLayout layCheckoutOverAll, LinearLayout layExcTransationTax,
-      LinearLayout layIncTransationTax, LinearLayout laySaleSummaryDetails,
-      LinearLayout laySalessummary, LinearLayout layTotalAmt, LinearLayout laytransactionbillno,
-      TextView roundAdjValues, LinearLayout serviceChargesLayout, TextView serviceChargesValue,
-      TextView serviceChargesname, TextView subtotaltransactiondetails, TextView totalBillDiscount,
-      TextView totalitmHeader, TextView transactionBillNo, CardView transactionCard,
-      TextView transactionCashier, TextView transactionDatetime, TextView transactionDeliveryStatus,
+      ImageView imgReprintKitchenprinter, ImageView imgResyncBillno, TextView incTaxNamee,
+      MyListView itemsListView, TextView jeripayInvoiceNo, LinearLayout layCheckoutOverAll,
+      LinearLayout layExcTransationTax, LinearLayout layIncTransationTax,
+      LinearLayout laySaleSummaryDetails, LinearLayout laySalessummary, LinearLayout layTotalAmt,
+      LinearLayout laytransactionbillno, TextView roundAdjValues, LinearLayout serviceChargesLayout,
+      TextView serviceChargesValue, TextView serviceChargesname,
+      TextView subtotaltransactiondetails, TextView totalBillDiscount, TextView totalitmHeader,
+      TextView transactionBillNo, CardView transactionCard, TextView transactionCashier,
+      TextView transactionDatetime, TextView transactionDeliveryStatus,
       TextView transactionGrosssales, TextView transactionPaymentMode,
       TextView transactionReceiptOrderStatus, TextView transactionTableNo,
       TextView transactionTaxes, TextView transactionTotalItems, TextView transactionTotalamount,
@@ -260,6 +264,7 @@ public abstract class ActivityTransactionDetailsBinding extends ViewDataBinding 
     this.headerlay1 = headerlay1;
     this.imgRefreshBill = imgRefreshBill;
     this.imgReprint = imgReprint;
+    this.imgReprintKitchenprinter = imgReprintKitchenprinter;
     this.imgResyncBillno = imgResyncBillno;
     this.incTaxNamee = incTaxNamee;
     this.itemsListView = itemsListView;

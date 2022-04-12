@@ -22,6 +22,18 @@ public abstract class ActivityZCloseResyncBinding extends ViewDataBinding {
   public final LinearLayout LayAll;
 
   @NonNull
+  public final LinearLayout LayClosingTime;
+
+  @NonNull
+  public final LinearLayout LayOpeningTime;
+
+  @NonNull
+  public final LinearLayout LaySyncStatus;
+
+  @NonNull
+  public final LinearLayout LayZReadNo;
+
+  @NonNull
   public final LinearLayout Laybtn;
 
   @NonNull
@@ -70,14 +82,19 @@ public abstract class ActivityZCloseResyncBinding extends ViewDataBinding {
   public final TextView txtUuidZcloseHidden;
 
   protected ActivityZCloseResyncBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      LinearLayout LayAll, LinearLayout Laybtn, ScrollView ScrollView01, Button btnResyncZclose,
-      Button btnShowResyncZclose, EditText editSelectZclose, EditText editTextClosing,
-      EditText editTextOpening, EditText editTextSyncStatus, EditText editTextTransFrom,
-      EditText editTextTransTo, EditText editTextZreadno, LinearLayout imgZclose,
-      LinearLayout layTransFromNo, LinearLayout layTransToNo, LinearLayout layZClose,
-      TextView txtUuidZcloseHidden) {
+      LinearLayout LayAll, LinearLayout LayClosingTime, LinearLayout LayOpeningTime,
+      LinearLayout LaySyncStatus, LinearLayout LayZReadNo, LinearLayout Laybtn,
+      ScrollView ScrollView01, Button btnResyncZclose, Button btnShowResyncZclose,
+      EditText editSelectZclose, EditText editTextClosing, EditText editTextOpening,
+      EditText editTextSyncStatus, EditText editTextTransFrom, EditText editTextTransTo,
+      EditText editTextZreadno, LinearLayout imgZclose, LinearLayout layTransFromNo,
+      LinearLayout layTransToNo, LinearLayout layZClose, TextView txtUuidZcloseHidden) {
     super(_bindingComponent, _root, _localFieldCount);
     this.LayAll = LayAll;
+    this.LayClosingTime = LayClosingTime;
+    this.LayOpeningTime = LayOpeningTime;
+    this.LaySyncStatus = LaySyncStatus;
+    this.LayZReadNo = LayZReadNo;
     this.Laybtn = Laybtn;
     this.ScrollView01 = ScrollView01;
     this.btnResyncZclose = btnResyncZclose;

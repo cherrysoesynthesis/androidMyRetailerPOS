@@ -22,6 +22,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.dcs.myretailer.app.Cashier.MainActivity;
 import com.dcs.myretailer.app.ENUM.Constraints;
+import com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterActivity;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.RemarkMainActivity;
@@ -52,8 +53,8 @@ public class SettingActivity extends AppCompatActivity {
         });
 
 //
-       String[] countryList = {"Product Management", "Category Management", "Hardware", "Payment Types", "Vouchers & Discounts", "Tax Configuration","Receipt Editor", "POS Configuration", "General Settings", "Database Import / Export", "Config Payment Host", "Report Setting", "Sync", "ZClose Resync" , "Support", "Floor Map", "Modifiers", "Stock Management", "Version : 3.3.20"};
-        int[] flags = {R.drawable.ic_productmanagement, R.drawable.ic_category, R.drawable.ic_hardware, R.drawable.ic_payment, R.drawable.ic_voucher_setting, R.drawable.ic_tax,R.drawable.ic_receipteditor, R.drawable.ic_pos, R.drawable.setting_setting, R.drawable.ic_database,R.drawable.setting_setting ,R.drawable.setting_setting, R.drawable.baseline_sync_alt_black_18, R.drawable.ic_sync, R.drawable.ic_support, R.drawable.ic_floormap, R.drawable.ic_floormap, R.drawable.setting, R.drawable.setting};
+       String[] countryList = {"Product Management", "Category Management", "Hardware","Kitchen Printer", "Payment Types", "Vouchers & Discounts", "Tax Configuration","Receipt Editor", "POS Configuration", "General Settings", "Database Import / Export", "Config Payment Host", "Report Setting", "Sync", "ZClose Resync" , "Support", "Floor Map", "Modifiers", "Stock Management", "Version : 3.3.20"};
+        int[] flags = {R.drawable.ic_productmanagement, R.drawable.ic_category, R.drawable.ic_hardware, R.drawable.ic_print_grey_grey_500 , R.drawable.ic_payment, R.drawable.ic_voucher_setting, R.drawable.ic_tax,R.drawable.ic_receipteditor, R.drawable.ic_pos, R.drawable.setting_setting, R.drawable.ic_database,R.drawable.setting_setting ,R.drawable.setting_setting, R.drawable.baseline_sync_alt_black_18, R.drawable.ic_sync, R.drawable.ic_support, R.drawable.ic_floormap, R.drawable.ic_floormap, R.drawable.setting, R.drawable.setting};
 
         SettingAdapter settingAdapter = new SettingAdapter(getApplicationContext(), countryList, flags);
         binding.simpleListView.setAdapter(settingAdapter);
@@ -67,7 +68,7 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void renderPageFun(Context context, Integer position) {
-        if (position != 12) {
+        if (position != 13) {
             Intent i = new Intent(context, SettingActivity.class);
             if (position == 0) {
                 i = new Intent(context, ProductManagementActivity.class);
@@ -76,16 +77,18 @@ public class SettingActivity extends AppCompatActivity {
             } else if (position == 2) {
                 i = new Intent(context, PrinterListActivity.class);
             } else if (position == 3) {
-                i = new Intent(context, PaymentListActivity.class);
+                i = new Intent(context, KitchenPrinterActivity.class);
             } else if (position == 4) {
-                i = new Intent(context, VouchersAndDiscountsActivity.class);
+                i = new Intent(context, PaymentListActivity.class);
             } else if (position == 5) {
-                i = new Intent(context, TaxConfigurationActivity.class);
+                i = new Intent(context, VouchersAndDiscountsActivity.class);
             } else if (position == 6) {
-                i = new Intent(context, ReceiptEditorActivity.class);
+                i = new Intent(context, TaxConfigurationActivity.class);
             } else if (position == 7) {
-                i = new Intent(context, PosConfigurationActivity.class);
+                i = new Intent(context, ReceiptEditorActivity.class);
             } else if (position == 8) {
+                i = new Intent(context, PosConfigurationActivity.class);
+            } else if (position == 9) {
                 i = new Intent(context, GeneralSettingActivity.class);
             }
 //            else if (position == 9) {
@@ -94,22 +97,22 @@ public class SettingActivity extends AppCompatActivity {
 //            else if (position == 10) {
 //                i = new Intent(context, StaffManagementActivity.class);
 //            }
-            else if (position == 9) {
+            else if (position == 10) {
                 i = new Intent(context, DatabaseImportExportActivity.class);
-            } else if (position == 10) {
-                i = new Intent(context, ConfigurationHostActivity.class);
             } else if (position == 11) {
+                i = new Intent(context, ConfigurationHostActivity.class);
+            } else if (position == 12) {
                 i = new Intent(context, ReportSettingActivity.class);
-            } else if (position == 13) {
-                i = new Intent(context, ZCloseResyncActivity.class);
             } else if (position == 14) {
-                i = new Intent(context, SupportActivity.class);
+                i = new Intent(context, ZCloseResyncActivity.class);
             } else if (position == 15) {
+                i = new Intent(context, SupportActivity.class);
+            } else if (position == 16) {
                 //i = new Intent(context, FloorMapActivity.class);
                 i = new Intent(context, ActivityMapSetup.class);
-            } else if (position == 16) {
-                i = new Intent(context, ModifierActivity.class);
             } else if (position == 17) {
+                i = new Intent(context, ModifierActivity.class);
+            } else if (position == 18) {
                 i = new Intent(context, StockManagementActivity.class);
             }
             startActivity(i);

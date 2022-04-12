@@ -24,6 +24,7 @@ import com.dcs.myretailer.app.databinding.ActivityFloorMapBindingImpl;
 import com.dcs.myretailer.app.databinding.ActivityGeneralSettingBindingImpl;
 import com.dcs.myretailer.app.databinding.ActivityHardwareBindingImpl;
 import com.dcs.myretailer.app.databinding.ActivityItemDiscountBindingImpl;
+import com.dcs.myretailer.app.databinding.ActivityKitchenPrinterBindingImpl;
 import com.dcs.myretailer.app.databinding.ActivityLicenseKeyBindingImpl;
 import com.dcs.myretailer.app.databinding.ActivityMainBindingImpl;
 import com.dcs.myretailer.app.databinding.ActivityMapSetupBindingImpl;
@@ -129,123 +130,125 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_ACTIVITYITEMDISCOUNT = 18;
 
-  private static final int LAYOUT_ACTIVITYLICENSEKEY = 19;
+  private static final int LAYOUT_ACTIVITYKITCHENPRINTER = 19;
 
-  private static final int LAYOUT_ACTIVITYMAIN = 20;
+  private static final int LAYOUT_ACTIVITYLICENSEKEY = 20;
 
-  private static final int LAYOUT_ACTIVITYMAPSETUP = 21;
+  private static final int LAYOUT_ACTIVITYMAIN = 21;
 
-  private static final int LAYOUT_ACTIVITYMAPBUTTONSETUP = 22;
+  private static final int LAYOUT_ACTIVITYMAPSETUP = 22;
 
-  private static final int LAYOUT_ACTIVITYMODIFIER = 23;
+  private static final int LAYOUT_ACTIVITYMAPBUTTONSETUP = 23;
 
-  private static final int LAYOUT_ACTIVITYPAYMENTCASHSUCCES = 24;
+  private static final int LAYOUT_ACTIVITYMODIFIER = 24;
 
-  private static final int LAYOUT_ACTIVITYPAYMENTLIST = 25;
+  private static final int LAYOUT_ACTIVITYPAYMENTCASHSUCCES = 25;
 
-  private static final int LAYOUT_ACTIVITYPERMISSIONGROUP = 26;
+  private static final int LAYOUT_ACTIVITYPAYMENTLIST = 26;
 
-  private static final int LAYOUT_ACTIVITYPOSCONFIGURATION = 27;
+  private static final int LAYOUT_ACTIVITYPERMISSIONGROUP = 27;
 
-  private static final int LAYOUT_ACTIVITYPOSCONFIGURATIONIMIN = 28;
+  private static final int LAYOUT_ACTIVITYPOSCONFIGURATION = 28;
 
-  private static final int LAYOUT_ACTIVITYPRINTERLIST = 29;
+  private static final int LAYOUT_ACTIVITYPOSCONFIGURATIONIMIN = 29;
 
-  private static final int LAYOUT_ACTIVITYPRODUCTMANAGEMENT = 30;
+  private static final int LAYOUT_ACTIVITYPRINTERLIST = 30;
 
-  private static final int LAYOUT_ACTIVITYRECEIPTEDITOR = 31;
+  private static final int LAYOUT_ACTIVITYPRODUCTMANAGEMENT = 31;
 
-  private static final int LAYOUT_ACTIVITYREMARKMAIN = 32;
+  private static final int LAYOUT_ACTIVITYRECEIPTEDITOR = 32;
 
-  private static final int LAYOUT_ACTIVITYREPORT = 33;
+  private static final int LAYOUT_ACTIVITYREMARKMAIN = 33;
 
-  private static final int LAYOUT_ACTIVITYREPORTSETTING = 34;
+  private static final int LAYOUT_ACTIVITYREPORT = 34;
 
-  private static final int LAYOUT_ACTIVITYREPORTXLISTVIEW = 35;
+  private static final int LAYOUT_ACTIVITYREPORTSETTING = 35;
 
-  private static final int LAYOUT_ACTIVITYSAMPLE = 36;
+  private static final int LAYOUT_ACTIVITYREPORTXLISTVIEW = 36;
 
-  private static final int LAYOUT_ACTIVITYSETTING = 37;
+  private static final int LAYOUT_ACTIVITYSAMPLE = 37;
 
-  private static final int LAYOUT_ACTIVITYSTAFFMANAGEMENT = 38;
+  private static final int LAYOUT_ACTIVITYSETTING = 38;
 
-  private static final int LAYOUT_ACTIVITYSTOCKADJUSTMENT = 39;
+  private static final int LAYOUT_ACTIVITYSTAFFMANAGEMENT = 39;
 
-  private static final int LAYOUT_ACTIVITYSTOCKAGENTLISTVIEW = 40;
+  private static final int LAYOUT_ACTIVITYSTOCKADJUSTMENT = 40;
 
-  private static final int LAYOUT_ACTIVITYSTOCKIN = 41;
+  private static final int LAYOUT_ACTIVITYSTOCKAGENTLISTVIEW = 41;
 
-  private static final int LAYOUT_ACTIVITYSTOCKMANAGEMENT = 42;
+  private static final int LAYOUT_ACTIVITYSTOCKIN = 42;
 
-  private static final int LAYOUT_ACTIVITYSUPPORT = 43;
+  private static final int LAYOUT_ACTIVITYSTOCKMANAGEMENT = 43;
 
-  private static final int LAYOUT_ACTIVITYSYNC = 44;
+  private static final int LAYOUT_ACTIVITYSUPPORT = 44;
 
-  private static final int LAYOUT_ACTIVITYTAXCONFIGURATION = 45;
+  private static final int LAYOUT_ACTIVITYSYNC = 45;
 
-  private static final int LAYOUT_ACTIVITYTRANSACTIONDETAILS = 46;
+  private static final int LAYOUT_ACTIVITYTAXCONFIGURATION = 46;
 
-  private static final int LAYOUT_ACTIVITYTRANSACTIONDETAILSLISTVIEW = 47;
+  private static final int LAYOUT_ACTIVITYTRANSACTIONDETAILS = 47;
 
-  private static final int LAYOUT_ACTIVITYVOUCHERSANDDISCOUNTS = 48;
+  private static final int LAYOUT_ACTIVITYTRANSACTIONDETAILSLISTVIEW = 48;
 
-  private static final int LAYOUT_ACTIVITYZCLOSERESYNC = 49;
+  private static final int LAYOUT_ACTIVITYVOUCHERSANDDISCOUNTS = 49;
 
-  private static final int LAYOUT_BILLLISTMAINPAGELIST = 50;
+  private static final int LAYOUT_ACTIVITYZCLOSERESYNC = 50;
 
-  private static final int LAYOUT_CARDVEIWITEMBOOK = 51;
+  private static final int LAYOUT_BILLLISTMAINPAGELIST = 51;
 
-  private static final int LAYOUT_CARDVEIWNOIMAGEITEMBOOK = 52;
+  private static final int LAYOUT_CARDVEIWITEMBOOK = 52;
 
-  private static final int LAYOUT_CATEGORYMAINPAGELIST = 53;
+  private static final int LAYOUT_CARDVEIWNOIMAGEITEMBOOK = 53;
 
-  private static final int LAYOUT_CHECKOUTBILLINFORMATIONORDERSUMMARY = 54;
+  private static final int LAYOUT_CATEGORYMAINPAGELIST = 54;
 
-  private static final int LAYOUT_CHECKOUTBILLINFORMATIONSHOW = 55;
+  private static final int LAYOUT_CHECKOUTBILLINFORMATIONORDERSUMMARY = 55;
 
-  private static final int LAYOUT_CHECKOUTPAYMENTLIST = 56;
+  private static final int LAYOUT_CHECKOUTBILLINFORMATIONSHOW = 56;
 
-  private static final int LAYOUT_FRAGMENTADDPRODUCTSHEETDIALOG = 57;
+  private static final int LAYOUT_CHECKOUTPAYMENTLIST = 57;
 
-  private static final int LAYOUT_FRAGMENTADDQUICKPRODUCTSHEETDIALOG = 58;
+  private static final int LAYOUT_FRAGMENTADDPRODUCTSHEETDIALOG = 58;
 
-  private static final int LAYOUT_FRAGMENTEDITPRODUCTSHEETDIALOG = 59;
+  private static final int LAYOUT_FRAGMENTADDQUICKPRODUCTSHEETDIALOG = 59;
 
-  private static final int LAYOUT_FRAGMENTFIRST = 60;
+  private static final int LAYOUT_FRAGMENTEDITPRODUCTSHEETDIALOG = 60;
 
-  private static final int LAYOUT_FRAGMENTMANAGEBILLDIALOG = 61;
+  private static final int LAYOUT_FRAGMENTFIRST = 61;
 
-  private static final int LAYOUT_FRAGMENTREPORTCATEGORY = 62;
+  private static final int LAYOUT_FRAGMENTMANAGEBILLDIALOG = 62;
 
-  private static final int LAYOUT_FRAGMENTREPORTDATESHEETDIALOG = 63;
+  private static final int LAYOUT_FRAGMENTREPORTCATEGORY = 63;
 
-  private static final int LAYOUT_FRAGMENTREPORTOVERALL = 64;
+  private static final int LAYOUT_FRAGMENTREPORTDATESHEETDIALOG = 64;
 
-  private static final int LAYOUT_FRAGMENTREPORTPRODUCT = 65;
+  private static final int LAYOUT_FRAGMENTREPORTOVERALL = 65;
 
-  private static final int LAYOUT_FRAGMENTREPORTXPRODUCT = 66;
+  private static final int LAYOUT_FRAGMENTREPORTPRODUCT = 66;
 
-  private static final int LAYOUT_ITEMDISCOUNTITEMAMOUNTBOOK = 67;
+  private static final int LAYOUT_FRAGMENTREPORTXPRODUCT = 67;
 
-  private static final int LAYOUT_ITEMDISCOUNTITEMBOOK = 68;
+  private static final int LAYOUT_ITEMDISCOUNTITEMAMOUNTBOOK = 68;
 
-  private static final int LAYOUT_ITEMPAYMENTCHECKOUTITEMBOOK = 69;
+  private static final int LAYOUT_ITEMDISCOUNTITEMBOOK = 69;
 
-  private static final int LAYOUT_ITEMZCLOSERRESYNCITEMBOOK = 70;
+  private static final int LAYOUT_ITEMPAYMENTCHECKOUTITEMBOOK = 70;
 
-  private static final int LAYOUT_ONHANDQTYLAYOUT = 71;
+  private static final int LAYOUT_ITEMZCLOSERRESYNCITEMBOOK = 71;
 
-  private static final int LAYOUT_PERCENTAGERECYCLERVIEW = 72;
+  private static final int LAYOUT_ONHANDQTYLAYOUT = 72;
 
-  private static final int LAYOUT_PRODUCTMAINPAGELIST = 73;
+  private static final int LAYOUT_PERCENTAGERECYCLERVIEW = 73;
 
-  private static final int LAYOUT_RECYCLERVIEWITEM = 74;
+  private static final int LAYOUT_PRODUCTMAINPAGELIST = 74;
 
-  private static final int LAYOUT_RECYCLERVIEWPAYMENTYPEROW = 75;
+  private static final int LAYOUT_RECYCLERVIEWITEM = 75;
 
-  private static final int LAYOUT_ROWLIST = 76;
+  private static final int LAYOUT_RECYCLERVIEWPAYMENTYPEROW = 76;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(76);
+  private static final int LAYOUT_ROWLIST = 77;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(77);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.dcs.myretailer.app.R.layout.activity_add_modifier, LAYOUT_ACTIVITYADDMODIFIER);
@@ -266,6 +269,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.dcs.myretailer.app.R.layout.activity_general_setting, LAYOUT_ACTIVITYGENERALSETTING);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.dcs.myretailer.app.R.layout.activity_hardware, LAYOUT_ACTIVITYHARDWARE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.dcs.myretailer.app.R.layout.activity_item_discount, LAYOUT_ACTIVITYITEMDISCOUNT);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.dcs.myretailer.app.R.layout.activity_kitchen_printer, LAYOUT_ACTIVITYKITCHENPRINTER);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.dcs.myretailer.app.R.layout.activity_license_key, LAYOUT_ACTIVITYLICENSEKEY);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.dcs.myretailer.app.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.dcs.myretailer.app.R.layout.activity_map_setup, LAYOUT_ACTIVITYMAPSETUP);
@@ -436,6 +440,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
           return new ActivityItemDiscountBindingImpl(component, view);
         }
         throw new IllegalArgumentException("The tag for activity_item_discount is invalid. Received: " + tag);
+      }
+      case  LAYOUT_ACTIVITYKITCHENPRINTER: {
+        if ("layout/activity_kitchen_printer_0".equals(tag)) {
+          return new ActivityKitchenPrinterBindingImpl(component, view);
+        }
+        throw new IllegalArgumentException("The tag for activity_kitchen_printer is invalid. Received: " + tag);
       }
       case  LAYOUT_ACTIVITYLICENSEKEY: {
         if ("layout/activity_license_key_0".equals(tag)) {
@@ -623,12 +633,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         }
         throw new IllegalArgumentException("The tag for activity_z_close_resync is invalid. Received: " + tag);
       }
-      case  LAYOUT_BILLLISTMAINPAGELIST: {
-        if ("layout/billlist_mainpage_list_0".equals(tag)) {
-          return new BilllistMainpageListBindingImpl(component, view);
-        }
-        throw new IllegalArgumentException("The tag for billlist_mainpage_list is invalid. Received: " + tag);
-      }
     }
     return null;
   }
@@ -636,6 +640,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   private final ViewDataBinding internalGetViewDataBinding1(DataBindingComponent component,
       View view, int internalId, Object tag) {
     switch(internalId) {
+      case  LAYOUT_BILLLISTMAINPAGELIST: {
+        if ("layout/billlist_mainpage_list_0".equals(tag)) {
+          return new BilllistMainpageListBindingImpl(component, view);
+        }
+        throw new IllegalArgumentException("The tag for billlist_mainpage_list is invalid. Received: " + tag);
+      }
       case  LAYOUT_CARDVEIWITEMBOOK: {
         if ("layout/cardveiw_item_book_0".equals(tag)) {
           return new CardveiwItemBookBindingImpl(component, view);
@@ -914,7 +924,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(76);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(77);
 
     static {
       sKeys.put("layout/activity_add_modifier_0", com.dcs.myretailer.app.R.layout.activity_add_modifier);
@@ -935,6 +945,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       sKeys.put("layout/activity_general_setting_0", com.dcs.myretailer.app.R.layout.activity_general_setting);
       sKeys.put("layout/activity_hardware_0", com.dcs.myretailer.app.R.layout.activity_hardware);
       sKeys.put("layout/activity_item_discount_0", com.dcs.myretailer.app.R.layout.activity_item_discount);
+      sKeys.put("layout/activity_kitchen_printer_0", com.dcs.myretailer.app.R.layout.activity_kitchen_printer);
       sKeys.put("layout/activity_license_key_0", com.dcs.myretailer.app.R.layout.activity_license_key);
       sKeys.put("layout/activity_main_0", com.dcs.myretailer.app.R.layout.activity_main);
       sKeys.put("layout/activity_map_setup_0", com.dcs.myretailer.app.R.layout.activity_map_setup);

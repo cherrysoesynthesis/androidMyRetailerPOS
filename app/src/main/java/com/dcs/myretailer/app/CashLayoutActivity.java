@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -56,10 +57,13 @@ import com.dcs.myretailer.app.Checkout.PaymentCashSuccesActivity;
 import com.dcs.myretailer.app.Checkout.PaymentTypesCheckoutAdapter;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
+import com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterActivity;
+import com.dcs.myretailer.app.KitchenPrinter.Result;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.Setting.SyncActivity;
 import com.dcs.myretailer.app.databinding.ActivityCashLayoutBinding;
 import com.dcs.myretailer.app.e600.printer.PrinterTester;
+import com.epson.eposprint.Builder;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -187,7 +191,7 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
     public static String terminalTypeVal = "PAX";
 
     static Activity CurrentActivity;
-
+    static Resources resourceVal;
 //    static PrintSpooler printerSpooler = null;
 
 //    private static IminPrintUtils mIminPrintUtils;
@@ -293,6 +297,8 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
 //        test_printer.start();
 
         context = CashLayoutActivity.this;
+
+        resourceVal = getResources();
 
        terminalTypeVal = Query.GetDeviceData(Constraints.TERMINAL_TYPE);
         if (terminalTypeVal.equals(Constraints.PAX_E600M)){
@@ -1210,6 +1216,12 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
             btn_accept.setEnabled(true);
 
             final Integer sale_id = Query.findLatestID("ID","Sales",false);
+
+            String chkKitchenPrinter = Query.GetOptions(27);
+            if (chkKitchenPrinter.equals("1")) {
+
+                CashLayoutActivity.KitChenPrinterFun(context, resourceVal, CheckOutActivity.BillNo);
+            }
             Log.i("DSFchk_receipt_print_","chk_receipt_print___"+CheckOutActivity.BillNo+"__"+sale_id+"__"+chk_print_receipt_paper);
             if (chk_print_receipt_paper.equals("1")) {
 
@@ -3207,6 +3219,8 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
         IminPrintUtils mIminPrintUtils = null;
 
         String terminaltype_check = Query.GetDeviceData(Constraints.TERMINAL_TYPE);
+        terminaltype_check = Constraints.Verifone;
+        Log.i("DSf__","___terminaltype_check_"+terminaltype_check);
 
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN.toUpperCase())) {
 
@@ -3327,7 +3341,73 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
                     Log.i("NullPointerExceptione_", String.valueOf(e.getMessage()));
                 }
 //            Log.i("terminaltype_check_","terminaltype_check___str_"+str);
-            Log.i("terreceiptDataJson","treceiptDataJsonk___str_"+str);
+               // printer_tester.printStr(str, null);
+
+
+
+
+                //printer_tester.cutPaper(5);
+                //Log.i("chk_pos_qr_code_","chk_pos_qr_code____"+String.valueOf(MainActivity.chk_pos_qr_code_));
+                if (MainActivity.chk_pos_qr_code_.equals(true)) {
+                    if (bitmap_qr_shoptima != null) {
+                        //printer_tester.printBitmap(bitmap_qr_shoptima);
+                        receiptDataJson.setShoptima(bitmap_qr_shoptima);
+                    }
+                }
+                String chkBarcodeOnReceipt = Query.GetOptions(25);
+                if (chkBarcodeOnReceipt.equals("1")) {
+                    String barcode_data = ReceiptNo;
+                    Bitmap barCode = GetReceiptNoBarCode();
+
+
+                try {
+                    if (barCode != null || !barCode.equals("0") || !barCode.equals("null")) {
+                        //printer_tester.printBitmap(Bitmap.createScaledBitmap(barCode, 300, 40, false));
+                        receiptDataJson.setReceiptNoBarCode(barCode);
+                        //printer_tester.printBitmap(barCode);
+                       // printer_tester.printStr("\n"+"\n"+"\n", null);
+                    }
+                } catch (NullPointerException e) {
+                    Log.i("Nuone_barCode", String.valueOf(e.getMessage()));
+                }
+                }
+
+//                printer_tester.fontSet();
+
+               // printer_tester.fontSet((EFontTypeAscii) EFontTypeAscii.FONT_16_32, (EFontTypeExtCode) EFontTypeExtCode.FONT_16_32);
+//                printer_tester.fontSet((EFontTypeAscii) EFontTypeAscii.FONT_8_16, (EFontTypeExtCode) EFontTypeExtCode.FONT_16_16);
+
+                for (int printcount = 0; printcount < MainActivity.receiptCount; printcount++) {
+//                    final String status1 = printer_tester.start();
+                    TxnReceiptGenerator.printReceipt(receiptDataJson);
+                }
+            }else if (terminaltype_check.toUpperCase().equals("Verifone".toUpperCase())) {
+               // dal = getDal(mcontext);
+//                PrinterTester printer_tester = PrinterTester.getInstance();
+                //getDal(mcontext);
+                try {
+                    Log.i("terminaltype_check_","terminaltype_check___printer_tester_"+terminaltype_check);
+//                    printer_tester.init();
+//                    printer_tester.setGray(3);
+//                    printer_tester.setGray(5);
+
+//                    printer_tester.setGray(10);
+//                    printer_tester.s
+                }catch (Exception e){
+                    Log.i("exception__","error__"+e.getMessage());
+                }
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inScaled = false;
+
+                try {
+                    if (bitmap__ != null || !bitmap__.equals("0") || !bitmap__.equals("null")) {
+//                        printer_tester.printBitmap(Bitmap.createScaledBitmap(bitmap__, 360, 180, false));
+                        receiptDataJson.setScaledBitmap(bitmap__);
+                    }
+                } catch (NullPointerException e) {
+                    Log.i("NullPointerExceptione_", String.valueOf(e.getMessage()));
+                }
+//            Log.i("terminaltype_check_","terminaltype_check___str_"+str);
                // printer_tester.printStr(str, null);
 
 
@@ -3372,6 +3452,16 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
 
                     printReceipt(mcontext,384,str);
             }
+    }
+
+    public static void KitChenPrinterFun(Context mcontext, Resources resources, String billNo) {
+        Log.i("beforeKitChenPrinterFun","During");
+        Result result = new Result();
+        Log.i("beforeKitChenPrinterFun","During1");
+        Builder builder = KitchenPrinterActivity.createReceiptDataOrder(mcontext,result,resources,billNo);
+        Log.i("beforeKitChenPrinterFun","During2");
+
+        Log.i("beforeKitChenPrinterFun","During3");
     }
 
     private static Bitmap GetReceiptNoBarCode() {

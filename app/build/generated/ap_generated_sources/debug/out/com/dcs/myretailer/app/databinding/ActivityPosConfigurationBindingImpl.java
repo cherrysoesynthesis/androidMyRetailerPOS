@@ -99,41 +99,43 @@ public class ActivityPosConfigurationBindingImpl extends ActivityPosConfiguratio
         sViewsWithIds.put(R.id.chk_pos_jerifood, 83);
         sViewsWithIds.put(R.id.chk_pos_barcode_on_receipt, 84);
         sViewsWithIds.put(R.id.chk_pos_4DigitICNO, 85);
-        sViewsWithIds.put(R.id.linearlayshoptimaurl, 86);
-        sViewsWithIds.put(R.id.edit_shoptima_url, 87);
-        sViewsWithIds.put(R.id.linearlayshoptima, 88);
-        sViewsWithIds.put(R.id.edit_shoptima_user_id, 89);
-        sViewsWithIds.put(R.id.linearlayshoptimapassword, 90);
-        sViewsWithIds.put(R.id.edit_shoptima_user_password, 91);
-        sViewsWithIds.put(R.id.linearlayshoptimachineid, 92);
-        sViewsWithIds.put(R.id.edit_shoptima_machine_id, 93);
-        sViewsWithIds.put(R.id.linearlayshoptimallcode, 94);
-        sViewsWithIds.put(R.id.edit_shoptima_mall_code, 95);
-        sViewsWithIds.put(R.id.linearlayshoptimaurl_qrcode, 96);
-        sViewsWithIds.put(R.id.edit_shoptima_url_qrcode, 97);
-        sViewsWithIds.put(R.id.linearlayshoptima_qrcode, 98);
-        sViewsWithIds.put(R.id.edit_shoptima_user_id_qrcode, 99);
-        sViewsWithIds.put(R.id.linearlayshoptimapassword_qrcode, 100);
-        sViewsWithIds.put(R.id.edit_shoptima_user_password_qrcode, 101);
-        sViewsWithIds.put(R.id.linearlayshoptimallcode_qrcode, 102);
-        sViewsWithIds.put(R.id.edit_shoptima_mallcode_qrcode, 103);
-        sViewsWithIds.put(R.id.linearlayshoptimachineid_qrcode, 104);
-        sViewsWithIds.put(R.id.edit_shoptima_mahcineid_qrcode, 105);
-        sViewsWithIds.put(R.id.linearlayshoptimabrand_qrcode, 106);
-        sViewsWithIds.put(R.id.edit_shoptima_brand_qrcode, 107);
-        sViewsWithIds.put(R.id.linearlayshoptimaoutlet_qrcode, 108);
-        sViewsWithIds.put(R.id.edit_shoptima_outlet_qrcode, 109);
-        sViewsWithIds.put(R.id.et_info1, 110);
-        sViewsWithIds.put(R.id.et_info2, 111);
-        sViewsWithIds.put(R.id.et_info3, 112);
-        sViewsWithIds.put(R.id.lbl_14, 113);
-        sViewsWithIds.put(R.id.spn_lang, 114);
-        sViewsWithIds.put(R.id.btn_lang_new, 115);
-        sViewsWithIds.put(R.id.btn_lang_del, 116);
-        sViewsWithIds.put(R.id.btn_lang_import, 117);
-        sViewsWithIds.put(R.id.btn_lang_export, 118);
-        sViewsWithIds.put(R.id.btn_save, 119);
-        sViewsWithIds.put(R.id.btn_back, 120);
+        sViewsWithIds.put(R.id.chk_pos_zclose, 86);
+        sViewsWithIds.put(R.id.chk_pos_kitchen_printer, 87);
+        sViewsWithIds.put(R.id.linearlayshoptimaurl, 88);
+        sViewsWithIds.put(R.id.edit_shoptima_url, 89);
+        sViewsWithIds.put(R.id.linearlayshoptima, 90);
+        sViewsWithIds.put(R.id.edit_shoptima_user_id, 91);
+        sViewsWithIds.put(R.id.linearlayshoptimapassword, 92);
+        sViewsWithIds.put(R.id.edit_shoptima_user_password, 93);
+        sViewsWithIds.put(R.id.linearlayshoptimachineid, 94);
+        sViewsWithIds.put(R.id.edit_shoptima_machine_id, 95);
+        sViewsWithIds.put(R.id.linearlayshoptimallcode, 96);
+        sViewsWithIds.put(R.id.edit_shoptima_mall_code, 97);
+        sViewsWithIds.put(R.id.linearlayshoptimaurl_qrcode, 98);
+        sViewsWithIds.put(R.id.edit_shoptima_url_qrcode, 99);
+        sViewsWithIds.put(R.id.linearlayshoptima_qrcode, 100);
+        sViewsWithIds.put(R.id.edit_shoptima_user_id_qrcode, 101);
+        sViewsWithIds.put(R.id.linearlayshoptimapassword_qrcode, 102);
+        sViewsWithIds.put(R.id.edit_shoptima_user_password_qrcode, 103);
+        sViewsWithIds.put(R.id.linearlayshoptimallcode_qrcode, 104);
+        sViewsWithIds.put(R.id.edit_shoptima_mallcode_qrcode, 105);
+        sViewsWithIds.put(R.id.linearlayshoptimachineid_qrcode, 106);
+        sViewsWithIds.put(R.id.edit_shoptima_mahcineid_qrcode, 107);
+        sViewsWithIds.put(R.id.linearlayshoptimabrand_qrcode, 108);
+        sViewsWithIds.put(R.id.edit_shoptima_brand_qrcode, 109);
+        sViewsWithIds.put(R.id.linearlayshoptimaoutlet_qrcode, 110);
+        sViewsWithIds.put(R.id.edit_shoptima_outlet_qrcode, 111);
+        sViewsWithIds.put(R.id.et_info1, 112);
+        sViewsWithIds.put(R.id.et_info2, 113);
+        sViewsWithIds.put(R.id.et_info3, 114);
+        sViewsWithIds.put(R.id.lbl_14, 115);
+        sViewsWithIds.put(R.id.spn_lang, 116);
+        sViewsWithIds.put(R.id.btn_lang_new, 117);
+        sViewsWithIds.put(R.id.btn_lang_del, 118);
+        sViewsWithIds.put(R.id.btn_lang_import, 119);
+        sViewsWithIds.put(R.id.btn_lang_export, 120);
+        sViewsWithIds.put(R.id.btn_save, 121);
+        sViewsWithIds.put(R.id.btn_back, 122);
     }
     // views
     // variables
@@ -142,7 +144,7 @@ public class ActivityPosConfigurationBindingImpl extends ActivityPosConfiguratio
     // Inverse Binding Event Handlers
 
     public ActivityPosConfigurationBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 121, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 123, sIncludes, sViewsWithIds));
     }
     private ActivityPosConfigurationBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
@@ -155,17 +157,17 @@ public class ActivityPosConfigurationBindingImpl extends ActivityPosConfiguratio
             , (android.widget.LinearLayout) bindings[48]
             , (android.widget.LinearLayout) bindings[55]
             , (android.widget.TextView) bindings[38]
-            , (android.widget.Button) bindings[120]
+            , (android.widget.Button) bindings[122]
             , (android.widget.ImageView) bindings[34]
             , (android.widget.ImageView) bindings[50]
             , (android.widget.ImageView) bindings[54]
-            , (android.widget.Button) bindings[116]
             , (android.widget.Button) bindings[118]
+            , (android.widget.Button) bindings[120]
+            , (android.widget.Button) bindings[119]
             , (android.widget.Button) bindings[117]
-            , (android.widget.Button) bindings[115]
             , (android.widget.ImageView) bindings[7]
             , (android.widget.ImageView) bindings[32]
-            , (android.widget.Button) bindings[119]
+            , (android.widget.Button) bindings[121]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[85]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[84]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[75]
@@ -176,6 +178,7 @@ public class ActivityPosConfigurationBindingImpl extends ActivityPosConfiguratio
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[79]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[76]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[83]
+            , (androidx.appcompat.widget.AppCompatCheckBox) bindings[87]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[59]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[71]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[78]
@@ -193,6 +196,7 @@ public class ActivityPosConfigurationBindingImpl extends ActivityPosConfiguratio
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[80]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[63]
             , (androidx.appcompat.widget.AppCompatCheckBox) bindings[70]
+            , (androidx.appcompat.widget.AppCompatCheckBox) bindings[86]
             , (android.widget.EditText) bindings[20]
             , (android.widget.EditText) bindings[21]
             , (android.widget.EditText) bindings[29]
@@ -211,24 +215,24 @@ public class ActivityPosConfigurationBindingImpl extends ActivityPosConfiguratio
             , (android.widget.EditText) bindings[15]
             , (android.widget.EditText) bindings[31]
             , (android.widget.EditText) bindings[17]
-            , (android.widget.EditText) bindings[107]
-            , (android.widget.EditText) bindings[93]
-            , (android.widget.EditText) bindings[105]
-            , (android.widget.EditText) bindings[95]
-            , (android.widget.EditText) bindings[103]
             , (android.widget.EditText) bindings[109]
-            , (android.widget.EditText) bindings[87]
+            , (android.widget.EditText) bindings[95]
+            , (android.widget.EditText) bindings[107]
             , (android.widget.EditText) bindings[97]
+            , (android.widget.EditText) bindings[105]
+            , (android.widget.EditText) bindings[111]
             , (android.widget.EditText) bindings[89]
             , (android.widget.EditText) bindings[99]
             , (android.widget.EditText) bindings[91]
             , (android.widget.EditText) bindings[101]
+            , (android.widget.EditText) bindings[93]
+            , (android.widget.EditText) bindings[103]
             , (android.widget.EditText) bindings[18]
             , (android.widget.EditText) bindings[16]
             , (android.widget.EditText) bindings[45]
-            , (android.widget.EditText) bindings[110]
-            , (android.widget.EditText) bindings[111]
             , (android.widget.EditText) bindings[112]
+            , (android.widget.EditText) bindings[113]
+            , (android.widget.EditText) bindings[114]
             , (android.widget.EditText) bindings[2]
             , (android.widget.EditText) bindings[11]
             , (android.widget.EditText) bindings[9]
@@ -237,7 +241,7 @@ public class ActivityPosConfigurationBindingImpl extends ActivityPosConfiguratio
             , (android.widget.LinearLayout) bindings[60]
             , (android.widget.LinearLayout) bindings[10]
             , (android.widget.LinearLayout) bindings[0]
-            , (android.widget.TextView) bindings[113]
+            , (android.widget.TextView) bindings[115]
             , (android.widget.TextView) bindings[3]
             , (android.widget.TextView) bindings[36]
             , (android.widget.TextView) bindings[41]
@@ -247,22 +251,22 @@ public class ActivityPosConfigurationBindingImpl extends ActivityPosConfiguratio
             , (android.widget.LinearLayout) bindings[19]
             , (android.widget.LinearLayout) bindings[25]
             , (android.widget.LinearLayout) bindings[12]
-            , (android.widget.LinearLayout) bindings[88]
-            , (android.widget.LinearLayout) bindings[98]
-            , (android.widget.LinearLayout) bindings[106]
-            , (android.widget.LinearLayout) bindings[92]
-            , (android.widget.LinearLayout) bindings[104]
-            , (android.widget.LinearLayout) bindings[94]
-            , (android.widget.LinearLayout) bindings[102]
-            , (android.widget.LinearLayout) bindings[108]
             , (android.widget.LinearLayout) bindings[90]
             , (android.widget.LinearLayout) bindings[100]
-            , (android.widget.LinearLayout) bindings[86]
+            , (android.widget.LinearLayout) bindings[108]
+            , (android.widget.LinearLayout) bindings[94]
+            , (android.widget.LinearLayout) bindings[106]
             , (android.widget.LinearLayout) bindings[96]
+            , (android.widget.LinearLayout) bindings[104]
+            , (android.widget.LinearLayout) bindings[110]
+            , (android.widget.LinearLayout) bindings[92]
+            , (android.widget.LinearLayout) bindings[102]
+            , (android.widget.LinearLayout) bindings[88]
+            , (android.widget.LinearLayout) bindings[98]
             , (android.widget.Spinner) bindings[42]
             , (android.widget.Spinner) bindings[37]
             , (android.widget.Spinner) bindings[52]
-            , (android.widget.Spinner) bindings[114]
+            , (android.widget.Spinner) bindings[116]
             , (android.widget.Spinner) bindings[47]
             , (android.widget.Spinner) bindings[4]
             , (android.widget.Spinner) bindings[39]

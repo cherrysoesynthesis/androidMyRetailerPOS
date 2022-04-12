@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:162:9-170:20
+INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:168:9-176:20
 	android:grantUriPermissions
-		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:166:13-47
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:172:13-47
 	android:authorities
 		INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml
-		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:13-60
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:170:13-60
 	android:exported
-		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:165:13-37
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:171:13-37
 	android:name
-		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:163:13-62
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:169:13-62
 manifest
-ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-173:12
-INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-173:12
-INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-173:12
-INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-173:12
+ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-179:12
+INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-179:12
+INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-179:12
+INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-179:12
 MERGED from [com.karumi:dexter:4.2.0] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\4e4914d704d1a6a9ccfdc05c1d0488c2\jetified-dexter-4.2.0\AndroidManifest.xml:17:1-32:12
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\8b115ad540d0a20d59f85de8a7cba3a6\material-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\24bd921accd5bcab3236fa86b86848f5\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -83,9 +83,9 @@ MERGED from [com.github.f0ris.sweetalert:library:1.5.6] C:\Users\Cherry\.gradle\
 MERGED from [io.reactivex.rxjava3:rxandroid:3.0.0] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\e0c1ab991e81cdc51b0f21fad2eee900\jetified-rxandroid-3.0.0\AndroidManifest.xml:15:1-20:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\80a49eb595e39629b33d82f11d0fb4b6\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.pnikosis:materialish-progress:1.7] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\b1beea5e540f7236edb5cd4f3d2bca96\jetified-materialish-progress-1.7\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-173:12
-INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-173:12
-INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-173:12
+INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-179:12
+INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-179:12
+INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:2:1-179:12
 	package
 		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:4:5-37
 		INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml
@@ -235,7 +235,7 @@ ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\An
 	android:name
 		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:56:22-75
 application
-ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:58:5-171:19
+ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:58:5-177:19
 REJECTED from [com.karumi:dexter:4.2.0] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\4e4914d704d1a6a9ccfdc05c1d0488c2\jetified-dexter-4.2.0\AndroidManifest.xml:26:5-30:19
 REJECTED from [com.google.android.material:material:1.3.0] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\8b115ad540d0a20d59f85de8a7cba3a6\material-1.3.0\AndroidManifest.xml:22:5-20
 REJECTED from [com.jmedeisis:draglinearlayout:1.1.0] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\64811a018bc3707dac7af269349baa9c\jetified-draglinearlayout-1.1.0\AndroidManifest.xml:11:5-47
@@ -542,6 +542,18 @@ ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\An
 		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:160:13-69
 	android:name
 		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:159:13-60
+activity#com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterActivity
+ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:162:9-84
+	android:name
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:162:19-72
+activity#com.dcs.myretailer.app.KitchenPrinter.DiscoverPrinterActivity
+ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:9-155
+	android:screenOrientation
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:107-143
+	android:label
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:74-106
+	android:name
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:19-73
 uses-sdk
 INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml
@@ -693,11 +705,11 @@ INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main
 		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml
 		INJECTED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:167:13-169:54
+ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:173:13-175:54
 	android:resource
-		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:169:17-51
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:175:17-51
 	android:name
-		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:168:17-67
+		ADDED from C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:174:17-67
 uses-feature#android.hardware.camera
 ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:26:5-28:36
 	android:required

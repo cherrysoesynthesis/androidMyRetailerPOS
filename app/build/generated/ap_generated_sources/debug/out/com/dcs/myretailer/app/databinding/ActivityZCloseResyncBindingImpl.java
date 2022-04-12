@@ -14,57 +14,65 @@ public class ActivityZCloseResyncBindingImpl extends ActivityZCloseResyncBinding
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.txt_uuid_zclose_hidden, 1);
-        sViewsWithIds.put(R.id.ScrollView01, 2);
-        sViewsWithIds.put(R.id.layZClose, 3);
+        sViewsWithIds.put(R.id.layZClose, 2);
+        sViewsWithIds.put(R.id.txt_uuid_zclose_hidden, 3);
         sViewsWithIds.put(R.id.edit_select_zclose, 4);
         sViewsWithIds.put(R.id.img_zclose, 5);
         sViewsWithIds.put(R.id.Laybtn, 6);
         sViewsWithIds.put(R.id.btn_show_resync_zclose, 7);
         sViewsWithIds.put(R.id.btn_resync_zclose, 8);
         sViewsWithIds.put(R.id.LayAll, 9);
-        sViewsWithIds.put(R.id.edit_text_zreadno, 10);
-        sViewsWithIds.put(R.id.lay_trans_from_no, 11);
-        sViewsWithIds.put(R.id.edit_text_trans_from, 12);
-        sViewsWithIds.put(R.id.lay_trans_to_no, 13);
-        sViewsWithIds.put(R.id.edit_text_trans_to, 14);
-        sViewsWithIds.put(R.id.edit_text_opening, 15);
-        sViewsWithIds.put(R.id.edit_text_closing, 16);
-        sViewsWithIds.put(R.id.edit_text_sync_status, 17);
+        sViewsWithIds.put(R.id.LayZReadNo, 10);
+        sViewsWithIds.put(R.id.edit_text_zreadno, 11);
+        sViewsWithIds.put(R.id.lay_trans_from_no, 12);
+        sViewsWithIds.put(R.id.edit_text_trans_from, 13);
+        sViewsWithIds.put(R.id.lay_trans_to_no, 14);
+        sViewsWithIds.put(R.id.edit_text_trans_to, 15);
+        sViewsWithIds.put(R.id.LayOpeningTime, 16);
+        sViewsWithIds.put(R.id.edit_text_opening, 17);
+        sViewsWithIds.put(R.id.LayClosingTime, 18);
+        sViewsWithIds.put(R.id.edit_text_closing, 19);
+        sViewsWithIds.put(R.id.LaySyncStatus, 20);
+        sViewsWithIds.put(R.id.edit_text_sync_status, 21);
     }
     // views
     @NonNull
-    private final android.widget.LinearLayout mboundView0;
+    private final android.widget.LinearLayout mboundView1;
     // variables
     // values
     // listeners
     // Inverse Binding Event Handlers
 
     public ActivityZCloseResyncBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 18, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 22, sIncludes, sViewsWithIds));
     }
     private ActivityZCloseResyncBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (android.widget.LinearLayout) bindings[9]
+            , (android.widget.LinearLayout) bindings[18]
+            , (android.widget.LinearLayout) bindings[16]
+            , (android.widget.LinearLayout) bindings[20]
+            , (android.widget.LinearLayout) bindings[10]
             , (android.widget.LinearLayout) bindings[6]
-            , (android.widget.ScrollView) bindings[2]
+            , (android.widget.ScrollView) bindings[0]
             , (android.widget.Button) bindings[8]
             , (android.widget.Button) bindings[7]
             , (android.widget.EditText) bindings[4]
-            , (android.widget.EditText) bindings[16]
-            , (android.widget.EditText) bindings[15]
+            , (android.widget.EditText) bindings[19]
             , (android.widget.EditText) bindings[17]
-            , (android.widget.EditText) bindings[12]
-            , (android.widget.EditText) bindings[14]
-            , (android.widget.EditText) bindings[10]
+            , (android.widget.EditText) bindings[21]
+            , (android.widget.EditText) bindings[13]
+            , (android.widget.EditText) bindings[15]
+            , (android.widget.EditText) bindings[11]
             , (android.widget.LinearLayout) bindings[5]
-            , (android.widget.LinearLayout) bindings[11]
-            , (android.widget.LinearLayout) bindings[13]
-            , (android.widget.LinearLayout) bindings[3]
-            , (android.widget.TextView) bindings[1]
+            , (android.widget.LinearLayout) bindings[12]
+            , (android.widget.LinearLayout) bindings[14]
+            , (android.widget.LinearLayout) bindings[2]
+            , (android.widget.TextView) bindings[3]
             );
-        this.mboundView0 = (android.widget.LinearLayout) bindings[0];
-        this.mboundView0.setTag(null);
+        this.ScrollView01.setTag(null);
+        this.mboundView1 = (android.widget.LinearLayout) bindings[1];
+        this.mboundView1.setTag(null);
         setRootTag(root);
         // listeners
         invalidateAll();

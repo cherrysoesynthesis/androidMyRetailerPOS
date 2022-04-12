@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -38,6 +40,26 @@ public class ZCloseResyncActivity extends AppCompatActivity implements View.OnCl
         setTitle(Constraints.ZCloseTitle);
 
         context = getApplicationContext();
+
+        int widthSZ = Query.screenSize(getApplicationContext(),"W");
+
+        LinearLayout.LayoutParams paramsLayAll = new LinearLayout.LayoutParams((int) ((widthSZ)),
+                android.widget.Toolbar.LayoutParams.WRAP_CONTENT);
+        paramsLayAll.gravity = Gravity.CENTER;
+        binding.LayAll.setLayoutParams(paramsLayAll);
+
+        LinearLayout.LayoutParams paramsLayZReadNo = new LinearLayout.LayoutParams((int) ((widthSZ)/10 *9),
+                android.widget.Toolbar.LayoutParams.WRAP_CONTENT);
+        paramsLayZReadNo.leftMargin = (int) ((widthSZ)/10 * 0.5);
+        paramsLayZReadNo.topMargin = (int) ((widthSZ)/10 * 0.2);
+        binding.LayZReadNo.setLayoutParams(paramsLayZReadNo);
+        binding.layTransFromNo.setLayoutParams(paramsLayZReadNo);
+        binding.layTransToNo.setLayoutParams(paramsLayZReadNo);
+        binding.LayOpeningTime.setLayoutParams(paramsLayZReadNo);
+        binding.LayClosingTime.setLayoutParams(paramsLayZReadNo);
+        binding.LaySyncStatus.setLayoutParams(paramsLayZReadNo);
+        binding.layZClose.setLayoutParams(paramsLayZReadNo);
+        binding.Laybtn.setLayoutParams(paramsLayZReadNo);
 
         myToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_close_white));
         myToolbar.setNavigationOnClickListener(new View.OnClickListener() {

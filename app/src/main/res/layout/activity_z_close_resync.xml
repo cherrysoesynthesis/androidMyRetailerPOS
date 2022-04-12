@@ -4,25 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ZCloseResyncActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_light_background"
-        android:orientation="vertical">
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/ic_icon_myretailer_background">
 
-        <include layout="@layout/toolbar_xml" />
-
-
-
-            <TextView
-                android:id="@+id/txt_uuid_zclose_hidden"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        <ScrollView
-            android:id="@+id/ScrollView01"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBgcash">
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar_xml" />
+
+
+            <!--        <ScrollView-->
+            <!--            android:id="@+id/ScrollView01"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:background="@color/colorBgcash"-->
+            <!--            tools:ignore="ScrollViewCount">-->
+
             <LinearLayout
                 android:id="@+id/layZClose"
                 android:layout_width="325dp"
@@ -33,17 +35,24 @@
                 android:background="@drawable/linear_product_circle3"
                 android:visibility="visible">
 
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/txt_uuid_zclose_hidden"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:textColorHint="@color/dark_blue">
 
+                    <!--                    android:background="@drawable/linear_product_circle"-->
                     <EditText
                         android:id="@+id/edit_select_zclose"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/linear_product_circle"
                         android:hint="ZClose"
                         android:text="Select ZClose"
 
@@ -127,6 +136,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/LayZReadNo"
                     android:layout_width="325dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
@@ -220,6 +230,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/LayOpeningTime"
                     android:layout_width="325dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
@@ -250,6 +261,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/LayClosingTime"
                     android:layout_width="325dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
@@ -280,6 +292,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/LaySyncStatus"
                     android:layout_width="325dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
@@ -311,7 +324,7 @@
 
             </LinearLayout>
 
-        </ScrollView>
+        </LinearLayout>
+    </ScrollView>
 <!--        android:backgroundTint="#009688"-->
-    </LinearLayout>
 </layout>

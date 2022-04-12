@@ -473,6 +473,8 @@ com/dcs/myretailer/app/CardPayment/CardPaymentDataDetails.java
  com.dcs.myretailer.app.CardPayment.CardPaymentDataDetails
 com/dcs/myretailer/app/domain/mastertables/tax/TaxDao.java
  com.dcs.myretailer.app.domain.mastertables.mastertables.tax.TaxDao
+com/dcs/myretailer/app/databinding/ActivityKitchenPrinterBinding.java
+ com.dcs.myretailer.app.databinding.ActivityKitchenPrinterBinding
 com/dcs/myretailer/app/Cashier/ProductMainPageFragment.java
  com.dcs.myretailer.app.Cashier.ProductMainPageFragment
 com/dcs/myretailer/app/databinding/ActivityPosConfigurationIminBinding.java
@@ -505,6 +507,9 @@ com/dcs/myretailer/app/Setting/RoundMethodSheetFragment.java
  com.dcs.myretailer.app.Setting.RoundMethodSheetFragment$ListAdapter$ViewHolder
 com/dcs/myretailer/app/Setting/SpinnerCategoryAdapter.java
  com.dcs.myretailer.app.Setting.SpinnerCategoryAdapter
+com/dcs/myretailer/app/KitchenPrinter/DiscoverPrinterActivity.java
+ com.dcs.myretailer.app.KitchenPrinter.DiscoverPrinterActivity
+ com.dcs.myretailer.app.KitchenPrinter.DiscoverPrinterActivity$1UpdateListThread
 com/dcs/myretailer/app/databinding/ProductMainPageListBinding.java
  com.dcs.myretailer.app.databinding.ProductMainPageListBinding
 com/dcs/myretailer/app/Setting/ReceiptPrinterProductSheetFragment.java
@@ -818,6 +823,8 @@ com/dcs/myretailer/app/domain/transaction/sales/SalesModel.java
  com.dcs.myretailer.app.domain.transaction.sales.SalesModel
 com/dcs/myretailer/app/Query/Voucher.java
  com.dcs.myretailer.app.Query.Voucher
+com/dcs/myretailer/app/KitchenPrinter/KitchenPrinterModel.java
+ com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterModel
 com/dcs/myretailer/app/Setting/PrinterListActivity.java
  com.dcs.myretailer.app.Setting.PrinterListActivity
  com.dcs.myretailer.app.Setting.PrinterListActivity$1
@@ -869,6 +876,11 @@ com/dcs/myretailer/app/LicenseKeyActivity.java
  com.dcs.myretailer.app.LicenseKeyActivity$3
  com.dcs.myretailer.app.LicenseKeyActivity$4
  com.dcs.myretailer.app.LicenseKeyActivity$5
+com/dcs/myretailer/app/KitchenPrinter/ShowMsg.java
+ com.dcs.myretailer.app.KitchenPrinter.ShowMsg
+ com.dcs.myretailer.app.KitchenPrinter.ShowMsg$1
+com/dcs/myretailer/app/KitchenPrinter/SpnModelsItem.java
+ com.dcs.myretailer.app.KitchenPrinter.SpnModelsItem
 com/dcs/myretailer/app/databinding/FragmentAddProductSheetDialogBinding.java
  com.dcs.myretailer.app.databinding.FragmentAddProductSheetDialogBinding
 com/dcs/myretailer/app/databinding/ActivityCashLayoutBinding.java
@@ -891,6 +903,8 @@ com/dcs/myretailer/app/Setting/AddNewCategoryActivity.java
  com.dcs.myretailer.app.Setting.AddNewCategoryActivity$1
 com/dcs/myretailer/app/Setting/ButtonTextAlign.java
  com.dcs.myretailer.app.Setting.ButtonTextAlign
+com/dcs/myretailer/app/KitchenPrinter/Result.java
+ com.dcs.myretailer.app.KitchenPrinter.Result
 com/dcs/myretailer/app/BillFragment.java
  com.dcs.myretailer.app.BillFragment
 com/dcs/myretailer/app/Cashier/CashierFloatAmountSheetFragment.java
@@ -1097,8 +1111,6 @@ com/dcs/myretailer/app/Report/Sales.java
  com.dcs.myretailer.app.Report.Sales
 com/dcs/myretailer/app/ProductFragment.java
  com.dcs.myretailer.app.ProductFragment
-com/dcs/myretailer/app/Checkout/PaymentOtherFragment.java
- com.dcs.myretailer.app.Checkout.PaymentOtherFragment
 com/dcs/myretailer/app/databinding/ActivityRemarkMainBinding.java
  com.dcs.myretailer.app.databinding.ActivityRemarkMainBinding
 com/dcs/myretailer/app/Setting/TaxType.java
@@ -1214,6 +1226,8 @@ com/dcs/myretailer/app/TransactionDetailsActivity.java
  com.dcs.myretailer.app.TransactionDetailsActivity$13
  com.dcs.myretailer.app.TransactionDetailsActivity$14
  com.dcs.myretailer.app.TransactionDetailsActivity$15
+ com.dcs.myretailer.app.TransactionDetailsActivity$16
+ com.dcs.myretailer.app.TransactionDetailsActivity$17
  com.dcs.myretailer.app.TransactionDetailsActivity$2
  com.dcs.myretailer.app.TransactionDetailsActivity$3
  com.dcs.myretailer.app.TransactionDetailsActivity$4
@@ -1510,6 +1524,9 @@ com/dcs/myretailer/app/Cashier/ItemDiscountActivity.java
  com.dcs.myretailer.app.Cashier.ItemDiscountActivity$1
 com/dcs/myretailer/app/Checkout/PaymentTypes.java
  com.dcs.myretailer.app.Checkout.PaymentTypes
+com/dcs/myretailer/app/KitchenPrinter/KitchenPrinterActivity.java
+ com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterActivity
+ com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterActivity$1
 com/dcs/myretailer/app/AddModifierActivity.java
  com.dcs.myretailer.app.AddModifierActivity
  com.dcs.myretailer.app.AddModifierActivity$1
@@ -1544,6 +1561,8 @@ com/dcs/myretailer/app/Cashier/RecyclerViewAdapter.java
  com.dcs.myretailer.app.Cashier.RecyclerViewAdapter$CustomPopUp
  com.dcs.myretailer.app.Cashier.RecyclerViewAdapter$CustomPopUp$1
  com.dcs.myretailer.app.Cashier.RecyclerViewAdapter$MyViewHolder
+com/dcs/myretailer/app/KitchenPrinter/MsgMaker.java
+ com.dcs.myretailer.app.KitchenPrinter.MsgMaker
 com/dcs/myretailer/app/databinding/ActivityHardwareBinding.java
  com.dcs.myretailer.app.databinding.ActivityHardwareBinding
 com/dcs/myretailer/app/Cashier/RecyclerViewItemAmountAdapter.java

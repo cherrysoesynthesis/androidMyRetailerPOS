@@ -111,6 +111,9 @@ public abstract class ActivityPosConfigurationBinding extends ViewDataBinding {
   public final AppCompatCheckBox chkPosJerifood;
 
   @NonNull
+  public final AppCompatCheckBox chkPosKitchenPrinter;
+
+  @NonNull
   public final AppCompatCheckBox chkPosNoprintcondiqty;
 
   @NonNull
@@ -160,6 +163,9 @@ public abstract class ActivityPosConfigurationBinding extends ViewDataBinding {
 
   @NonNull
   public final AppCompatCheckBox chkPosUserovertake;
+
+  @NonNull
+  public final AppCompatCheckBox chkPosZclose;
 
   @NonNull
   public final EditText downloadEditCompanyCode;
@@ -394,15 +400,16 @@ public abstract class ActivityPosConfigurationBinding extends ViewDataBinding {
       AppCompatCheckBox chkPosCheckupdate, AppCompatCheckBox chkPosCustomerDisplay,
       AppCompatCheckBox chkPosHideNaviBar, AppCompatCheckBox chkPosImageUrl,
       AppCompatCheckBox chkPosIntegrateShoptima, AppCompatCheckBox chkPosJerifood,
-      AppCompatCheckBox chkPosNoprintcondiqty, AppCompatCheckBox chkPosNoprintunpaid,
-      AppCompatCheckBox chkPosOnlineOrder, AppCompatCheckBox chkPosPaymentonlykp,
-      AppCompatCheckBox chkPosPrinterReceipt, AppCompatCheckBox chkPosQrCodeShoptima,
-      AppCompatCheckBox chkPosReceiptPrintPaper, AppCompatCheckBox chkPosRefercompulsory,
-      AppCompatCheckBox chkPosReferfunction, AppCompatCheckBox chkPosReferinfo1print,
-      AppCompatCheckBox chkPosReferinfo2print, AppCompatCheckBox chkPosReferinfo3print,
-      AppCompatCheckBox chkPosRetail, AppCompatCheckBox chkPosSelectlast,
-      AppCompatCheckBox chkPosServiceCharges, AppCompatCheckBox chkPosUsermode,
-      AppCompatCheckBox chkPosUserovertake, EditText downloadEditCompanyCode,
+      AppCompatCheckBox chkPosKitchenPrinter, AppCompatCheckBox chkPosNoprintcondiqty,
+      AppCompatCheckBox chkPosNoprintunpaid, AppCompatCheckBox chkPosOnlineOrder,
+      AppCompatCheckBox chkPosPaymentonlykp, AppCompatCheckBox chkPosPrinterReceipt,
+      AppCompatCheckBox chkPosQrCodeShoptima, AppCompatCheckBox chkPosReceiptPrintPaper,
+      AppCompatCheckBox chkPosRefercompulsory, AppCompatCheckBox chkPosReferfunction,
+      AppCompatCheckBox chkPosReferinfo1print, AppCompatCheckBox chkPosReferinfo2print,
+      AppCompatCheckBox chkPosReferinfo3print, AppCompatCheckBox chkPosRetail,
+      AppCompatCheckBox chkPosSelectlast, AppCompatCheckBox chkPosServiceCharges,
+      AppCompatCheckBox chkPosUsermode, AppCompatCheckBox chkPosUserovertake,
+      AppCompatCheckBox chkPosZclose, EditText downloadEditCompanyCode,
       EditText downloadEditCompanyUrl, EditText downloadEditEunoiaPartnerEmail,
       EditText downloadEditEunoiaPartnerId, EditText downloadEditEunoiaStoreId,
       EditText downloadEditEunoiaUrl, EditText downloadEditRetailId, EditText downloadUserLogin,
@@ -460,6 +467,7 @@ public abstract class ActivityPosConfigurationBinding extends ViewDataBinding {
     this.chkPosImageUrl = chkPosImageUrl;
     this.chkPosIntegrateShoptima = chkPosIntegrateShoptima;
     this.chkPosJerifood = chkPosJerifood;
+    this.chkPosKitchenPrinter = chkPosKitchenPrinter;
     this.chkPosNoprintcondiqty = chkPosNoprintcondiqty;
     this.chkPosNoprintunpaid = chkPosNoprintunpaid;
     this.chkPosOnlineOrder = chkPosOnlineOrder;
@@ -477,6 +485,7 @@ public abstract class ActivityPosConfigurationBinding extends ViewDataBinding {
     this.chkPosServiceCharges = chkPosServiceCharges;
     this.chkPosUsermode = chkPosUsermode;
     this.chkPosUserovertake = chkPosUserovertake;
+    this.chkPosZclose = chkPosZclose;
     this.downloadEditCompanyCode = downloadEditCompanyCode;
     this.downloadEditCompanyUrl = downloadEditCompanyUrl;
     this.downloadEditEunoiaPartnerEmail = downloadEditEunoiaPartnerEmail;

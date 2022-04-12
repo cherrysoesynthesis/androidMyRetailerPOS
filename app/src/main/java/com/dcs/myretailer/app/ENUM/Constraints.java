@@ -100,6 +100,7 @@ public class Constraints {
     public static String Print = "Are you sure you want to print?";
     public static String Delete = "Are you sure you want to delete?";
     public static String ResyncBillNoQuestion = "Are you sure you want to resync sale?";
+    public static String KitchenPrinterPrintQuestion = "Are you sure you want to print kitchen printer?";
     public static String ReprintQuestion = "Are you sure you want to reprint?";
     public static String DeleteQuestion = "Are you sure you want to delete?";
     public static String NamePriceValueEmpty = "Name or Price value is empty!";
@@ -172,6 +173,7 @@ public class Constraints {
     public static String ALPS = "alps";
     public static String IMIN = "IMIN";
     public static String iMin = "iMin";
+    public static String Verifone = "Verifone";
 
     public static String Add_Modifier = "Add Modifier";
     public static String EDIT_Modifier = "Edit Modifier";
@@ -300,4 +302,10 @@ public class Constraints {
 //    public static String TaxConfigurationActivity = "TaxConfigurationActivity";
 //    public static String PosConfigurationActivity = "PosConfigurationActivity";
 //    public static String ReceiptEditorActivity = "ReceiptEditorActivity";
+
+
+    public static String sqldateformat_kitchenprinter_dmy = "%d-%m-%Y";
+    public static String sqldateformat_kitchenprinter_h = "%H";
+    public static String sqldateformat_kitchenprinter_m = "%M";
+    public static String sqldateformat_kitchenprinter_s = "%S";
 }

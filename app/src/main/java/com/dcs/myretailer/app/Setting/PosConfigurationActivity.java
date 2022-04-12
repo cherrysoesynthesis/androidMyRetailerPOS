@@ -1262,6 +1262,16 @@ public class PosConfigurationActivity extends AppCompatActivity {
                     } else {
                         option += "0";
                     }
+                    if (binding_imin.chkPosZclose.isChecked()) {
+                        option += "1";
+                    } else {
+                        option += "0";
+                    }
+                    if (binding_imin.chkPosKitchenPrinter.isChecked()) {
+                        option += "1";
+                    } else {
+                        option += "0";
+                    }
                     String info1 = binding_imin.etInfo1.getText().toString();
                     if (info1.length() > 10) {
                         info1 = info1.substring(0, 10);
@@ -1730,6 +1740,16 @@ public class PosConfigurationActivity extends AppCompatActivity {
                         option += "0";
                     }
                     if (binding.chkPos4DigitICNO.isChecked()) {
+                        option += "1";
+                    } else {
+                        option += "0";
+                    }
+                    if (binding.chkPosZclose.isChecked()) {
+                        option += "1";
+                    } else {
+                        option += "0";
+                    }
+                    if (binding.chkPosKitchenPrinter.isChecked()) {
                         option += "1";
                     } else {
                         option += "0";
@@ -2403,6 +2423,8 @@ public class PosConfigurationActivity extends AppCompatActivity {
                     binding_imin.chkPosJerifood.setChecked(false);
                     binding_imin.chkPosBarcodeOnReceipt.setChecked(false);
                     binding_imin.chkPos4DigitICNO.setChecked(false);
+                    binding_imin.chkPosZclose.setChecked(false);
+                    binding_imin.chkPosKitchenPrinter.setChecked(false);
                 } else {
                     binding.chkPosSelectlast.setChecked(false);
                     binding.chkPosNoprintcondiqty.setChecked(false);
@@ -2430,6 +2452,8 @@ public class PosConfigurationActivity extends AppCompatActivity {
                     binding.chkPosJerifood.setChecked(false);
                     binding.chkPosBarcodeOnReceipt.setChecked(false);
                     binding.chkPos4DigitICNO.setChecked(false);
+                    binding.chkPosZclose.setChecked(false);
+                    binding.chkPosKitchenPrinter.setChecked(false);
                 }
                 saveCxPrinterReceipt = "0";
                 saveCxCashDrawer = "0";
@@ -2699,6 +2723,24 @@ public class PosConfigurationActivity extends AppCompatActivity {
                         }
                     }
                 }
+                if (option.length() > 27) {
+                    if (option.charAt(27) == '1'){
+                        if (device.equals("M2-Max")) {
+                            binding_imin.chkPosZclose.setChecked(true);
+                        }else {
+                            binding.chkPosZclose.setChecked(true);
+                        }
+                    }
+                }
+                if (option.length() > 28) {
+                    if (option.charAt(28) == '1'){
+                        if (device.equals("M2-Max")) {
+                            binding_imin.chkPosKitchenPrinter.setChecked(true);
+                        }else {
+                            binding.chkPosKitchenPrinter.setChecked(true);
+                        }
+                    }
+                }
                 db_config.deleteCx();
                 db_config.saveCx("Cx400",saveCxPrinterReceipt,saveCxCashDrawer,saveCxCustomerDisplay,saveCxBarCodeScanner);
 
@@ -2887,6 +2929,8 @@ public class PosConfigurationActivity extends AppCompatActivity {
             binding_imin.chkPosJerifood.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 137));
             binding_imin.chkPosBarcodeOnReceipt.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 138));
             binding_imin.chkPos4DigitICNO.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 139));
+            binding_imin.chkPosZclose.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 140));
+            binding_imin.chkPosKitchenPrinter.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 141));
 
             binding_imin.btnLangNew.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 40));
             binding_imin.btnLangDel.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 41));
@@ -2939,6 +2983,8 @@ public class PosConfigurationActivity extends AppCompatActivity {
             binding.chkPosJerifood.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 137));
             binding.chkPosBarcodeOnReceipt.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 138));
             binding.chkPos4DigitICNO.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 139));
+            binding.chkPosZclose.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 140));
+            binding.chkPosKitchenPrinter.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 141));
 
             binding.btnLangNew.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 40));
             binding.btnLangDel.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 41));

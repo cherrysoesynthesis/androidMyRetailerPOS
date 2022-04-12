@@ -3,6 +3,7 @@ package com.dcs.myretailer.app.Report;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
 import java.io.BufferedReader;
@@ -81,15 +82,157 @@ public class SerialChecker {
         return new String(value, StandardCharsets.US_ASCII);
     }
 
-//    private static String[] GetHWID(Context context){
-//        String androidID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-//        //Add UniqueID Because of Duplicate Encode Value for two terminals
-//        //String uniqueID = UUID.randomUUID().toString();
+    private static String[] GetHWID(Context context) {
+        String androidID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        //Add UniqueID Because of Duplicate Encode Value for two terminals
+        //String uniqueID = UUID.randomUUID().toString();
 //        String uniqueID = "a";
 //        androidID = androidID + uniqueID;
+
+        String buildserial = Build.SERIAL;
+        String hwid = buildserial;
+		/*
+		try {
+		    Class<?> c = Class.forName("android.os.SystemProperties");
+		    Method get = c.getMethod("get", String.class);
+		    hwid = (String) get.invoke(c, "ro.serialno");
+		} catch (Exception ignored) {
+		}
+		*/
+
+        //TelephonyManager tManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        //@SuppressLint({"MissingPermission", "HardwareIds"}) String teleID = tManager.getDeviceId();
+        TelephonyManager tManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        String teleID = "";
+        try {
+            teleID = tManager.getDeviceId();
+            if (androidID == null) {
+                androidID = "";
+            }
+        } catch (Exception e) {
+            androidID = "";
+        }
+        if (buildserial == null) {
+            buildserial = "";
+        }
+        if (hwid == null) {
+            hwid = "";
+        }
+        if (teleID == null) {
+            teleID = "";
+        }
+//        return new String[]{androidID, buildserial, hwid, teleID};
+        return new String[]{androidID, buildserial};
+    }
+
+    public static byte[] intToByteArray(int a) {
+        byte[] ret = new byte[4];
+        ret[3] = (byte) (a & 0xFF);
+        ret[2] = (byte) ((a >> 8) & 0xFF);
+        ret[1] = (byte) ((a >> 16) & 0xFF);
+        ret[0] = (byte) ((a >> 24) & 0xFF);
+        return ret;
+    }
+
+    public static int  JavaByteToInt () {
+        byte b = -127;
+        int i = (b & 0xFF);
+        return i;
+
+    }
+
+    public static int byteArrayToInt(byte[] b) {
+        return (b[3] & 0xFF) + ((b[2] & 0xFF) << 8) + ((b[1] & 0xFF) << 16) + ((b[0] & 0xFF) << 24);
+    }
+
+    public static int[] Encode(Context context){
+        int[] code = new int[15];
+        String[] hwid = GetHWID(context);
+        for(int i=0;i<code.length;i++){
+//            int gen = 0;
+            int gen = 0;
+            for(String s1:hwid){
+                for(int x=0;x<s1.length();x++){
+                    for(int j=hwid.length-1;j>=0;j--){
+                        for(int y=hwid[j].length()-1;y>=0;y--){
+
+                            byte[] byteIntValue = intToByteArray(s1.codePointAt(x));
+                            byte[] byteJValue = intToByteArray(hwid[j].codePointAt(y));
+//                            s1 = Arrays.toString(byteIntValue);
+//                            Log.i("s1___","s1.codePointAt(x)____"+s1.codePointAt(x)+"\n"
+//                            +"hwid[j].codePointAt(y))____"+hwid[j].codePointAt(y)+"___d"+s1.length() +
+//                                    "___"+hwid[j].length()+"i+1_"+(i+1));
+                            int s1int = byteArrayToInt(byteIntValue);
+                            int hwidint = byteArrayToInt(byteJValue);
+                            //gen += (s1int * hwidint) * (s1.length()+hwid[j].length()*(i+1));
+                            gen += (s1int * hwidint) * (s1.length()+hwid[j].length()*(i+1));
+                            //gen += (s1.codePointAt(x) * hwid[j].codePointAt(y)) * (s1.length()+hwid[j].length()*(i+1));
+                        }
+                    }
+                }
+            }
+//            code[i] = (gen);
+            code[i] = (gen)&0xFF;
+        }
+        //v6JEJ9-IZIFY8-Y28V81-86AEA9-PZPFVV
+        //JEV6V1-VVPFPZ-A9AE86-818CY2-Y8IFIZ
+        //V6VEJ9-IZIFY8-Y28V81-86AEA9-PZPFVV
+        //AE81Y2-IFJ9V6-VVPZAE-81Y2IF-J9V6VV
+        return code;
+    }
+//
+////    private static String[] GetHWID(Context context){
+////        String androidID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+////        //Add UniqueID Because of Duplicate Encode Value for two terminals
+////        //String uniqueID = UUID.randomUUID().toString();
+////        String uniqueID = "a";
+////        androidID = androidID + uniqueID;
+////
+////        String buildserial = Build.SERIAL;
+////        String hwid = buildserial;
+////		/*
+////		try {
+////		    Class<?> c = Class.forName("android.os.SystemProperties");
+////		    Method get = c.getMethod("get", String.class);
+////		    hwid = (String) get.invoke(c, "ro.serialno");
+////		} catch (Exception ignored) {
+////		}
+////		*/
+////
+////        //TelephonyManager tManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+////        //@SuppressLint({"MissingPermission", "HardwareIds"}) String teleID = tManager.getDeviceId();
+////        TelephonyManager tManager=(TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+////        String teleID = "";
+////        try {
+////            teleID = tManager.getDeviceId();
+////            if (androidID == null) {
+////                androidID = "";
+////            }
+////        } catch (Exception e){
+////            androidID = "";
+////        }
+////        if(buildserial == null){
+////            buildserial = "";
+////        }
+////        if(hwid == null){
+////            hwid = "";
+////        }
+////        if(teleID == null){
+////            teleID = "";
+////        }
+////        return new String[]{androidID, buildserial, hwid, teleID};
+////    }
+//
+//    private static String[] GetHWID(Context context){
+////        String androidID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+//        //Add UniqueID Because of Duplicate Encode Value for two terminals
+//        //String uniqueID = UUID.randomUUID().toString();
+////        String uniqueID = "a";
+//        //androidID = androidID + uniqueID;
+////        androidID = androidID;
 //
 //        String buildserial = Build.SERIAL;
-//        String hwid = buildserial;
+//       // String hwid = buildserial;
 //		/*
 //		try {
 //		    Class<?> c = Class.forName("android.os.SystemProperties");
@@ -105,70 +248,47 @@ public class SerialChecker {
 //        String teleID = "";
 //        try {
 //            teleID = tManager.getDeviceId();
-//            if (androidID == null) {
-//                androidID = "";
-//            }
+////            if (androidID == null) {
+////                androidID = "";
+////            }
 //        } catch (Exception e){
-//            androidID = "";
+////            androidID = "";
 //        }
-//        if(buildserial == null){
-//            buildserial = "";
-//        }
-//        if(hwid == null){
-//            hwid = "";
-//        }
+////        if(buildserial == null){
+////            buildserial = "";
+////        }
+////        if(hwid == null){
+////            hwid = "";
+////        }
 //        if(teleID == null){
 //            teleID = "";
 //        }
-//        return new String[]{androidID, buildserial, hwid, teleID};
+//        //return new String[]{androidID, buildserial, hwid, teleID};
+//        buildserial = "NM2J203B110500996";
+//        teleID = "357415080989329";
+//        return new String[]{buildserial ,teleID};
 //    }
-
-    private static String[] GetHWID(Context context){
-//        String androidID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-        //Add UniqueID Because of Duplicate Encode Value for two terminals
-        //String uniqueID = UUID.randomUUID().toString();
-//        String uniqueID = "a";
-        //androidID = androidID + uniqueID;
-//        androidID = androidID;
-
-        String buildserial = Build.SERIAL;
-       // String hwid = buildserial;
-		/*
-		try {
-		    Class<?> c = Class.forName("android.os.SystemProperties");
-		    Method get = c.getMethod("get", String.class);
-		    hwid = (String) get.invoke(c, "ro.serialno");
-		} catch (Exception ignored) {
-		}
-		*/
-
-        //TelephonyManager tManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
-        //@SuppressLint({"MissingPermission", "HardwareIds"}) String teleID = tManager.getDeviceId();
-        TelephonyManager tManager=(TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        String teleID = "";
-        try {
-            teleID = tManager.getDeviceId();
-//            if (androidID == null) {
-//                androidID = "";
-//            }
-        } catch (Exception e){
-//            androidID = "";
-        }
-//        if(buildserial == null){
-//            buildserial = "";
-//        }
-//        if(hwid == null){
-//            hwid = "";
-//        }
-        if(teleID == null){
-            teleID = "";
-        }
-        //return new String[]{androidID, buildserial, hwid, teleID};
-        buildserial = "NM2J203B110500996";
-        teleID = "357415080989329";
-        return new String[]{buildserial ,teleID};
-    }
-
+//
+////    public static int[] Encode(Context context){
+////        int[] code = new int[15];
+////        String[] hwid = GetHWID(context);
+////        for(int i=0;i<code.length;i++){
+////            int gen = 0;
+////            for(String s1:hwid){
+////                for(int x=0;x<s1.length();x++){
+////
+////                    for(int j=hwid.length-1;j>=0;j--){
+////                        for(int y=hwid[j].length()-1;y>=0;y--){
+////                            gen += (s1.codePointAt(x) * hwid[j].codePointAt(y)) * (s1.length()+hwid[j].length()*(i+1));
+////                        }
+////                    }
+////                }
+////            }
+////            code[i] = (gen)&0xFF;
+////        }
+////        return code;
+////    }
+//
 //    public static int[] Encode(Context context){
 //        int[] code = new int[15];
 //        String[] hwid = GetHWID(context);
@@ -188,26 +308,6 @@ public class SerialChecker {
 //        }
 //        return code;
 //    }
-
-    public static int[] Encode(Context context){
-        int[] code = new int[15];
-        String[] hwid = GetHWID(context);
-        for(int i=0;i<code.length;i++){
-            int gen = 0;
-            for(String s1:hwid){
-                for(int x=0;x<s1.length();x++){
-
-                    for(int j=hwid.length-1;j>=0;j--){
-                        for(int y=hwid[j].length()-1;y>=0;y--){
-                            gen += (s1.codePointAt(x) * hwid[j].codePointAt(y)) * (s1.length()+hwid[j].length()*(i+1));
-                        }
-                    }
-                }
-            }
-            code[i] = (gen)&0xFF;
-        }
-        return code;
-    }
 
     public static String GenHWIDCode(int[] code){
 

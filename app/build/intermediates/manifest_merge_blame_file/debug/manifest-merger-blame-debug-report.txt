@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.dcs.myretailer.app"
-4    android:versionCode="15"
-5    android:versionName="3.3.20" >
+4    android:versionCode="16"
+5    android:versionName="3.3.21" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
@@ -163,7 +163,7 @@
 82-->[com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Cherry\.gradle\caches\transforms-2\files-2.1\f49d1d950732aae6eb2ab7ab13ab3f11\jetified-zxing-android-embedded-3.0.3\AndroidManifest.xml:45:9-33
 83
 84    <application
-84-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:58:5-171:19
+84-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:58:5-177:19
 85        android:name="com.dcs.myretailer.app.e600.printer.DemoApp"
 85-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:59:9-45
 86        android:allowBackup="true"
@@ -407,23 +407,34 @@
 185-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:159:13-60
 186            android:theme="@style/Dexter.Internal.Theme.Transparent" />
 186-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:160:13-69
-187
-188        <provider
-189            android:name="androidx.core.content.FileProvider"
-189-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:163:13-62
-190            android:authorities="com.dcs.myretailer.app.provider"
-190-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:13-60
-191            android:exported="false"
-191-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:165:13-37
-192            android:grantUriPermissions="true" >
-192-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:166:13-47
-193            <meta-data
-193-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:167:13-169:54
-194                android:name="android.support.FILE_PROVIDER_PATHS"
-194-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:168:17-67
-195                android:resource="@xml/file_paths" />
-195-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:169:17-51
-196        </provider>
-197    </application>
-198
-199</manifest>
+187        <activity android:name="com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterActivity" />
+187-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:162:9-84
+187-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:162:19-72
+188        <activity
+188-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:9-155
+189            android:name="com.dcs.myretailer.app.KitchenPrinter.DiscoverPrinterActivity"
+189-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:19-73
+190            android:label="@string/app_name"
+190-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:74-106
+191            android:screenOrientation="portrait" />
+191-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:164:107-143
+192
+193        <provider
+194            android:name="androidx.core.content.FileProvider"
+194-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:169:13-62
+195            android:authorities="com.dcs.myretailer.app.provider"
+195-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:170:13-60
+196            android:exported="false"
+196-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:171:13-37
+197            android:grantUriPermissions="true" >
+197-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:172:13-47
+198            <meta-data
+198-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:173:13-175:54
+199                android:name="android.support.FILE_PROVIDER_PATHS"
+199-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:174:17-67
+200                android:resource="@xml/file_paths" />
+200-->C:\AndroidStudioProjects\gitProj\androidMyRetailerPOS\app\src\main\AndroidManifest.xml:175:17-51
+201        </provider>
+202    </application>
+203
+204</manifest>

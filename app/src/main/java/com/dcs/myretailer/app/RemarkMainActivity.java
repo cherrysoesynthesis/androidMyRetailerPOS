@@ -839,7 +839,7 @@ public class RemarkMainActivity extends AppCompatActivity implements View.OnClic
 
                     //+ (8 + 10)
                     + (14)
-                    + ",'" + DBFunc.PurifyString("000000000000000000000000000") + "'";
+                    + ",'" + DBFunc.PurifyString("00000000000000000000000000000") + "'";
 
             if (0 == 0) {
                 sql += ",NULL";
@@ -1020,6 +1020,14 @@ public class RemarkMainActivity extends AppCompatActivity implements View.OnClic
 //            BOARD_QC_Reference_Phone
 //            PRODUCT_DX8000
             terminal_type = Constraints.IMIN;
+            //terminal_model = modelVal;
+        }else if (BRAND.equals(Constraints.Verifone)){
+//            DISPLAY_QKQ1.200407.002 release-keys
+//            DEVICE_DX8000
+//            BRAND_LANDI
+//            BOARD_QC_Reference_Phone
+//            PRODUCT_DX8000
+            terminal_type = Constraints.Verifone;
             //terminal_model = modelVal;
         }
         Constraints.TERMINAL_TYPE = terminal_type;

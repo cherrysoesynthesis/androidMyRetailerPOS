@@ -4,6 +4,7 @@ import static com.google.zxing.BarcodeFormat.DATA_MATRIX;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -113,6 +114,7 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
     String status_for_jerifood = "0";
     public static String checkBillnodate = "";
     public static String dateFormat3 = "";
+    static Resources resourceVal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,6 +126,8 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
 
         appContext = getApplicationContext();
         dal = getDal();
+
+        resourceVal = getResources();
 
 //        Intent intent = getIntent();
 //        BillNo = intent.getStringExtra("BillNo");
@@ -759,6 +763,7 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
 
         binding.btnCollectedBillTxt.setOnClickListener(this);
         binding.btnDeliveryTxt.setOnClickListener(this);
+        binding.imgReprintKitchenprinter.setOnClickListener(this);
 
         String vchQueueNo = "0";
         String intTableNo = "0";
@@ -1444,6 +1449,12 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
                 paramstamt.rightMargin = 30;
                 binding.layTotalAmt.setLayoutParams(params2);
 
+
+//                LinearLayout.LayoutParams paramsimgReprint = new LinearLayout.LayoutParams((int) ((widthSZ)/10 *9),
+//                        android.widget.Toolbar.LayoutParams.WRAP_CONTENT);
+//                paramsimgReprint.leftMargin = (int) ((widthSZ)/10 * 0.5); ;
+//                binding.imgReprint.setLayoutParams(paramsimgReprint);
+
 //                LinearLayout.LayoutParams LayHeaderp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
 //                        android.widget.Toolbar.LayoutParams.WRAP_CONTENT);
 //                binding.LayHeader.setLayoutParams(LayHeaderp);
@@ -1950,7 +1961,33 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.img_reprint_kitchenprinter:
+                String chkKitchenPrinter = Query.GetOptions(27);
+                if (chkKitchenPrinter.equals("1")) {
 
+                    Context c = this;
+                    final SweetAlertDialog syncDialog =  new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText(Constraints.KitchenPrinterPrintQuestion)
+                            .setConfirmText(Constraints.YES)
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    sDialog.dismissWithAnimation();
+
+                                    CashLayoutActivity.KitChenPrinterFun(c, resourceVal, BillNo);
+                                }
+                            })
+                            .setCancelButton(Constraints.No, new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    sDialog.dismissWithAnimation();
+                                }
+                            });
+                    syncDialog.show();
+                    syncDialog.setCancelable(false);
+
+                }
+                break;
             case R.id.img_refresh_bill:
 
                 DBFunc.DBUserLog(Allocator.cashierName, Allocator.cashierID, Allocator.cashierAuth,
