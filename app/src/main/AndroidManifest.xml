@@ -72,7 +72,6 @@
         tools:replace="android:appComponentFactory">
         <activity android:name=".ZCloseResyncActivity" />
         <activity android:name=".LicenseKeyActivity" /> <!-- <activity android:name=".RemarkMainActivity"></activity> -->
-        <activity android:name=".Login.SampleActivity" />
         <activity android:name=".RemarksBarcodeActivity" />
         <activity android:name=".presentation.MajorActivity" />
         <activity android:name=".Setting.StockManagement.StockAgentDetatilsActivity" />

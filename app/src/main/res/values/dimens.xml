@@ -11,4 +11,6 @@
     <dimen name="edit_product_sub_add_border_height">30dp</dimen>
     <dimen name="edit_product_qun_weight">50dp</dimen>
     <dimen name="edit_product_qun_height">30dp</dimen>
+
+
 </resources>

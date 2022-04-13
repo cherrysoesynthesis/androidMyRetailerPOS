@@ -53,7 +53,7 @@ public class SettingActivity extends AppCompatActivity {
         });
 
 //
-       String[] countryList = {"Product Management", "Category Management", "Hardware","Kitchen Printer", "Payment Types", "Vouchers & Discounts", "Tax Configuration","Receipt Editor", "POS Configuration", "General Settings", "Database Import / Export", "Config Payment Host", "Report Setting", "Sync", "ZClose Resync" , "Support", "Floor Map", "Modifiers", "Stock Management", "Version : 3.3.20"};
+       String[] countryList = {"Product Management", "Category Management", "Hardware","Kitchen Printer", "Payment Types", "Vouchers & Discounts", "Tax Configuration","Receipt Editor", "POS Configuration", "General Settings", "Database Import / Export", "Config Payment Host", "Report Setting", "Sync", "ZClose Resync" , "Support", "Floor Map", "Modifiers", "Stock Management", "Version : "+Constraints.VERSION_NAME};
         int[] flags = {R.drawable.ic_productmanagement, R.drawable.ic_category, R.drawable.ic_hardware, R.drawable.ic_print_grey_grey_500 , R.drawable.ic_payment, R.drawable.ic_voucher_setting, R.drawable.ic_tax,R.drawable.ic_receipteditor, R.drawable.ic_pos, R.drawable.setting_setting, R.drawable.ic_database,R.drawable.setting_setting ,R.drawable.setting_setting, R.drawable.baseline_sync_alt_black_18, R.drawable.ic_sync, R.drawable.ic_support, R.drawable.ic_floormap, R.drawable.ic_floormap, R.drawable.setting, R.drawable.setting};
 
         SettingAdapter settingAdapter = new SettingAdapter(getApplicationContext(), countryList, flags);

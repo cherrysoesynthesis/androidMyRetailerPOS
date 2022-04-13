@@ -1988,6 +1988,7 @@ id BarChart
 id CTRL
 id FUNCTION
 id HeaderDescription
+id KeyLicense
 id Lay1
 id Lay2
 id Lay3

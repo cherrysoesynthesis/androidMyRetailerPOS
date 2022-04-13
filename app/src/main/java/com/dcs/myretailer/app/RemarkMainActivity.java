@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -33,6 +34,7 @@ import com.dcs.myretailer.app.Cashier.DeclarationConf;
 import com.dcs.myretailer.app.Cashier.MainActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
+import com.dcs.myretailer.app.FontAssets.RemarkMainActivityFontAssets;
 import com.dcs.myretailer.app.Model.DeviceData;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.Report.SerialChecker;
@@ -89,6 +91,8 @@ public class RemarkMainActivity extends AppCompatActivity implements View.OnClic
     public static String userid = "";
     public static String userpassword = "";
     public static String licensekeyVal = "";
+    PackageInfo pInfo = null;
+    static int vercode = 0;
 //    public static String loginSuccess = "0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +108,13 @@ public class RemarkMainActivity extends AppCompatActivity implements View.OnClic
         }
         MainActivity.licensekeyVal = licensekeyVal;
 
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+            vercode = pInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         try {
             updateSampleFun(this);
@@ -201,9 +212,14 @@ public class RemarkMainActivity extends AppCompatActivity implements View.OnClic
 
         final int[] code = SerialChecker.Encode(this);
         final String codetxt = SerialChecker.GenHWIDCode(code);
-        String GetLicenseKey = Query.GetLicenseKey("","Settings");
+        String GetLicenseKey = Query.GetLicenseKey("MacAddress");
+        String GetKeyLicense = Query.GetLicenseKey("KeyLicense");
 
-        Log.i("__","GetLicenseKeyset___"+GetLicenseKey+"___"+codetxt);
+        new RemarkMainActivityFontAssets(binding);
+
+        if (GetKeyLicense != null && GetKeyLicense.length() > 0) {
+            binding.KeyLicense.setText(GetKeyLicense);
+        }
 
 //        if (!GetLicenseKey.equals(codetxt)) {
         if (1 == 0) {
@@ -1031,9 +1047,9 @@ public class RemarkMainActivity extends AppCompatActivity implements View.OnClic
             //terminal_model = modelVal;
         }
         Constraints.TERMINAL_TYPE = terminal_type;
-        Log.i("dsfsd___","___"+terminal_type);
-        Log.i("dsfsd___","___"+Constraints.TERMINAL_TYPE);
-        Query.SaveDeviceData(new DeviceData(0,MODEL,BOARD,BRAND,DEVICE,DISPLAY,PRODUCT,terminal_type.toUpperCase(),licensekeyVal));
+
+
+        Query.SaveDeviceData(new DeviceData(0,MODEL,BOARD,BRAND,DEVICE,DISPLAY,PRODUCT,terminal_type.toUpperCase(),String.valueOf(vercode),licensekeyVal));
     }
 
     private static void newlandcustomer_display(String amt) {

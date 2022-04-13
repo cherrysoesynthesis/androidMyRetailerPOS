@@ -143,6 +143,11 @@
                 android:textColor="@color/mine_shaft"
                 android:textSize="8sp"
                 android:typeface="monospace" />
+
+            <TextView
+                android:id="@+id/KeyLicense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

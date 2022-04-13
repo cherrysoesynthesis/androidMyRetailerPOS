@@ -25,6 +25,7 @@ public class ActivityRemarkMainBindingImpl extends ActivityRemarkMainBinding  {
         sViewsWithIds.put(R.id.btn_login, 9);
         sViewsWithIds.put(R.id.txt_ver, 10);
         sViewsWithIds.put(R.id.txt_license, 11);
+        sViewsWithIds.put(R.id.KeyLicense, 12);
     }
     // views
     // variables
@@ -33,10 +34,11 @@ public class ActivityRemarkMainBindingImpl extends ActivityRemarkMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityRemarkMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 12, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 13, sIncludes, sViewsWithIds));
     }
     private ActivityRemarkMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
+            , (android.widget.TextView) bindings[12]
             , (android.widget.Button) bindings[9]
             , (android.widget.LinearLayout) bindings[1]
             , (android.widget.LinearLayout) bindings[8]

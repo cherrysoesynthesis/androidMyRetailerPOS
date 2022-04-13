@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -525,7 +526,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i("dsfsd___","___"+terminal_type);
         Log.i("dsfsd___","___"+Constraints.TERMINAL_TYPE);
 
-        Query.SaveDeviceData(new DeviceData(0,MODEL,BOARD,BRAND,DEVICE,DISPLAY,PRODUCT,terminal_type.toUpperCase(),licensekeyVal));
+        PackageInfo pInfo = null;
+        int vercode = 0;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+            vercode = pInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        Query.SaveDeviceData(new DeviceData(0,MODEL,BOARD,BRAND,DEVICE,DISPLAY,PRODUCT,terminal_type.toUpperCase(),String.valueOf(vercode),licensekeyVal));
 
         String terminalTypeVal = Query.GetDeviceData(Constraints.TERMINAL_TYPE);
         String modelVal = Query.GetDeviceData(Constraints.MODEL);

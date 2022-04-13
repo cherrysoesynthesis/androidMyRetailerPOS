@@ -17,6 +17,20 @@ public class Tbllicense {
     @SerializedName("NoOfDay")
     @Expose
     private Integer noOfDay;
+    @SerializedName("KeyLicense")
+    @Expose
+    private Integer KeyLicense;
+
+    public Tbllicense() {
+    }
+
+    public Integer getKeyLicense() {
+        return KeyLicense;
+    }
+
+    public void setKeyLicense(Integer keyLicense) {
+        KeyLicense = keyLicense;
+    }
 
     public String getChecksum() {
         return checksum;

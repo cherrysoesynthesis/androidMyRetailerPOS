@@ -17,10 +17,11 @@ public class DeviceData {
     String DISPLAY = "";
     String PRODUCT = "";
     String TERMINAL_TYPE = "";
+    String VERSION = "";
     String LicenseKey = "";
 
     public DeviceData(Integer ID, String MODEL, String BOARD, String BRAND, String DEVICE,
-                      String DISPLAY, String PRODUCT, String TERMINAL_TYPE, String LicenseKey) {
+                      String DISPLAY, String PRODUCT, String TERMINAL_TYPE, String VERSION, String LicenseKey) {
         this.ID = ID;
         this.MODEL = MODEL;
         this.BOARD = BOARD;
@@ -29,7 +30,16 @@ public class DeviceData {
         this.DISPLAY = DISPLAY;
         this.PRODUCT = PRODUCT;
         this.TERMINAL_TYPE = TERMINAL_TYPE;
+        this.VERSION = VERSION;
         this.LicenseKey = LicenseKey;
+    }
+
+    public String getVERSION() {
+        return VERSION;
+    }
+
+    public void setVERSION(String VERSION) {
+        this.VERSION = VERSION;
     }
 
     public Integer getID() {

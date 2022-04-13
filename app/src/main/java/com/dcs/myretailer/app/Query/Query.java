@@ -5741,7 +5741,7 @@ public class Query {
                                         Query.SaveLicenseKey(licensekey);
 
                                         String typeKey = billNo;
-                                        String GetLicenseKey = Query.GetLicenseKey(typeKey,"Query");
+                                        String GetLicenseKey = Query.GetLicenseKey("MacAddress");
 
                                         Log.i("__","GetLicenseKeyset___"+GetLicenseKey+"__"+typeKey);
 
@@ -13322,7 +13322,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
         Cursor c = DBFunc.Query(checkDeviceData,true);
         if (c != null){
             if (c.getCount() == 0){
-                String saveDeviceData = "INSERT INTO DeviceData (MODEL,BOARD,BRAND,DEVICE,DISPLAY,PRODUCT,TERMINAL_TYPE,LICENSE_KEY) " +
+                String saveDeviceData = "INSERT INTO DeviceData (MODEL,BOARD,BRAND,DEVICE,DISPLAY,PRODUCT,TERMINAL_TYPE,VERSION,LICENSE_KEY) " +
                         "VALUES ('" + DBFunc.PurifyString(deviceData.getMODEL()) + "'," +
                         "'" + DBFunc.PurifyString(deviceData.getBOARD()) + "'," +
                         "'" + DBFunc.PurifyString(deviceData.getBRAND()) + "'," +
@@ -13330,6 +13330,8 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                         "'" + DBFunc.PurifyString(deviceData.getDISPLAY()) + "'," +
                         "'" + DBFunc.PurifyString(deviceData.getPRODUCT()) + "',"+
                         "'" + DBFunc.PurifyString(deviceData.getTERMINAL_TYPE()) + "',"+
+//                        "'" + DBFunc.PurifyString(deviceData.getVERSION()) + "',"+
+                        "'" + DBFunc.PurifyString(Constraints.VERSION_NAME) + "',"+
                         "'" + DBFunc.PurifyString(deviceData.getLicenseKey()) + "')";
                 Log.i("saveDeviceData___","saveDeviceData___"+saveDeviceData);
                 DBFunc.ExecQuery(saveDeviceData,true);
@@ -13339,7 +13341,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
     }
     public static String GetDeviceData(String chkStatus) {
         String retVal = "0";
-        String checkDeviceData = "SELECT MODEL,BOARD,BRAND,DEVICE,DISPLAY,PRODUCT,TERMINAL_TYPE FROM DeviceData ";
+        String checkDeviceData = "SELECT MODEL,BOARD,BRAND,DEVICE,DISPLAY,PRODUCT,TERMINAL_TYPE,VERSION,LICENSE_KEY FROM DeviceData ";
         Cursor c = DBFunc.Query(checkDeviceData,true);
         if (c != null){
             if (c.moveToNext()){
@@ -13350,6 +13352,8 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                 String display = c.getString(4);
                 String product = c.getString(5);
                 String terminal_type = c.getString(6);
+                String version = c.getString(7);
+                String license = c.getString(8);
                 if (chkStatus.toUpperCase().equals(Constraints.MODEL.toUpperCase())){
                     retVal = model;
                 } else if (chkStatus.toUpperCase().equals(Constraints.BOARD.toUpperCase())){
@@ -13364,6 +13368,8 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                     retVal = product;
                 } else if (chkStatus.toUpperCase().equals(Constraints.TERMINAL_TYPE.toUpperCase())){
                     retVal = terminal_type.toUpperCase();
+                } else if (chkStatus.toUpperCase().equals(Constraints.TERMINAL_VERSION.toUpperCase())){
+                    retVal = version.toUpperCase();
                 }
             }
             c.close();
@@ -14016,11 +14022,12 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
         Cursor c = DBFunc.Query(checkDeviceData,true);
         if (c != null){
             if (c.getCount() == 0){
-                String saveDeviceData = "INSERT INTO LicenseKey (CHECKSUM,MacAddress,LicenseType,NoOfDay,DateTime) " +
+                String saveDeviceData = "INSERT INTO LicenseKey (CHECKSUM,MacAddress,LicenseType,NoOfDay,KeyLicense,DateTime) " +
                         "VALUES ('" + DBFunc.PurifyString(licensekey.getChecksum()) + "'," +
                         "'" + DBFunc.PurifyString(licensekey.getMacAddress()) + "'," +
                         "'" + DBFunc.PurifyString(licensekey.getLicenseType()) + "'," +
                         "'" + licensekey.getNoOfDay() + "'," +
+                        "'" + licensekey.getKeyLicense() + "'," +
                         " " + System.currentTimeMillis() + ")";
                 Log.i("savelicensekey___","saveDeviceData___"+saveDeviceData);
                 DBFunc.ExecQuery(saveDeviceData,true);
@@ -14030,6 +14037,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                 updatequery += "MacAddress = '"+ DBFunc.PurifyString(licensekey.getMacAddress())+"', ";
                 updatequery += "LicenseType = '"+ DBFunc.PurifyString(licensekey.getLicenseType())+"', ";
                 updatequery += "NoOfDay = '"+ licensekey.getNoOfDay()+"', ";
+                updatequery += "KeyLicense = '"+ licensekey.getKeyLicense()+"', ";
                 updatequery += "DateTime = " + System.currentTimeMillis();
 
                 Log.i("savelicensekey___","saveDeviceData___"+updatequery);
@@ -14039,9 +14047,9 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
         }
     }
 
-    public static String GetLicenseKey(String licensekey,String settingV) {
+    public static String GetLicenseKey(String fieldName) {
         String retVal = "0";
-        String checkLicensekey = "SELECT MacAddress FROM LicenseKey ";
+        String checkLicensekey = "SELECT "+fieldName+" FROM LicenseKey ";
 //        if (!settingV.equals("Settings")){
 //            checkLicensekey += " WHERE MacAddress = '"+licensekey+"'";
 //        }

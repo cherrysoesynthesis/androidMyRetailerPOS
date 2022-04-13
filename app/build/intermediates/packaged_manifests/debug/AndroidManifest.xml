@@ -93,12 +93,10 @@
         android:launchMode="singleTop"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity android:name="com.dcs.myretailer.app.ZCloseResyncActivity" />
         <activity android:name="com.dcs.myretailer.app.LicenseKeyActivity" /> <!-- <activity android:name=".RemarkMainActivity"></activity> -->
-        <activity android:name="com.dcs.myretailer.app.Login.SampleActivity" />
         <activity android:name="com.dcs.myretailer.app.RemarksBarcodeActivity" />
         <activity android:name="com.dcs.myretailer.app.presentation.MajorActivity" />
         <activity android:name="com.dcs.myretailer.app.Setting.StockManagement.StockAgentDetatilsActivity" />

@@ -605,6 +605,8 @@ com/dcs/myretailer/app/Setting/ReceiptEditorActivity.java
  com.dcs.myretailer.app.Setting.ReceiptEditorActivity$1
  com.dcs.myretailer.app.Setting.ReceiptEditorActivity$2
  com.dcs.myretailer.app.Setting.ReceiptEditorActivity$3
+com/dcs/myretailer/app/FontAssets/RemarkMainActivityFontAssets.java
+ com.dcs.myretailer.app.FontAssets.RemarkMainActivityFontAssets
 com/dcs/myretailer/app/Report/ReportXAdapter.java
  com.dcs.myretailer.app.Report.ReportXAdapter
 com/dcs/myretailer/app/DeviceListAdapter.java

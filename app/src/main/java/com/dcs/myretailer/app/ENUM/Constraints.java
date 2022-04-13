@@ -166,6 +166,8 @@ public class Constraints {
     public static String DISPLAY = "DISPLAY";
     public static String PRODUCT = "PRODUCT";
     public static String TERMINAL_TYPE = "TERMINAL_TYPE";
+    public static String TERMINAL_VERSION = "VERSION";
+    public static String VERSION_NAME = "3.3.21";
     public static String NewLand = "NewLand";
     public static String A930 = "A930";
     public static String E600M = "E600M";

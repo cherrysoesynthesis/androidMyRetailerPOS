@@ -19,6 +19,9 @@ import java.lang.Object;
 
 public abstract class ActivityRemarkMainBinding extends ViewDataBinding {
   @NonNull
+  public final TextView KeyLicense;
+
+  @NonNull
   public final Button btnLogin;
 
   @NonNull
@@ -55,10 +58,12 @@ public abstract class ActivityRemarkMainBinding extends ViewDataBinding {
   public final LinearLayout userLay;
 
   protected ActivityRemarkMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button btnLogin, LinearLayout first, LinearLayout layBtnLogin, LinearLayout layoverall,
-      LinearLayout overall, LinearLayout passLay, EditText password, ImageView profileImage,
-      TextView txtLicense, TextView txtVer, EditText user, LinearLayout userLay) {
+      TextView KeyLicense, Button btnLogin, LinearLayout first, LinearLayout layBtnLogin,
+      LinearLayout layoverall, LinearLayout overall, LinearLayout passLay, EditText password,
+      ImageView profileImage, TextView txtLicense, TextView txtVer, EditText user,
+      LinearLayout userLay) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.KeyLicense = KeyLicense;
     this.btnLogin = btnLogin;
     this.first = first;
     this.layBtnLogin = layBtnLogin;

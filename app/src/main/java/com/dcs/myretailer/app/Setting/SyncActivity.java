@@ -5771,67 +5771,6 @@ public static  void SyncSales(Context context,RequestQueue queue1, String url, f
         } catch (JSONException e) {
             e.printStackTrace();
         }
-//
-//        {
-//            "tbltranszreadno": [{
-//            "ID": "02536c00-4ce1-11ec-adbe-00090faa0001",
-//                    "RetailID": "1",
-//                    "TransIDFrom": "a7bb4e9c-4b52-11ec-adbe-00090faa0001",
-//                    "TransIDTo": "f536e2d7-4cdd-11ec-adbe-00090faa0001",
-//                    "TransNoFrom": "KD0000111",
-//                    "TransNoTo": "KD0000113",
-//                    "TransDate": "2021-11-22",
-//                    "ZReadNo": "KD0000026",
-//                    "ZReadDate": "2021-11-22 12:43:03",
-//                    "ZReadUser": "superuser",
-//                    "TerminalID": "1",
-//                    "PendingSync": "N",
-//                    "SPBI01": "0",
-//                    "SPBI02": "0",
-//                    "SPBI03": "0",
-//                    "SPBI04": "0",
-//                    "SPBI05": "0",
-//                    "SPD01": "0.000000",
-//                    "SPD02": "0.000000",
-//                    "SPD03": "0.000000",
-//                    "SPD04": "0.000000",
-//                    "SPD05": "0.000000",
-//                    "SPI01": "0",
-//                    "SPI02": "0",
-//                    "SPI03": "0",
-//                    "SPI04": "0",
-//                    "SPI05": "0",
-//                    "SPC01": "N",
-//                    "SPC02": "N",
-//                    "SPC03": "N",
-//                    "SPC04": "N",
-//                    "SPC05": "N",
-//                    "SPV01": "",
-//                    "SPV02": "",
-//                    "SPV03": "",
-//                    "SPV04": "",
-//                    "SPV05": "",
-//                    "SPT01": null,
-//                    "SPT02": null,
-//                    "SPT03": null,
-//                    "SPT04": null,
-//                    "SPT05": null,
-//                    "SDT01": null,
-//                    "SDT02": null,
-//                    "SDT03": null,
-//                    "SDT04": null,
-//                    "SDT05": null,
-//                    "LastUser": "superuser",
-//                    "LastUpdate": "2021-11-22 12:43:03",
-//                    "LockUser": "",
-//                    "LockUpdate": "0000-00-00 00:00:00",
-//                    "LockStatus": "0",
-//                    "RecordStatus": "READY",
-//                    "RecordUpdate": "2021-11-22 12:43:03",
-//                    "QueueStatus": "READY"
-//        }]
-//        };
-//        String temp = Query.UpdateTransZRead(syncCompanyCode, jsonObject);
         Log.i("jsonArrObj___","jsonArrObj__dfd__"+jsonArrObj);
         String temp = Query.UpdateTransZReadSOAP(syncCompanyCode, jsonArrObj);
 
