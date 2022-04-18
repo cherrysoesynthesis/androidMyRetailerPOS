@@ -1550,18 +1550,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         String sql = Query.GetSQLForBillPendingQty();
 
-        Log.i("name_mccssss__","name___"+sql);
 
         Cursor c = DBFunc.Query(sql, false);
         if (c != null) {
-            Log.i("sql__SaveBill_","sql__c.getCount()__"+c.getCount());
             if (c.getCount() == 0) {
                 Query.CreateNewBillAndDetailsBillProduct();
                 c = DBFunc.GetBillNoFromBill();
 
             } else {
 
-                Log.i("sql__SaveBill_","sql__celse.getCount()__"+c.getCount());
                 c = DBFunc.GetBillNoFromBill();
                 Integer bill_id = 0;
                 if (c != null) {

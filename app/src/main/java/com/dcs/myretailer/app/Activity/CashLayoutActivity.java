@@ -226,10 +226,15 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
 
         new CashLayoutActivityScreenSize(binding);
 
-        //RegisterForIngenico(context);
-        new IngenicoInitialize(this);
+        String terminalTypeVal = Query.GetDeviceData(Constraints.TERMINAL_TYPE);
+        Log.i("terminalTypeVal__", "terminalTypeVal_" + terminalTypeVal);
+        if (terminalTypeVal.toUpperCase().equals(Constraints.INGENICO.toUpperCase())) {
+            //RegisterForIngenico(context);
+            new IngenicoInitialize(this);
 
-        printer = DeviceHelper.me().getPrinter();
+            printer = DeviceHelper.me().getPrinter();
+
+        }
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);

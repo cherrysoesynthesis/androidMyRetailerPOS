@@ -14336,5 +14336,130 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
         Log.i("DSfsd___","dt____"+dt);
         return dt;
     }
+
+
+    //public static Bitmap bitmapQRCode = null;
+    //public static ProgressDialog progressDialog;
+    private static void GenerateQRCodeString(final Context context, final String strInfo, final String BillNo, final Integer sales_id) {
+
+        final SweetAlertDialog pDialog = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE);
+        //final SweetAlertDialog pDialog = new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Loading ...");
+        //pDialog.setCancelable(true);
+//        pDialog.show();
+        //final Bitmap[] bitmapQRCode = new Bitmap[1];
+
+        RequestQueue queue_qrcode = Volley.newRequestQueue(context);
+
+//        RequestQueue queue = Volley.newRequestQueue(this);
+        //String url = "http://" + qr_code_shoptima_url;
+        String url = MainActivity.qr_code_shoptima_url;
+
+        //String url = "http://" + "llposmgr.ddns.net:8085/Service.asmx";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //pDialog.dismiss();
+                        // response code
+                        String xmlString = response;
+
+//                        <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GenerateQRCodeStringResponse xmlns="http://tempuri.org/"><GenerateQRCodeStringResult><xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"><xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="ReturnTable" msdata:UseCurrentLocale="true"><xs:complexType><xs:choice minOccurs="0" maxOccurs="unbounded"><xs:element name="ReturnTable"><xs:complexType><xs:sequence><xs:element name="STATUS" type="xs:string" minOccurs="0" /><xs:element name="ERRORCODE" type="xs:string" minOccurs="0" /><xs:element name="QRCODE" type="xs:string" minOccurs="0" /></xs:sequence></xs:complexType></xs:element></xs:choice></xs:complexType></xs:element></xs:schema><diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1"><DocumentElement xmlns=""><ReturnTable diffgr:id="ReturnTable1" msdata:rowOrder="0" diffgr:hasChanges="inserted"><STATUS>SUCCESS</STATUS><ERRORCODE>0</ERRORCODE><QRCODE>dcs:ZMiWiadjOZm90Rszvn5+SDCYtZ060vKEq+XRWhfgR3Jd6Lujro5gl1iKxsSKQuoOHUUjpInfZ6HmrecQ5LLuOgRvmPm750E4F1td66GcmRS7I16DCd4SRCEMWexHpdxNP5T89iNNIVFXrq8RP1sbdQ==</QRCODE></ReturnTable></DocumentElement></diffgr:diffgram></GenerateQRCodeStringResult></GenerateQRCodeStringResponse></soap:Body></soap:Envelope>
+//
+                        Document xmlparse = null;
+                        Document parse = APIActivity.XMLParseFunction(xmlString, xmlparse);
+                        String status = "";
+                        //String qrcodestring = "";
+                        String dcsQrCodeString = "";
+                        for (int ii = 0; ii < parse.getElementsByTagName("STATUS").getLength(); ii++) {
+                            status = (parse.getElementsByTagName("STATUS").getLength() > 0)
+                                    ? parse.getElementsByTagName("STATUS").item(ii).getTextContent() : " ";
+                        }
+                        for (int iii = 0; iii < parse.getElementsByTagName("QRCODE").getLength(); iii++) {
+                            dcsQrCodeString = (parse.getElementsByTagName("QRCODE").getLength() > 0)
+                                    ? parse.getElementsByTagName("QRCODE").item(iii).getTextContent() : " ";
+                        }
+
+                        //qrcodestring = dcsQrCodeString.split(":")[1];
+                        String qrcodestring = dcsQrCodeString;
+                        //qrcodestring = "dcs:ZMiWiadjOZm90Rszvn5+SG7Ep2MsGAfnfx8xoCE1e3rA4mtgaoy0BfjbFEHlqY5dRAZzgiBdN8zO+uJulLTQ3flsQ0wozp2FOyNmX2pCABM1QJIlTooayanA5NhSv3nQboljX7a7KnjoRCF/zOXccA==";
+
+                        //bitmap_qr_shoptima = convertQRCodeImage(context,qrcodestring);
+                        //convertQRCodeImage(dcsQrCodeString);
+                        //bitmapQRCode[0] = convertQRCodeImage(context, qrcodestring);
+                        //bitmapQRCode = convertQRCodeImage(context, qrcodestring);
+                        convertQRCodeImage(context, qrcodestring, pDialog,BillNo,sales_id);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+//                        // As of f605da3 the following should work
+                NetworkResponse response = error.networkResponse;
+
+                if (error instanceof ServerError && response != null) {
+                    try {
+                        String res = new String(response.data,
+                                HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+
+
+                        // Now you can use any deserializer to make sense of data
+//                                JSONObject obj = new JSONObject(res);
+                    } catch (UnsupportedEncodingException e1) {
+                        e1.printStackTrace();
+                    }
+                }
+            }
+        }) {
+            @Override
+            public Map<String, String> getParams() {
+                return null;
+            }
+            @Override
+            public byte[] getBody() {
+                String encodedURL = null;
+                String temp = "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n" +
+                        "  <soap12:Body>\n" +
+                        "    <GenerateQRCodeString xmlns=\"http://tempuri.org/\">\n" +
+                        "      <UserID>"+MainActivity.qr_code_shoptima_user_id+"</UserID>\n" +
+                        "      <Password>"+MainActivity.qr_code_shoptima_password+"</Password>\n" +
+                        "      <strInfo>"+strInfo+"</strInfo>\n" +
+                        "    </GenerateQRCodeString>\n" +
+                        "  </soap12:Body>\n" +
+                        "</soap12:Envelope>";
+                Log.i("APPshp", "request__String: " + temp);
+                byte[] b = temp.getBytes(Charset.forName("UTF-8"));
+
+                return b;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "text/xml;charset=utf-8";
+            }
+        };
+        queue_qrcode.add(stringRequest);
+        //pDialog.show();
+        //return bitmapQRCode;
+        //progressDialog = Query.showProgressDialog(context, ENUM.Downaloding);
+    }
+
+    public static String getCheckBillnoDate(String billNo) {
+
+//                %m/%d/%Y
+        String checkBillnodate = "";
+        String checktodaydate = "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+                "FROM Sales WHERE BillNo = '"+billNo+"'";
+        Cursor cursorchecktodaydate = DBFunc.Query(checktodaydate,false);
+
+        if (cursorchecktodaydate !=null ) {
+            if (cursorchecktodaydate.moveToNext()) {
+                checkBillnodate = cursorchecktodaydate.getString(0);
+            }
+            cursorchecktodaydate.close();
+        }
+        return checkBillnodate;
+    }
 }
 

@@ -746,7 +746,7 @@ public class DatabaseImportExportActivity extends AppCompatActivity {
                         this.publishProgress(new Object[]{StrTextConst.GetText(TextType.CFGDB, 24),-1,-1,-1,-1});
                     }
 
-                    SQLiteDatabase dbsrc = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_check.db").getAbsolutePath(),Constraints.encrypt_password, null);
+                    SQLiteDatabase dbsrc = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_check.db").getAbsolutePath(),"", null);
                     Cursor c = dbsrc.rawQuery("PRAGMA journal_mode=OFF", null);
                     c.close();
                     c = dbsrc.rawQuery("PRAGMA locking_mode=EXCLUSIVE", null);
@@ -755,7 +755,7 @@ public class DatabaseImportExportActivity extends AppCompatActivity {
 
 
                     //create new database for restructuring
-                    SQLiteDatabase dbdest = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_dest.db").getAbsolutePath(),Constraints.encrypt_password, null);
+                    SQLiteDatabase dbdest = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_dest.db").getAbsolutePath(),"", null);
                     c = dbdest.rawQuery("PRAGMA journal_mode=OFF", null);
                     c.close();
                     c = dbdest.rawQuery("PRAGMA locking_mode=EXCLUSIVE", null);

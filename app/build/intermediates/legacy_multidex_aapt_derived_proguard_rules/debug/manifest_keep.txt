@@ -1,2 +1,0 @@
--keep class com.dcs.myretailer.app.androidx { <init>(); }
--keep class com.dcs.myretailer.app.e600.printer.DemoApp { <init>(); }

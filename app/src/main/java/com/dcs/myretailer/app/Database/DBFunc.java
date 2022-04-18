@@ -1,5 +1,6 @@
 package com.dcs.myretailer.app.Database;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.util.Log;
 //import android.database.sqlite.SQLiteDatabase;
@@ -91,20 +92,24 @@ public class DBFunc {
 	}
 	
 	public static boolean LoadDBFromInternal(Context context){
-		Log.i("LoadDBFromInternal","master"+context.getDatabasePath("master.db").exists());
-		if(context.getDatabasePath("master.db").exists()){
-			SQLiteDatabase.loadLibs(context);
-			//Allocator.DB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), null);
-			Log.i("LoadDBFromInternal_","LoadDBFgetAbsolutePath_"+context.getDatabasePath("master.db").getAbsolutePath());
+		try {
+			Log.i("LoadDBFromInternal", "master" + context.getDatabasePath("master.db").exists());
+			if (context.getDatabasePath("master.db").exists()) {
+				SQLiteDatabase.loadLibs(context);
+				//Allocator.DB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), null);
+				Log.i("LoadDBFromInternal_", "LoadDBFgetAbsolutePath_" + context.getDatabasePath("master.db").getAbsolutePath());
 
-			Allocator.DB =  SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), "test123", null);
-			Cursor c = Allocator.DB.rawQuery("PRAGMA journal_mode=ON", null);
-			c.close();
-			c = Allocator.DB.rawQuery("PRAGMA foreign_keys=ON", null);
-			c.close();
-			return true;
+				Allocator.DB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), "test123", null);
+				Cursor c = Allocator.DB.rawQuery("PRAGMA journal_mode=ON", null);
+				c.close();
+				c = Allocator.DB.rawQuery("PRAGMA foreign_keys=ON", null);
+				c.close();
+				return true;
+			}
+			return false;
+		} catch (Exception e){
+			return false;
 		}
-		return false;
 	}
 	
 	public static boolean LoadTransactDBFromInternal(Context context){
@@ -223,7 +228,7 @@ public class DBFunc {
 	public static List<String> LoadScriptUpdate(Context context, boolean master) throws IOException{
 		SQLiteDatabase.loadLibs(context);
 		DBFunc.OpenDBFromDisk(context.getAssets().open("header_repair.db"), "header_repair.db", context);
-		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(),"test123", null);
+		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(),"", null);
 		Cursor c = null;
 		if(master){
 			c = db.rawQuery("SELECT script FROM master_script ORDER BY seq ASC", null);
