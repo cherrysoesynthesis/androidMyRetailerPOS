@@ -21,13 +21,15 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dcs.myretailer.app.Activity.AddNewProductActivity;
+import com.dcs.myretailer.app.Activity.SyncActivity;
 import com.dcs.myretailer.app.Cashier.ProductMainPageFragment;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.ProductData;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.Stock.StockAgent;
+import com.dcs.myretailer.app.Model.StockAgent;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

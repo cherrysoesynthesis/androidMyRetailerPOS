@@ -11,14 +11,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 
-import com.dcs.myretailer.app.CashLayoutActivity;
+import com.dcs.myretailer.app.Activity.CashLayoutActivity;
 import com.dcs.myretailer.app.Cashier.MainActivity;
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.TransactionDetailsActivity;
+import com.dcs.myretailer.app.Activity.TransactionDetailsActivity;
 import com.dcs.myretailer.app.databinding.FragmentManageBillDialogBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 

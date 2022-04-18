@@ -14,7 +14,7 @@ import com.dcs.myretailer.app.R;
 
 import java.util.ArrayList;
 
-class ConfigurationsAdapter extends BaseAdapter   {
+public class ConfigurationsAdapter extends BaseAdapter   {
     Context context;
     ArrayList<Integer> IDList;
     ArrayList<String> NameList;

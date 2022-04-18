@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.e600.printer.BaseTester;
 import com.pax.dal.IScanner;
 import com.pax.dal.entity.EScannerType;

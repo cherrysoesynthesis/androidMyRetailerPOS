@@ -146,6 +146,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 //    implementation files('libs/NeptuneLiteApi_V3.22.00_20210303.jar')
 
+    implementation 'net.zetetic:android-database-sqlcipher:4.5.1@aar'
+    implementation "androidx.sqlite:sqlite:2.0.1"
+
     implementation files('libs/ePOS2.jar')
     implementation files('libs/ePOSEasySelect.jar')
     implementation files('libs/iminPrinterSDK.jar')
@@ -153,6 +156,7 @@ dependencies {
     implementation files('libs/NeptuneLiteApi_V3.24.00_20210519.jar')
     implementation files('libs/usdk_api_aidl_limited_v1.0.0.20200814.jar')
     implementation files('libs/usdk_api_aidl_ovs_v13.1.1t2.20201218.jar')
+    implementation files('libs/sqlcipher.jar')
 
 //    implementation files('libs/zxing.jar')
 //    implementation files('libs/PaxGLImgProcessing_V1.00.04_20170502.jar')

@@ -28,7 +28,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.dcs.myretailer.app.Allocator;
-import com.dcs.myretailer.app.BillList.BillListModel;
+import com.dcs.myretailer.app.Model.BillListModel;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.DialogBox;
 import com.dcs.myretailer.app.ENUM.Constraints;

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.dcs.myretailer.app.Activity.AddNewProductActivity;
 import com.dcs.myretailer.app.ProductData;
 import com.dcs.myretailer.app.Cashier.ProductMainPageFragment;
 import com.dcs.myretailer.app.R;

@@ -45,7 +45,7 @@
 //import com.dcs.myretailer.app.Model.DeviceData;
 //import com.dcs.myretailer.app.Query.Query;
 //import com.dcs.myretailer.app.R;
-//import com.dcs.myretailer.app.Setting.SettingActivity;
+//import com.dcs.myretailer.app.Activity.SettingActivity;
 //import com.dcs.myretailer.app.databinding.ActivitySampleBinding;
 //import com.imin.printerlib.IminPrintUtils;
 //import com.karumi.dexter.Dexter;

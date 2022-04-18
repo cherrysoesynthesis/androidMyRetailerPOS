@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
+import com.dcs.myretailer.app.Activity.AddNewVouchersAndDiscountActivity;
+import com.dcs.myretailer.app.Activity.SettingActivity;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.databinding.ActivityVouchersAndDiscountsBinding;
@@ -90,7 +92,7 @@ public class VouchersAndDiscountsActivity extends AppCompatActivity implements A
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_add_discount) {
-            Intent addTaxConfiguration = new Intent(VouchersAndDiscountsActivity.this,AddNewVouchersAndDiscountActivity.class);
+            Intent addTaxConfiguration = new Intent(VouchersAndDiscountsActivity.this, AddNewVouchersAndDiscountActivity.class);
             //addTaxConfiguration.putExtra("ID","null");
             addTaxConfiguration.putExtra("ID","0");
             startActivity(addTaxConfiguration);
@@ -114,7 +116,7 @@ public class VouchersAndDiscountsActivity extends AppCompatActivity implements A
     @Override
     public void onBackPressed() {
         //ActivityCompat.finishAffinity(VouchersAndDiscountsActivity.this);
-        Intent i = new Intent(context,SettingActivity.class);
+        Intent i = new Intent(context, SettingActivity.class);
         startActivity(i);
         finish();
     }

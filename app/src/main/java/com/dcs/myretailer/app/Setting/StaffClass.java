@@ -1,6 +1,6 @@
 package com.dcs.myretailer.app.Setting;
 
-class StaffClass {
+public class StaffClass {
     int staff_id;
     String name;
     String permission_group;

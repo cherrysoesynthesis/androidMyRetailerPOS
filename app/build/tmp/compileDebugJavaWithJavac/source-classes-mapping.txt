@@ -2,14 +2,6 @@ com/dcs/myretailer/app/Cashier/TabFragmentAmount.java
  com.dcs.myretailer.app.Cashier.TabFragmentAmount
 com/dcs/myretailer/app/PromotionFragment.java
  com.dcs.myretailer.app.PromotionFragment
-com/dcs/myretailer/app/Setting/ConfigurationHostActivity.java
- com.dcs.myretailer.app.Setting.ConfigurationHostActivity
- com.dcs.myretailer.app.Setting.ConfigurationHostActivity$1
- com.dcs.myretailer.app.Setting.ConfigurationHostActivity$2
- com.dcs.myretailer.app.Setting.ConfigurationHostActivity$3
- com.dcs.myretailer.app.Setting.ConfigurationHostActivity$3$1
-com/dcs/myretailer/app/Stock/StockIn.java
- com.dcs.myretailer.app.Stock.StockIn
 com/dcs/myretailer/app/Report/ReportActivity.java
  com.dcs.myretailer.app.Report.ReportActivity
  com.dcs.myretailer.app.Report.ReportActivity$1
@@ -54,10 +46,6 @@ com/dcs/myretailer/app/MainPagePagerAdapter.java
  com.dcs.myretailer.app.MainPagePagerAdapter
 com/dcs/myretailer/app/Report/ReportCategoryAdapter.java
  com.dcs.myretailer.app.Report.ReportCategoryAdapter
-com/dcs/myretailer/app/BOC/BillBOC.java
- com.dcs.myretailer.app.BOC.BillBOC
-com/dcs/myretailer/app/BarChartActivity.java
- com.dcs.myretailer.app.BarChartActivity
 com/dcs/myretailer/app/Setting/FontSizeSheetFragment.java
  com.dcs.myretailer.app.Setting.FontSizeSheetFragment
  com.dcs.myretailer.app.Setting.FontSizeSheetFragment$ListAdapter
@@ -91,16 +79,22 @@ com/dcs/myretailer/app/Report/DownloadTask.java
  com.dcs.myretailer.app.Report.DownloadTask$DownloadingTask$4
 com/dcs/myretailer/app/Setting/PermissionAdapter.java
  com.dcs.myretailer.app.Setting.PermissionAdapter
-com/dcs/myretailer/app/Mercatus/BillMercatusPayment.java
- com.dcs.myretailer.app.Mercatus.BillMercatusPayment
-com/dcs/myretailer/app/Cashier/SalesDelievery/SalesDelivery.java
- com.dcs.myretailer.app.Cashier.SalesDelievery.SalesDelivery
+com/dcs/myretailer/app/Activity/DragAndPlaceActivity.java
+ com.dcs.myretailer.app.Activity.DragAndPlaceActivity
+ com.dcs.myretailer.app.Activity.DragAndPlaceActivity$1
+ com.dcs.myretailer.app.Activity.DragAndPlaceActivity$MyDragListener
+ com.dcs.myretailer.app.Activity.DragAndPlaceActivity$MyTouchListener
+com/dcs/myretailer/app/Activity/TransferImageIntoServerActivity.java
+ com.dcs.myretailer.app.Activity.TransferImageIntoServerActivity
+ com.dcs.myretailer.app.Activity.TransferImageIntoServerActivity$1
 com/dcs/myretailer/app/databinding/ActivityTaxConfigurationBinding.java
  com.dcs.myretailer.app.databinding.ActivityTaxConfigurationBinding
+com/dcs/myretailer/app/Cashier/SalesDelievery/SalesDelivery.java
+ com.dcs.myretailer.app.Cashier.SalesDelievery.SalesDelivery
+com/dcs/myretailer/app/Activity/ScanVoucherActivity.java
+ com.dcs.myretailer.app.Activity.ScanVoucherActivity
 com/dcs/myretailer/app/Cashier/MyCustomDialog.java
  com.dcs.myretailer.app.Cashier.MyCustomDialog
-com/dcs/myretailer/app/Mercatus/BillMercatusMallLoyaltyDetails.java
- com.dcs.myretailer.app.Mercatus.BillMercatusMallLoyaltyDetails
 com/dcs/myretailer/app/Setting/PaymentTypes.java
  com.dcs.myretailer.app.Setting.PaymentTypes
 com/dcs/myretailer/app/domain/mastertables/taxtype/TaxTypeDao.java
@@ -118,6 +112,10 @@ com/dcs/myretailer/app/Setting/TaxTypeSheetFragment.java
  com.dcs.myretailer.app.Setting.TaxTypeSheetFragment$ListAdapter$ViewHolder
 com/dcs/myretailer/app/databinding/FragmentManageBillDialogBinding.java
  com.dcs.myretailer.app.databinding.FragmentManageBillDialogBinding
+com/dcs/myretailer/app/SpinnerItem.java
+ com.dcs.myretailer.app.SpinnerItem
+com/dcs/myretailer/app/Activity/BarChartActivity.java
+ com.dcs.myretailer.app.Activity.BarChartActivity
 com/dcs/myretailer/app/OnlineOrderListMainPageFragment.java
  com.dcs.myretailer.app.OnlineOrderListMainPageFragment
  com.dcs.myretailer.app.OnlineOrderListMainPageFragment$1
@@ -135,10 +133,9 @@ com/dcs/myretailer/app/OnlineOrderListMainPageFragment.java
  com.dcs.myretailer.app.OnlineOrderListMainPageFragment$ListAdapter$ViewHolder
 com/dcs/myretailer/app/e600/printer/BaseTester.java
  com.dcs.myretailer.app.e600.printer.BaseTester
-com/dcs/myretailer/app/Stock/StockTake.java
- com.dcs.myretailer.app.Stock.StockTake
 com/dcs/myretailer/app/e600/printer/DemoApp.java
  com.dcs.myretailer.app.e600.printer.DemoApp
+ com.dcs.myretailer.app.e600.printer.DemoApp$1
 com/dcs/myretailer/app/Report/ActivityGenReport.java
  com.dcs.myretailer.app.Report.ActivityGenReport
  com.dcs.myretailer.app.Report.ActivityGenReport$1
@@ -187,11 +184,10 @@ com/dcs/myretailer/app/Report/ActivityGenReport.java
  com.dcs.myretailer.app.Report.ActivityGenReport$UserLogData
 com/dcs/myretailer/app/Model/DeviceData.java
  com.dcs.myretailer.app.Model.DeviceData
+com/dcs/myretailer/app/Model/KitchenPrinterModel.java
+ com.dcs.myretailer.app.Model.KitchenPrinterModel
 com/dcs/myretailer/app/MyListView.java
  com.dcs.myretailer.app.MyListView
-com/dcs/myretailer/app/Setting/ReportSettingActivity.java
- com.dcs.myretailer.app.Setting.ReportSettingActivity
- com.dcs.myretailer.app.Setting.ReportSettingActivity$1
 com/dcs/myretailer/app/Report/ReportOtherAdapter.java
  com.dcs.myretailer.app.Report.ReportOtherAdapter
 com/dcs/myretailer/app/Cashier/BillListMainPageFragment.java
@@ -231,30 +227,38 @@ com/dcs/myretailer/app/API/Example1.java
  com.dcs.myretailer.app.API.Example1
 com/dcs/myretailer/app/Setting/ConfigurationsAdapter.java
  com.dcs.myretailer.app.Setting.ConfigurationsAdapter
-com/dcs/myretailer/app/HeaderAndFooterActivity.java
- com.dcs.myretailer.app.HeaderAndFooterActivity
-com/dcs/myretailer/app/Stock/StockOut.java
- com.dcs.myretailer.app.Stock.StockOut
+com/dcs/myretailer/app/Activity/SettingActivity.java
+ com.dcs.myretailer.app.Activity.SettingActivity
+ com.dcs.myretailer.app.Activity.SettingActivity$1
+ com.dcs.myretailer.app.Activity.SettingActivity$2
+ com.dcs.myretailer.app.Activity.SettingActivity$3
+ com.dcs.myretailer.app.Activity.SettingActivity$4
+ com.dcs.myretailer.app.Activity.SettingActivity$4$1
 com/dcs/myretailer/app/databinding/ActivityReceiptEditorBinding.java
  com.dcs.myretailer.app.databinding.ActivityReceiptEditorBinding
 com/dcs/myretailer/app/databinding/ActivitySettingBinding.java
  com.dcs.myretailer.app.databinding.ActivitySettingBinding
 com/dcs/myretailer/app/domain/mastertables/product/ProductModel.java
  com.dcs.myretailer.app.domain.mastertables.product.ProductModel
+com/dcs/myretailer/app/Activity/AddTaxConfigurationsActivity.java
+ com.dcs.myretailer.app.Activity.AddTaxConfigurationsActivity
+ com.dcs.myretailer.app.Activity.AddTaxConfigurationsActivity$1
 com/dcs/myretailer/app/Checkout/PaymentCashSuccesActivity.java
  com.dcs.myretailer.app.Checkout.PaymentCashSuccesActivity
 com/dcs/myretailer/app/Setting/LanguageSheetFragment.java
  com.dcs.myretailer.app.Setting.LanguageSheetFragment
+com/dcs/myretailer/app/Model/MsgMaker.java
+ com.dcs.myretailer.app.Model.MsgMaker
 com/dcs/myretailer/app/Setting/USBPort.java
  com.dcs.myretailer.app.Setting.USBPort
  com.dcs.myretailer.app.Setting.USBPort$USBInputStream
  com.dcs.myretailer.app.Setting.USBPort$USBOutputStream
 com/dcs/myretailer/app/databinding/ActivityMapSetupBinding.java
  com.dcs.myretailer.app.databinding.ActivityMapSetupBinding
+com/dcs/myretailer/app/DemoConfig.java
+ com.dcs.myretailer.app.DemoConfig
 com/dcs/myretailer/app/Cashier/OpenPriceSheetFragment.java
  com.dcs.myretailer.app.Cashier.OpenPriceSheetFragment
-com/dcs/myretailer/app/Jeripay/BillJeripayDetails.java
- com.dcs.myretailer.app.Jeripay.BillJeripayDetails
 com/dcs/myretailer/app/databinding/ActivityPermissionGroupBinding.java
  com.dcs.myretailer.app.databinding.ActivityPermissionGroupBinding
 com/dcs/myretailer/app/databinding/ActivityItemDiscountBinding.java
@@ -265,56 +269,69 @@ com/dcs/myretailer/app/databinding/ActivityFloorMapBinding.java
  com.dcs.myretailer.app.databinding.ActivityFloorMapBinding
 com/dcs/myretailer/app/domain/mastertables/POSSYS/PosConfigurationDao.java
  com.dcs.myretailer.app.domain.mastertables.mastertables.POSSYS.PosConfigurationDao
+com/dcs/myretailer/app/ScreenSize/TransactionDetailsActivityScreenSize.java
+ com.dcs.myretailer.app.ScreenSize.TransactionDetailsActivityScreenSize
 com/dcs/myretailer/app/databinding/ActivityMapbuttonSetupBinding.java
  com.dcs.myretailer.app.databinding.ActivityMapbuttonSetupBinding
 com/dcs/myretailer/app/databinding/ItemPaymentCheckoutItemBookBinding.java
  com.dcs.myretailer.app.databinding.ItemPaymentCheckoutItemBookBinding
-com/dcs/myretailer/app/Setting/ScanVoucherActivity.java
- com.dcs.myretailer.app.Setting.ScanVoucherActivity
+com/dcs/myretailer/app/MercatusReceiptData.java
+ com.dcs.myretailer.app.MercatusReceiptData
 com/dcs/myretailer/app/Setting/PermissionGroupSheetFragment.java
  com.dcs.myretailer.app.Setting.PermissionGroupSheetFragment
  com.dcs.myretailer.app.Setting.PermissionGroupSheetFragment$ListAdapter
  com.dcs.myretailer.app.Setting.PermissionGroupSheetFragment$ListAdapter$1
  com.dcs.myretailer.app.Setting.PermissionGroupSheetFragment$ListAdapter$ViewHolder
-com/dcs/myretailer/app/ScanActivity.java
- com.dcs.myretailer.app.ScanActivity
- com.dcs.myretailer.app.ScanActivity$1
- com.dcs.myretailer.app.ScanActivity$2
-com/dcs/myretailer/app/RemarkMainActivity.java
- com.dcs.myretailer.app.RemarkMainActivity
- com.dcs.myretailer.app.RemarkMainActivity$1
- com.dcs.myretailer.app.RemarkMainActivity$1$1
- com.dcs.myretailer.app.RemarkMainActivity$2
- com.dcs.myretailer.app.RemarkMainActivity$3
- com.dcs.myretailer.app.RemarkMainActivity$4
- com.dcs.myretailer.app.RemarkMainActivity$5
- com.dcs.myretailer.app.RemarkMainActivity$6
- com.dcs.myretailer.app.RemarkMainActivity$7
 com/dcs/myretailer/app/Setting/MyTransferListener.java
  com.dcs.myretailer.app.Setting.MyTransferListener
 com/dcs/myretailer/app/databinding/ActivityStaffManagementBinding.java
  com.dcs.myretailer.app.databinding.ActivityStaffManagementBinding
-com/dcs/myretailer/app/SalesPerson/SalesPayment.java
- com.dcs.myretailer.app.SalesPerson.SalesPayment
-com/dcs/myretailer/app/Setting/AddNewProductActivity.java
- com.dcs.myretailer.app.Setting.AddNewProductActivity
- com.dcs.myretailer.app.Setting.AddNewProductActivity$1
- com.dcs.myretailer.app.Setting.AddNewProductActivity$10
- com.dcs.myretailer.app.Setting.AddNewProductActivity$2
- com.dcs.myretailer.app.Setting.AddNewProductActivity$3
- com.dcs.myretailer.app.Setting.AddNewProductActivity$4
- com.dcs.myretailer.app.Setting.AddNewProductActivity$5
- com.dcs.myretailer.app.Setting.AddNewProductActivity$6
- com.dcs.myretailer.app.Setting.AddNewProductActivity$7
- com.dcs.myretailer.app.Setting.AddNewProductActivity$7$1
- com.dcs.myretailer.app.Setting.AddNewProductActivity$8
- com.dcs.myretailer.app.Setting.AddNewProductActivity$9
- com.dcs.myretailer.app.Setting.AddNewProductActivity$AsynTaskStockAdjustment
- com.dcs.myretailer.app.Setting.AddNewProductActivity$AsyncTaskAddUpdateProduct
- com.dcs.myretailer.app.Setting.AddNewProductActivity$AsyncTaskForSaveStock
+com/dcs/myretailer/app/Activity/PosConfigurationActivity.java
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$1
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$10
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$11
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$12
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$13
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$14
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$15
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$16
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$16$1
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$17
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$17$1
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$18
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$18$1
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$19
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$19$1
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$2
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$20
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$20$1
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$21
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$21$1
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$22
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$22$1
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$23
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$23$1
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$24
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$25
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$26
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$27
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$28
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$29
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$3
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$30
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$4
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$5
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$6
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$7
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$8
+ com.dcs.myretailer.app.Activity.PosConfigurationActivity$9
 com/dcs/myretailer/app/Report/ReportOtherFragment.java
  com.dcs.myretailer.app.Report.ReportOtherFragment
  com.dcs.myretailer.app.Report.ReportOtherFragment$OnFragmentInteractionListener
+com/dcs/myretailer/app/Activity/ReportSettingActivity.java
+ com.dcs.myretailer.app.Activity.ReportSettingActivity
+ com.dcs.myretailer.app.Activity.ReportSettingActivity$1
 com/dcs/myretailer/app/DemoBase.java
  com.dcs.myretailer.app.DemoBase
  com.dcs.myretailer.app.DemoBase$1
@@ -349,13 +366,15 @@ com/dcs/myretailer/app/Query/Query.java
  com.dcs.myretailer.app.Query.Query$9
 com/dcs/myretailer/app/MyLifecycleObserver.java
  com.dcs.myretailer.app.MyLifecycleObserver
-com/dcs/myretailer/app/Mercatus/BillMercatus.java
- com.dcs.myretailer.app.Mercatus.BillMercatus
+com/dcs/myretailer/app/Model/SalesVoucher.java
+ com.dcs.myretailer.app.Model.SalesVoucher
 com/dcs/myretailer/app/Setting/FontAssetsSheetFragment.java
  com.dcs.myretailer.app.Setting.FontAssetsSheetFragment
  com.dcs.myretailer.app.Setting.FontAssetsSheetFragment$ListAdapter
  com.dcs.myretailer.app.Setting.FontAssetsSheetFragment$ListAdapter$1
  com.dcs.myretailer.app.Setting.FontAssetsSheetFragment$ListAdapter$ViewHolder
+com/dcs/myretailer/app/ScreenSize/AddNewProductActivityScreenSize.java
+ com.dcs.myretailer.app.ScreenSize.AddNewProductActivityScreenSize
 com/dcs/myretailer/app/databinding/ActivityZCloseResyncBinding.java
  com.dcs.myretailer.app.databinding.ActivityZCloseResyncBinding
 com/dcs/myretailer/app/databinding/PercentageRecyclerViewBinding.java
@@ -418,7 +437,6 @@ com/dcs/myretailer/app/DeviceHelper.java
  com.dcs.myretailer.app.DeviceHelper$58
  com.dcs.myretailer.app.DeviceHelper$59
  com.dcs.myretailer.app.DeviceHelper$6
- com.dcs.myretailer.app.DeviceHelper$60
  com.dcs.myretailer.app.DeviceHelper$7
  com.dcs.myretailer.app.DeviceHelper$8
  com.dcs.myretailer.app.DeviceHelper$9
@@ -428,34 +446,43 @@ com/dcs/myretailer/app/Setting/ReportSettingAdapter.java
  com.dcs.myretailer.app.Setting.ReportSettingAdapter
 com/dcs/myretailer/app/API/Address.java
  com.dcs.myretailer.app.API.Address
+com/dcs/myretailer/app/Activity/GeneralSettingActivity.java
+ com.dcs.myretailer.app.Activity.GeneralSettingActivity
+ com.dcs.myretailer.app.Activity.GeneralSettingActivity$1
 com/dcs/myretailer/app/FlatButton.java
  com.dcs.myretailer.app.FlatButton
  com.dcs.myretailer.app.FlatButton$1
  com.dcs.myretailer.app.FlatButton$2
+com/dcs/myretailer/app/Setting/DBConfig.java
+ com.dcs.myretailer.app.Setting.DBConfig
 com/dcs/myretailer/app/Setting/BluetoothSheetFragment.java
  com.dcs.myretailer.app.Setting.BluetoothSheetFragment
  com.dcs.myretailer.app.Setting.BluetoothSheetFragment$ListAdapter
  com.dcs.myretailer.app.Setting.BluetoothSheetFragment$ListAdapter$1
  com.dcs.myretailer.app.Setting.BluetoothSheetFragment$ListAdapter$ViewHolder
-com/dcs/myretailer/app/Setting/DBConfig.java
- com.dcs.myretailer.app.Setting.DBConfig
+com/dcs/myretailer/app/ScreenSize/AddNewCategoryActivityScreenSize.java
+ com.dcs.myretailer.app.ScreenSize.AddNewCategoryActivityScreenSize
 com/dcs/myretailer/app/BottomSheetFragment.java
  com.dcs.myretailer.app.BottomSheetFragment
 com/dcs/myretailer/app/databinding/ActivitySyncBinding.java
  com.dcs.myretailer.app.databinding.ActivitySyncBinding
+com/dcs/myretailer/app/OrderDetails.java
+ com.dcs.myretailer.app.OrderDetails
 com/dcs/myretailer/app/Cashier/BillDetails.java
  com.dcs.myretailer.app.Cashier.BillDetails
-com/dcs/myretailer/app/OCBCDataResponse.java
- com.dcs.myretailer.app.OCBCDataResponse
 com/dcs/myretailer/app/databinding/ActivityAddPaymentTypeBinding.java
  com.dcs.myretailer.app.databinding.ActivityAddPaymentTypeBinding
+com/dcs/myretailer/app/OCBCDataResponse.java
+ com.dcs.myretailer.app.OCBCDataResponse
 com/dcs/myretailer/app/Setting/PrinterList.java
  com.dcs.myretailer.app.Setting.PrinterList
+com/dcs/myretailer/app/Model/BillMercatusDetails.java
+ com.dcs.myretailer.app.Model.BillMercatusDetails
+com/dcs/myretailer/app/databinding/ActivitySupportBinding.java
+ com.dcs.myretailer.app.databinding.ActivitySupportBinding
 com/dcs/myretailer/app/Cashier/RecyclerViewBillHorizonalAdapter.java
  com.dcs.myretailer.app.Cashier.RecyclerViewBillHorizonalAdapter
  com.dcs.myretailer.app.Cashier.RecyclerViewBillHorizonalAdapter$MyViewHolder
-com/dcs/myretailer/app/databinding/ActivitySupportBinding.java
- com.dcs.myretailer.app.databinding.ActivitySupportBinding
 com/dcs/myretailer/app/Setting/VouchersAndDiscountsActivity.java
  com.dcs.myretailer.app.Setting.VouchersAndDiscountsActivity
  com.dcs.myretailer.app.Setting.VouchersAndDiscountsActivity$1
@@ -464,17 +491,24 @@ com/dcs/myretailer/app/Fragment4.java
  com.dcs.myretailer.app.Fragment4$OnFragmentInteractionListener
 com/dcs/myretailer/app/databinding/ActivityTransactionDetailsListviewBinding.java
  com.dcs.myretailer.app.databinding.ActivityTransactionDetailsListviewBinding
-com/dcs/myretailer/app/Setting/PaymentListActivity.java
- com.dcs.myretailer.app.Setting.PaymentListActivity
- com.dcs.myretailer.app.Setting.PaymentListActivity$1
 com/dcs/myretailer/app/databinding/FragmentFirstBinding.java
  com.dcs.myretailer.app.databinding.FragmentFirstBinding
+com/dcs/myretailer/app/Activity/ReceiptEditorActivity.java
+ com.dcs.myretailer.app.Activity.ReceiptEditorActivity
+ com.dcs.myretailer.app.Activity.ReceiptEditorActivity$1
+ com.dcs.myretailer.app.Activity.ReceiptEditorActivity$2
+ com.dcs.myretailer.app.Activity.ReceiptEditorActivity$3
 com/dcs/myretailer/app/CardPayment/CardPaymentDataDetails.java
  com.dcs.myretailer.app.CardPayment.CardPaymentDataDetails
 com/dcs/myretailer/app/domain/mastertables/tax/TaxDao.java
  com.dcs.myretailer.app.domain.mastertables.mastertables.tax.TaxDao
 com/dcs/myretailer/app/databinding/ActivityKitchenPrinterBinding.java
  com.dcs.myretailer.app.databinding.ActivityKitchenPrinterBinding
+com/dcs/myretailer/app/Activity/AddNewVouchersAndDiscountActivity.java
+ com.dcs.myretailer.app.Activity.AddNewVouchersAndDiscountActivity
+ com.dcs.myretailer.app.Activity.AddNewVouchersAndDiscountActivity$1
+ com.dcs.myretailer.app.Activity.AddNewVouchersAndDiscountActivity$2
+ com.dcs.myretailer.app.Activity.AddNewVouchersAndDiscountActivity$3
 com/dcs/myretailer/app/Cashier/ProductMainPageFragment.java
  com.dcs.myretailer.app.Cashier.ProductMainPageFragment
 com/dcs/myretailer/app/databinding/ActivityPosConfigurationIminBinding.java
@@ -507,9 +541,8 @@ com/dcs/myretailer/app/Setting/RoundMethodSheetFragment.java
  com.dcs.myretailer.app.Setting.RoundMethodSheetFragment$ListAdapter$ViewHolder
 com/dcs/myretailer/app/Setting/SpinnerCategoryAdapter.java
  com.dcs.myretailer.app.Setting.SpinnerCategoryAdapter
-com/dcs/myretailer/app/KitchenPrinter/DiscoverPrinterActivity.java
- com.dcs.myretailer.app.KitchenPrinter.DiscoverPrinterActivity
- com.dcs.myretailer.app.KitchenPrinter.DiscoverPrinterActivity$1UpdateListThread
+com/dcs/myretailer/app/Model/CategoryModel.java
+ com.dcs.myretailer.app.Model.CategoryModel
 com/dcs/myretailer/app/databinding/ProductMainPageListBinding.java
  com.dcs.myretailer.app.databinding.ProductMainPageListBinding
 com/dcs/myretailer/app/Setting/ReceiptPrinterProductSheetFragment.java
@@ -529,53 +562,28 @@ com/dcs/myretailer/app/PrinterUtil.java
  com.dcs.myretailer.app.PrinterUtil$LazyHolder
 com/dcs/myretailer/app/Cashier/MapLayoutMainPageFragment.java
  com.dcs.myretailer.app.Cashier.MapLayoutMainPageFragment
-com/dcs/myretailer/app/Setting/PosConfigurationActivity.java
- com.dcs.myretailer.app.Setting.PosConfigurationActivity
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$1
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$10
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$11
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$12
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$13
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$14
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$15
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$16
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$16$1
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$17
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$17$1
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$18
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$18$1
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$19
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$19$1
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$2
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$20
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$20$1
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$21
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$21$1
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$22
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$22$1
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$23
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$23$1
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$24
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$25
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$26
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$27
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$28
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$29
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$3
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$30
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$4
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$5
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$6
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$7
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$8
- com.dcs.myretailer.app.Setting.PosConfigurationActivity$9
 com/dcs/myretailer/app/domain/transaction/sales/SalesModelDao.java
  com.dcs.myretailer.app.domain.transaction.sales.SalesModelDao
-ProductData.java
- ProductData
-com/dcs/myretailer/app/Setting/StockManagement/StockManagementActivity.java
- com.dcs.myretailer.app.Setting.StockManagement.StockManagementActivity
- com.dcs.myretailer.app.Setting.StockManagement.StockManagementActivity$1
+com/dcs/myretailer/app/Activity/CashLayoutActivity.java
+ com.dcs.myretailer.app.Activity.CashLayoutActivity
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$1
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$10
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$11
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$2
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$3
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$4
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$5
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$6
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$7
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$8
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$9
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$AsyncTaskSync
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$AsyncTaskSync$1
+ com.dcs.myretailer.app.Activity.CashLayoutActivity$AsyncTaskSync$2
+com/dcs/myretailer/app/JeripayReceiptData.java
+ com.dcs.myretailer.app.JeripayReceiptData
+com/dcs/myretailer/app/Activity/SearchResultsActivity.java
+ com.dcs.myretailer.app.Activity.SearchResultsActivity
 com/dcs/myretailer/app/Cashier/PagerItemDiscountAdapter.java
  com.dcs.myretailer.app.Cashier.PagerItemDiscountAdapter
 com/dcs/myretailer/app/Fill.java
@@ -583,15 +591,10 @@ com/dcs/myretailer/app/Fill.java
  com.dcs.myretailer.app.Fill$1
  com.dcs.myretailer.app.Fill$Direction
  com.dcs.myretailer.app.Fill$Type
+com/dcs/myretailer/app/ScreenSize/MainActivityScreenSize.java
+ com.dcs.myretailer.app.ScreenSize.MainActivityScreenSize
 com/dcs/myretailer/app/Report/DatePickerFragment.java
  com.dcs.myretailer.app.Report.DatePickerFragment
-com/dcs/myretailer/app/Setting/SettingActivity.java
- com.dcs.myretailer.app.Setting.SettingActivity
- com.dcs.myretailer.app.Setting.SettingActivity$1
- com.dcs.myretailer.app.Setting.SettingActivity$2
- com.dcs.myretailer.app.Setting.SettingActivity$3
- com.dcs.myretailer.app.Setting.SettingActivity$4
- com.dcs.myretailer.app.Setting.SettingActivity$4$1
 com/dcs/myretailer/app/databinding/ActivityCheckOutBinding.java
  com.dcs.myretailer.app.databinding.ActivityCheckOutBinding
 com/dcs/myretailer/app/databinding/ActivityReportXListviewBinding.java
@@ -600,27 +603,38 @@ com/dcs/myretailer/app/data/TransactionDB.java
  com.dcs.myretailer.app.data.TransactionDB
 com/dcs/myretailer/app/TotalSales.java
  com.dcs.myretailer.app.TotalSales
-com/dcs/myretailer/app/Setting/ReceiptEditorActivity.java
- com.dcs.myretailer.app.Setting.ReceiptEditorActivity
- com.dcs.myretailer.app.Setting.ReceiptEditorActivity$1
- com.dcs.myretailer.app.Setting.ReceiptEditorActivity$2
- com.dcs.myretailer.app.Setting.ReceiptEditorActivity$3
 com/dcs/myretailer/app/FontAssets/RemarkMainActivityFontAssets.java
  com.dcs.myretailer.app.FontAssets.RemarkMainActivityFontAssets
+com/dcs/myretailer/app/Activity/HardwareActivity.java
+ com.dcs.myretailer.app.Activity.HardwareActivity
+ com.dcs.myretailer.app.Activity.HardwareActivity$1
+ com.dcs.myretailer.app.Activity.HardwareActivity$10
+ com.dcs.myretailer.app.Activity.HardwareActivity$2
+ com.dcs.myretailer.app.Activity.HardwareActivity$2$1
+ com.dcs.myretailer.app.Activity.HardwareActivity$2$2
+ com.dcs.myretailer.app.Activity.HardwareActivity$2$3
+ com.dcs.myretailer.app.Activity.HardwareActivity$3
+ com.dcs.myretailer.app.Activity.HardwareActivity$4
+ com.dcs.myretailer.app.Activity.HardwareActivity$5
+ com.dcs.myretailer.app.Activity.HardwareActivity$6
+ com.dcs.myretailer.app.Activity.HardwareActivity$7
+ com.dcs.myretailer.app.Activity.HardwareActivity$8
+ com.dcs.myretailer.app.Activity.HardwareActivity$8$1
+ com.dcs.myretailer.app.Activity.HardwareActivity$9
 com/dcs/myretailer/app/Report/ReportXAdapter.java
  com.dcs.myretailer.app.Report.ReportXAdapter
 com/dcs/myretailer/app/DeviceListAdapter.java
  com.dcs.myretailer.app.DeviceListAdapter
 com/dcs/myretailer/app/Setting/ButtonStyle.java
  com.dcs.myretailer.app.Setting.ButtonStyle
+com/dcs/myretailer/app/Model/BillMercatusMallLoyaltyDetails.java
+ com.dcs.myretailer.app.Model.BillMercatusMallLoyaltyDetails
 com/dcs/myretailer/app/DataNote.java
  com.dcs.myretailer.app.DataNote
 com/dcs/myretailer/app/Setting/PrinterAdapter.java
  com.dcs.myretailer.app.Setting.PrinterAdapter
 com/dcs/myretailer/app/Report/ReportOverallSaleSummaryAdapter.java
  com.dcs.myretailer.app.Report.ReportOverallSaleSummaryAdapter
-com/dcs/myretailer/app/Setting/ScanProductActivity.java
- com.dcs.myretailer.app.Setting.ScanProductActivity
 com/dcs/myretailer/app/ReceiptZCloseData.java
  com.dcs.myretailer.app.ReceiptZCloseData
 com/dcs/myretailer/app/Report/CommonReport.java
@@ -630,19 +644,8 @@ com/dcs/myretailer/app/Setting/CondimentSheetFragment.java
  com.dcs.myretailer.app.Setting.CondimentSheetFragment$ListAdapter
  com.dcs.myretailer.app.Setting.CondimentSheetFragment$ListAdapter$1
  com.dcs.myretailer.app.Setting.CondimentSheetFragment$ListAdapter$ViewHolder
-com/dcs/myretailer/app/Stock/StockAdjustment.java
- com.dcs.myretailer.app.Stock.StockAdjustment
-com/dcs/myretailer/app/Login/StaffLoginSheetFragment.java
- com.dcs.myretailer.app.Login.StaffLoginSheetFragment
- com.dcs.myretailer.app.Login.StaffLoginSheetFragment$ListAdapter
- com.dcs.myretailer.app.Login.StaffLoginSheetFragment$ListAdapter$1
- com.dcs.myretailer.app.Login.StaffLoginSheetFragment$ListAdapter$ViewHolder
-com/dcs/myretailer/app/Report/ReportDateSheetFragment.java
- com.dcs.myretailer.app.Report.ReportDateSheetFragment
- com.dcs.myretailer.app.Report.ReportDateSheetFragment$1
- com.dcs.myretailer.app.Report.ReportDateSheetFragment$1$1
- com.dcs.myretailer.app.Report.ReportDateSheetFragment$2
- com.dcs.myretailer.app.Report.ReportDateSheetFragment$2$1
+com/dcs/myretailer/app/Printer/PrintingForPAX.java
+ com.dcs.myretailer.app.Printer.PrintingForPAX
 com/dcs/myretailer/app/Setting/StrTextConst.java
  com.dcs.myretailer.app.Setting.StrTextConst
  com.dcs.myretailer.app.Setting.StrTextConst$1
@@ -684,51 +687,64 @@ com/dcs/myretailer/app/Setting/StrTextConst.java
  com.dcs.myretailer.app.Setting.StrTextConst$8
  com.dcs.myretailer.app.Setting.StrTextConst$9
  com.dcs.myretailer.app.Setting.StrTextConst$TextType
-com/dcs/myretailer/app/CheckOutActivity.java
- com.dcs.myretailer.app.CheckOutActivity
- com.dcs.myretailer.app.CheckOutActivity$1
- com.dcs.myretailer.app.CheckOutActivity$10
- com.dcs.myretailer.app.CheckOutActivity$10$1
- com.dcs.myretailer.app.CheckOutActivity$10$1$1
- com.dcs.myretailer.app.CheckOutActivity$10$1$2
- com.dcs.myretailer.app.CheckOutActivity$11
- com.dcs.myretailer.app.CheckOutActivity$11$1
- com.dcs.myretailer.app.CheckOutActivity$11$2
- com.dcs.myretailer.app.CheckOutActivity$12
- com.dcs.myretailer.app.CheckOutActivity$12$1
- com.dcs.myretailer.app.CheckOutActivity$12$2
- com.dcs.myretailer.app.CheckOutActivity$13
- com.dcs.myretailer.app.CheckOutActivity$13$1
- com.dcs.myretailer.app.CheckOutActivity$14
- com.dcs.myretailer.app.CheckOutActivity$14$1
- com.dcs.myretailer.app.CheckOutActivity$15
- com.dcs.myretailer.app.CheckOutActivity$16
- com.dcs.myretailer.app.CheckOutActivity$17
- com.dcs.myretailer.app.CheckOutActivity$17$1
- com.dcs.myretailer.app.CheckOutActivity$18
- com.dcs.myretailer.app.CheckOutActivity$18$1
- com.dcs.myretailer.app.CheckOutActivity$18$2
- com.dcs.myretailer.app.CheckOutActivity$18$3
- com.dcs.myretailer.app.CheckOutActivity$18$4
- com.dcs.myretailer.app.CheckOutActivity$18$5
- com.dcs.myretailer.app.CheckOutActivity$18$6
- com.dcs.myretailer.app.CheckOutActivity$2
- com.dcs.myretailer.app.CheckOutActivity$3
- com.dcs.myretailer.app.CheckOutActivity$4
- com.dcs.myretailer.app.CheckOutActivity$5
- com.dcs.myretailer.app.CheckOutActivity$6
- com.dcs.myretailer.app.CheckOutActivity$7
- com.dcs.myretailer.app.CheckOutActivity$7$1
- com.dcs.myretailer.app.CheckOutActivity$8
- com.dcs.myretailer.app.CheckOutActivity$8$1
- com.dcs.myretailer.app.CheckOutActivity$9
- com.dcs.myretailer.app.CheckOutActivity$9$1
+com/dcs/myretailer/app/Login/StaffLoginSheetFragment.java
+ com.dcs.myretailer.app.Login.StaffLoginSheetFragment
+ com.dcs.myretailer.app.Login.StaffLoginSheetFragment$ListAdapter
+ com.dcs.myretailer.app.Login.StaffLoginSheetFragment$ListAdapter$1
+ com.dcs.myretailer.app.Login.StaffLoginSheetFragment$ListAdapter$ViewHolder
+com/dcs/myretailer/app/Model/StockAdjustment.java
+ com.dcs.myretailer.app.Model.StockAdjustment
+com/dcs/myretailer/app/Report/ReportDateSheetFragment.java
+ com.dcs.myretailer.app.Report.ReportDateSheetFragment
+ com.dcs.myretailer.app.Report.ReportDateSheetFragment$1
+ com.dcs.myretailer.app.Report.ReportDateSheetFragment$1$1
+ com.dcs.myretailer.app.Report.ReportDateSheetFragment$2
+ com.dcs.myretailer.app.Report.ReportDateSheetFragment$2$1
 com/dcs/myretailer/app/TransactionDetailsAdapter.java
  com.dcs.myretailer.app.TransactionDetailsAdapter
 com/dcs/myretailer/app/databinding/CardveiwnoimageItemBookBinding.java
  com.dcs.myretailer.app.databinding.CardveiwnoimageItemBookBinding
 com/dcs/myretailer/app/databinding/ActivityPosConfigurationBinding.java
  com.dcs.myretailer.app.databinding.ActivityPosConfigurationBinding
+com/dcs/myretailer/app/Activity/CheckOutActivity.java
+ com.dcs.myretailer.app.Activity.CheckOutActivity
+ com.dcs.myretailer.app.Activity.CheckOutActivity$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$10
+ com.dcs.myretailer.app.Activity.CheckOutActivity$10$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$10$1$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$10$1$2
+ com.dcs.myretailer.app.Activity.CheckOutActivity$11
+ com.dcs.myretailer.app.Activity.CheckOutActivity$11$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$11$2
+ com.dcs.myretailer.app.Activity.CheckOutActivity$12
+ com.dcs.myretailer.app.Activity.CheckOutActivity$12$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$12$2
+ com.dcs.myretailer.app.Activity.CheckOutActivity$13
+ com.dcs.myretailer.app.Activity.CheckOutActivity$13$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$14
+ com.dcs.myretailer.app.Activity.CheckOutActivity$14$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$15
+ com.dcs.myretailer.app.Activity.CheckOutActivity$16
+ com.dcs.myretailer.app.Activity.CheckOutActivity$17
+ com.dcs.myretailer.app.Activity.CheckOutActivity$17$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$18
+ com.dcs.myretailer.app.Activity.CheckOutActivity$18$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$18$2
+ com.dcs.myretailer.app.Activity.CheckOutActivity$18$3
+ com.dcs.myretailer.app.Activity.CheckOutActivity$18$4
+ com.dcs.myretailer.app.Activity.CheckOutActivity$18$5
+ com.dcs.myretailer.app.Activity.CheckOutActivity$18$6
+ com.dcs.myretailer.app.Activity.CheckOutActivity$2
+ com.dcs.myretailer.app.Activity.CheckOutActivity$3
+ com.dcs.myretailer.app.Activity.CheckOutActivity$4
+ com.dcs.myretailer.app.Activity.CheckOutActivity$5
+ com.dcs.myretailer.app.Activity.CheckOutActivity$6
+ com.dcs.myretailer.app.Activity.CheckOutActivity$7
+ com.dcs.myretailer.app.Activity.CheckOutActivity$7$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$8
+ com.dcs.myretailer.app.Activity.CheckOutActivity$8$1
+ com.dcs.myretailer.app.Activity.CheckOutActivity$9
+ com.dcs.myretailer.app.Activity.CheckOutActivity$9$1
 com/dcs/myretailer/app/Setting/StaffClass.java
  com.dcs.myretailer.app.Setting.StaffClass
 com/dcs/myretailer/app/API/Company.java
@@ -746,25 +762,35 @@ com/dcs/myretailer/app/Cashier/AddSheetFragment.java
  com.dcs.myretailer.app.Cashier.AddSheetFragment
  com.dcs.myretailer.app.Cashier.AddSheetFragment$1
  com.dcs.myretailer.app.Cashier.AddSheetFragment$AsyncAddNewBill
+com/dcs/myretailer/app/Activity/AddNewCategoryActivity.java
+ com.dcs.myretailer.app.Activity.AddNewCategoryActivity
+ com.dcs.myretailer.app.Activity.AddNewCategoryActivity$1
 com/dcs/myretailer/app/databinding/ActivityPaymentListBinding.java
  com.dcs.myretailer.app.databinding.ActivityPaymentListBinding
 com/dcs/myretailer/app/MainActivityViewModel.java
  com.dcs.myretailer.app.MainActivityViewModel
 com/dcs/myretailer/app/API/Result.java
  com.dcs.myretailer.app.API.Result
+com/dcs/myretailer/app/ScreenSize/ReportActivityScreenSize.java
+ com.dcs.myretailer.app.ScreenSize.ReportActivityScreenSize
 com/dcs/myretailer/app/Report/ReportOverallFragment.java
  com.dcs.myretailer.app.Report.ReportOverallFragment
  com.dcs.myretailer.app.Report.ReportOverallFragment$LabelValueFormatter
  com.dcs.myretailer.app.Report.ReportOverallFragment$OnFragmentInteractionListener
 com/dcs/myretailer/app/databinding/ActivityStockInBinding.java
  com.dcs.myretailer.app.databinding.ActivityStockInBinding
+com/dcs/myretailer/app/Activity/AddTaxConfigurationActivity.java
+ com.dcs.myretailer.app.Activity.AddTaxConfigurationActivity
+ com.dcs.myretailer.app.Activity.AddTaxConfigurationActivity$1
+ com.dcs.myretailer.app.Activity.AddTaxConfigurationActivity$2
 com/dcs/myretailer/app/MyAxisValueFormatter.java
  com.dcs.myretailer.app.MyAxisValueFormatter
-com/dcs/myretailer/app/Setting/SupportActivity.java
- com.dcs.myretailer.app.Setting.SupportActivity
- com.dcs.myretailer.app.Setting.SupportActivity$1
 com/dcs/myretailer/app/databinding/ActivityDatabaseImportExportBinding.java
  com.dcs.myretailer.app.databinding.ActivityDatabaseImportExportBinding
+com/dcs/myretailer/app/Activity/AddPaymentTypeActivity.java
+ com.dcs.myretailer.app.Activity.AddPaymentTypeActivity
+ com.dcs.myretailer.app.Activity.AddPaymentTypeActivity$1
+ com.dcs.myretailer.app.Activity.AddPaymentTypeActivity$2
 com/dcs/myretailer/app/Login/CustomAdapterSpinner.java
  com.dcs.myretailer.app.Login.CustomAdapterSpinner
 com/dcs/myretailer/app/databinding/ActivityStockManagementBinding.java
@@ -806,39 +832,48 @@ com/dcs/myretailer/app/CardPayment/CardPaymentData.java
  com.dcs.myretailer.app.CardPayment.CardPaymentData
 com/dcs/myretailer/app/Setting/StaffAdapter.java
  com.dcs.myretailer.app.Setting.StaffAdapter
-com/dcs/myretailer/app/Setting/CategoryManagementActivity.java
- com.dcs.myretailer.app.Setting.CategoryManagementActivity
- com.dcs.myretailer.app.Setting.CategoryManagementActivity$1
- com.dcs.myretailer.app.Setting.CategoryManagementActivity$2
- com.dcs.myretailer.app.Setting.CategoryManagementActivity$3
- com.dcs.myretailer.app.Setting.CategoryManagementActivity$4
- com.dcs.myretailer.app.Setting.CategoryManagementActivity$ListAdapter
- com.dcs.myretailer.app.Setting.CategoryManagementActivity$ListAdapter$1
- com.dcs.myretailer.app.Setting.CategoryManagementActivity$ListAdapter$ViewHolder
 com/dcs/myretailer/app/databinding/ActivityGeneralSettingBinding.java
  com.dcs.myretailer.app.databinding.ActivityGeneralSettingBinding
 com/dcs/myretailer/app/PrinterParam.java
  com.dcs.myretailer.app.PrinterParam
+com/dcs/myretailer/app/Activity/AddNewConfigurationActivity.java
+ com.dcs.myretailer.app.Activity.AddNewConfigurationActivity
+ com.dcs.myretailer.app.Activity.AddNewConfigurationActivity$1
+com/dcs/myretailer/app/Model/ZClose.java
+ com.dcs.myretailer.app.Model.ZClose
 com/dcs/myretailer/app/databinding/ActivityPaymentCashSuccesBinding.java
  com.dcs.myretailer.app.databinding.ActivityPaymentCashSuccesBinding
 com/dcs/myretailer/app/domain/transaction/sales/SalesModel.java
  com.dcs.myretailer.app.domain.transaction.sales.SalesModel
 com/dcs/myretailer/app/Query/Voucher.java
  com.dcs.myretailer.app.Query.Voucher
-com/dcs/myretailer/app/KitchenPrinter/KitchenPrinterModel.java
- com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterModel
-com/dcs/myretailer/app/Setting/PrinterListActivity.java
- com.dcs.myretailer.app.Setting.PrinterListActivity
- com.dcs.myretailer.app.Setting.PrinterListActivity$1
 com/dcs/myretailer/app/Checkout/ScannerTester.java
  com.dcs.myretailer.app.Checkout.ScannerTester
  com.dcs.myretailer.app.Checkout.ScannerTester$1
+com/dcs/myretailer/app/Model/Result.java
+ com.dcs.myretailer.app.Model.Result
 com/dcs/myretailer/app/Query/LongOperation.java
  com.dcs.myretailer.app.Query.LongOperation
 com/dcs/myretailer/app/Cashier/SalesDelievery/SalesDeliveryItem.java
  com.dcs.myretailer.app.Cashier.SalesDelievery.SalesDeliveryItem
 com/dcs/myretailer/app/Setting/TaxAdapter.java
  com.dcs.myretailer.app.Setting.TaxAdapter
+com/dcs/myretailer/app/Activity/AddNewProductActivity.java
+ com.dcs.myretailer.app.Activity.AddNewProductActivity
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$1
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$10
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$2
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$3
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$4
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$5
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$6
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$7
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$7$1
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$8
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$9
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$AsynTaskStockAdjustment
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$AsyncTaskAddUpdateProduct
+ com.dcs.myretailer.app.Activity.AddNewProductActivity$AsyncTaskForSaveStock
 com/dcs/myretailer/app/Setting/ProductManagementActivity.java
  com.dcs.myretailer.app.Setting.ProductManagementActivity
  com.dcs.myretailer.app.Setting.ProductManagementActivity$1
@@ -847,10 +882,11 @@ com/dcs/myretailer/app/Setting/ProductManagementActivity.java
  com.dcs.myretailer.app.Setting.ProductManagementActivity$4
 com/dcs/myretailer/app/Report/PaymentSalesData.java
  com.dcs.myretailer.app.Report.PaymentSalesData
-com/dcs/myretailer/app/SalesPerson/SalesVoucher.java
- com.dcs.myretailer.app.SalesPerson.SalesVoucher
 com/dcs/myretailer/app/Report/ReportAdapter.java
  com.dcs.myretailer.app.Report.ReportAdapter
+com/dcs/myretailer/app/Activity/SupportActivity.java
+ com.dcs.myretailer.app.Activity.SupportActivity
+ com.dcs.myretailer.app.Activity.SupportActivity$1
 com/dcs/myretailer/app/Setting/USBHelper.java
  com.dcs.myretailer.app.Setting.USBHelper
 com/dcs/myretailer/app/OpenDiscountModel.java
@@ -869,6 +905,8 @@ com/dcs/myretailer/app/databinding/ActivityStockAgentListviewBinding.java
 com/dcs/myretailer/app/Report/ReportXFragment.java
  com.dcs.myretailer.app.Report.ReportXFragment
  com.dcs.myretailer.app.Report.ReportXFragment$OnFragmentInteractionListener
+com/dcs/myretailer/app/Activity/HeaderAndFooterActivity.java
+ com.dcs.myretailer.app.Activity.HeaderAndFooterActivity
 com/dcs/myretailer/app/databinding/ItemDiscountItemBookBinding.java
  com.dcs.myretailer.app.databinding.ItemDiscountItemBookBinding
 com/dcs/myretailer/app/LicenseKeyActivity.java
@@ -878,11 +916,6 @@ com/dcs/myretailer/app/LicenseKeyActivity.java
  com.dcs.myretailer.app.LicenseKeyActivity$3
  com.dcs.myretailer.app.LicenseKeyActivity$4
  com.dcs.myretailer.app.LicenseKeyActivity$5
-com/dcs/myretailer/app/KitchenPrinter/ShowMsg.java
- com.dcs.myretailer.app.KitchenPrinter.ShowMsg
- com.dcs.myretailer.app.KitchenPrinter.ShowMsg$1
-com/dcs/myretailer/app/KitchenPrinter/SpnModelsItem.java
- com.dcs.myretailer.app.KitchenPrinter.SpnModelsItem
 com/dcs/myretailer/app/databinding/FragmentAddProductSheetDialogBinding.java
  com.dcs.myretailer.app.databinding.FragmentAddProductSheetDialogBinding
 com/dcs/myretailer/app/databinding/ActivityCashLayoutBinding.java
@@ -893,6 +926,8 @@ com/dcs/myretailer/app/databinding/ActivityStockAdjustmentBinding.java
  com.dcs.myretailer.app.databinding.ActivityStockAdjustmentBinding
 com/dcs/myretailer/app/XYMarkerView.java
  com.dcs.myretailer.app.XYMarkerView
+com/dcs/myretailer/app/Activity/RemarksBarcodeActivity.java
+ com.dcs.myretailer.app.Activity.RemarksBarcodeActivity
 com/dcs/myretailer/app/API/Example.java
  com.dcs.myretailer.app.API.Example
 com/dcs/myretailer/app/Setting/ProductTaxSheetFragment.java
@@ -900,13 +935,10 @@ com/dcs/myretailer/app/Setting/ProductTaxSheetFragment.java
  com.dcs.myretailer.app.Setting.ProductTaxSheetFragment$ListAdapter
  com.dcs.myretailer.app.Setting.ProductTaxSheetFragment$ListAdapter$1
  com.dcs.myretailer.app.Setting.ProductTaxSheetFragment$ListAdapter$ViewHolder
-com/dcs/myretailer/app/Setting/AddNewCategoryActivity.java
- com.dcs.myretailer.app.Setting.AddNewCategoryActivity
- com.dcs.myretailer.app.Setting.AddNewCategoryActivity$1
+com/dcs/myretailer/app/Activity/AddPermissionGroupActivity.java
+ com.dcs.myretailer.app.Activity.AddPermissionGroupActivity
 com/dcs/myretailer/app/Setting/ButtonTextAlign.java
  com.dcs.myretailer.app.Setting.ButtonTextAlign
-com/dcs/myretailer/app/KitchenPrinter/Result.java
- com.dcs.myretailer.app.KitchenPrinter.Result
 com/dcs/myretailer/app/BillFragment.java
  com.dcs.myretailer.app.BillFragment
 com/dcs/myretailer/app/Cashier/CashierFloatAmountSheetFragment.java
@@ -960,6 +992,24 @@ com/dcs/myretailer/app/Setting/ActivityMapButtonSetup.java
  com.dcs.myretailer.app.Setting.ActivityMapButtonSetup$9
 com/dcs/myretailer/app/ViewModel.java
  com.dcs.myretailer.app.ViewModel
+com/dcs/myretailer/app/Activity/DatabaseImportExportActivity.java
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$1
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$2
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$2$1
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$2$1$1
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$2$2
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$2$3
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$3
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$3$1
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$3$1$1
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$3$2
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$3$3
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$4
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$CheckRepair
+ com.dcs.myretailer.app.Activity.DatabaseImportExportActivity$CheckRepair$1
+com/dcs/myretailer/app/Model/StockAgent.java
+ com.dcs.myretailer.app.Model.StockAgent
 com/dcs/myretailer/app/RecyclerViewZCloseResyncAdapter.java
  com.dcs.myretailer.app.RecyclerViewZCloseResyncAdapter
  com.dcs.myretailer.app.RecyclerViewZCloseResyncAdapter$1
@@ -984,34 +1034,14 @@ com/dcs/myretailer/app/Cashier/MainActivity.java
  com.dcs.myretailer.app.Cashier.MainActivity$7
  com.dcs.myretailer.app.Cashier.MainActivity$8
  com.dcs.myretailer.app.Cashier.MainActivity$9
-com/dcs/myretailer/app/Setting/AddTaxConfigurationsActivity.java
- com.dcs.myretailer.app.Setting.AddTaxConfigurationsActivity
- com.dcs.myretailer.app.Setting.AddTaxConfigurationsActivity$1
-com/dcs/myretailer/app/Setting/PermissionGroupActivity.java
- com.dcs.myretailer.app.Setting.PermissionGroupActivity
- com.dcs.myretailer.app.Setting.PermissionGroupActivity$1
-com/dcs/myretailer/app/Setting/HardwareActivity.java
- com.dcs.myretailer.app.Setting.HardwareActivity
- com.dcs.myretailer.app.Setting.HardwareActivity$1
- com.dcs.myretailer.app.Setting.HardwareActivity$10
- com.dcs.myretailer.app.Setting.HardwareActivity$2
- com.dcs.myretailer.app.Setting.HardwareActivity$2$1
- com.dcs.myretailer.app.Setting.HardwareActivity$2$2
- com.dcs.myretailer.app.Setting.HardwareActivity$2$3
- com.dcs.myretailer.app.Setting.HardwareActivity$3
- com.dcs.myretailer.app.Setting.HardwareActivity$4
- com.dcs.myretailer.app.Setting.HardwareActivity$5
- com.dcs.myretailer.app.Setting.HardwareActivity$6
- com.dcs.myretailer.app.Setting.HardwareActivity$7
- com.dcs.myretailer.app.Setting.HardwareActivity$8
- com.dcs.myretailer.app.Setting.HardwareActivity$8$1
- com.dcs.myretailer.app.Setting.HardwareActivity$9
-com/dcs/myretailer/app/databinding/RowListBinding.java
- com.dcs.myretailer.app.databinding.RowListBinding
 com/dcs/myretailer/app/Setting/PaymentTypeListRecyclerViewAdapter.java
  com.dcs.myretailer.app.Setting.PaymentTypeListRecyclerViewAdapter
  com.dcs.myretailer.app.Setting.PaymentTypeListRecyclerViewAdapter$ItemClickListener
  com.dcs.myretailer.app.Setting.PaymentTypeListRecyclerViewAdapter$ViewHolder
+com/dcs/myretailer/app/databinding/RowListBinding.java
+ com.dcs.myretailer.app.databinding.RowListBinding
+com/dcs/myretailer/app/ProductDataViewModel.java
+ com.dcs.myretailer.app.ProductDataViewModel
 com/dcs/myretailer/app/Cashier/CategoryMainPageFragment.java
  com.dcs.myretailer.app.Cashier.CategoryMainPageFragment
  com.dcs.myretailer.app.Cashier.CategoryMainPageFragment$1
@@ -1019,8 +1049,6 @@ com/dcs/myretailer/app/Cashier/CategoryMainPageFragment.java
  com.dcs.myretailer.app.Cashier.CategoryMainPageFragment$ListAdapter
  com.dcs.myretailer.app.Cashier.CategoryMainPageFragment$ListAdapter$1
  com.dcs.myretailer.app.Cashier.CategoryMainPageFragment$ListAdapter$ViewHolder
-com/dcs/myretailer/app/ProductDataViewModel.java
- com.dcs.myretailer.app.ProductDataViewModel
 com/dcs/myretailer/app/Setting/RecyclerViewProductManagementAdapter.java
  com.dcs.myretailer.app.Setting.RecyclerViewProductManagementAdapter
  com.dcs.myretailer.app.Setting.RecyclerViewProductManagementAdapter$1
@@ -1046,40 +1074,54 @@ com/dcs/myretailer/app/Setting/MapViewer.java
  com.dcs.myretailer.app.Setting.MapViewer
  com.dcs.myretailer.app.Setting.MapViewer$1
  com.dcs.myretailer.app.Setting.MapViewer$OnSelectedButton
-com/dcs/myretailer/app/databinding/CheckoutBillInformationOrdersummaryBinding.java
- com.dcs.myretailer.app.databinding.CheckoutBillInformationOrdersummaryBinding
 com/dcs/myretailer/app/databinding/ActivityAddNewCategoryBinding.java
  com.dcs.myretailer.app.databinding.ActivityAddNewCategoryBinding
+com/dcs/myretailer/app/databinding/CheckoutBillInformationOrdersummaryBinding.java
+ com.dcs.myretailer.app.databinding.CheckoutBillInformationOrdersummaryBinding
 com/dcs/myretailer/app/databinding/ActivityLicenseKeyBinding.java
  com.dcs.myretailer.app.databinding.ActivityLicenseKeyBinding
+com/dcs/myretailer/app/Model/ShowMsg.java
+ com.dcs.myretailer.app.Model.ShowMsg
+ com.dcs.myretailer.app.Model.ShowMsg$1
 com/dcs/myretailer/app/IngenicoModule.java
  com.dcs.myretailer.app.IngenicoModule
 com/dcs/myretailer/app/databinding/ActivityButtonListviewBinding.java
  com.dcs.myretailer.app.databinding.ActivityButtonListviewBinding
-com/dcs/myretailer/app/Category/CategoryModel.java
- com.dcs.myretailer.app.Category.CategoryModel
 com/dcs/myretailer/app/Cashier/BillInformation.java
  com.dcs.myretailer.app.Cashier.BillInformation
-com/dcs/myretailer/app/ZClose/ZClose.java
- com.dcs.myretailer.app.ZClose.ZClose
 com/dcs/myretailer/app/CategorySales.java
  com.dcs.myretailer.app.CategorySales
+com/dcs/myretailer/app/Activity/CategoryManagementActivity.java
+ com.dcs.myretailer.app.Activity.CategoryManagementActivity
+ com.dcs.myretailer.app.Activity.CategoryManagementActivity$1
+ com.dcs.myretailer.app.Activity.CategoryManagementActivity$2
+ com.dcs.myretailer.app.Activity.CategoryManagementActivity$3
+ com.dcs.myretailer.app.Activity.CategoryManagementActivity$4
+ com.dcs.myretailer.app.Activity.CategoryManagementActivity$ListAdapter
+ com.dcs.myretailer.app.Activity.CategoryManagementActivity$ListAdapter$1
+ com.dcs.myretailer.app.Activity.CategoryManagementActivity$ListAdapter$ViewHolder
 com/dcs/myretailer/app/databinding/ActivityTransactionDetailsBinding.java
  com.dcs.myretailer.app.databinding.ActivityTransactionDetailsBinding
-com/dcs/myretailer/app/Mercatus/BillMercatusDetails.java
- com.dcs.myretailer.app.Mercatus.BillMercatusDetails
 com/dcs/myretailer/app/Discount.java
  com.dcs.myretailer.app.Discount
 com/dcs/myretailer/app/domain/mastertables/tax/TaxModel.java
  com.dcs.myretailer.app.domain.mastertables.mastertables.tax.TaxModel
+com/dcs/myretailer/app/Model/StockOut.java
+ com.dcs.myretailer.app.Model.StockOut
 com/dcs/myretailer/app/databinding/CardveiwItemBookBinding.java
  com.dcs.myretailer.app.databinding.CardveiwItemBookBinding
+com/dcs/myretailer/app/Activity/ConfigurationHostActivity.java
+ com.dcs.myretailer.app.Activity.ConfigurationHostActivity
+ com.dcs.myretailer.app.Activity.ConfigurationHostActivity$1
+ com.dcs.myretailer.app.Activity.ConfigurationHostActivity$2
+ com.dcs.myretailer.app.Activity.ConfigurationHostActivity$3
+ com.dcs.myretailer.app.Activity.ConfigurationHostActivity$3$1
+com/dcs/myretailer/app/Model/BillBOC.java
+ com.dcs.myretailer.app.Model.BillBOC
 com/dcs/myretailer/app/DataBindingTriggerClass.java
  com.dcs.myretailer.app.DataBindingTriggerClass
 com/dcs/myretailer/app/databinding/ActivityCheckOutListviewBinding.java
  com.dcs.myretailer.app.databinding.ActivityCheckOutListviewBinding
-com/dcs/myretailer/app/BillList/BillListModel.java
- com.dcs.myretailer.app.BillList.BillListModel
 com/dcs/myretailer/app/API/ListPaymentmethod.java
  com.dcs.myretailer.app.API.ListPaymentmethod
 com/dcs/myretailer/app/Cashier/ClearBillSheetFragment.java
@@ -1096,8 +1138,8 @@ com/dcs/myretailer/app/databinding/CategoryMainPageListBinding.java
  com.dcs.myretailer.app.databinding.CategoryMainPageListBinding
 com/dcs/myretailer/app/Cashier/AddProductSheetFragment.java
  com.dcs.myretailer.app.Cashier.AddProductSheetFragment
-com/dcs/myretailer/app/Setting/AddPermissionGroupActivity.java
- com.dcs.myretailer.app.Setting.AddPermissionGroupActivity
+com/dcs/myretailer/app/Model/BillMercatusPayment.java
+ com.dcs.myretailer.app.Model.BillMercatusPayment
 com/dcs/myretailer/app/Setting/SyncAdapter.java
  com.dcs.myretailer.app.Setting.SyncAdapter
 com/dcs/myretailer/app/CategoryFragment.java
@@ -1107,6 +1149,8 @@ com/dcs/myretailer/app/Setting/TypeSheetFragment.java
  com.dcs.myretailer.app.Setting.TypeSheetFragment$ListAdapter
  com.dcs.myretailer.app.Setting.TypeSheetFragment$ListAdapter$1
  com.dcs.myretailer.app.Setting.TypeSheetFragment$ListAdapter$ViewHolder
+com/dcs/myretailer/app/Model/BillMercatusVouchers.java
+ com.dcs.myretailer.app.Model.BillMercatusVouchers
 com/dcs/myretailer/app/Setting/TransactionDatabaseAdapter.java
  com.dcs.myretailer.app.Setting.TransactionDatabaseAdapter
 com/dcs/myretailer/app/Report/Sales.java
@@ -1147,10 +1191,6 @@ com/dcs/myretailer/app/Cashier/AddQuickProductSheetFragment.java
 com/dcs/myretailer/app/ProductMainPageViewModel.java
  com.dcs.myretailer.app.ProductMainPageViewModel
 com/dcs/myretailer/app/ReceiptData.java
- com.dcs.myretailer.app.BillPaymentValue
- com.dcs.myretailer.app.JeripayReceiptData
- com.dcs.myretailer.app.MercatusReceiptData
- com.dcs.myretailer.app.OrderDetails
  com.dcs.myretailer.app.ReceiptData
 com/dcs/myretailer/app/Report/MathUtil.java
  com.dcs.myretailer.app.Report.MathUtil
@@ -1158,19 +1198,16 @@ com/dcs/myretailer/app/Report/ReportProductAdapter.java
  com.dcs.myretailer.app.Report.ReportProductAdapter
 com/dcs/myretailer/app/Task.java
  com.dcs.myretailer.app.Task
-com/dcs/myretailer/app/TransferImageIntoServerActivity.java
- com.dcs.myretailer.app.TransferImageIntoServerActivity
- com.dcs.myretailer.app.TransferImageIntoServerActivity$1
 com/dcs/myretailer/app/FileTransfer.java
  com.dcs.myretailer.app.FileTransfer
 com/dcs/myretailer/app/databinding/FragmentReportDateSheetDialogBinding.java
  com.dcs.myretailer.app.databinding.FragmentReportDateSheetDialogBinding
 com/dcs/myretailer/app/Cashier/TabFragmentPercentage.java
  com.dcs.myretailer.app.Cashier.TabFragmentPercentage
-com/dcs/myretailer/app/API/RetrofitService.java
- com.dcs.myretailer.app.API.RetrofitService
 com/dcs/myretailer/app/DataNoteImformation.java
  com.dcs.myretailer.app.DataNoteImformation
+com/dcs/myretailer/app/API/RetrofitService.java
+ com.dcs.myretailer.app.API.RetrofitService
 com/dcs/myretailer/app/Cashier/RecyclerViewItemDiscountAdapter.java
  com.dcs.myretailer.app.Cashier.RecyclerViewItemDiscountAdapter
  com.dcs.myretailer.app.Cashier.RecyclerViewItemDiscountAdapter$1
@@ -1183,8 +1220,6 @@ com/dcs/myretailer/app/IYmodemSPI.java
  com.dcs.myretailer.app.IYmodemSPI
  com.dcs.myretailer.app.IYmodemSPI$Stub
  com.dcs.myretailer.app.IYmodemSPI$Stub$Proxy
-com/dcs/myretailer/app/SearchResultsActivity.java
- com.dcs.myretailer.app.SearchResultsActivity
 com/dcs/myretailer/app/APIActivity.java
  com.dcs.myretailer.app.APIActivity
  com.dcs.myretailer.app.APIActivity$1
@@ -1196,48 +1231,34 @@ com/dcs/myretailer/app/APIActivity.java
  com.dcs.myretailer.app.APIActivity$7
  com.dcs.myretailer.app.APIActivity$8
  com.dcs.myretailer.app.APIActivity$9
-com/dcs/myretailer/app/Cashier/Player.java
- com.dcs.myretailer.app.Cashier.Player
 com/dcs/myretailer/app/databinding/CheckoutPaymentListBinding.java
  com.dcs.myretailer.app.databinding.CheckoutPaymentListBinding
-com/dcs/myretailer/app/RemarksBarcodeActivity.java
- com.dcs.myretailer.app.RemarksBarcodeActivity
-com/dcs/myretailer/app/Setting/GeneralSettingActivity.java
- com.dcs.myretailer.app.Setting.GeneralSettingActivity
- com.dcs.myretailer.app.Setting.GeneralSettingActivity$1
+com/dcs/myretailer/app/Cashier/Player.java
+ com.dcs.myretailer.app.Cashier.Player
+com/dcs/myretailer/app/Activity/ScanActivity.java
+ com.dcs.myretailer.app.Activity.ScanActivity
+ com.dcs.myretailer.app.Activity.ScanActivity$1
+ com.dcs.myretailer.app.Activity.ScanActivity$2
 com/dcs/myretailer/app/Cancellation.java
  com.dcs.myretailer.app.Cancellation
 com/dcs/myretailer/app/databinding/ActivityProductManagementBinding.java
  com.dcs.myretailer.app.databinding.ActivityProductManagementBinding
-com/dcs/myretailer/app/databinding/ItemDiscountItemAmountBookBinding.java
- com.dcs.myretailer.app.databinding.ItemDiscountItemAmountBookBinding
+com/dcs/myretailer/app/Activity/AddModifierActivity.java
+ com.dcs.myretailer.app.Activity.AddModifierActivity
+ com.dcs.myretailer.app.Activity.AddModifierActivity$1
 com/dcs/myretailer/app/databinding/ActivityCategoryManagementBinding.java
  com.dcs.myretailer.app.databinding.ActivityCategoryManagementBinding
+com/dcs/myretailer/app/databinding/ItemDiscountItemAmountBookBinding.java
+ com.dcs.myretailer.app.databinding.ItemDiscountItemAmountBookBinding
 com/dcs/myretailer/app/Setting/ItemDetail.java
  com.dcs.myretailer.app.Setting.ItemDetail
+com/dcs/myretailer/app/Activity/AddStaffManagementActivity.java
+ com.dcs.myretailer.app.Activity.AddStaffManagementActivity
+ com.dcs.myretailer.app.Activity.AddStaffManagementActivity$1
 com/dcs/myretailer/app/Cashier/MetallicButton.java
  com.dcs.myretailer.app.Cashier.MetallicButton
  com.dcs.myretailer.app.Cashier.MetallicButton$1
  com.dcs.myretailer.app.Cashier.MetallicButton$ButtonStyle
-com/dcs/myretailer/app/TransactionDetailsActivity.java
- com.dcs.myretailer.app.TransactionDetailsActivity
- com.dcs.myretailer.app.TransactionDetailsActivity$1
- com.dcs.myretailer.app.TransactionDetailsActivity$10
- com.dcs.myretailer.app.TransactionDetailsActivity$11
- com.dcs.myretailer.app.TransactionDetailsActivity$12
- com.dcs.myretailer.app.TransactionDetailsActivity$13
- com.dcs.myretailer.app.TransactionDetailsActivity$14
- com.dcs.myretailer.app.TransactionDetailsActivity$15
- com.dcs.myretailer.app.TransactionDetailsActivity$16
- com.dcs.myretailer.app.TransactionDetailsActivity$17
- com.dcs.myretailer.app.TransactionDetailsActivity$2
- com.dcs.myretailer.app.TransactionDetailsActivity$3
- com.dcs.myretailer.app.TransactionDetailsActivity$4
- com.dcs.myretailer.app.TransactionDetailsActivity$5
- com.dcs.myretailer.app.TransactionDetailsActivity$6
- com.dcs.myretailer.app.TransactionDetailsActivity$7
- com.dcs.myretailer.app.TransactionDetailsActivity$8
- com.dcs.myretailer.app.TransactionDetailsActivity$9
 com/dcs/myretailer/app/DialogBox.java
  com.dcs.myretailer.app.DialogBox
  com.dcs.myretailer.app.DialogBox$1
@@ -1256,41 +1277,21 @@ com/dcs/myretailer/app/Setting/ReceiptPrinterSheetFragment.java
  com.dcs.myretailer.app.Setting.ReceiptPrinterSheetFragment$ListAdapter
  com.dcs.myretailer.app.Setting.ReceiptPrinterSheetFragment$ListAdapter$1
  com.dcs.myretailer.app.Setting.ReceiptPrinterSheetFragment$ListAdapter$ViewHolder
-com/dcs/myretailer/app/Setting/TaxConfigurationActivity.java
- com.dcs.myretailer.app.Setting.TaxConfigurationActivity
- com.dcs.myretailer.app.Setting.TaxConfigurationActivity$1
-com/dcs/myretailer/app/Setting/AddTaxConfigurationActivity.java
- com.dcs.myretailer.app.Setting.AddTaxConfigurationActivity
- com.dcs.myretailer.app.Setting.AddTaxConfigurationActivity$1
- com.dcs.myretailer.app.Setting.AddTaxConfigurationActivity$2
+com/dcs/myretailer/app/ScreenSize/DatabaseImportExportActivityScreenSize.java
+ com.dcs.myretailer.app.ScreenSize.DatabaseImportExportActivityScreenSize
 com/dcs/myretailer/app/databinding/ActivityAddNewConfigurationBinding.java
  com.dcs.myretailer.app.databinding.ActivityAddNewConfigurationBinding
-com/dcs/myretailer/app/Setting/DatabaseImportExportActivity.java
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$1
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$2
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$2$1
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$2$1$1
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$2$2
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$2$3
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$3
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$3$1
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$3$1$1
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$3$2
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$3$3
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$4
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$CheckRepair
- com.dcs.myretailer.app.Setting.DatabaseImportExportActivity$CheckRepair$1
+com/dcs/myretailer/app/Activity/ZCloseResyncActivity.java
+ com.dcs.myretailer.app.Activity.ZCloseResyncActivity
+ com.dcs.myretailer.app.Activity.ZCloseResyncActivity$1
 com/dcs/myretailer/app/databinding/FragmentReportOverallBinding.java
  com.dcs.myretailer.app.databinding.FragmentReportOverallBinding
 com/dcs/myretailer/app/API/MovieModel.java
  com.dcs.myretailer.app.API.MovieModel
 com/dcs/myretailer/app/ReportCategoryFragment.java
  com.dcs.myretailer.app.ReportCategoryFragment
-com/dcs/myretailer/app/Setting/AddPaymentTypeActivity.java
- com.dcs.myretailer.app.Setting.AddPaymentTypeActivity
- com.dcs.myretailer.app.Setting.AddPaymentTypeActivity$1
- com.dcs.myretailer.app.Setting.AddPaymentTypeActivity$2
+com/dcs/myretailer/app/Activity/HelloSQLCipherActivity.java
+ com.dcs.myretailer.app.Activity.HelloSQLCipherActivity
 com/dcs/myretailer/app/Report/ReportProductFragment.java
  com.dcs.myretailer.app.Report.ReportProductFragment
  com.dcs.myretailer.app.Report.ReportProductFragment$OnFragmentInteractionListener
@@ -1298,8 +1299,9 @@ com/dcs/myretailer/app/Setting/RecyclerNoImageViewProductManagementAdapter.java
  com.dcs.myretailer.app.Setting.RecyclerNoImageViewProductManagementAdapter
  com.dcs.myretailer.app.Setting.RecyclerNoImageViewProductManagementAdapter$1
  com.dcs.myretailer.app.Setting.RecyclerNoImageViewProductManagementAdapter$MyViewHolder
-com/dcs/myretailer/app/Checkout/CheckOutAdapter.java
- com.dcs.myretailer.app.Checkout.CheckOutAdapter
+com/dcs/myretailer/app/Activity/PrinterListActivity.java
+ com.dcs.myretailer.app.Activity.PrinterListActivity
+ com.dcs.myretailer.app.Activity.PrinterListActivity$1
 com/dcs/myretailer/app/databinding/ActivitySampleBinding.java
  com.dcs.myretailer.app.databinding.ActivitySampleBinding
 com/dcs/myretailer/app/Cashier/RemarkScanActivity.java
@@ -1321,17 +1323,17 @@ com/dcs/myretailer/app/Cashier/SwipeControllerActions.java
  com.dcs.myretailer.app.Cashier.SwipeControllerActions
 com/dcs/myretailer/app/LalamoveAPI.java
  com.dcs.myretailer.app.LalamoveAPI
+com/dcs/myretailer/app/Activity/StaffManagementActivity.java
+ com.dcs.myretailer.app.Activity.StaffManagementActivity
+ com.dcs.myretailer.app.Activity.StaffManagementActivity$1
 com/dcs/myretailer/app/Cashier/DeclarationConf.java
  com.dcs.myretailer.app.Cashier.DeclarationConf
 com/dcs/myretailer/app/Report/ReportOverallTransactionAdapter.java
  com.dcs.myretailer.app.Report.ReportOverallTransactionAdapter
-com/dcs/myretailer/app/Setting/StockManagement/StockAgentDetatilsActivity.java
- com.dcs.myretailer.app.Setting.StockManagement.StockAgentDetatilsActivity
- com.dcs.myretailer.app.Setting.StockManagement.StockAgentDetatilsActivity$1
-com/dcs/myretailer/app/Report/TaxSalesData.java
- com.dcs.myretailer.app.Report.TaxSalesData
 com/dcs/myretailer/app/databinding/ActivityAddNewProductBinding.java
  com.dcs.myretailer.app.databinding.ActivityAddNewProductBinding
+com/dcs/myretailer/app/Report/TaxSalesData.java
+ com.dcs.myretailer.app.Report.TaxSalesData
 com/dcs/myretailer/app/Setting/MasterDatabaseAdapter.java
  com.dcs.myretailer.app.Setting.MasterDatabaseAdapter
 com/dcs/myretailer/app/Setting/BottomSheet.java
@@ -1353,77 +1355,65 @@ com/dcs/myretailer/app/Setting/StockManagement/StockManagementAdapter.java
  com.dcs.myretailer.app.Setting.StockManagement.StockManagementAdapter$2
  com.dcs.myretailer.app.Setting.StockManagement.StockManagementAdapter$3
  com.dcs.myretailer.app.Setting.StockManagement.StockManagementAdapter$ViewHolder
-com/dcs/myretailer/app/Setting/AddNewConfigurationActivity.java
- com.dcs.myretailer.app.Setting.AddNewConfigurationActivity
- com.dcs.myretailer.app.Setting.AddNewConfigurationActivity$1
+com/dcs/myretailer/app/Activity/StockManagementActivity.java
+ com.dcs.myretailer.app.Activity.StockManagementActivity
+ com.dcs.myretailer.app.Activity.StockManagementActivity$1
+com/dcs/myretailer/app/ScreenSize/CheckoutActivityScreenSize.java
+ com.dcs.myretailer.app.ScreenSize.CheckoutActivityScreenSize
 com/dcs/myretailer/app/Setting/DiscountClass.java
  com.dcs.myretailer.app.Setting.DiscountClass
 com/dcs/myretailer/app/API/APIInterface.java
  com.dcs.myretailer.app.API.APIInterface
-com/dcs/myretailer/app/ZCloseResyncActivity.java
- com.dcs.myretailer.app.ZCloseResyncActivity
- com.dcs.myretailer.app.ZCloseResyncActivity$1
+com/dcs/myretailer/app/Activity/TransactionDetailsActivity.java
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$1
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$10
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$11
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$12
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$13
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$14
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$15
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$16
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$17
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$2
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$3
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$4
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$5
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$6
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$7
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$8
+ com.dcs.myretailer.app.Activity.TransactionDetailsActivity$9
+com/dcs/myretailer/app/Model/StockTake.java
+ com.dcs.myretailer.app.Model.StockTake
 com/dcs/myretailer/app/databinding/RecyclerviewItemBinding.java
  com.dcs.myretailer.app.databinding.RecyclerviewItemBinding
 com/dcs/myretailer/app/Setting/MapButton.java
  com.dcs.myretailer.app.Setting.MapButton
+com/dcs/myretailer/app/Model/SpnModelsItem.java
+ com.dcs.myretailer.app.Model.SpnModelsItem
 com/dcs/myretailer/app/OnlineOrderClosedBillListMainPageFragment.java
  com.dcs.myretailer.app.OnlineOrderClosedBillListMainPageFragment
  com.dcs.myretailer.app.OnlineOrderClosedBillListMainPageFragment$1
  com.dcs.myretailer.app.OnlineOrderClosedBillListMainPageFragment$ListAdapter
  com.dcs.myretailer.app.OnlineOrderClosedBillListMainPageFragment$ListAdapter$1
  com.dcs.myretailer.app.OnlineOrderClosedBillListMainPageFragment$ListAdapter$ViewHolder
-com/dcs/myretailer/app/Stock/StockAgent.java
- com.dcs.myretailer.app.Stock.StockAgent
-com/dcs/myretailer/app/Setting/SyncActivity.java
- com.dcs.myretailer.app.Setting.SyncActivity
- com.dcs.myretailer.app.Setting.SyncActivity$1
- com.dcs.myretailer.app.Setting.SyncActivity$10
- com.dcs.myretailer.app.Setting.SyncActivity$11
- com.dcs.myretailer.app.Setting.SyncActivity$12
- com.dcs.myretailer.app.Setting.SyncActivity$13
- com.dcs.myretailer.app.Setting.SyncActivity$14
- com.dcs.myretailer.app.Setting.SyncActivity$15
- com.dcs.myretailer.app.Setting.SyncActivity$16
- com.dcs.myretailer.app.Setting.SyncActivity$17
- com.dcs.myretailer.app.Setting.SyncActivity$18
- com.dcs.myretailer.app.Setting.SyncActivity$19
- com.dcs.myretailer.app.Setting.SyncActivity$2
- com.dcs.myretailer.app.Setting.SyncActivity$20
- com.dcs.myretailer.app.Setting.SyncActivity$21
- com.dcs.myretailer.app.Setting.SyncActivity$22
- com.dcs.myretailer.app.Setting.SyncActivity$23
- com.dcs.myretailer.app.Setting.SyncActivity$24
- com.dcs.myretailer.app.Setting.SyncActivity$25
- com.dcs.myretailer.app.Setting.SyncActivity$26
- com.dcs.myretailer.app.Setting.SyncActivity$27
- com.dcs.myretailer.app.Setting.SyncActivity$28
- com.dcs.myretailer.app.Setting.SyncActivity$29
- com.dcs.myretailer.app.Setting.SyncActivity$3
- com.dcs.myretailer.app.Setting.SyncActivity$30
- com.dcs.myretailer.app.Setting.SyncActivity$31
- com.dcs.myretailer.app.Setting.SyncActivity$31$1
- com.dcs.myretailer.app.Setting.SyncActivity$32
- com.dcs.myretailer.app.Setting.SyncActivity$33
- com.dcs.myretailer.app.Setting.SyncActivity$4
- com.dcs.myretailer.app.Setting.SyncActivity$5
- com.dcs.myretailer.app.Setting.SyncActivity$6
- com.dcs.myretailer.app.Setting.SyncActivity$7
- com.dcs.myretailer.app.Setting.SyncActivity$8
- com.dcs.myretailer.app.Setting.SyncActivity$9
- com.dcs.myretailer.app.Setting.SyncActivity$AsyncTaskSync
- com.dcs.myretailer.app.Setting.SyncActivity$AsyncTaskSync$1
- com.dcs.myretailer.app.Setting.SyncActivity$AsyncTaskSync$1$1
 com/dcs/myretailer/app/Database/DBFunc.java
  com.dcs.myretailer.app.Database.DBFunc
 com/dcs/myretailer/app/ReportZFragment.java
  com.dcs.myretailer.app.ReportZFragment
 com/dcs/myretailer/app/Cashier/AddCategorySheetFragment.java
  com.dcs.myretailer.app.Cashier.AddCategorySheetFragment
+com/dcs/myretailer/app/Adapter/CheckOutAdapter.java
+ com.dcs.myretailer.app.Adapter.CheckOutAdapter
 com/dcs/myretailer/app/databinding/FragmentAddQuickProductSheetDialogBinding.java
  com.dcs.myretailer.app.databinding.FragmentAddQuickProductSheetDialogBinding
+com/dcs/myretailer/app/Model/BillJeripay.java
+ com.dcs.myretailer.app.Model.BillJeripay
 com/dcs/myretailer/app/e600/printer/PrinterTester.java
  com.dcs.myretailer.app.e600.printer.PrinterTester
+com/dcs/myretailer/app/Activity/PaymentListActivity.java
+ com.dcs.myretailer.app.Activity.PaymentListActivity
+ com.dcs.myretailer.app.Activity.PaymentListActivity$1
 com/dcs/myretailer/app/Setting/JeripaySignature.java
  com.dcs.myretailer.app.Setting.JeripaySignature
 com/dcs/myretailer/app/databinding/FragmentEditProductSheetDialogBinding.java
@@ -1431,6 +1421,9 @@ com/dcs/myretailer/app/databinding/FragmentEditProductSheetDialogBinding.java
 com/dcs/myretailer/app/Cashier/EditProductSheetFragment.java
  com.dcs.myretailer.app.Cashier.EditProductSheetFragment
  com.dcs.myretailer.app.Cashier.EditProductSheetFragment$1
+com/dcs/myretailer/app/Activity/TaxConfigurationActivity.java
+ com.dcs.myretailer.app.Activity.TaxConfigurationActivity
+ com.dcs.myretailer.app.Activity.TaxConfigurationActivity$1
 com/dcs/myretailer/app/Setting/ActivityMapSetup.java
  com.dcs.myretailer.app.Setting.ActivityMapSetup
  com.dcs.myretailer.app.Setting.ActivityMapSetup$1
@@ -1451,22 +1444,69 @@ com/dcs/myretailer/app/Setting/ActivityMapSetup.java
  com.dcs.myretailer.app.Setting.ActivityMapSetup$7$1
  com.dcs.myretailer.app.Setting.ActivityMapSetup$8
  com.dcs.myretailer.app.Setting.ActivityMapSetup$9
-com/dcs/myretailer/app/Setting/StaffManagementActivity.java
- com.dcs.myretailer.app.Setting.StaffManagementActivity
- com.dcs.myretailer.app.Setting.StaffManagementActivity$1
-com/dcs/myretailer/app/Setting/AddStaffManagementActivity.java
- com.dcs.myretailer.app.Setting.AddStaffManagementActivity
- com.dcs.myretailer.app.Setting.AddStaffManagementActivity$1
 com/dcs/myretailer/app/Setting/LanguageArrayAdapter.java
  com.dcs.myretailer.app.Setting.LanguageArrayAdapter
+com/dcs/myretailer/app/Model/BillListModel.java
+ com.dcs.myretailer.app.Model.BillListModel
+com/dcs/myretailer/app/Activity/SyncActivity.java
+ com.dcs.myretailer.app.Activity.SyncActivity
+ com.dcs.myretailer.app.Activity.SyncActivity$1
+ com.dcs.myretailer.app.Activity.SyncActivity$10
+ com.dcs.myretailer.app.Activity.SyncActivity$11
+ com.dcs.myretailer.app.Activity.SyncActivity$12
+ com.dcs.myretailer.app.Activity.SyncActivity$13
+ com.dcs.myretailer.app.Activity.SyncActivity$14
+ com.dcs.myretailer.app.Activity.SyncActivity$15
+ com.dcs.myretailer.app.Activity.SyncActivity$16
+ com.dcs.myretailer.app.Activity.SyncActivity$17
+ com.dcs.myretailer.app.Activity.SyncActivity$18
+ com.dcs.myretailer.app.Activity.SyncActivity$19
+ com.dcs.myretailer.app.Activity.SyncActivity$2
+ com.dcs.myretailer.app.Activity.SyncActivity$20
+ com.dcs.myretailer.app.Activity.SyncActivity$21
+ com.dcs.myretailer.app.Activity.SyncActivity$22
+ com.dcs.myretailer.app.Activity.SyncActivity$23
+ com.dcs.myretailer.app.Activity.SyncActivity$24
+ com.dcs.myretailer.app.Activity.SyncActivity$25
+ com.dcs.myretailer.app.Activity.SyncActivity$26
+ com.dcs.myretailer.app.Activity.SyncActivity$27
+ com.dcs.myretailer.app.Activity.SyncActivity$28
+ com.dcs.myretailer.app.Activity.SyncActivity$29
+ com.dcs.myretailer.app.Activity.SyncActivity$3
+ com.dcs.myretailer.app.Activity.SyncActivity$30
+ com.dcs.myretailer.app.Activity.SyncActivity$31
+ com.dcs.myretailer.app.Activity.SyncActivity$31$1
+ com.dcs.myretailer.app.Activity.SyncActivity$32
+ com.dcs.myretailer.app.Activity.SyncActivity$33
+ com.dcs.myretailer.app.Activity.SyncActivity$4
+ com.dcs.myretailer.app.Activity.SyncActivity$5
+ com.dcs.myretailer.app.Activity.SyncActivity$6
+ com.dcs.myretailer.app.Activity.SyncActivity$7
+ com.dcs.myretailer.app.Activity.SyncActivity$8
+ com.dcs.myretailer.app.Activity.SyncActivity$9
+ com.dcs.myretailer.app.Activity.SyncActivity$AsyncTaskSync
+ com.dcs.myretailer.app.Activity.SyncActivity$AsyncTaskSync$1
+ com.dcs.myretailer.app.Activity.SyncActivity$AsyncTaskSync$1$1
 com/dcs/myretailer/app/Cashier/StyleTextView.java
  com.dcs.myretailer.app.Cashier.StyleTextView
 com/dcs/myretailer/app/databinding/RecyclerviewPaymentypeRowBinding.java
  com.dcs.myretailer.app.databinding.RecyclerviewPaymentypeRowBinding
+com/dcs/myretailer/app/Model/BillJeripayDetails.java
+ com.dcs.myretailer.app.Model.BillJeripayDetails
+com/dcs/myretailer/app/Model/SalesPayment.java
+ com.dcs.myretailer.app.Model.SalesPayment
 com/dcs/myretailer/app/DayAxisValueFormatter.java
  com.dcs.myretailer.app.DayAxisValueFormatter
-com/dcs/myretailer/app/Jeripay/BillJeripay.java
- com.dcs.myretailer.app.Jeripay.BillJeripay
+com/dcs/myretailer/app/Activity/RemarkMainActivity.java
+ com.dcs.myretailer.app.Activity.RemarkMainActivity
+ com.dcs.myretailer.app.Activity.RemarkMainActivity$1
+ com.dcs.myretailer.app.Activity.RemarkMainActivity$1$1
+ com.dcs.myretailer.app.Activity.RemarkMainActivity$2
+ com.dcs.myretailer.app.Activity.RemarkMainActivity$3
+ com.dcs.myretailer.app.Activity.RemarkMainActivity$4
+ com.dcs.myretailer.app.Activity.RemarkMainActivity$5
+ com.dcs.myretailer.app.Activity.RemarkMainActivity$6
+ com.dcs.myretailer.app.Activity.RemarkMainActivity$7
 com/dcs/myretailer/app/databinding/ActivityAddNewVouchersAndDiscountBinding.java
  com.dcs.myretailer.app.databinding.ActivityAddNewVouchersAndDiscountBinding
 com/dcs/myretailer/app/Setting/ModifierAdapter.java
@@ -1481,13 +1521,10 @@ com/dcs/myretailer/app/OpenDiscountDao.java
  com.dcs.myretailer.app.OpenDiscountDao
 com/dcs/myretailer/app/domain/mastertables/product/ProductDao.java
  com.dcs.myretailer.app.domain.mastertables.product.ProductDao
+com/dcs/myretailer/app/BillPaymentValue.java
+ com.dcs.myretailer.app.BillPaymentValue
 com/dcs/myretailer/app/Checkout/ItemBillSplitFragment.java
  com.dcs.myretailer.app.Checkout.ItemBillSplitFragment
-com/dcs/myretailer/app/Setting/AddNewVouchersAndDiscountActivity.java
- com.dcs.myretailer.app.Setting.AddNewVouchersAndDiscountActivity
- com.dcs.myretailer.app.Setting.AddNewVouchersAndDiscountActivity$1
- com.dcs.myretailer.app.Setting.AddNewVouchersAndDiscountActivity$2
- com.dcs.myretailer.app.Setting.AddNewVouchersAndDiscountActivity$3
 com/dcs/myretailer/app/RecyclerViewItemClickInterface.java
  com.dcs.myretailer.app.RecyclerViewItemClickInterface
 com/dcs/myretailer/app/Checkout/VoucherScanFragment.java
@@ -1499,6 +1536,8 @@ com/dcs/myretailer/app/ZSheetFragment.java
  com.dcs.myretailer.app.ZSheetFragment$ListAdapter
  com.dcs.myretailer.app.ZSheetFragment$ListAdapter$1
  com.dcs.myretailer.app.ZSheetFragment$ListAdapter$ViewHolder
+com/dcs/myretailer/app/Model/StockIn.java
+ com.dcs.myretailer.app.Model.StockIn
 com/dcs/myretailer/app/Setting/CharacterSheetFragment.java
  com.dcs.myretailer.app.Setting.CharacterSheetFragment
  com.dcs.myretailer.app.Setting.CharacterSheetFragment$ListAdapter
@@ -1508,6 +1547,8 @@ com/dcs/myretailer/app/ReportProductFragment.java
  com.dcs.myretailer.app.ReportProductFragment
 com/dcs/myretailer/app/databinding/ActivityMainBinding.java
  com.dcs.myretailer.app.databinding.ActivityMainBinding
+com/dcs/myretailer/app/Model/BillMercatus.java
+ com.dcs.myretailer.app.Model.BillMercatus
 com/dcs/myretailer/app/Cashier/SwipeController.java
  com.dcs.myretailer.app.Cashier.ButtonsState
  com.dcs.myretailer.app.Cashier.SwipeController
@@ -1515,6 +1556,8 @@ com/dcs/myretailer/app/Cashier/SwipeController.java
  com.dcs.myretailer.app.Cashier.SwipeController$2
  com.dcs.myretailer.app.Cashier.SwipeController$3
  com.dcs.myretailer.app.Cashier.SwipeController$3$1
+com/dcs/myretailer/app/Activity/ScanProductActivity.java
+ com.dcs.myretailer.app.Activity.ScanProductActivity
 com/dcs/myretailer/app/ProductSales.java
  com.dcs.myretailer.app.ProductSales
 com/dcs/myretailer/app/Setting/PermissionClass.java
@@ -1526,14 +1569,6 @@ com/dcs/myretailer/app/Cashier/ItemDiscountActivity.java
  com.dcs.myretailer.app.Cashier.ItemDiscountActivity$1
 com/dcs/myretailer/app/Checkout/PaymentTypes.java
  com.dcs.myretailer.app.Checkout.PaymentTypes
-com/dcs/myretailer/app/KitchenPrinter/KitchenPrinterActivity.java
- com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterActivity
- com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterActivity$1
-com/dcs/myretailer/app/AddModifierActivity.java
- com.dcs.myretailer.app.AddModifierActivity
- com.dcs.myretailer.app.AddModifierActivity$1
-com/dcs/myretailer/app/Mercatus/BillMercatusVouchers.java
- com.dcs.myretailer.app.Mercatus.BillMercatusVouchers
 com/dcs/myretailer/app/Cashier/RecyclerViewBillAdapter.java
  com.dcs.myretailer.app.Cashier.RecyclerViewBillAdapter
  com.dcs.myretailer.app.Cashier.RecyclerViewBillAdapter$MyViewHolder
@@ -1563,10 +1598,14 @@ com/dcs/myretailer/app/Cashier/RecyclerViewAdapter.java
  com.dcs.myretailer.app.Cashier.RecyclerViewAdapter$CustomPopUp
  com.dcs.myretailer.app.Cashier.RecyclerViewAdapter$CustomPopUp$1
  com.dcs.myretailer.app.Cashier.RecyclerViewAdapter$MyViewHolder
-com/dcs/myretailer/app/KitchenPrinter/MsgMaker.java
- com.dcs.myretailer.app.KitchenPrinter.MsgMaker
 com/dcs/myretailer/app/databinding/ActivityHardwareBinding.java
  com.dcs.myretailer.app.databinding.ActivityHardwareBinding
+com/dcs/myretailer/app/Activity/StockAgentDetatilsActivity.java
+ com.dcs.myretailer.app.Activity.StockAgentDetatilsActivity
+ com.dcs.myretailer.app.Activity.StockAgentDetatilsActivity$1
+com/dcs/myretailer/app/Model/DiscoverPrinterActivity.java
+ com.dcs.myretailer.app.Model.DiscoverPrinterActivity
+ com.dcs.myretailer.app.Model.DiscoverPrinterActivity$1UpdateListThread
 com/dcs/myretailer/app/Cashier/RecyclerViewItemAmountAdapter.java
  com.dcs.myretailer.app.Cashier.RecyclerViewItemAmountAdapter
  com.dcs.myretailer.app.Cashier.RecyclerViewItemAmountAdapter$1
@@ -1577,26 +1616,11 @@ com/dcs/myretailer/app/Report/CheckForSDCard.java
  com.dcs.myretailer.app.Report.CheckForSDCard
 com/dcs/myretailer/app/databinding/FragmentReportCategoryBinding.java
  com.dcs.myretailer.app.databinding.FragmentReportCategoryBinding
-com/dcs/myretailer/app/CashLayoutActivity.java
- com.dcs.myretailer.app.CashLayoutActivity
- com.dcs.myretailer.app.CashLayoutActivity$1
- com.dcs.myretailer.app.CashLayoutActivity$10
- com.dcs.myretailer.app.CashLayoutActivity$11
- com.dcs.myretailer.app.CashLayoutActivity$2
- com.dcs.myretailer.app.CashLayoutActivity$3
- com.dcs.myretailer.app.CashLayoutActivity$4
- com.dcs.myretailer.app.CashLayoutActivity$5
- com.dcs.myretailer.app.CashLayoutActivity$6
- com.dcs.myretailer.app.CashLayoutActivity$7
- com.dcs.myretailer.app.CashLayoutActivity$8
- com.dcs.myretailer.app.CashLayoutActivity$9
- com.dcs.myretailer.app.CashLayoutActivity$AsyncTaskSync
- com.dcs.myretailer.app.CashLayoutActivity$AsyncTaskSync$1
- com.dcs.myretailer.app.CashLayoutActivity$AsyncTaskSync$2
-com/dcs/myretailer/app/DragAndPlaceActivity.java
- com.dcs.myretailer.app.DragAndPlaceActivity
- com.dcs.myretailer.app.DragAndPlaceActivity$1
- com.dcs.myretailer.app.DragAndPlaceActivity$MyDragListener
- com.dcs.myretailer.app.DragAndPlaceActivity$MyTouchListener
+com/dcs/myretailer/app/Model/KitchenPrinterActivity.java
+ com.dcs.myretailer.app.Model.KitchenPrinterActivity
+ com.dcs.myretailer.app.Model.KitchenPrinterActivity$1
+com/dcs/myretailer/app/Activity/PermissionGroupActivity.java
+ com.dcs.myretailer.app.Activity.PermissionGroupActivity
+ com.dcs.myretailer.app.Activity.PermissionGroupActivity$1
 com/dcs/myretailer/app/databinding/ActivityAddTaxConfigurationsBinding.java
  com.dcs.myretailer.app.databinding.ActivityAddTaxConfigurationsBinding

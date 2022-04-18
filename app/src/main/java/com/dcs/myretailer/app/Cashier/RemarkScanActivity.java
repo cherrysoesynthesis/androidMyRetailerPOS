@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.ScanActivity;
+import com.dcs.myretailer.app.Activity.ScanActivity;
 import com.google.zxing.Result;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;

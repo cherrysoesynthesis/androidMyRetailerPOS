@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
-import com.dcs.myretailer.app.Category.CategoryModel;
+import com.dcs.myretailer.app.Model.CategoryModel;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;

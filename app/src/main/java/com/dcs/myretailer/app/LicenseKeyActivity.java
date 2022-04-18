@@ -22,6 +22,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
+import com.dcs.myretailer.app.Activity.RemarkMainActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.Report.SerialChecker;
 import com.dcs.myretailer.app.Setting.StrTextConst;

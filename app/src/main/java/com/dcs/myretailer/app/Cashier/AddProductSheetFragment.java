@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;

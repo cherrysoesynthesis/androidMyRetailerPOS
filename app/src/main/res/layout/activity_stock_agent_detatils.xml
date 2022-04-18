@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/back"
     android:orientation="vertical"
-    tools:context=".Setting.StockManagement.StockAgentDetatilsActivity">
+    tools:context=".Activity.StockAgentDetatilsActivity">
 
     <include layout="@layout/toolbar_xml"/>
 

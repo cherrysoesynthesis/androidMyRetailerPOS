@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.util.Log;
 import android.view.Gravity;
 
+import com.dcs.myretailer.app.Activity.RemarkMainActivity;
 import com.dcs.myretailer.app.Cashier.MainActivity;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.pax.commonlib.utils.FontCache;
@@ -400,20 +401,28 @@ public class TxnReceiptGenerator  {
         Bitmap bitmap_qr_shoptima = object.getShoptima();
         Bitmap bitmap__ = object.getScaledBitmap();
 
-
-        if (bitmap__ != null || !bitmap__.equals("0") || !bitmap__.equals("null")) {
-            PrinterUtil.getInstance().printBitmap(bitmap__,false);
-        }
-        if (MainActivity.chk_pos_qr_code_.equals(true)) {
-            if (bitmap_qr_shoptima != null) {
-                PrinterUtil.getInstance().printBitmap(bitmap_qr_shoptima,false);
+        try {
+            if (bitmap__ != null || !bitmap__.equals("0") || !bitmap__.equals("null")) {
+                PrinterUtil.getInstance().printBitmap(bitmap__, false);
             }
-        }
+        } catch (Exception e){
 
-        if (barCode != null || !barCode.equals("0") || !barCode.equals("null")) {
-            PrinterUtil.getInstance().printBitmap(barCode,true);
         }
+        try {
+            if (MainActivity.chk_pos_qr_code_.equals(true)) {
+                if (bitmap_qr_shoptima != null) {
+                    PrinterUtil.getInstance().printBitmap(bitmap_qr_shoptima,false);
+                }
+            } } catch (Exception e){
 
+        }
+        try {
+            if (barCode != null || !barCode.equals("0") || !barCode.equals("null")) {
+                PrinterUtil.getInstance().printBitmap(barCode,true);
+            }
+        } catch (Exception e){
+
+        }
 
     }
     public static void printZCloseReceipt(ReceiptZCloseData object){

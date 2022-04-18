@@ -14,7 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
-import com.dcs.myretailer.app.AddModifierActivity;
+import com.dcs.myretailer.app.Activity.AddModifierActivity;
+import com.dcs.myretailer.app.Activity.SettingActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
@@ -117,7 +118,7 @@ public class ModifierActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onBackPressed() {
         //ActivityCompat.finishAffinity(ModifierActivity.this);
-        Intent i = new Intent(context,SettingActivity.class);
+        Intent i = new Intent(context, SettingActivity.class);
         startActivity(i);
         finish();
     }

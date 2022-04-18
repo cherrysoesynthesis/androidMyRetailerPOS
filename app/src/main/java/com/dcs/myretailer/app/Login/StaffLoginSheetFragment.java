@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.Setting.PosConfigurationActivity;
+import com.dcs.myretailer.app.Activity.PosConfigurationActivity;
 import com.dcs.myretailer.app.Setting.StrTextConst;
 
 import java.util.ArrayList;

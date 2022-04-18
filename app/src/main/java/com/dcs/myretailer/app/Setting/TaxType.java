@@ -1,6 +1,6 @@
 package com.dcs.myretailer.app.Setting;
 
-class TaxType {
+public class TaxType {
     Integer ID;
     String Name;
     Integer TaxID;

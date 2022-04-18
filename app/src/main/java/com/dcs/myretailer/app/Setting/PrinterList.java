@@ -1,6 +1,6 @@
 package com.dcs.myretailer.app.Setting;
 
-class PrinterList {
+public class PrinterList {
     Integer id;
     String name;
 

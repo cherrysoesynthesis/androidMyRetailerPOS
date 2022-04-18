@@ -1,9 +1,11 @@
 package com.dcs.myretailer.app.Database;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+//import android.database.sqlite.SQLiteDatabase;
+import net.sqlcipher.Cursor;
+import net.sqlcipher.SQLException;
+import net.sqlcipher.database.SQLiteDatabase;
 
 import com.dcs.myretailer.app.Allocator;
 import com.dcs.myretailer.app.Logger;
@@ -89,8 +91,13 @@ public class DBFunc {
 	}
 	
 	public static boolean LoadDBFromInternal(Context context){
+		Log.i("LoadDBFromInternal","master"+context.getDatabasePath("master.db").exists());
 		if(context.getDatabasePath("master.db").exists()){
-			Allocator.DB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), null);
+			SQLiteDatabase.loadLibs(context);
+			//Allocator.DB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), null);
+			Log.i("LoadDBFromInternal_","LoadDBFgetAbsolutePath_"+context.getDatabasePath("master.db").getAbsolutePath());
+
+			Allocator.DB =  SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), "test123", null);
 			Cursor c = Allocator.DB.rawQuery("PRAGMA journal_mode=ON", null);
 			c.close();
 			c = Allocator.DB.rawQuery("PRAGMA foreign_keys=ON", null);
@@ -102,7 +109,8 @@ public class DBFunc {
 	
 	public static boolean LoadTransactDBFromInternal(Context context){
 		if(context.getDatabasePath("transact.db").exists()){
-			Allocator.TransactDB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("transact.db").getAbsolutePath(), null);
+			SQLiteDatabase.loadLibs(context);
+			Allocator.TransactDB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("transact.db").getAbsolutePath(),"test123", null);
 			Cursor c = Allocator.TransactDB.rawQuery("PRAGMA journal_mode=ON", null);
 			c.close();
 			c = Allocator.TransactDB.rawQuery("PRAGMA foreign_keys=ON", null);
@@ -114,7 +122,8 @@ public class DBFunc {
 	}
 	
 	public static boolean CreateResetDB(Context context, boolean isMaster){
-		
+		Log.i("LoadDBFromInternal_","CreateResetDBl_____"+
+				isMaster);
 		try{
 			if(isMaster){
 				DBFunc.CloseDBFromInternal();
@@ -125,16 +134,31 @@ public class DBFunc {
 			}
 
 			Map<String,String> tblmap = DBFunc.LoadTableHeader(context,isMaster);
+			Log.i("gds__tblmap__","tblmap__"+tblmap);
 
 			SQLiteDatabase db = null;
+			SQLiteDatabase.loadLibs(context);
 			if(isMaster){
 				File dirdb = context.getDatabasePath("master.db").getAbsoluteFile().getParentFile();
 				dirdb.mkdir();
-				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), null);
+				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(),"test123", null);
+
+//				File dirdb = context.getDatabasePath("master.db").getAbsoluteFile().getParentFile();
+//				dirdb.mkdir();
+//				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(),"test123", null);
+
+//				File databaseFile = context.getDatabasePath("master.db");
+//				databaseFile.mkdirs();
+//				databaseFile.delete();
+//				db = SQLiteDatabase.openOrCreateDatabase(databaseFile, "test123", null);
+//				database.execSQL("create table t1(a, b)");
+//				database.execSQL("insert into t1(a, b) values(?, ?)", new Object[]{"one for the money",
+//						"two for the show"});
+
 			}else{
 				File dirdb = context.getDatabasePath("master.db").getAbsoluteFile().getParentFile();
 				dirdb.mkdir();
-				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("transact.db").getAbsolutePath(), null);
+				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("transact.db").getAbsolutePath(),"test123", null);
 			}
 
 			Cursor c = db.rawQuery("PRAGMA journal_mode=OFF", null);
@@ -147,6 +171,7 @@ public class DBFunc {
 			c.close();
 
 			for(String tbl : tblmap.keySet()){
+				Log.i("SDf___","df___"+tblmap.get(tbl));
 				db.execSQL(tblmap.get(tbl));
 			}
 
@@ -160,15 +185,17 @@ public class DBFunc {
 			return true;
 		}catch(IOException e){
 			Logger.WriteLog("DBFunc",e.toString());
+			Log.i("DBFuIOExceptionnc",e.toString());
 			return false;
 		}
 		
 	}
 	
 	public static Map<String,String> LoadTableHeader(Context context, boolean master) throws IOException{
-
+		SQLiteDatabase.loadLibs(context);
 		DBFunc.OpenDBFromDisk(context.getAssets().open("header_repair.db"), "header_repair.db", context);
-		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(), null);
+//		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(),"test123", null);
+		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(),"", null);
 		Cursor c = null;
 		if(master){
 			c = db.rawQuery("SELECT tblname, tblsql FROM master", null);
@@ -194,8 +221,9 @@ public class DBFunc {
 	}
 	
 	public static List<String> LoadScriptUpdate(Context context, boolean master) throws IOException{
+		SQLiteDatabase.loadLibs(context);
 		DBFunc.OpenDBFromDisk(context.getAssets().open("header_repair.db"), "header_repair.db", context);
-		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(), null);
+		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(),"test123", null);
 		Cursor c = null;
 		if(master){
 			c = db.rawQuery("SELECT script FROM master_script ORDER BY seq ASC", null);
@@ -263,6 +291,7 @@ public class DBFunc {
 	public static Cursor GetBillNoFromBill() {
 		String sql = Query.GetSQLForBillPendingQty();
 
+		Log.i("sql__SaveBill_","sql__c.getCountsql()__"+sql);
 		return DBFunc.Query(sql, false);
 	}
 //	public static Cursor GetBillNoFromBill() {

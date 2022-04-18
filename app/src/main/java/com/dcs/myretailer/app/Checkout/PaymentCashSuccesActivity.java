@@ -3,7 +3,6 @@ package com.dcs.myretailer.app.Checkout;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.dcs.myretailer.app.Cashier.MainActivity;
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.Setting.SyncActivity;
+import com.dcs.myretailer.app.Activity.SyncActivity;
 import com.dcs.myretailer.app.databinding.ActivityPaymentCashSuccesBinding;
 
 

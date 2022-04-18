@@ -868,58 +868,38 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(49);
+    static final SparseArray<String> sKeys = new SparseArray<String>(29);
 
     static {
       sKeys.put(1, "ModifierData");
       sKeys.put(0, "_all");
-      sKeys.put(2, "allowNameQuickEdit");
-      sKeys.put(3, "allowOpenPrice");
-      sKeys.put(4, "allowPriceQuickEdit");
-      sKeys.put(5, "base64imgValue");
-      sKeys.put(6, "category");
-      sKeys.put(7, "code");
-      sKeys.put(8, "condi_Seq");
-      sKeys.put(9, "dateTime");
-      sKeys.put(10, "deptID");
-      sKeys.put(11, "description");
-      sKeys.put(12, "dt");
-      sKeys.put(13, "dtime");
-      sKeys.put(14, "iD");
-      sKeys.put(15, "image");
-      sKeys.put(16, "imageFileName");
-      sKeys.put(17, "imageItemID");
-      sKeys.put(18, "imageType");
-      sKeys.put(19, "imageUrl");
-      sKeys.put(20, "name");
-      sKeys.put(21, "name2");
-      sKeys.put(22, "onHandQty");
-      sKeys.put(23, "openPrice");
-      sKeys.put(24, "option");
-      sKeys.put(25, "pLUID");
-      sKeys.put(26, "price");
-      sKeys.put(27, "productCategoryID");
-      sKeys.put(28, "productCategoryName");
-      sKeys.put(29, "productData");
-      sKeys.put(30, "productID");
-      sKeys.put(31, "productModifiers");
-      sKeys.put(32, "productTaxID");
-      sKeys.put(33, "productTaxName");
-      sKeys.put(34, "productVariant");
-      sKeys.put(35, "qty");
-      sKeys.put(36, "qtyActual");
-      sKeys.put(37, "qtyAdjustment");
-      sKeys.put(38, "qtyBalance");
-      sKeys.put(39, "qtyReturn");
-      sKeys.put(40, "qtySold");
-      sKeys.put(41, "remarks");
-      sKeys.put(42, "systemQty");
-      sKeys.put(43, "thumbnail");
-      sKeys.put(44, "title");
-      sKeys.put(45, "transNo");
-      sKeys.put(46, "uUID");
-      sKeys.put(47, "varianceQty");
-      sKeys.put(48, "viewmodel");
+      sKeys.put(2, "category");
+      sKeys.put(3, "dateTime");
+      sKeys.put(4, "description");
+      sKeys.put(5, "dtime");
+      sKeys.put(6, "iD");
+      sKeys.put(7, "name");
+      sKeys.put(8, "openPrice");
+      sKeys.put(9, "pLUID");
+      sKeys.put(10, "price");
+      sKeys.put(11, "productCategoryID");
+      sKeys.put(12, "productCategoryName");
+      sKeys.put(13, "productData");
+      sKeys.put(14, "productID");
+      sKeys.put(15, "qty");
+      sKeys.put(16, "qtyActual");
+      sKeys.put(17, "qtyAdjustment");
+      sKeys.put(18, "qtyBalance");
+      sKeys.put(19, "qtyReturn");
+      sKeys.put(20, "qtySold");
+      sKeys.put(21, "remarks");
+      sKeys.put(22, "systemQty");
+      sKeys.put(23, "thumbnail");
+      sKeys.put(24, "title");
+      sKeys.put(25, "transNo");
+      sKeys.put(26, "uUID");
+      sKeys.put(27, "varianceQty");
+      sKeys.put(28, "viewmodel");
     }
   }
 

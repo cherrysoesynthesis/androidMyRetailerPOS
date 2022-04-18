@@ -70,64 +70,65 @@
         android:usesCleartextTraffic="true"
         tools:node="replace"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".ZCloseResyncActivity" />
+        <activity android:name=".Activity.HelloSQLCipherActivity" />
+        <activity android:name=".Activity.ZCloseResyncActivity" />
         <activity android:name=".LicenseKeyActivity" /> <!-- <activity android:name=".RemarkMainActivity"></activity> -->
-        <activity android:name=".RemarksBarcodeActivity" />
+        <activity android:name=".Activity.RemarksBarcodeActivity" />
         <activity android:name=".presentation.MajorActivity" />
-        <activity android:name=".Setting.StockManagement.StockAgentDetatilsActivity" />
-        <activity android:name=".Setting.StockManagement.StockManagementActivity" />
-        <activity android:name=".TransferImageIntoServerActivity" />
+        <activity android:name=".Activity.StockAgentDetatilsActivity" />
+        <activity android:name=".Activity.StockManagementActivity" />
+        <activity android:name=".Activity.TransferImageIntoServerActivity" />
         <activity android:name=".Report.ActivityGenReport" />
-        <activity android:name=".AddModifierActivity" />
+        <activity android:name=".Activity.AddModifierActivity" />
         <activity android:name=".Setting.ModifierActivity" />
         <activity android:name=".Setting.ActivityMapSetup" />
-        <activity android:name=".Setting.PrinterListActivity" />
-        <activity android:name=".Setting.AddPermissionGroupActivity" />
-        <activity android:name=".Setting.PermissionGroupActivity" />
+        <activity android:name=".Activity.PrinterListActivity" />
+        <activity android:name=".Activity.AddPermissionGroupActivity" />
+        <activity android:name=".Activity.PermissionGroupActivity" />
         <activity android:name=".Cashier.ItemDiscountActivity" />
-        <activity android:name=".Setting.ReportSettingActivity" />
-        <activity android:name=".Setting.PaymentListActivity" />
-        <activity android:name=".Setting.AddNewVouchersAndDiscountActivity" />
-        <activity android:name=".Setting.AddNewConfigurationActivity" />
-        <activity android:name=".Setting.ConfigurationHostActivity" />
-        <activity android:name=".Setting.AddTaxConfigurationsActivity" />
-        <activity android:name=".TransactionDetailsActivity">
+        <activity android:name=".Activity.ReportSettingActivity" />
+        <activity android:name=".Activity.PaymentListActivity" />
+        <activity android:name=".Activity.AddNewVouchersAndDiscountActivity" />
+        <activity android:name=".Activity.AddNewConfigurationActivity" />
+        <activity android:name=".Activity.ConfigurationHostActivity" />
+        <activity android:name=".Activity.AddTaxConfigurationsActivity" />
+        <activity android:name=".Activity.TransactionDetailsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
             </intent-filter>
         </activity>
         <activity android:name=".Setting.ActivityMapButtonSetup" />
-        <activity android:name=".Setting.AddStaffManagementActivity" />
-        <activity android:name=".Setting.AddTaxConfigurationActivity" />
-        <activity android:name=".Setting.AddNewCategoryActivity" />
-        <activity android:name=".Setting.AddPaymentTypeActivity" />
-        <activity android:name=".Setting.AddNewProductActivity" />
-        <activity android:name=".Setting.CategoryManagementActivity" />
+        <activity android:name=".Activity.AddStaffManagementActivity" />
+        <activity android:name=".Activity.AddTaxConfigurationActivity" />
+        <activity android:name=".Activity.AddNewCategoryActivity" />
+        <activity android:name=".Activity.AddPaymentTypeActivity" />
+        <activity android:name=".Activity.AddNewProductActivity" />
+        <activity android:name=".Activity.CategoryManagementActivity" />
         <activity android:name=".Setting.ProductManagementActivity" />
-        <activity android:name=".Setting.HardwareActivity" />
+        <activity android:name=".Activity.HardwareActivity" />
         <activity android:name=".Setting.VouchersAndDiscountsActivity" />
-        <activity android:name=".Setting.TaxConfigurationActivity" />
-        <activity android:name=".Setting.ReceiptEditorActivity" />
-        <activity android:name=".Setting.SupportActivity" />
-        <activity android:name=".Setting.SyncActivity" />
-        <activity android:name=".Setting.StaffManagementActivity" />
-        <activity android:name=".Setting.GeneralSettingActivity" />
+        <activity android:name=".Activity.TaxConfigurationActivity" />
+        <activity android:name=".Activity.ReceiptEditorActivity" />
+        <activity android:name=".Activity.SupportActivity" />
+        <activity android:name=".Activity.SyncActivity" />
+        <activity android:name=".Activity.StaffManagementActivity" />
+        <activity android:name=".Activity.GeneralSettingActivity" />
         <activity
-            android:name=".Setting.PosConfigurationActivity"
+            android:name=".Activity.PosConfigurationActivity"
             android:label="@string/title_activity_pos_configuration"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Setting.DatabaseImportExportActivity" />
-        <activity android:name=".Setting.SettingActivity" />
+        <activity android:name=".Activity.DatabaseImportExportActivity" />
+        <activity android:name=".Activity.SettingActivity" />
         <activity android:name=".Report.ReportActivity" />
         <activity android:name=".Checkout.PaymentCashSuccesActivity" />
-        <activity android:name=".CashLayoutActivity" />
+        <activity android:name=".Activity.CashLayoutActivity" />
         <activity android:name=".APIActivity" />
-        <activity android:name=".CheckOutActivity" /> <!-- <activity android:name=".BottonDialoLogBoxActivity" /> -->
-        <activity android:name=".ScanActivity" />
+        <activity android:name=".Activity.CheckOutActivity" /> <!-- <activity android:name=".BottonDialoLogBoxActivity" /> -->
+        <activity android:name=".Activity.ScanActivity" />
         <activity android:name=".Cashier.RemarkScanActivity" />
-        <activity android:name=".Setting.ScanProductActivity" />
-        <activity android:name=".Setting.ScanVoucherActivity" />
-        <activity android:name=".DragAndPlaceActivity" />
+        <activity android:name=".Activity.ScanProductActivity" />
+        <activity android:name=".Activity.ScanVoucherActivity" />
+        <activity android:name=".Activity.DragAndPlaceActivity" />
         <activity
             android:name=".Cashier.MainActivity"
             android:label="@string/title_activity_main">
@@ -135,8 +136,8 @@
                 android:name="android.app.default_searchable"
                 android:value=".SearchResultsActivity" />
         </activity>
-        <activity android:name=".HeaderAndFooterActivity" /> <!-- <activity android:name=".Login.SampleActivity"> -->
-        <activity android:name=".RemarkMainActivity">
+        <activity android:name=".Activity.HeaderAndFooterActivity" /> <!-- <activity android:name=".Login.SampleActivity"> -->
+        <activity android:name=".Activity.RemarkMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -153,14 +154,14 @@
         <!-- android:name="android.app.searchable" -->
         <!-- android:resource="@xml/searchable" /> -->
         <!-- </activity> -->
-        <activity android:name=".BarChartActivity" />
+        <activity android:name=".Activity.BarChartActivity" />
         <activity
             android:name="com.karumi.dexter.DexterActivity"
             android:theme="@style/Dexter.Internal.Theme.Transparent" />
 
-        <activity android:name=".KitchenPrinter.KitchenPrinterActivity"></activity>
+        <activity android:name=".Model.KitchenPrinter.KitchenPrinterActivity"></activity>
 
-        <activity android:name=".KitchenPrinter.DiscoverPrinterActivity" android:label="@string/app_name" android:screenOrientation="portrait"></activity>
+        <activity android:name=".Model.KitchenPrinter.DiscoverPrinterActivity" android:label="@string/app_name" android:screenOrientation="portrait"></activity>
 
 
 

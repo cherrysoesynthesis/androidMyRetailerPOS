@@ -1,6 +1,6 @@
 package com.dcs.myretailer.app.Setting;
 
-class TaxClass {
+public class TaxClass {
     Long taxID;
     String name = "";
     String acronym = "";

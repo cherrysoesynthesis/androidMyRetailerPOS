@@ -28,8 +28,8 @@
 ////import com.dcs.myretailer.app.CheckOutActivity;
 ////import com.dcs.myretailer.app.Database.DBFunc;
 ////import com.dcs.myretailer.app.R;
-////import com.dcs.myretailer.app.Setting.AddNewProductActivity;
-////import com.dcs.myretailer.app.Setting.AddTaxConfigurationActivity;
+////import com.dcs.myretailer.app.Activity.AddNewProductActivity;
+////import com.dcs.myretailer.app.Activity.AddTaxConfigurationActivity;
 ////import com.dcs.myretailer.app.Setting.ProductManagementActivity;
 ////import com.newland.ndk.h.ST_RSA_PRIVATE_KEY;
 ////

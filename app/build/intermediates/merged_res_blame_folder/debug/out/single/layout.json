@@ -32,16 +32,16 @@
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\fragment_report_product.xml"
     },
     {
-        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_zcloser_resync_item_book.xml",
-        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\item_zcloser_resync_item_book.xml"
+        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\row_list.xml",
+        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\row_list.xml"
     },
     {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_add_new_product.xml",
         "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\activity_add_new_product.xml"
     },
     {
-        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\row_list.xml",
-        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\row_list.xml"
+        "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_zcloser_resync_item_book.xml",
+        "source": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\src\\main\\res\\layout\\item_zcloser_resync_item_book.xml"
     },
     {
         "merged": "C:\\AndroidStudioProjects\\gitProj\\androidMyRetailerPOS\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_stock_in.xml",

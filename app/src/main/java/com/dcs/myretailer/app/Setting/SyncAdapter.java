@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.dcs.myretailer.app.R;
 
-class SyncAdapter extends BaseAdapter {
+public class SyncAdapter extends BaseAdapter {
     Context context;
     String syncList[];
     LayoutInflater inflter;

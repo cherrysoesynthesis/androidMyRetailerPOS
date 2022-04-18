@@ -1,5 +1,6 @@
 package com.dcs.myretailer.app;
 
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +21,6 @@ import com.usdk.apiservice.aidl.beeper.UBeeper;
 import com.usdk.apiservice.aidl.cashbox.UCashBox;
 import com.usdk.apiservice.aidl.decodeengine.UDecodeEngine;
 import com.usdk.apiservice.aidl.device.UDeviceManager;
-import com.usdk.apiservice.aidl.deviceadmin.UDeviceAdmin;
 import com.usdk.apiservice.aidl.digled.UDigled;
 import com.usdk.apiservice.aidl.dock.DockName;
 import com.usdk.apiservice.aidl.dock.UBTDock;
@@ -79,7 +79,7 @@ import com.usdk.apiservice.aidl.tms.UTMS;
 import com.usdk.apiservice.aidl.update.UUpdate;
 import com.usdk.apiservice.aidl.vectorprinter.UVectorPrinter;
 import com.usdk.apiservice.limited.DeviceServiceLimited;
-
+//import com.usdk.apiservice.limited.DeviceServiceLimited;
 /**
  * The class of device service auxiliary,
  * implements the connection with the equipment service
@@ -93,7 +93,6 @@ public final class DeviceHelper implements ServiceConnection {
 	// 重绑定间隔时间
 	private static final long RETRY_INTERVALS = 3000;
 
-	//private static cn.eas.usdk.demo.DeviceHelper me = new cn.eas.usdk.demo.DeviceHelper();
 	private static DeviceHelper me = new DeviceHelper();
 
 	private Context context;
@@ -103,9 +102,6 @@ public final class DeviceHelper implements ServiceConnection {
 	private volatile boolean isBinded = false;
 	private UDeviceService deviceService;
 
-//	public static cn.eas.usdk.demo.DeviceHelper me() {
-//		return me;
-//	}
 	public static DeviceHelper me() {
 		return me;
 	}
@@ -150,9 +146,7 @@ public final class DeviceHelper implements ServiceConnection {
 		isBinded = true;
 
 		deviceService = UDeviceService.Stub.asInterface(service);
-		//public static boolean USDK_LOG_OPEN = true;
-		//debugLog(DemoConfig.USDK_LOG_OPEN);
-		debugLog(true);
+		debugLog(DemoConfig.USDK_LOG_OPEN);
 
 		DeviceServiceLimited.bind(context, deviceService, new DeviceServiceLimited.ServiceBindListener() {
 			@Override
@@ -202,20 +196,8 @@ public final class DeviceHelper implements ServiceConnection {
 		try {
 			Bundle param = new Bundle();
 			param.putBoolean(DeviceServiceData.USE_EPAY_MODULE, useEpayModule);
-//			param___Bundle[{useEpayModule=true}]
-//					Bundle[{useEpayModule=true}]
-
-//			Intent service = new Intent("com.usdk.apiservice");
-//			service.setPackage("com.usdk.apiservice");
-//			deviceService = UDeviceService.Stub.asInterface(service);
 			deviceService.register(param, new Binder());
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			throw new IllegalStateException(e.getMessage());
-		} catch (RuntimeException e) {
-			e.printStackTrace();
-			throw new IllegalStateException(e.getMessage());
-		} catch (Exception e) {
+		} catch (RemoteException | SecurityException e) {
 			e.printStackTrace();
 			throw new IllegalStateException(e.getMessage());
 		}
@@ -243,7 +225,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UAlgorithm getAlgorithm() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getAlgorithm();
 			}
 		}.start();
@@ -253,7 +235,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UBeeper getBeeper() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getBeeper();
 			}
 		}.start();
@@ -263,7 +245,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UCashBox getCashBox() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getCashBox();
 			}
 		}.start();
@@ -273,7 +255,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UDeviceManager getDeviceManager() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getDeviceManager();
 			}
 		}.start();
@@ -283,7 +265,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UDigled getDigled() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getDigled();
 			}
 		}.start();
@@ -293,7 +275,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UEMV getEMV() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getEMV();
 			}
 		}.start();
@@ -303,7 +285,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UEthernet getEthernet() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getEthernet();
 			}
 		}.start();
@@ -313,7 +295,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UScanner getScanner(final int cameraId) throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getScanner(cameraId);
 			}
 		}.start();
@@ -323,7 +305,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UExScanner getExScanner(final int scannerType, final String deviceName) throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle param = new Bundle();
 				param.putString(DeviceServiceData.DEVICE_NAME, deviceName);
 				return deviceService.getExScanner(scannerType, param);
@@ -335,7 +317,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UICCpuReader getICCpuReader() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getICReader(DriverID.ICCPU, null);
 			}
 		}.start();
@@ -345,7 +327,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UAT24CxxReader getAT24CXXReader(final int cardType) throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle param = new Bundle();
 				param.putInt("cardType", cardType);
 				return deviceService.getICReader(DriverID.AT24CXX, param);
@@ -357,7 +339,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UAT1604Reader getAT1604Reader() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getICReader(DriverID.AT1604, null);
 			}
 		}.start();
@@ -367,7 +349,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UAT1608Reader getAT1608Reader() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getICReader(DriverID.AT1608, null);
 			}
 		}.start();
@@ -377,7 +359,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public USIM4428Reader getSIM4428Reader() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getICReader(DriverID.SIM4428, null);
 			}
 		}.start();
@@ -387,7 +369,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public USIM4442Reader getSIM4442Reader() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getICReader(DriverID.SIM4442, null);
 			}
 		}.start();
@@ -397,7 +379,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public ULed getLed(final String dviceName) throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator() {
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle param = new Bundle();
 				param.putString(DeviceServiceData.RF_DEVICE_NAME, dviceName);
 				return deviceService.getLed(param);
@@ -409,7 +391,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public ULKITool getLKITool() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getLKITool();
 			}
 		}.start();
@@ -419,7 +401,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UMagReader getMagReader() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getMagReader();
 			}
 		}.start();
@@ -429,7 +411,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UPinpad getPinpad(final KAPId kapId, final int keySystem, final String deviceName) throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getPinpad(kapId, keySystem, deviceName);
 			}
 		}.start();
@@ -439,7 +421,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public URFReader getRFReader(final String deviceName) throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle param = new Bundle();
 				param.putString("rfDeviceName", deviceName);
 				return deviceService.getRFReader(param);
@@ -451,7 +433,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UPrinter getPrinter() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getPrinter();
 			}
 		}.start();
@@ -461,7 +443,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public USerialPort getSerialPort(final String deviceName) throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getSerialPort(deviceName);
 			}
 		}.start();
@@ -471,7 +453,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UTMS getTMS() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getTMS();
 			}
 		}.start();
@@ -481,7 +463,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UPSamReader getPSamReader() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle bundle = new Bundle();
 				bundle.putInt(DeviceServiceData.SLOT, 1);
 				return deviceService.getICReader(DriverID.PSAMCARD, bundle);
@@ -493,7 +475,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UParamFile getParamFile(final String moduleName, final String fileName) throws IllegalStateException {
 		IBinder binder = new IBinderCreator() {
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException, SecurityException {
 				return deviceService.getParamFile(moduleName, fileName);
 			}
 		}.start();
@@ -503,7 +485,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UInnerScanner getInnerScanner() throws IllegalStateException {
 		IBinder binder = new IBinderCreator() {
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException, SecurityException {
 				return deviceService.getInnerScanner();
 			}
 		}.start();
@@ -513,7 +495,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public USystemStatistics getSystemStatistics() throws IllegalStateException {
 		IBinder binder = new IBinderCreator() {
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException, SecurityException {
 				return deviceService.getSystemStatistics();
 			}
 		}.start();
@@ -523,7 +505,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UIndustryMagReader getIndustryMagReader() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getIndustryMagReader();
 			}
 		}.start();
@@ -533,7 +515,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public USignPanel getSignPanel(final String deviceName) throws IllegalStateException {
 		IBinder binder = new IBinderCreator() {
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException, SecurityException {
 				Bundle param = new Bundle();
 				param.putString(DeviceServiceData.DEVICE_NAME, deviceName);
 				return deviceService.getSignPanel(param);
@@ -545,7 +527,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UFelicaReader getFelicaReader() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle param = new Bundle();
 				return deviceService.getFelicaReader(param);
 			}
@@ -556,7 +538,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UFiscal getFiscal() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle param = new Bundle();
 				return deviceService.getFiscal(param);
 			}
@@ -567,7 +549,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public USystem getSystem() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getSystem();
 			}
 		}.start();
@@ -577,7 +559,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UUsb getUsb() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getUsb();
 			}
 		}.start();
@@ -587,7 +569,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public USetting getSetting() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getSetting();
 			}
 		}.start();
@@ -597,7 +579,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UProcess getProcess() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getProcess();
 			}
 		}.start();
@@ -607,7 +589,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UStorage getStorage() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getStorage();
 			}
 		}.start();
@@ -617,7 +599,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UKeyChain getKeyChain() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getKeyChain();
 			}
 		}.start();
@@ -627,7 +609,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UTelephony getTelephony() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getTelephony();
 			}
 		}.start();
@@ -637,7 +619,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UApplication getApplication() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getApplication();
 			}
 		}.start();
@@ -647,7 +629,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public USystemProperty getSystemProperty() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getSystemProperty();
 			}
 		}.start();
@@ -657,7 +639,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UInputManager getInputManager() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getInputManager();
 			}
 		}.start();
@@ -667,7 +649,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UKeyboard getKeyboard() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getKeyboard();
 			}
 		}.start();
@@ -677,7 +659,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public ULocation getLocation() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getLocation();
 			}
 		}.start();
@@ -687,7 +669,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UNfc getNfc() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getNfc();
 			}
 		}.start();
@@ -697,7 +679,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UStatusBar getStatusBar() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getSystem().getStatusBar();
 			}
 		}.start();
@@ -715,7 +697,7 @@ public final class DeviceHelper implements ServiceConnection {
 	private IBinder getDock(final String dockName) {
 		return new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle param = new Bundle();
 				param.putString(DeviceServiceData.DOCK_NAME, dockName);
 				return deviceService.getDock(param);
@@ -726,7 +708,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UDockEthernet getWifiDockEthernet(final String portName) {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return getWifiDock().getDockEthernet(portName);
 			}
 		}.start();
@@ -736,8 +718,8 @@ public final class DeviceHelper implements ServiceConnection {
 	public UDockPort getWifiDockPort(final String portName) {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
-                return getWifiDock().getDockPort(portName);
+			IBinder create() throws RemoteException {
+				return getWifiDock().getDockPort(portName);
 			}
 		}.start();
 		return UDockPort.Stub.asInterface(iBinder);
@@ -746,8 +728,8 @@ public final class DeviceHelper implements ServiceConnection {
 	public UDockPort getBTDockPort(final String portName) {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
-                return getBTDock().getDockPort(portName);
+			IBinder create() throws RemoteException {
+				return getBTDock().getDockPort(portName);
 			}
 		}.start();
 		return UDockPort.Stub.asInterface(iBinder);
@@ -756,7 +738,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UDesFireManager getDesFireManager(final String deviceName) {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle bundle = new Bundle();
 				bundle.putInt(DeviceServiceData.MIFARE_MANAGER_TYPE, MifareManagerType.DESFIRE_MANAGER);
 				bundle.putString(DeviceServiceData.RF_DEVICE_NAME, deviceName);
@@ -769,7 +751,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UMifareKeyManager getMifareKeyManager() {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle bundle = new Bundle();
 				bundle.putInt(DeviceServiceData.MIFARE_MANAGER_TYPE, MifareManagerType.KEY_MANAGER);
 				return deviceService.getMifareManager(bundle);
@@ -781,7 +763,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UResetFactory getResetFactory() {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getResetFactory();
 			}
 		}.start();
@@ -791,7 +773,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UVectorPrinter getVectorPrinter() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getVectorPrinter();
 			}
 		}.start();
@@ -801,7 +783,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UDecodeEngine getDecodeEngine() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getDecodeEngine();
 			}
 		}.start();
@@ -811,7 +793,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UOnGuard getOnGuard() {
 		IBinder iBinder = new IBinderCreator() {
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				Bundle bundle = new Bundle();
 				bundle.putString(DeviceServiceData.DEVICE_NAME, DeviceName.IPP);
 				return deviceService.getOnGuard(bundle);
@@ -823,7 +805,7 @@ public final class DeviceHelper implements ServiceConnection {
 	public UUpdate getUpdate() {
 		IBinder iBinder = new IBinderCreator() {
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getModule(ModuleName.UPDATE, null);
 			}
 		}.start();
@@ -833,24 +815,14 @@ public final class DeviceHelper implements ServiceConnection {
 	public UNetWorkManager getNetWorkManager() throws IllegalStateException {
 		IBinder iBinder = new IBinderCreator(){
 			@Override
-            IBinder create() throws RemoteException {
+			IBinder create() throws RemoteException {
 				return deviceService.getModule(ModuleName.NETWORK_MANAGER, new Bundle());
 			}
 		}.start();
 		return UNetWorkManager.Stub.asInterface(iBinder);
 	}
 
-	public UDeviceAdmin getDeviceAdmin() throws IllegalStateException {
-		IBinder iBinder = new IBinderCreator(){
-			@Override
-            IBinder create() throws RemoteException {
-				return deviceService.getModule(ModuleName.DEVICE_ADMIN, new Bundle());
-			}
-		}.start();
-		return UDeviceAdmin.Stub.asInterface(iBinder);
-	}
-
-    abstract class IBinderCreator {
+	abstract class IBinderCreator {
 		IBinder start() throws IllegalStateException {
 			if (deviceService == null) {
 				bindService();
@@ -863,12 +835,9 @@ public final class DeviceHelper implements ServiceConnection {
 				deviceService = null;
 				throw new IllegalStateException("Service process has stopped,please retry latter!");
 
-			} catch (RemoteException e) {
+			} catch (RemoteException | SecurityException e) {
 				throw new IllegalStateException(e.getMessage(), e);
 			}
-//			catch (RemoteException | SecurityException e) {
-//				throw new IllegalStateException(e.getMessage(), e);
-//			}
 		}
 
 		abstract IBinder create() throws RemoteException;

@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.dcs.myretailer.app.Allocator;
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.EditProductSheetViewModel;

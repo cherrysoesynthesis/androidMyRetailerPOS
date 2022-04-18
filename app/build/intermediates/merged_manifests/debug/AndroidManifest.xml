@@ -93,66 +93,68 @@
         android:launchMode="singleTop"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
-        <activity android:name="com.dcs.myretailer.app.ZCloseResyncActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.HelloSQLCipherActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.ZCloseResyncActivity" />
         <activity android:name="com.dcs.myretailer.app.LicenseKeyActivity" /> <!-- <activity android:name=".RemarkMainActivity"></activity> -->
-        <activity android:name="com.dcs.myretailer.app.RemarksBarcodeActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.RemarksBarcodeActivity" />
         <activity android:name="com.dcs.myretailer.app.presentation.MajorActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.StockManagement.StockAgentDetatilsActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.StockManagement.StockManagementActivity" />
-        <activity android:name="com.dcs.myretailer.app.TransferImageIntoServerActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.StockAgentDetatilsActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.StockManagementActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.TransferImageIntoServerActivity" />
         <activity android:name="com.dcs.myretailer.app.Report.ActivityGenReport" />
-        <activity android:name="com.dcs.myretailer.app.AddModifierActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddModifierActivity" />
         <activity android:name="com.dcs.myretailer.app.Setting.ModifierActivity" />
         <activity android:name="com.dcs.myretailer.app.Setting.ActivityMapSetup" />
-        <activity android:name="com.dcs.myretailer.app.Setting.PrinterListActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.AddPermissionGroupActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.PermissionGroupActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.PrinterListActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddPermissionGroupActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.PermissionGroupActivity" />
         <activity android:name="com.dcs.myretailer.app.Cashier.ItemDiscountActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.ReportSettingActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.PaymentListActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.AddNewVouchersAndDiscountActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.AddNewConfigurationActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.ConfigurationHostActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.AddTaxConfigurationsActivity" />
-        <activity android:name="com.dcs.myretailer.app.TransactionDetailsActivity" >
+        <activity android:name="com.dcs.myretailer.app.Activity.ReportSettingActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.PaymentListActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddNewVouchersAndDiscountActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddNewConfigurationActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.ConfigurationHostActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddTaxConfigurationsActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.TransactionDetailsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
             </intent-filter>
         </activity>
         <activity android:name="com.dcs.myretailer.app.Setting.ActivityMapButtonSetup" />
-        <activity android:name="com.dcs.myretailer.app.Setting.AddStaffManagementActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.AddTaxConfigurationActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.AddNewCategoryActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.AddPaymentTypeActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.AddNewProductActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.CategoryManagementActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddStaffManagementActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddTaxConfigurationActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddNewCategoryActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddPaymentTypeActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.AddNewProductActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.CategoryManagementActivity" />
         <activity android:name="com.dcs.myretailer.app.Setting.ProductManagementActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.HardwareActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.HardwareActivity" />
         <activity android:name="com.dcs.myretailer.app.Setting.VouchersAndDiscountsActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.TaxConfigurationActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.ReceiptEditorActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.SupportActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.SyncActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.StaffManagementActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.GeneralSettingActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.TaxConfigurationActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.ReceiptEditorActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.SupportActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.SyncActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.StaffManagementActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.GeneralSettingActivity" />
         <activity
-            android:name="com.dcs.myretailer.app.Setting.PosConfigurationActivity"
+            android:name="com.dcs.myretailer.app.Activity.PosConfigurationActivity"
             android:label="@string/title_activity_pos_configuration"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.dcs.myretailer.app.Setting.DatabaseImportExportActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.SettingActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.DatabaseImportExportActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.SettingActivity" />
         <activity android:name="com.dcs.myretailer.app.Report.ReportActivity" />
         <activity android:name="com.dcs.myretailer.app.Checkout.PaymentCashSuccesActivity" />
-        <activity android:name="com.dcs.myretailer.app.CashLayoutActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.CashLayoutActivity" />
         <activity android:name="com.dcs.myretailer.app.APIActivity" />
-        <activity android:name="com.dcs.myretailer.app.CheckOutActivity" /> <!-- <activity android:name=".BottonDialoLogBoxActivity" /> -->
-        <activity android:name="com.dcs.myretailer.app.ScanActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.CheckOutActivity" /> <!-- <activity android:name=".BottonDialoLogBoxActivity" /> -->
+        <activity android:name="com.dcs.myretailer.app.Activity.ScanActivity" />
         <activity android:name="com.dcs.myretailer.app.Cashier.RemarkScanActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.ScanProductActivity" />
-        <activity android:name="com.dcs.myretailer.app.Setting.ScanVoucherActivity" />
-        <activity android:name="com.dcs.myretailer.app.DragAndPlaceActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.ScanProductActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.ScanVoucherActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.DragAndPlaceActivity" />
         <activity
             android:name="com.dcs.myretailer.app.Cashier.MainActivity"
             android:label="@string/title_activity_main" >
@@ -160,8 +162,8 @@
                 android:name="android.app.default_searchable"
                 android:value=".SearchResultsActivity" />
         </activity>
-        <activity android:name="com.dcs.myretailer.app.HeaderAndFooterActivity" /> <!-- <activity android:name=".Login.SampleActivity"> -->
-        <activity android:name="com.dcs.myretailer.app.RemarkMainActivity" >
+        <activity android:name="com.dcs.myretailer.app.Activity.HeaderAndFooterActivity" /> <!-- <activity android:name=".Login.SampleActivity"> -->
+        <activity android:name="com.dcs.myretailer.app.Activity.RemarkMainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -178,13 +180,13 @@
         <!-- android:name="android.app.searchable" -->
         <!-- android:resource="@xml/searchable" /> -->
         <!-- </activity> -->
-        <activity android:name="com.dcs.myretailer.app.BarChartActivity" />
+        <activity android:name="com.dcs.myretailer.app.Activity.BarChartActivity" />
         <activity
             android:name="com.karumi.dexter.DexterActivity"
             android:theme="@style/Dexter.Internal.Theme.Transparent" />
-        <activity android:name="com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterActivity" />
+        <activity android:name="com.dcs.myretailer.app.Model.KitchenPrinter.KitchenPrinterActivity" />
         <activity
-            android:name="com.dcs.myretailer.app.KitchenPrinter.DiscoverPrinterActivity"
+            android:name="com.dcs.myretailer.app.Model.KitchenPrinter.DiscoverPrinterActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 

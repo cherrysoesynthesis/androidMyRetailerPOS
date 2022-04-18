@@ -43,7 +43,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.DialogBox;
 import com.dcs.myretailer.app.ENUM.Constraints;
@@ -52,7 +52,7 @@ import com.dcs.myretailer.app.ProductDataViewModel;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.Setting.StrTextConst;
-import com.dcs.myretailer.app.TransactionDetailsActivity;
+import com.dcs.myretailer.app.Activity.TransactionDetailsActivity;
 import com.dcs.myretailer.app.databinding.CardveiwItemBookBinding;
 import com.squareup.picasso.Picasso;
 

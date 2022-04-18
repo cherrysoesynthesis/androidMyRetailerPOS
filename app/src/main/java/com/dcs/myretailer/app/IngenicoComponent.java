@@ -1,6 +1,8 @@
 package com.dcs.myretailer.app;
 
 
+import com.dcs.myretailer.app.Activity.RemarkMainActivity;
+
 import javax.inject.Singleton;
 
 import dagger.Component;

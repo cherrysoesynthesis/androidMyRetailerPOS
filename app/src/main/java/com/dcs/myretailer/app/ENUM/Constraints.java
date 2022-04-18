@@ -86,6 +86,7 @@ public class Constraints {
     public static String Deny = "Sorry! Please choose other Staff!";
 //    public static Integer billFontSize = 16;
     public static String Zeroes = "00000000";
+    public static String encrypt_password = "test123";
     public static String Downaloding = "Downloading..";
     public static String SyncPassword = "dcsSyn";
     public static String deleteLogPassword = "dcsSynDL";

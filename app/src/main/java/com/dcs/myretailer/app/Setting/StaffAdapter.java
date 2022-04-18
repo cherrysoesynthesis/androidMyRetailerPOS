@@ -12,7 +12,7 @@ import com.dcs.myretailer.app.R;
 
 import java.util.List;
 
-class StaffAdapter extends BaseAdapter {
+public class StaffAdapter extends BaseAdapter {
     Context context;
     List<StaffClass> staff;
     int flags[];

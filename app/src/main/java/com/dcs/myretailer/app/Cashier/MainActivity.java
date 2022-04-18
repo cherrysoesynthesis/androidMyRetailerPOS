@@ -21,7 +21,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.InputType;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.KeyEvent;
@@ -30,8 +29,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -56,7 +53,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.dcs.myretailer.app.API.APIInterface;
 import com.dcs.myretailer.app.Allocator;
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.LalamoveAPI;
@@ -67,10 +64,11 @@ import com.dcs.myretailer.app.OnlineOrderClosedBillListMainPageFragment;
 import com.dcs.myretailer.app.OnlineOrderListMainPageFragment;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.RemarkMainActivity;
+import com.dcs.myretailer.app.Activity.RemarkMainActivity;
 import com.dcs.myretailer.app.Report.ReportActivity;
-import com.dcs.myretailer.app.ScanActivity;
-import com.dcs.myretailer.app.Setting.SettingActivity;
+import com.dcs.myretailer.app.Activity.ScanActivity;
+import com.dcs.myretailer.app.ScreenSize.MainActivityScreenSize;
+import com.dcs.myretailer.app.Activity.SettingActivity;
 import com.dcs.myretailer.app.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -244,6 +242,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
 
+//        binding.floatingActionButton.setOnClickListener(this);
+
 //        binding.container.setOnTouchListener(this);
         binding.container.setOnClickListener(this);
 
@@ -268,11 +268,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         appContext = getApplicationContext();
         dal = getDal(appContext);
-
+//
         CheckBarCodeStatusFun();
-
+//
         updateMainFun();
-
+//
         binding.btnCheckout.setOnClickListener(this);
 
     }
@@ -282,8 +282,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getIntent = getIntent();
         bundleName = getIntent.getExtras();
         String str_product = "Product";
+
         if(bundleName!=null) {
             name = (String) bundleName.get("name");
+            Log.i("name___","name_"+name);
+
+            if (!(name.equals("TabFragmentPercentage")) && !(name.equals("TabFragmentAmount")) ) {
+
+                if (!(name.equals("CheckoutActivity"))){
+                    CreateBillOrPendingBills();
+                }
+            }
 
             if (name.equals("BillListMainPageFragment")) {
                 str_tab_fragment_3 = "1";
@@ -401,26 +410,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showHeader(strbillNo);
 
             }else{
-                Log.i("name_mccssss__","name__1_"+name);
-                if (!(name.equals("TabFragmentPercentage")) && !(name.equals("TabFragmentAmount")) ) {
-                    Log.i("name_mccssss__","name__2_"+name);
-                    if (!(name.equals("CheckoutActivity"))){
-//                        if (!(name.equals("SampleActivity"))) {
-                            CreateBillOrPendingBills();
-//                        } else {
-//                           Cursor c = DBFunc.GetBillNoFromBill();
-//                            if (c != null) {
-//                                //while (c.moveToNext()) {
-//                                if (c.moveToNext()) {
-//                                    if (!c.isNull(0)) {
-//                                        BillID = c.getInt(0);
-//                                    }
-//                                }
-//                                c.close();
-//                            }
-//                        }
-                    }
-                }
+
+//                if (!(name.equals("TabFragmentPercentage")) && !(name.equals("TabFragmentAmount")) ) {
+//
+//                    if (!(name.equals("CheckoutActivity"))){
+//                            CreateBillOrPendingBills();
+//                    }
+//                }
 
                 strbillNo = Query.findBillNoByBillID(BillID);
 
@@ -430,8 +426,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         getBillByBillNo();
+//
+        try {
 
-        BalNo = Query.GetBalNo(strbillNo);
+            BalNo = Query.GetBalNo(strbillNo);
+        } catch (Exception e){
+            Log.e("BalNo_ex","e_BalNo"+e.getMessage());
+        }
 
         //showHeader();
         showHeader(strbillNo);
@@ -446,13 +447,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         tabLayoutFun(binding);
         tabSelectedFun(binding);
-
+//
         binding.navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         binding.navView.getMenu().findItem(R.id.navigation_cashier).setChecked(true);
 
-        //ScreenDisplayFun(binding,appContext);
-
-//        new AsyncTaskMainFun(this,bundleName,binding).execute();
+        ScreenDisplayFun(binding,appContext);
     }
 
     @Override
@@ -537,121 +536,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         Query.SaveDeviceData(new DeviceData(0,MODEL,BOARD,BRAND,DEVICE,DISPLAY,PRODUCT,terminal_type.toUpperCase(),String.valueOf(vercode),licensekeyVal));
 
-        String terminalTypeVal = Query.GetDeviceData(Constraints.TERMINAL_TYPE);
-        String modelVal = Query.GetDeviceData(Constraints.MODEL);
-
-        Log.i("Teerminail_","terminalTypeVal_"+terminalTypeVal);
-        if (terminalTypeVal.equals(Constraints.INGENICO)){
-            if (modelVal.equals(Constraints.INGENICO_MODEL_APOS_A8OVS)) {
-
-                DisplayMetrics displaymetrics = new DisplayMetrics();
-                getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-                int screenHeight = displaymetrics.heightPixels;
-                int screenWidth = displaymetrics.widthPixels;
-                int screendensity = displaymetrics.densityDpi;
-
-                binding.pager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 760));
-//            viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 850));
-//            viewPager.setBackgroundColor(Color.parseColor("#E3E1E1"));
-
-                binding.linearLayCheckoutBtn.setLayoutParams(new LinearLayout.LayoutParams(750, 120));
-                binding.btnCheckout.setLayoutParams(new LinearLayout.LayoutParams(680, 100));
-
-                binding.navView.setLayoutParams(new LinearLayout.LayoutParams(720, 120));
-
-            }else if (modelVal.equals(Constraints.INGENICO_MODEL_DX8000)){
-                //            navView.setLayoutParams(new LinearLayout.LayoutParams(650, 90));
-
-                binding.pager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 820));
-//            viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 850));
-//            viewPager.setBackgroundColor(Color.parseColor("#E3E1E1"));
-
-                binding.linearLayCheckoutBtn.setLayoutParams(new LinearLayout.LayoutParams(750, 110));
-                binding.btnCheckout.setLayoutParams(new LinearLayout.LayoutParams(680, 100));
-
-                binding.navView.setLayoutParams(new LinearLayout.LayoutParams(720, 120));
-
-            }else {
-                //            navView.setLayoutParams(new LinearLayout.LayoutParams(650, 90));
-
-                binding.pager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 850));
-//            viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 850));
-//            viewPager.setBackgroundColor(Color.parseColor("#E3E1E1"));
-
-                binding.linearLayCheckoutBtn.setLayoutParams(new LinearLayout.LayoutParams(750, 120));
-                binding.btnCheckout.setLayoutParams(new LinearLayout.LayoutParams(680, 110));
-                //binding.btnCheckout.setLayoutParams(new LinearLayout.LayoutParams(680, 100));
-
-                binding.navView.setLayoutParams(new LinearLayout.LayoutParams(720, 120));
-
-            }
-        }else if (terminalTypeVal.equals(Constraints.PAX_E600M)) {
-
-//            LinearLayout.LayoutParams linearparams = new LinearLayout.LayoutParams(750, 560);
-            LinearLayout.LayoutParams linearparams = new LinearLayout.LayoutParams(750, 570);
-//            LinearLayout.LayoutParams linearparams = new LinearLayout.LayoutParams(750, 500);
-            linearparams.leftMargin = 20;
-
-            binding.pager.setLayoutParams(linearparams);
-
-//            viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 850));
-//            viewPager.setBackgroundColor(Color.parseColor("#E3E1E1"));
-
-            LinearLayout.LayoutParams linearParamsLayBtnCheckout = new LinearLayout.LayoutParams(610, 90);
-            linearParamsLayBtnCheckout.leftMargin = 15;
-
-            binding.linearLayCheckoutBtn.setLayoutParams(linearParamsLayBtnCheckout);
-            binding.linearLayCheckoutBtn.setBackgroundColor(ContextCompat.getColor(appContext, R.color.white));
-
-//            LinearLayout.LayoutParams linearParamsBtnCheckout = new LinearLayout.LayoutParams(540, 70);
-                        LinearLayout.LayoutParams linearParamsBtnCheckout = new LinearLayout.LayoutParams(540, 80);
-            //linearParamsBtnCheckout.leftMargin = 30;
-
-            binding.btnCheckout.setLayoutParams(linearParamsBtnCheckout);
-
-//            binding.navView.setLayoutParams(new LinearLayout.LayoutParams(620, 80));
-            binding.navView.setLayoutParams(new LinearLayout.LayoutParams(620, 90));
-        }else if (terminalTypeVal.equals(Constraints.IMIN)) {
-
-            String device = Query.GetDeviceData(Constraints.DEVICE);
-
-            if (device.equals("M2-Max")) {
-
-                //binding.pager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 900));
-                binding.pager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 890));
-//            viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 850));
-//            viewPager.setBackgroundColor(Color.parseColor("#E3E1E1"));
-
-                binding.linearLayCheckoutBtn.setLayoutParams(new LinearLayout.LayoutParams(850, 100));
-                binding.btnCheckout.setLayoutParams(new LinearLayout.LayoutParams(780, 90));
-
-                binding.navView.setLayoutParams(new LinearLayout.LayoutParams(820, 100));
-
-            } else {
-
-//                binding.pager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 750));
-                binding.pager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 825));
-                //binding.pager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 700));
-//            viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 850));
-//            viewPager.setBackgroundColor(Color.parseColor("#E3E1E1"));
-
-                binding.linearLayCheckoutBtn.setLayoutParams(new LinearLayout.LayoutParams(750, 100));
-                binding.btnCheckout.setLayoutParams(new LinearLayout.LayoutParams(680, 90));
-
-                binding.navView.setLayoutParams(new LinearLayout.LayoutParams(720, 105));
-            }
-        }else if (terminalTypeVal.equals(Constraints.PAX)) {
-
-            binding.pager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 920));
-//            viewPager.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 850));
-//            viewPager.setBackgroundColor(Color.parseColor("#E3E1E1"));
-
-            binding.linearLayCheckoutBtn.setLayoutParams(new LinearLayout.LayoutParams(750, 100));
-            binding.btnCheckout.setLayoutParams(new LinearLayout.LayoutParams(680, 90));
-
-            binding.navView.setLayoutParams(new LinearLayout.LayoutParams(720, 90));
-
-        }
+        //ScreenSize
+        new MainActivityScreenSize(getContext(),binding);
     }
 
     //Getting the scan results
@@ -767,104 +653,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //RecyclerViewAdapter.St = "1";
         //Log.i("DFDF___ccccount__","ccccount___"+ccccount);
     }
-//    override fun dispatchKeyEvent(event: KeyEvent): Boolean {
-//        val dispatchFirst = super.dispatchKeyEvent(event)
-//        if(event.action == KeyEvent.ACTION_UP) {
-//            val pressedKey = event.unicodeChar.toChar()
-//            Log.d("PRESS_KEY", "PressedKey=${pressedKey}")
-//            barcode += pressedKey.toString()
-//            if (event.keyCode == KeyEvent.KEYCODE_ENTER) {
-//
-//                Log.d("MyEditText", "onKey input=${barcode}")
-//                val textView: TextView = findViewById<TextView>(R.id.textview_scan)
-//                        textView.text = ""
-//                textView.text = barcode
-//                Toast.makeText(applicationContext, "onKey keyCode=${barcode}", Toast.LENGTH_LONG)
-//                        .show()
-//                barcode = ""
-//            }
-//        }
-//        return dispatchFirst
-
-//    @Override
-//    public boolean dispatchKeyEvent(KeyEvent e) {
-//
-//        if(e.getAction()==KeyEvent.ACTION_DOWN){
-//            Log.i(TAG,"dispatchKeyEvent: "+e.toString());
-//            char pressedKey = (char) e.getUnicodeChar();
-//            barcode += pressedKey;
-//        }
-//        if (e.getAction()==KeyEvent.ACTION_DOWN && e.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-//            Toast.makeText(getApplicationContext(),
-//                    "barcode--->>>" + barcode, Toast.LENGTH_LONG)
-//                    .show();
-//
-//            barcode="";
-//        }
-//
-//        return super.dispatchKeyEvent(e);
-//    }
-
-
-//    private void barCodeScannerDeviceFun() {
-//    }
-//    String barcode = "";
-//    @Override
-//    public boolean dispatchKeyEvent(KeyEvent e) {
-//
-////        if(e.getAction()==KeyEvent.ACTION_DOWN){
-////            //Log.i("Mbarcodey_","dispatchKeyEvent: "+e.toString());
-////            char pressedKey = (char) e.getUnicodeChar();
-////            barcode += pressedKey;
-////        }
-////
-////        if (e.getAction()==KeyEvent.ACTION_DOWN && e.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-////            Toast.makeText(getApplicationContext(),
-////                    "barcode--->>>" + barcode, Toast.LENGTH_LONG)
-////                    .show();
-////            Log.i("barcode_","barcodevalue: "+e.toString());
-////            barcode="";
-////        }
-//        char pressedKey = (char) e.getUnicodeChar();
-//        Log.i("barcode_","barcodevalue: "+e.getCharacters());
-//        Log.i("barcode_","barcodevalue: "+pressedKey);
-//        Toast.makeText(getApplicationContext(), "barcode--->>>" + e.getCharacters(), Toast.LENGTH_LONG);
-//        if (e.getCharacters() != null && !e.getCharacters().isEmpty()){
-//
-//        }
-//
-////            //Add more code...
-//            return super.dispatchKeyEvent(e);
-//
-//
-//    }
-//    @Override
-//    public boolean dispatchKeyEvent(KeyEvent event) {
-//        if (event.getCharacters() != null && !event.getCharacters().isEmpty())
-//            //Add more code...
-//            return super.dispatchKeyEvent(event);
-//
-//    }
-
-//    const val QR_ACTION: String = "android.intent.ACTION_DECODE_DATA"
-//            const val QR_EXTRA: String = "barcode_string"
-//
-//    private val receiver = object : BroadcastReceiver() {
-//        override fun onReceive(context: Context, intent: Intent) {
-//            try {
-//                Timber.d("Get intent ${intent.action}")
-//                if (QR_ACTION == intent.action) {
-//                    if (intent.hasExtra(QR_EXTRA)) {
-//                        val code = intent.getStringExtra(QR_EXTRA)
-//                        Timber.d("New QR code $code")
-//                        // now you have qr code here
-//                    }
-//                }                    }
-//        } catch (t: Throwable) {
-//            // handle errors
-//        }
-//    }
-//}
 
     public static void tabSelectedFun(ActivityMainBinding mbinding) {
 //        adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
@@ -1182,6 +970,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+//            case R.id.floatingActionButton:
+//                Intent iHelloSQLCipherActivity = new Intent(this, HelloSQLCipherActivity.class);
+//                startActivity(iHelloSQLCipherActivity);
+//                break;
 //            case R.id.container:
 //
 //                Log.i("jererererer__main","onClick");
@@ -1599,36 +1391,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    }
 
     public static void getBillByBillNo() {
-        Cursor C_DetailsBillProduct = Query.SearchBillProductByBillNo(MainActivity.strbillNo, Constraints.GroupBy);
-        if (C_DetailsBillProduct != null) {
-            totalItems = 0;
-            totalAmount = 0.0;
-            while (C_DetailsBillProduct.moveToNext()) {
+        if (!MainActivity.strbillNo.equals("0")) {
+            Cursor C_DetailsBillProduct = Query.SearchBillProductByBillNo(MainActivity.strbillNo, Constraints.GroupBy);
+            if (C_DetailsBillProduct != null) {
+                totalItems = 0;
+                totalAmount = 0.0;
+                while (C_DetailsBillProduct.moveToNext()) {
 //                if (!C_DetailsBillProduct.isNull(0)) {
 //                    if (C_DetailsBillProduct.getInt(2) != -1){
-                        totalItems += C_DetailsBillProduct.getInt(0);
+                    totalItems += C_DetailsBillProduct.getInt(0);
 //                        totalAmount += C_DetailsBillProduct.getInt(0) *
 //                                (C_DetailsBillProduct.getDouble(1) - C_DetailsBillProduct.getDouble(3));
-                        //totalAmount += (C_DetailsBillProduct.getDouble(1) - C_DetailsBillProduct.getDouble(3));
-                        totalAmount += (C_DetailsBillProduct.getDouble(1) - (C_DetailsBillProduct.getInt(0)*C_DetailsBillProduct.getDouble(3)));
+                    //totalAmount += (C_DetailsBillProduct.getDouble(1) - C_DetailsBillProduct.getDouble(3));
+                    totalAmount += (C_DetailsBillProduct.getDouble(1) - (C_DetailsBillProduct.getInt(0) * C_DetailsBillProduct.getDouble(3)));
 //                    }
 //                }
+                }
+                C_DetailsBillProduct.close();
             }
-            C_DetailsBillProduct.close();
+
+            String str_product = "Product";
+            if (totalItems > 0) {
+                str_product = "Products";
+            } else {
+                str_product = "Product";
+            }
+
+            binding.btnCheckout.setText(Html.fromHtml("<b>" + "CHECKOUT&nbsp;&nbsp;&nbsp;&nbsp;" + "</b>" +
+                    "<small>" + totalItems + " " + str_product + " " + "</small>" +
+                    "<b>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                    "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$" + String.format("%.2f", totalAmount) + "</b>"));
+
         }
-
-        String str_product = "Product";
-        if (totalItems > 0){
-            str_product = "Products";
-        } else {
-            str_product = "Product";
-        }
-
-        binding.btnCheckout.setText(Html.fromHtml("<b>" + "CHECKOUT&nbsp;&nbsp;&nbsp;&nbsp;" + "</b>" +
-                "<small>" + totalItems + " "+str_product+" " + "</small>" +
-                "<b>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$" + String.format("%.2f", totalAmount) +"</b>"));
-
     }
 
 //    @Override
@@ -1760,11 +1554,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Cursor c = DBFunc.Query(sql, false);
         if (c != null) {
+            Log.i("sql__SaveBill_","sql__c.getCount()__"+c.getCount());
             if (c.getCount() == 0) {
                 Query.CreateNewBillAndDetailsBillProduct();
                 c = DBFunc.GetBillNoFromBill();
 
             } else {
+
+                Log.i("sql__SaveBill_","sql__celse.getCount()__"+c.getCount());
                 c = DBFunc.GetBillNoFromBill();
                 Integer bill_id = 0;
                 if (c != null) {
@@ -1776,6 +1573,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     c.close();
                 }
+                Log.i("sql__SaveBill_","sql_bill_id_"+bill_id);
                 if (bill_id > 0) {
                     Integer lstBillID = Query.findLatestID("BillNo","Bill",false);
                     String strbillNo = Query.findBillNoByBillID(lstBillID);

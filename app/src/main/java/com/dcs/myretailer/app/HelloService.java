@@ -12,7 +12,7 @@
 //import com.dcs.myretailer.app.Cashier.RecyclerViewAdapter;
 //import com.dcs.myretailer.app.Database.DBFunc;
 //import com.dcs.myretailer.app.Query.Query;
-//import com.dcs.myretailer.app.Setting.AddNewProductActivity;
+//import com.dcs.myretailer.app.Activity.AddNewProductActivity;
 //
 //import java.util.ArrayList;
 //import java.util.Date;

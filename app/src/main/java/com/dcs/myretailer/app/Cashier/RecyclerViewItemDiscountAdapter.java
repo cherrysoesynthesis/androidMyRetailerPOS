@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.Setting.DiscountClass;
 import com.dcs.myretailer.app.databinding.ItemDiscountItemBookBinding;

@@ -48,9 +48,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.dcs.myretailer.app.APIActivity;
 import com.dcs.myretailer.app.Allocator;
-import com.dcs.myretailer.app.BOC.BillBOC;
-import com.dcs.myretailer.app.BillList.BillListModel;
-import com.dcs.myretailer.app.CashLayoutActivity;
+import com.dcs.myretailer.app.Model.KitchenPrinterModel;
+import com.dcs.myretailer.app.Model.BillBOC;
+import com.dcs.myretailer.app.Model.BillListModel;
+import com.dcs.myretailer.app.Activity.CashLayoutActivity;
 import com.dcs.myretailer.app.Cashier.BillDetails;
 import com.dcs.myretailer.app.Cashier.DeclarationConf;
 import com.dcs.myretailer.app.Cashier.EditProductSheetFragment;
@@ -59,8 +60,8 @@ import com.dcs.myretailer.app.Cashier.ProductMainPageFragment;
 import com.dcs.myretailer.app.Cashier.RecyclerViewAdapter;
 import com.dcs.myretailer.app.Cashier.SalesDelievery.SalesDelivery;
 import com.dcs.myretailer.app.Cashier.SalesDelievery.SalesDeliveryItem;
-import com.dcs.myretailer.app.Category.CategoryModel;
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Model.CategoryModel;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.Checkout.PaymentCashSuccesActivity;
 import com.dcs.myretailer.app.Checkout.PaymentTypesCheckoutAdapter;
 import com.dcs.myretailer.app.DaggerIngenicoComponent;
@@ -70,36 +71,35 @@ import com.dcs.myretailer.app.DeviceHelper;
 import com.dcs.myretailer.app.DialogBox;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.IngenicoModule;
-import com.dcs.myretailer.app.Jeripay.BillJeripay;
-import com.dcs.myretailer.app.Jeripay.BillJeripayDetails;
-import com.dcs.myretailer.app.KitchenPrinter.KitchenPrinterModel;
-import com.dcs.myretailer.app.Mercatus.BillMercatus;
-import com.dcs.myretailer.app.Mercatus.BillMercatusDetails;
-import com.dcs.myretailer.app.Mercatus.BillMercatusMallLoyaltyDetails;
-import com.dcs.myretailer.app.Mercatus.BillMercatusPayment;
-import com.dcs.myretailer.app.Mercatus.BillMercatusVouchers;
+import com.dcs.myretailer.app.Model.BillJeripay;
+import com.dcs.myretailer.app.Model.BillJeripayDetails;
+import com.dcs.myretailer.app.Model.BillMercatusDetails;
+import com.dcs.myretailer.app.Model.BillMercatusMallLoyaltyDetails;
+import com.dcs.myretailer.app.Model.BillMercatusPayment;
+import com.dcs.myretailer.app.Model.BillMercatusVouchers;
 import com.dcs.myretailer.app.Model.DeviceData;
+import com.dcs.myretailer.app.Model.BillMercatus;
 import com.dcs.myretailer.app.Model.Discount;
 import com.dcs.myretailer.app.ProductData;
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.RemarkMainActivity;
+import com.dcs.myretailer.app.Activity.RemarkMainActivity;
 import com.dcs.myretailer.app.Report.ReportActivity;
-import com.dcs.myretailer.app.Setting.AddNewProductActivity;
+import com.dcs.myretailer.app.Activity.AddNewProductActivity;
 import com.dcs.myretailer.app.Setting.ButtonStyle;
 import com.dcs.myretailer.app.Setting.DiscountClass;
 import com.dcs.myretailer.app.Setting.MapButton;
 import com.dcs.myretailer.app.Setting.MapViewer;
 import com.dcs.myretailer.app.Setting.StrTextConst;
-import com.dcs.myretailer.app.Setting.SyncActivity;
-import com.dcs.myretailer.app.Stock.StockAdjustment;
-import com.dcs.myretailer.app.Stock.StockAgent;
-import com.dcs.myretailer.app.Stock.StockIn;
-import com.dcs.myretailer.app.Stock.StockOut;
-import com.dcs.myretailer.app.Stock.StockTake;
+import com.dcs.myretailer.app.Activity.SyncActivity;
+import com.dcs.myretailer.app.Model.StockAdjustment;
+import com.dcs.myretailer.app.Model.StockAgent;
+import com.dcs.myretailer.app.Model.StockIn;
+import com.dcs.myretailer.app.Model.StockOut;
+import com.dcs.myretailer.app.Model.StockTake;
 import com.dcs.myretailer.app.Tbllicense;
-import com.dcs.myretailer.app.TransactionDetailsActivity;
+import com.dcs.myretailer.app.Activity.TransactionDetailsActivity;
 import com.dcs.myretailer.app.UserAccess;
-import com.dcs.myretailer.app.ZClose.ZClose;
+import com.dcs.myretailer.app.Model.ZClose;
 import com.imin.printerlib.IminPrintUtils;
 
 import org.json.JSONArray;
@@ -9756,6 +9756,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
     }
 
     public static String GetServiceChargesNameAndPercentage() {
+        String terminalTypeVal = Query.GetDeviceData(Constraints.TERMINAL_TYPE);
         Integer taxRate = 0;
         String str_service_charges_name = "";
         Cursor Cursor_tax = Query.GetServiceCharges();
@@ -9766,7 +9767,11 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
             }
             Cursor_tax.close();
         }
-        return str_service_charges_name.toUpperCase()+"("+taxRate+"%)";
+        String percentage = "%";
+        if (terminalTypeVal.toUpperCase().equals(Constraints.INGENICO.toUpperCase())){
+            percentage = "%%";
+        }
+        return str_service_charges_name.toUpperCase()+"("+taxRate+percentage+")";
     }
 
     public static void ShowBillDiscountAtCheckoutPage() {
@@ -10766,7 +10771,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                 Allocator.cashierID + ", '0' , " +
                 "'"+ vchQueueNo +"', '"+intTableNo+"','"+receiptOrderStatus+"','"+transID+"',"+
                 "'"+offonStatus+"','" + transNo + "')";
-
+        Log.i("sql__SaveBill_","sql____"+sql);
         DBFunc.ExecQuery(sql, false);
 
 
@@ -11119,7 +11124,9 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                                 }
 
                                 for (int printcount = 0; printcount < receiptCount; printcount++) {
-                                    CashLayoutActivity.PrintFormatFun(context,sale_id,billNo, Constraints.SALES,null,null);
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                        CashLayoutActivity.PrintFormatFun(context,sale_id,billNo, Constraints.SALES,null,null);
+                                    }
                                 }
 //                                CashLayoutActivity.PrintFormatFun(context,sale_id,billNo, Constraints.SALES,null,null);
 
@@ -13566,9 +13573,11 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
     public static void PrintingValueSetForIMIN(IminPrintUtils mIminPrintUtils, String colTextFirst, String colTextSecond, String colTextThird,
                                                     int[] ints, int[] ints1, int[] ints2) {
         try {
-            mIminPrintUtils.printColumnsText(new String[]{colTextFirst, colTextSecond, colTextThird},
-                    ints,
-                    ints1, ints2);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                mIminPrintUtils.printColumnsText(new String[]{colTextFirst, colTextSecond, colTextThird},
+                        ints,
+                        ints1, ints2);
+            }
         } catch (NullPointerException e){
 
            // if (CashLayoutActivity.terminalTypeVal.toUpperCase().equals(Constraints.IMIN.toUpperCase())) {
@@ -14102,7 +14111,8 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
 
         String sql = "SELECT Bill.BillNo,BillList.STATUS FROM Bill " +
                 "inner join BillList on BillList.BillID = Bill.BillNo " +
-                "where BillList.TotalItems = '0' AND BillList.STATUS = 'PENDING'  order by BillList.BillNo DESC LIMIT 1";
+                "where BillList.TotalItems = '0' AND BillList.STATUS = 'PENDING'  " +
+                "order by BillList.BillNo DESC LIMIT 1";
         return sql;
     }
 

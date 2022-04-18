@@ -8,6 +8,7 @@
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_hardware.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_kitchen_printer.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_license_key.xml" value="0.14791666666666667" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_pos_configuration_imin.xml" value="0.13020833333333334" />
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_receipt_editor.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_remark_main.xml" value="0.14130434782608695" />
@@ -17,6 +18,7 @@
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/dlg_license.xml" value="0.14130434782608695" />
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/fragment_report_overall.xml" value="0.11979166666666667" />
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/list_at.xml" value="0.1359375" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/main.xml" value="0.11770833333333333" />
         <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/text_color_selector.xml" value="0.1" />
       </map>
     </option>

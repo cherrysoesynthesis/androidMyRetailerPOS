@@ -1,6 +1,6 @@
 package com.dcs.myretailer.app.Setting;
 
-class PermissionClass {
+public class PermissionClass {
     Integer permission_group_id;
     String permission_group_name;
 

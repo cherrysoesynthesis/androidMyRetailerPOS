@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorBgcash"
     android:orientation="vertical"
-    tools:context=".Setting.CategoryManagementActivity">
+    tools:context=".Activity.CategoryManagementActivity">
 <!--    android:layout_height="?attr/actionBarSize"-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"

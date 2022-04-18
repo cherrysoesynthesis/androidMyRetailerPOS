@@ -17,7 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.dcs.myretailer.app.BillList.BillListModel;
+import com.dcs.myretailer.app.Model.BillListModel;
 import com.dcs.myretailer.app.Cashier.BillData;
 import com.dcs.myretailer.app.Cashier.ClearBillSheetFragment;
 import com.dcs.myretailer.app.Cashier.MainActivity;

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.dcs.myretailer.app.Cashier.MainActivity;
 import com.dcs.myretailer.app.R;
 
-class TransactionDatabaseAdapter extends BaseAdapter {
+public class TransactionDatabaseAdapter extends BaseAdapter {
     Context context;
     String countryList[];
     int flags[];

@@ -23,7 +23,6 @@ import android.print.PrintAttributes;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -47,7 +46,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.dcs.myretailer.app.Allocator;
-import com.dcs.myretailer.app.BarChartActivity;
+import com.dcs.myretailer.app.Activity.BarChartActivity;
 import com.dcs.myretailer.app.Cancellation;
 import com.dcs.myretailer.app.Cashier.MainActivity;
 import com.dcs.myretailer.app.CategorySales;
@@ -65,8 +64,9 @@ import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.ReceiptZCloseData;
 import com.dcs.myretailer.app.Refund;
-import com.dcs.myretailer.app.RemarkMainActivity;
-import com.dcs.myretailer.app.Setting.SettingActivity;
+import com.dcs.myretailer.app.Activity.RemarkMainActivity;
+import com.dcs.myretailer.app.ScreenSize.ReportActivityScreenSize;
+import com.dcs.myretailer.app.Activity.SettingActivity;
 import com.dcs.myretailer.app.Setting.StrTextConst;
 import com.dcs.myretailer.app.TotalSales;
 import com.dcs.myretailer.app.TxnReceiptGenerator;
@@ -732,91 +732,8 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 rdSheetFragment.show(getSupportFragmentManager(), rdSheetFragment.getTag());
             }
         });
-//        total_sales.setText("Total Sales ("+ TotalQty +") items sold.");
-//        total_sales_amount.setText(String.valueOf(total_sales_amount_count));
-
-        ScreenLayoutFun();
-//        mHandler = new Handler();
-//        m_Runnable.run();
-    }
-
-    private void ScreenLayoutFun() {
-        String terminalTypeVal = Query.GetDeviceData(Constraints.TERMINAL_TYPE);
-        if (terminalTypeVal.toUpperCase().equals(Constraints.PAX_E600M)){
-            LinearLayout.LayoutParams paramsReportIcon = new LinearLayout.LayoutParams(82,
-                    ViewGroup.LayoutParams.MATCH_PARENT);
-            binding.layRprint.setLayoutParams(paramsReportIcon);
-            binding.LayReportExport.setLayoutParams(paramsReportIcon);
-            binding.LayReportRefresh.setLayoutParams(paramsReportIcon);
-
-//            LinearLayout.LayoutParams paramsLayTotalsales = new LinearLayout.LayoutParams(520,
-//                   70);
-//            paramsLayTotalsales.leftMargin = 20;
-            //binding.LayTotalSales.setLayoutParams(paramsLayTotalsales);
-
-//            LinearLayout.LayoutParams paramsTotalsales = new LinearLayout.LayoutParams(400,
-//                    ViewGroup.LayoutParams.WRAP_CONTENT);
-            //binding.txttotalQty.setLayoutParams(paramsTotalsales);
-//            binding.txttotalPriceAmount.setLayoutParams(paramsTotalsales);
-
-
-        }  else if (terminalTypeVal.toUpperCase().equals(Constraints.PAX)){
-//            LinearLayout.LayoutParams paramsReportIcon = new LinearLayout.LayoutParams(82,
-//                    ViewGroup.LayoutParams.MATCH_PARENT);
-//            binding.layRprint.setLayoutParams(paramsReportIcon);
-//            binding.LayReportExport.setLayoutParams(paramsReportIcon);
-//            binding.LayReportRefresh.setLayoutParams(paramsReportIcon);
-//
-//            LinearLayout.LayoutParams paramsLayTotalsales = new LinearLayout.LayoutParams(520,
-//                   70);
-//            paramsLayTotalsales.leftMargin = 20;
-//            binding.LayTotalSales.setLayoutParams(paramsLayTotalsales);
-
-
-
-                LinearLayout.LayoutParams pagerReportLay = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        920);
-                binding.pagerReport.setLayoutParams(pagerReportLay);
-
-                binding.navView.setLayoutParams(new LinearLayout.LayoutParams(720, 100));
-
-
-
-        } else if (terminalTypeVal.equals(Constraints.IMIN)) {
-
-            String device = Query.GetDeviceData(Constraints.DEVICE);
-            Log.i("sdf__device","device___"+device);
-            if (device.equals("M2-Max")) {
-                LinearLayout.LayoutParams paramsReportIcon = new LinearLayout.LayoutParams(92,
-                        ViewGroup.LayoutParams.MATCH_PARENT);
-                paramsReportIcon.gravity = Gravity.CENTER;
-                binding.layRprint.setLayoutParams(paramsReportIcon);
-                binding.LayReportExport.setLayoutParams(paramsReportIcon);
-                binding.LayReportRefresh.setLayoutParams(paramsReportIcon);
-
-//                LinearLayout.LayoutParams paramsLayTotalsales = new LinearLayout.LayoutParams(523,
-//                        70);
-//                paramsLayTotalsales.leftMargin = 20;
-//                binding.LayTotalSales.setLayoutParams(paramsLayTotalsales);
-
-                LinearLayout.LayoutParams drangeLay = new LinearLayout.LayoutParams(520,
-                        ViewGroup.LayoutParams.MATCH_PARENT);
-                binding.daterange.setLayoutParams(drangeLay);
-
-                LinearLayout.LayoutParams pagerReportLay = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        920);
-                binding.pagerReport.setLayoutParams(pagerReportLay);
-
-                binding.navView.setLayoutParams(new LinearLayout.LayoutParams(820, 100));
-            }  else {
-
-                LinearLayout.LayoutParams pagerReportLay = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        825);
-                binding.pagerReport.setLayoutParams(pagerReportLay);
-
-                binding.navView.setLayoutParams(new LinearLayout.LayoutParams(720, 100));
-            }
-        }
+        //ScreenSize
+        new ReportActivityScreenSize(appContext,binding);
     }
 
 
@@ -896,11 +813,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-//        final ReportAdapter adapter = new ReportAdapter
-//                (getSupportFragmentManager(), tabLayout.getTabCount());
-//        viewPager.setAdapter(adapter);
     }
-
 
     private void updateLabel() {
         String myFormat = "MM/dd/yy"; //In which you need put here

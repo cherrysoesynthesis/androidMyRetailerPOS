@@ -23,7 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.dcs.myretailer.app.BillList.BillListModel;
+import com.dcs.myretailer.app.Model.BillListModel;
 import com.dcs.myretailer.app.DataNoteImformation;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;

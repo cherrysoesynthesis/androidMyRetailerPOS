@@ -19,6 +19,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.dcs.myretailer.app.Activity.AddNewProductActivity;
+import com.dcs.myretailer.app.Activity.SettingActivity;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.ProductData;
 import com.dcs.myretailer.app.Query.Query;
@@ -347,7 +349,7 @@ public class ProductManagementActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //ActivityCompat.finishAffinity(ProductManagementActivity.this);
-        Intent i = new Intent(ProductManagementActivity.this,SettingActivity.class);
+        Intent i = new Intent(ProductManagementActivity.this, SettingActivity.class);
         startActivity(i);
         finish();//add 09112020
     }

@@ -29,12 +29,13 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dcs.myretailer.app.Allocator;
-import com.dcs.myretailer.app.CashLayoutActivity;
+import com.dcs.myretailer.app.Activity.CashLayoutActivity;
 import com.dcs.myretailer.app.Cashier.DeclarationConf;
 import com.dcs.myretailer.app.Cashier.ProductMainPageFragment;
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
+import com.dcs.myretailer.app.Printer.KitchenPrinter;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.databinding.ItemPaymentCheckoutItemBookBinding;
@@ -399,7 +400,7 @@ public class PaymentTypesCheckoutAdapter extends RecyclerView.Adapter<PaymentTyp
 
                     String chkKitchenPrinter = Query.GetOptions(27);
                     if (chkKitchenPrinter.equals("1")) {
-                        CashLayoutActivity.KitChenPrinterFun(mContext, resourceVal, CheckOutActivity.BillNo);
+                       new KitchenPrinter(mContext, resourceVal, CheckOutActivity.BillNo);
                     }
 
 

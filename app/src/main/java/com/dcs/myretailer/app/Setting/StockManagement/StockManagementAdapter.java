@@ -22,12 +22,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chauthai.swipereveallayout.ViewBinderHelper;
+import com.dcs.myretailer.app.Activity.StockAgentDetatilsActivity;
+import com.dcs.myretailer.app.Activity.StockManagementActivity;
 import com.dcs.myretailer.app.Cashier.MainActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.Stock.StockAgent;
+import com.dcs.myretailer.app.Model.StockAgent;
 import com.dcs.myretailer.app.databinding.ActivityStockAgentListviewBinding;
 
 import java.util.List;
@@ -174,7 +176,7 @@ public class StockManagementAdapter extends RecyclerView.Adapter{
                 @Override
                 public void onClick(View v) {
                         String pluID = mData.get(position).getPLUID().toString();
-                        Intent intent = new Intent(mContext,StockAgentDetatilsActivity.class);
+                        Intent intent = new Intent(mContext, StockAgentDetatilsActivity.class);
                         MainActivity.category_status = "1";
                         MainActivity.str_tab_fragment_2 = "0";
                         intent.putExtra("StockAgent_pluID",pluID);
@@ -199,7 +201,7 @@ public class StockManagementAdapter extends RecyclerView.Adapter{
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
                         //sDialog.dismissWithAnimation();
-                        Intent i = new Intent(mContext,StockManagementActivity.class);
+                        Intent i = new Intent(mContext, StockManagementActivity.class);
                         mContext.startActivity(i);
                         ((Activity) mContext).finish();
 

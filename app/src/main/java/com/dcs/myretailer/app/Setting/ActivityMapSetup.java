@@ -27,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
+import com.dcs.myretailer.app.Activity.SettingActivity;
 import com.dcs.myretailer.app.Allocator;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.DialogBox;
@@ -583,7 +584,7 @@ public class ActivityMapSetup extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //ActivityCompat.finishAffinity(ActivityMapSetup.this);
-        Intent i = new Intent(ActivityMapSetup.this,SettingActivity.class);
+        Intent i = new Intent(ActivityMapSetup.this, SettingActivity.class);
         startActivity(i);
         finish();
     }

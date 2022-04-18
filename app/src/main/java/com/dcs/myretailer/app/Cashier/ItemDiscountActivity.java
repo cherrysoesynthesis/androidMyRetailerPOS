@@ -10,7 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.viewpager.widget.ViewPager;
 
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.databinding.ActivityItemDiscountBinding;
 import com.google.android.material.tabs.TabLayout;

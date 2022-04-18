@@ -20,15 +20,15 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chauthai.swipereveallayout.ViewBinderHelper;
-import com.dcs.myretailer.app.BillList.BillListModel;
-import com.dcs.myretailer.app.CashLayoutActivity;
-import com.dcs.myretailer.app.CheckOutActivity;
+import com.dcs.myretailer.app.Model.BillListModel;
+import com.dcs.myretailer.app.Activity.CashLayoutActivity;
+import com.dcs.myretailer.app.Activity.CheckOutActivity;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.RemarkMainActivity;
-import com.dcs.myretailer.app.TransactionDetailsActivity;
+import com.dcs.myretailer.app.Activity.RemarkMainActivity;
+import com.dcs.myretailer.app.Activity.TransactionDetailsActivity;
 import com.dcs.myretailer.app.databinding.RowListBinding;
 
 import java.text.SimpleDateFormat;

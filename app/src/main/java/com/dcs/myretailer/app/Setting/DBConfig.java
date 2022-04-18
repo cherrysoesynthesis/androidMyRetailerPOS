@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-class DBConfig  extends SQLiteOpenHelper {
+public class DBConfig  extends SQLiteOpenHelper {
     public DBConfig(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
 //        super(context, name, factory, version);
         super(context, "myretailerapi.db", factory, version);

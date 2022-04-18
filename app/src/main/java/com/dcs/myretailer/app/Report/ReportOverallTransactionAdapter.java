@@ -1,7 +1,6 @@
 package com.dcs.myretailer.app.Report;
 
 import android.content.Context;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.Setting.AddTaxConfigurationActivity;
 
 import java.util.ArrayList;
 

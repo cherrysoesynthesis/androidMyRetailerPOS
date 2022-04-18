@@ -86,7 +86,7 @@ public class PaymentTypeListRecyclerViewAdapter extends RecyclerView.Adapter<Pay
     }
 
     // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
+    public void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
