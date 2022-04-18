@@ -1525,7 +1525,7 @@ public class OnlineOrderListMainPageFragment extends Fragment {
                                 Log.i("Status__", Status);
                                 if (Status.equals("Success")) {
                                     Date datetime = new Date(System.currentTimeMillis());
-                                    CashLayoutActivity.PrintKP(SalesNo, SalesID, SalesDate);
+                                    //CashLayoutActivity.PrintKP(SalesNo, SalesID, SalesDate);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
