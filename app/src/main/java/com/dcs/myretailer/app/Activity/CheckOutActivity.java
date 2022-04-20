@@ -6,6 +6,7 @@ import static com.dcs.myretailer.app.Activity.TransactionDetailsActivity.sldTaxI
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -14,6 +15,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Base64;
@@ -41,6 +43,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
@@ -50,7 +53,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.dcs.myretailer.app.Allocator;
+import com.dcs.myretailer.app.Checkout.PaymentCashSuccesActivity;
 import com.dcs.myretailer.app.DialogBox;
+import com.dcs.myretailer.app.Logger;
 import com.dcs.myretailer.app.Model.BillBOC;
 import com.dcs.myretailer.app.Cashier.ButtonAdapter;
 import com.dcs.myretailer.app.Cashier.DeclarationConf;
@@ -72,6 +77,10 @@ import com.dcs.myretailer.app.Model.BillMercatusMallLoyaltyDetails;
 import com.dcs.myretailer.app.Model.BillMercatusPayment;
 import com.dcs.myretailer.app.Model.BillMercatusVouchers;
 import com.dcs.myretailer.app.MyRecyclerViewCheckout;
+import com.dcs.myretailer.app.PaymentSendDataFormat.AscanPaymentFormat;
+import com.dcs.myretailer.app.PaymentSendDataFormat.CheckPaymentApp;
+import com.dcs.myretailer.app.PaymentSendDataFormat.JeripayPaymentFormat;
+import com.dcs.myretailer.app.Printer.KitchenPrinter;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.Report.MathUtil;
@@ -91,6 +100,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -156,14 +167,14 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
     public static Double staticRound = 0.0;
     Integer exising_id = 0;
     public static ArrayList<String> IDArr = new ArrayList<String>();
-    private final DecimalFormat REAL_FORMATTER = new DecimalFormat("0.00");
+    private static final DecimalFormat REAL_FORMATTER = new DecimalFormat("0.00");
     private static final int CAMERA_REQUEST = 1888;
     String payment_type_name = "";
     String bankName = "";
     String chkBillNo = "";
     static final double EPSILON = 0.000001;
-    DateFormat dateFormat = new SimpleDateFormat("hh.mm aa");
-    DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy hh.mm aa");
+   // DateFormat dateFormat = new SimpleDateFormat("hh.mm aa");
+   // DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy hh.mm aa");
     //public static DateFormat dateFormat55 = new SimpleDateFormat("dd MM yyyy , hh:mm aa");
     public static DateFormat dateFormat55 = new SimpleDateFormat("dd MMM yyyy  hh:mm aa");
     public static DateFormat dateFormat555 = new SimpleDateFormat("hh");
@@ -274,9 +285,9 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
     public static String CashValuePaymentRemarks =  "";
 //    ScrollView checkOutScrollView;
     public static ActivityCheckOutBinding binding = null;
+    public static String error = "0";
 
     public static void updateMediaButtons() {
-        Log.i("updateMediaButtons__","updateMediaButtons");
         updateCheckoutAdapter(appContext);
     }
 
@@ -410,20 +421,20 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
 
         if (Status.equals("CardPayment")){
             CardPaymentFun(round,Ezlink);
-        }
+        } else {
+            //Add Else Statement at V3.3.24
+            binding.checkoutPaymentList.paymentTypeRecyclerviewId.setEnabled(true);
 
-        binding.checkoutPaymentList.paymentTypeRecyclerviewId.setEnabled(true);
-
-        customAdapter = new CheckOutAdapter(getApplicationContext(),BillNo,
-                sldQtyArr, sldNameArr, sltPriceTotalArrEach, sldIDArr , sldItemDisArr,
-                sldDiscountName, sldDiscountType, sldDiscountValue,sldOpenPriceStatus,sldRemarks,billdetailsPID);
+            customAdapter = new CheckOutAdapter(getApplicationContext(),BillNo,
+                    sldQtyArr, sldNameArr, sltPriceTotalArrEach, sldIDArr , sldItemDisArr,
+                    sldDiscountName, sldDiscountType, sldDiscountValue,sldOpenPriceStatus,sldRemarks,billdetailsPID);
 //                sldQtyArr, sldcheckOutListViewNameArr, sltPriceTotalArr, sldIDArr , sldItemDisArr, sldDiscountName, sldDiscountType, sldDiscountValue);
 
 //        binding.buttons.checkOutListView
-        binding.checkoutInfo.checkOutListView.setAdapter(customAdapter);
+            binding.checkoutInfo.checkOutListView.setAdapter(customAdapter);
 
-        checkOutListOnClickFun(binding.checkoutInfo.checkOutListView);
-
+            checkOutListOnClickFun(binding.checkoutInfo.checkOutListView);
+        }
     }
 
     public static void updateDiscountFun() {
@@ -1667,80 +1678,50 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
             if (c.moveToNext()) {
                 //payment_type_str = c.getString(3);
                 payment_type_name = c.getString(0);
-
-                Log.i("DFDCorrect__","payment_type_name1__"+payment_type_name);
             }
             if (!(payment_type_name.toUpperCase().equals(DeclarationConf.CARD_TYPE_EZLINK))) {
                 payment_type_name = "OTHERS";
             }
-            Log.i("DFDCorrect__","payment_type_name33__"+payment_type_name);
             c.close();
         }
 
-
-        Log.i("DFDCorrect__","payment_type_name2__"+payment_type_name);
-
         bankName = Query.GetBankNameFun();
-        Log.i("DFDCorrect__","EzlinkStatus__"+EzlinkStatus);
-        Log.i("DFDCorrect__","bankName__"+bankName);
-        Log.i("DFDCorrect__","cardamount__"+cardamount);
-        Log.i("DFDCorrect__","payment_type_name__"+payment_type_name);
 
 
         if (EzlinkStatus.equals("Ezlink")) {
             bankName = "";
-            Log.i("DFDCorrect__","payEzlink__"+Ezlink);
-//            boolean isAppInstalled = Query.appInstalledOrNot(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_DBS);
-            boolean isAppInstalled = Query.appInstalledOrNot(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_ASCAN);
-            Log.i("DFDCorrect__","isAppInstalled_"+isAppInstalled);
-            if(isAppInstalled) {
 
+            String chkValue = CheckPaymentApp.existOrNotApp(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_ASCAN);
+            if (chkValue.equals("1")){
                 SendRequestForActivityResultFun(DeclarationConf.CARD_TYPE_EZLINK,cardamount,DeclarationConf.PACKAGE_NAME_ASCAN, DeclarationConf.CLASS_NAME_ASCAN);
 //                SendRequestForActivityResultFun(payment_type_name,cardamount,DeclarationConf.PACKAGE_NAME_DBS, DeclarationConf.CLASS_NAME_DBS);
 
-            }else {
-
-                Query.SweetAlertWarningYesOnly(CheckOutActivity.this,"Application is not currently installed.","OK");
+            } else {
+                SweetAlertWarningYesOnly(this, Constraints.APP_NOT_INSTALLED,Constraints.OK);
             }
-
         } else {
-
             if (bankName.toUpperCase().equals(DeclarationConf.HOST_TYPES_OCBC.toUpperCase())) {
-
-                boolean isAppInstalled = Query.appInstalledOrNot(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_OCBC);
-
-                if(isAppInstalled) {
-
-                    SendRequestForActivityResultFun(payment_type_name,cardamount,DeclarationConf.PACKAGE_NAME_OCBC, DeclarationConf.CLASS_NAME_OCBC);
-
+                String chkValue = CheckPaymentApp.existOrNotApp(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_OCBC);
+                if (chkValue.equals("1")) {
+                    SendRequestForActivityResultFun(payment_type_name, cardamount, DeclarationConf.PACKAGE_NAME_OCBC, DeclarationConf.CLASS_NAME_OCBC);
                 } else {
-                    Query.SweetAlertWarningYesOnly(CheckOutActivity.this,"Application is not currently installed.","OK");
+                    SweetAlertWarningYesOnly(this, Constraints.APP_NOT_INSTALLED,Constraints.OK);
                 }
             }
             else if (bankName.toUpperCase().equals(DeclarationConf.HOST_TYPES_DBS.toUpperCase())) {
-                boolean isAppInstalled = Query.appInstalledOrNot(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_DBS);
-
-                if(isAppInstalled) {
-
+                 String chkValue = CheckPaymentApp.existOrNotApp(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_DBS);
+                 if (chkValue.equals("1")) {
                     SendRequestForActivityResultFun(payment_type_name,cardamount,DeclarationConf.PACKAGE_NAME_DBS, DeclarationConf.CLASS_NAME_DBS);
-
-                }else {
-
-                    Query.SweetAlertWarningYesOnly(CheckOutActivity.this,"Application is not currently installed.","OK");
-                }
-
+                } else {
+                     SweetAlertWarningYesOnly(this, Constraints.APP_NOT_INSTALLED,Constraints.OK);
+                 }
             }  else if (bankName.toUpperCase().equals(DeclarationConf.HOST_TYPES_BOC.toUpperCase())) {
-                boolean isAppInstalled = Query.appInstalledOrNot(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_BOC);
-
-                if(isAppInstalled) {
-
+                String chkValue = CheckPaymentApp.existOrNotApp(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_BOC);
+                if (chkValue.equals("1")) {
                     SendRequestForActivityResultFun(payment_type_name,cardamount,DeclarationConf.PACKAGE_NAME_BOC, DeclarationConf.CLASS_NAME_BOC);
-
-                }else {
-
-                    Query.SweetAlertWarningYesOnly(CheckOutActivity.this,"Application is not currently installed.","OK");
+                } else {
+                    SweetAlertWarningYesOnly(this, Constraints.APP_NOT_INSTALLED,Constraints.OK);
                 }
-
             } else if (bankName.toUpperCase().equals(DeclarationConf.HOST_TYPES_AMERICAN_EXPRESS.toUpperCase())) {
 
 
@@ -1760,22 +1741,38 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
 
 
             } else if (bankName.toUpperCase().equals(DeclarationConf.HOST_TYPES_JERIPAY.toUpperCase())) {
-                boolean isAppInstalled = Query.appInstalledOrNot(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_JERIPAY);
 
-                if(isAppInstalled) {
+//                if (1==1) {
+//                    String chkStatus = "0";
+//                    try {
+//                        SendRequestForActivityResultFun(payment_type_name,cardamount,DeclarationConf.PACKAGE_NAME_JERIPAY, DeclarationConf.CLASS_NAME_JERIPAY);
+//
+//                    } catch (Exception e){
+//                        Log.i("EREX___","exception___"+e.getMessage());
+//                        chkStatus = "1";
+//                    }
+//                    Log.i("EREX___","echkStatus___"+chkStatus);
+////                    if (chkStatus.equals("1")) {
+////                        //Query.SweetAlertWarningYesOnly(CheckOutActivity.this,"Application is not currently installed.","OK");
+////                        new AlertDialog.Builder(getApplicationContext(), R.style.AlertDialogStyle)
+////                                .setMessage("Application is not currently installed.")
+////                                .setCancelable(false)
+////                                .setNegativeButton(Constraints.OK, null)
+////                                .show();
+////                    }
+//                } else {
+                    Log.i("bankName__","bankName___"+bankName+"__"+DeclarationConf.HOST_TYPES_JERIPAY);
+                    String chkValue = CheckPaymentApp.existOrNotApp(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_JERIPAY);
 
-                    SendRequestForActivityResultFun(payment_type_name,cardamount,DeclarationConf.PACKAGE_NAME_JERIPAY, DeclarationConf.CLASS_NAME_JERIPAY);
-
-                }else {
-
-                    Query.SweetAlertWarningYesOnly(CheckOutActivity.this,"Application is not currently installed.","OK");
-                }
+                    if (chkValue.equals("1")) {
+                        SendRequestForActivityResultFun(payment_type_name, cardamount, DeclarationConf.PACKAGE_NAME_JERIPAY, DeclarationConf.CLASS_NAME_JERIPAY);
+                    } else {
+                        SweetAlertWarningYesOnly(this, Constraints.APP_NOT_INSTALLED,Constraints.OK);
+                    }
 
             }  else if (bankName.toUpperCase().equals(DeclarationConf.HOST_TYPES_MECATUS.toUpperCase())) {
-                boolean isAppInstalled = Query.appInstalledOrNot(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_MERCATUS);
-                Log.i("DFDCorrect__","isAppInstalled__"+isAppInstalled);
-                if(isAppInstalled) {
-
+                String chkValue = CheckPaymentApp.existOrNotApp(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_MERCATUS);
+                if (chkValue.equals("1")) {
                     new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                             .setTitleText(Constraints.MercatusMember)
                             .setConfirmText(Constraints.YES)
@@ -1803,15 +1800,13 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
                             })
                             .show();
 
-                }else {
-
-                    Query.SweetAlertWarningYesOnly(CheckOutActivity.this,"Application is not currently installed.","OK");
+                } else {
+                    SweetAlertWarningYesOnly(this, Constraints.APP_NOT_INSTALLED,Constraints.OK);
                 }
 
             } else if (bankName.toUpperCase().equals(DeclarationConf.HOST_TYPES_GLOBAL_PAYMENT.toUpperCase())) {
-                boolean isAppInstalled = Query.appInstalledOrNot(CheckOutActivity.this, DeclarationConf.PACKAGE_NAME_GLOBALPAYMENT);
-                if(isAppInstalled) {
-
+                String chkValue = CheckPaymentApp.existOrNotApp(CheckOutActivity.this,DeclarationConf.PACKAGE_NAME_GLOBALPAYMENT);
+                if (chkValue.equals("1")) {
 
                     String payment_card_type = "";
                     if (payment_type_name.replace(" ", "").toUpperCase().equals(DeclarationConf.CARD_TYPE_WECHAT_PAY.toUpperCase())) {
@@ -1841,20 +1836,16 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
                     double val_amount_gp = cardamount * 100;
 
                     globalPymentSaleRequest((long) val_amount_gp, payment_card_type);
-                }else {
-                    // Do whatever we want to do if application not installed
-                    // For example, Redirect to play store
-
-                    Query.SweetAlertWarningYesOnly(CheckOutActivity.this,"Application is not currently installed.","OK");
+                } else {
+                    SweetAlertWarningYesOnly(this, Constraints.APP_NOT_INSTALLED,Constraints.OK);
                 }
-
             }
         }
-
     }
+
     String str_member = "";
     public void SendRequestForActivityResultFun(String payment_type_name, Double cardamount, String requestPackageName, String requestClassName) {
-
+        Integer requstCode = DeclarationConf.EVENT_COMMON_CODE_REQUEST;
         Intent launchIntent = new Intent();
         launchIntent.setClassName(requestPackageName, requestClassName);
         if (requestPackageName.equals(DeclarationConf.PACKAGE_NAME_JERIPAY) || requestPackageName.equals(DeclarationConf.PACKAGE_NAME_MERCATUS)){
@@ -1864,19 +1855,11 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
         //launchIntent.setFlags( Intent.FLAG_ACTIVITY_NO_HISTORY);
         Bundle bundleApp = new Bundle();
 
-//        Log.i("Df___","payment_type_name___"+payment_type_name);
-//        Log.i("Df___","requestPackageName__"+requestPackageName);
-//        Log.i("Df___","requestClassName__"+requestClassName);
 
         if (payment_type_name.replace(" ", "").toUpperCase().equals(DeclarationConf.CARD_TYPE_WECHAT_PAY.toUpperCase())) {
             //WeChatPay
             bundleApp.putString("Request", sendQRAndBarcodeObject(String.format("%.2f", (cardamount * 100))));
             launchIntent.putExtras(bundleApp);
-            //new SendData1().execute(launchIntent, 6699, false);
-            startActivityForResult(launchIntent, 6699);
-//                Intent launchIntent = (Intent) params[0];
-//                CheckOutActivity.this.startActivityForResult(launchIntent, 6699);
-
 
         } else if (payment_type_name.replace(" ", "").toUpperCase().equals(DeclarationConf.CARD_TYPE_GRAB_PAY.toUpperCase())) {
             //CARD_TYPE_GRAB_PAY
@@ -1889,61 +1872,20 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
 
         } else if (payment_type_name.replace(" ", "").toUpperCase().equals(DeclarationConf.CARD_TYPE_EZLINK.toUpperCase())) {
             //Ezlink
-            bundleApp.putString("Request", sendSaleObject(String.format("%.2f", (cardamount * 100)), DeclarationConf.EVENT_EZLINK_SALE));
-            launchIntent.putExtras(bundleApp);
-            //new SendData1().execute(launchIntent, 6699, false);
-            startActivityForResult(launchIntent, 9999);
+            launchIntent = AscanPaymentFormat.ezlink(bundleApp,launchIntent,cardamount);
+            requstCode = DeclarationConf.EVENT_EZLINK_CODE_REQUEST;
             //startActivityForResult(launchIntent, 6699);
 
         } else if (payment_type_name.replace(" ", "").toUpperCase().equals(DeclarationConf.CARD_TYPE_OTHERS.toUpperCase())) {
-
-
             if (requestPackageName.equals(DeclarationConf.PACKAGE_NAME_JERIPAY)){
-                launchIntent.putExtra("amount", Double.parseDouble(getConvertedAmount(String.format("%.2f", (cardamount * 100)))));
-                launchIntent.putExtra("command", "sale");
-                launchIntent.putExtra("terminalTransactionId", BillNo);
-//                launchIntent.putExtra("type", "payment");
-                launchIntent.putExtra("type", "Payment");
-                startActivityForResult(launchIntent, 6699);
-
-//                {
-//                    'command': 'sale',
-//                        'amount':1.00,
-//                        'terminalTransactionId':'Trsansaction_number',
-//                        'type':'Payment'
-//                }
+                launchIntent =  JeripayPaymentFormat.launchIntent(launchIntent,BillNo,cardamount);
 
             } else if (requestPackageName.equals(DeclarationConf.PACKAGE_NAME_MERCATUS)){
-
                 if ( str_member.equals("1")) { // Member
-
-                    launchIntent.putExtra("command", "member");
-                    launchIntent.putExtra("amount", Double.parseDouble(getConvertedAmount(String.format("%.2f", (cardamount * 100)))));
-//                    launchIntent.putExtra("command", "member");
-//                    launchIntent.putExtra("amount", 10.00);
-                    startActivityForResult(launchIntent, 6699);
-
-//                    'command': 'member',
-//                            'amount':100.00
-
-//                    Parameter  For Member Transaction
-//                    {
-//                        'command': 'member',
-//                            'amount':100.00
-//                    }
-
+                    launchIntent = JeripayPaymentFormat.mercatusMember(launchIntent,cardamount);
                 } else { // not memeber
-                    launchIntent.putExtra("amount", Double.parseDouble(getConvertedAmount(String.format("%.2f", (cardamount * 100)))));
-                    launchIntent.putExtra("command", "nonMember");
-                    startActivityForResult(launchIntent, 6699);
-//                    Parameter  For Nonmember Transaction
-//                    {
-//                        'command': nonMember,
-//                            'amount':100.00
-//                    }
-
+                    launchIntent = JeripayPaymentFormat.mercatusNotMember(launchIntent,cardamount);
                 }
-
             }else {
                 //Others
                 //Credit Card
@@ -1951,12 +1893,19 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
                 //Apple Pay
                 bundleApp.putString("Request", sendSaleObject(String.format("%.2f", (cardamount * 100)), DeclarationConf.EVENT_SALE));
                 launchIntent.putExtras(bundleApp);
-                startActivityForResult(launchIntent, 6699);
             }
-
-
+            requstCode = DeclarationConf.EVENT_JERIPAY_CODE_REQUEST;
         } else {
 
+        }
+
+        try {
+
+            startActivityForResult(launchIntent,requstCode);
+        } catch (Exception e){
+            //If M2 and not installed app , then will show this dialog box
+            error = "1";
+            Log.i("SDfds___","dsf_e__"+e.getMessage());
         }
     }
 
@@ -1998,7 +1947,7 @@ public class CheckOutActivity extends AppCompatActivity implements View.OnClickL
         return jsonObject.toString();
         }
 
-    private String getConvertedAmount(String amount) {
+    public static String getConvertedAmount(String amount) {
 
         double l = Double.parseDouble(amount);
         l = l / 100;
@@ -2452,7 +2401,7 @@ public static void SaveBillPLU(String sldIDArr,String sldNameArr,
 //    }
 
 
-    private String sendSaleObject(String amount, String commandCode) {
+    public static String sendSaleObject(String amount, String commandCode) {
         Log.i("Dg__commandCode","dfdf__"+commandCode);
         Log.i("Dg__commandCode","dfdfamt__"+getConvertedAmount(amount));
         JSONObject jsonObject = new JSONObject();
@@ -2537,6 +2486,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
                     System.currentTimeMillis(), DBFunc.PurifyString("OnActivityResult-Response " + responseDataLog));
         }
     }
+    Log.i("SDFREsponse___","Sdfd__data"+data);
     if (!(data == null)) {
         String responseData;
         if (requestCode == 9999 || PaymentTypesCheckoutAdapter.paymentName.toUpperCase().equals(DeclarationConf.CARD_TYPE_EZLINK)) {
@@ -3276,8 +3226,18 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         }
     }else{
         emptyCashValueAll();
-        CheckOutActivityFun();
+
+        String device = Query.GetDeviceData(Constraints.DEVICE);
+
+        if (device.equals("M2-Max") && error.equals("1")) {
+            error = "0";
+            SweetAlertWarningYesOnly(this, Constraints.APP_NOT_INSTALLED,Constraints.OK);
+        } else {
+            CheckOutActivityFun();
+        }
+            //onPause();
     }
+
 
 
     //        if (!(data == null)) {
@@ -5365,7 +5325,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        updateCheckOutActivityFun();
         super.onRestart();
     }
-
+//
     @Override
     protected void onPause() {
 //        Log.i("chksttatuss_On","onPause");
@@ -5374,6 +5334,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        updateCheckOutActivityFun();
 
         super.onPause();
+        Log.i("ChkLifeCycle","onPause");
     }
 
     @Override
@@ -5382,11 +5343,20 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("ChkLifeCycle","onResume"+"___"+error);
+
+
+    }
+
+    @Override
     protected void onStop() {
 //        Intent i = new Intent(CheckOutActivity.this, MainActivity.class);
 //        startActivity(i);
 //        finish();
         super.onStop();
+        Log.i("ChkLifeCycle","onStop");
     }
 
     public static void updateCheckoutAdapter(Context context) {
@@ -5814,6 +5784,26 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.i("SDfds____","ontouch__"+motionEvent.toString());
         CheckOutActivity.binding.layCheckoutOverAll.setAlpha(1);
         return false;
+    }
+
+    public void SweetAlertWarningYesOnly(Context context, String header, String description) {
+        //Context can;t transfer for payment calling ,so use this(checkoutactivity) funtion
+        try {
+
+            new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                    //.setTitleText("Cancelled Bill")
+                    .setContentText(header)
+                    .setConfirmText(description)
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+                            sDialog.dismissWithAnimation();
+                        }
+                    })
+                    .show();
+        } catch (Exception e){
+            Log.i("Alertboxexception_","execption_chkddkkk_"+e.getMessage());
+        }
     }
 }
 

@@ -85,7 +85,8 @@ public class TransactionDetailsActivityScreenSize {
                 binding.LinearDt.setLayoutParams(paramLinearDt);
 
 
-                LinearLayout.LayoutParams paramtransactionbillno = new LinearLayout.LayoutParams(500,
+                //LinearLayout.LayoutParams paramtransactionbillno = new LinearLayout.LayoutParams(500,
+                LinearLayout.LayoutParams paramtransactionbillno = new LinearLayout.LayoutParams(560,
                         android.widget.Toolbar.LayoutParams.WRAP_CONTENT);
                 binding.laytransactionbillno.setLayoutParams(paramtransactionbillno);
 
@@ -130,6 +131,11 @@ public class TransactionDetailsActivityScreenSize {
                 paramstamt.leftMargin = 30;
                 paramstamt.rightMargin = 30;
                 binding.layTotalAmt.setLayoutParams(params2);
+
+//                LinearLayout.LayoutParams paramsimgReprint = new LinearLayout.LayoutParams(50,
+//                android.widget.Toolbar.LayoutParams.WRAP_CONTENT);
+//                paramsimgReprint.leftMargin = 5 ;
+//                binding.imgReprint.setLayoutParams(paramsimgReprint);
 
 
 //                LinearLayout.LayoutParams paramsimgReprint = new LinearLayout.LayoutParams((int) ((widthSZ)/10 *9),

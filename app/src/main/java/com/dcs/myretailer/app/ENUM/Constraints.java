@@ -311,4 +311,6 @@ public class Constraints {
     public static String sqldateformat_kitchenprinter_h = "%H";
     public static String sqldateformat_kitchenprinter_m = "%M";
     public static String sqldateformat_kitchenprinter_s = "%S";
+
+    public static String APP_NOT_INSTALLED = "Application is not currently installed.";
 }

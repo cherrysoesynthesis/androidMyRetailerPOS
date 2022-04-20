@@ -1227,7 +1227,7 @@ public class PaymentTypesCheckoutAdapter extends RecyclerView.Adapter<PaymentTyp
                     //sub_total += c.getDouble(2) - c.getDouble(4);
                     //sub_total += c.getInt(1) * (c.getInt(2));
                     sub_total += totalPrice;
-                    Log.i("Sdf__sub_total","subdddfdf_total_____"+sub_total);
+
 //                    amount += c.getDouble(2);
                     amount += totalPrice;
                     totalQty += c.getInt(1);
@@ -1240,9 +1240,9 @@ public class PaymentTypesCheckoutAdapter extends RecyclerView.Adapter<PaymentTyp
                     sldDiscountName.add(c.getString(10));
                     sldDiscountType.add(c.getString(11));
                     sldDiscountValue.add(c.getString(12));
-                    Log.i("taxIDDD", String.valueOf(taxID));
+
                     String str_tax = "Select Type,Rate from Tax Where ID = " +taxID;
-                    Log.i("taxIDDD_str_tax", String.valueOf(str_tax));
+
                     Cursor CursortaxObj = DBFunc.Query(str_tax,true);
                     if (CursortaxObj != null){
                         if (CursortaxObj.moveToNext()) {

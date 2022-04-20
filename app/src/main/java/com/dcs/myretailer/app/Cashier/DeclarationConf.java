@@ -68,6 +68,9 @@ public class DeclarationConf {
         public static String EVENT_REFUND_ECRPE = "C603";
         public static String EVENT_SETTLEMENT = "C700";
         public static String EVENT_EZLINK_SALE = "C610";
+        public static Integer EVENT_EZLINK_CODE_REQUEST = 9999;
+        public static Integer EVENT_JERIPAY_CODE_REQUEST = 6699;
+        public static Integer EVENT_COMMON_CODE_REQUEST = 6699;
 //        public static String EVENT_EZLINK_SALE = "C640";
         public static String EVENT_CEPAS_SALE = "C610";
         public static String EVENT_CEPAS_TOPUP = "C613";

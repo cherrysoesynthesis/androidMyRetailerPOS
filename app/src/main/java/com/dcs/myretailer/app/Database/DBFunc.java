@@ -1,16 +1,22 @@
 package com.dcs.myretailer.app.Database;
 
-import android.app.AlertDialog;
+
+//import android.content.Context;
+//import android.database.Cursor;
+//import android.database.SQLException;
+//import android.database.sqlite.SQLiteDatabase;
+
 import android.content.Context;
 import android.util.Log;
-//import android.database.sqlite.SQLiteDatabase;
+
+import com.dcs.myretailer.app.Allocator;
+import com.dcs.myretailer.app.ENUM.Constraints;
+import com.dcs.myretailer.app.Logger;
+import com.dcs.myretailer.app.Query.Query;
+
 import net.sqlcipher.Cursor;
 import net.sqlcipher.SQLException;
 import net.sqlcipher.database.SQLiteDatabase;
-
-import com.dcs.myretailer.app.Allocator;
-import com.dcs.myretailer.app.Logger;
-import com.dcs.myretailer.app.Query.Query;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,12 +29,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class DBFunc {
 	public static void OpenDBFromDisk(String path, String DBName, Context context) throws IOException{
 		InputStream is = new FileInputStream(path);
 		OpenDBFromDisk(is,DBName, context);
 	}
-	
+
 	public static void OpenDBFromDisk(InputStream inputStream, String DBName, Context context) throws IOException{
 
 		InputStream is = inputStream;
@@ -37,7 +44,7 @@ public class DBFunc {
 			context.getDatabasePath(DBName).delete();
 		}
 		OutputStream os = new FileOutputStream(context.getDatabasePath(DBName));
-		
+
 		byte[] b = new byte[1024];
 		int len = 0;
 		while((len = is.read(b))>0){
@@ -48,10 +55,10 @@ public class DBFunc {
 		is.close();
 
 	}
-	
+
 	public static void SaveDBToDisk(String outpath, String DBpath) throws IOException{
 		InputStream is = new FileInputStream(DBpath);
-		
+
 		//File f = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/posdata");
 		//f.mkdir();
 		OutputStream os = new FileOutputStream(outpath);
@@ -64,33 +71,33 @@ public class DBFunc {
 		os.close();
 		is.close();
 	}
-	
+
 	public static long GetMasterDBSize(Context context){
 		if(!context.getDatabasePath("master.db").exists()){
 			return -1;//not available
 		}
 		return context.getDatabasePath("master.db").length();
 	}
-	
+
 	public static long GetTransactDBSize(Context context){
 		if(!context.getDatabasePath("transact.db").exists()){
 			return -1;//not available
 		}
 		return context.getDatabasePath("transact.db").length();
 	}
-	
+
 	public static void CloseDBFromInternal(){
 		if(Allocator.DB!=null){
 			Allocator.DB.close();
 		}
 	}
-	
+
 	public static void CloseTransactDBFromInternal(){
 		if(Allocator.TransactDB!=null){
 			Allocator.TransactDB.close();
 		}
 	}
-	
+
 	public static boolean LoadDBFromInternal(Context context){
 		try {
 			Log.i("LoadDBFromInternal", "master" + context.getDatabasePath("master.db").exists());
@@ -99,7 +106,7 @@ public class DBFunc {
 				//Allocator.DB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), null);
 				Log.i("LoadDBFromInternal_", "LoadDBFgetAbsolutePath_" + context.getDatabasePath("master.db").getAbsolutePath());
 
-				Allocator.DB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), "test123", null);
+				Allocator.DB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(), Constraints.encrypt_password, null);
 				Cursor c = Allocator.DB.rawQuery("PRAGMA journal_mode=ON", null);
 				c.close();
 				c = Allocator.DB.rawQuery("PRAGMA foreign_keys=ON", null);
@@ -111,11 +118,11 @@ public class DBFunc {
 			return false;
 		}
 	}
-	
+
 	public static boolean LoadTransactDBFromInternal(Context context){
 		if(context.getDatabasePath("transact.db").exists()){
 			SQLiteDatabase.loadLibs(context);
-			Allocator.TransactDB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("transact.db").getAbsolutePath(),"test123", null);
+			Allocator.TransactDB = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("transact.db").getAbsolutePath(),Constraints.encrypt_password, null);
 			Cursor c = Allocator.TransactDB.rawQuery("PRAGMA journal_mode=ON", null);
 			c.close();
 			c = Allocator.TransactDB.rawQuery("PRAGMA foreign_keys=ON", null);
@@ -123,9 +130,9 @@ public class DBFunc {
 			return true;
 		}
 		return false;
-		
+
 	}
-	
+
 	public static boolean CreateResetDB(Context context, boolean isMaster){
 		Log.i("LoadDBFromInternal_","CreateResetDBl_____"+
 				isMaster);
@@ -193,9 +200,9 @@ public class DBFunc {
 			Log.i("DBFuIOExceptionnc",e.toString());
 			return false;
 		}
-		
+
 	}
-	
+
 	public static Map<String,String> LoadTableHeader(Context context, boolean master) throws IOException{
 		SQLiteDatabase.loadLibs(context);
 		DBFunc.OpenDBFromDisk(context.getAssets().open("header_repair.db"), "header_repair.db", context);
@@ -207,7 +214,7 @@ public class DBFunc {
 		}else{
 			c = db.rawQuery("SELECT tblname, tblsql FROM transact", null);
 		}
-		
+
 		if(c == null){//error
 			return null;
 		}else{
@@ -224,7 +231,7 @@ public class DBFunc {
 			return tblmap;
 		}
 	}
-	
+
 	public static List<String> LoadScriptUpdate(Context context, boolean master) throws IOException{
 		SQLiteDatabase.loadLibs(context);
 		DBFunc.OpenDBFromDisk(context.getAssets().open("header_repair.db"), "header_repair.db", context);
@@ -235,7 +242,7 @@ public class DBFunc {
 		}else{
 			c = db.rawQuery("SELECT script FROM transact_script ORDER BY seq ASC", null);
 		}
-		
+
 		if(c == null){//error
 			return null;
 		}else{
@@ -249,48 +256,48 @@ public class DBFunc {
 			return scripts;
 		}
 	}
-	
+
 	public static String PurifyString(String str){
 		return str.replaceAll("'", "''");
 	}
 
 	public static Cursor Query(String sql, boolean masterDB){
 		if(masterDB){
-			
+
 			if(Allocator.DB == null){
 				return null;
 			}
-			
+
 			return Allocator.DB.rawQuery(sql, null);
 		}else{
 			if(Allocator.TransactDB == null){
 				return null;
-			}		
+			}
 			return Allocator.TransactDB.rawQuery(sql, null);
 		}
 	}
-	
+
 	public static void DBUserLog(String username, long userid, String auth, long timetick, String logmsg){
 		if(Allocator.TransactDB != null){
 			try{
-				Allocator.TransactDB.execSQL("INSERT INTO UserLog(name,user_id,auth,time,info) VALUES ('"+DBFunc.PurifyString(username)+"', "+userid+", '"+DBFunc.PurifyString(auth)+"', "+timetick+", '"+DBFunc.PurifyString(logmsg)+"')");				
+				Allocator.TransactDB.execSQL("INSERT INTO UserLog(name,user_id,auth,time,info) VALUES ('"+DBFunc.PurifyString(username)+"', "+userid+", '"+DBFunc.PurifyString(auth)+"', "+timetick+", '"+DBFunc.PurifyString(logmsg)+"')");
 			}catch(SQLException e){
 				Logger.WriteLog("DBFunc",e.toString());
 				//Log.w("DBUserLog", e.toString());
 			}
-			
-		}	
+
+		}
 	}
 
 	public static void ExecQuery(String sql, boolean masterDB){
 		if(masterDB){
 			if(Allocator.DB != null){
 				Allocator.DB.execSQL(sql);
-			}		
+			}
 		}else{
 			if(Allocator.TransactDB != null){
 				Allocator.TransactDB.execSQL(sql);
-			}		
+			}
 		}
 	}
 	public static Cursor GetBillNoFromBill() {

@@ -4,11 +4,14 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
@@ -80,6 +83,7 @@ import com.dcs.myretailer.app.Model.BillMercatusVouchers;
 import com.dcs.myretailer.app.Model.DeviceData;
 import com.dcs.myretailer.app.Model.BillMercatus;
 import com.dcs.myretailer.app.Model.Discount;
+import com.dcs.myretailer.app.PaymentSendDataFormat.JeripayPaymentFormat;
 import com.dcs.myretailer.app.ProductData;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.Activity.RemarkMainActivity;
@@ -206,7 +210,7 @@ public class Query {
 ////                    "FROM DetailsBillProduct " +
 ////                    "Where BillNo = '" + billNo + "' ";
 //        }
-        Log.i("dsfsdfdsf___","Sdfsdf____"+sql);
+
         return DBFunc.Query(sql, false);
     }
 //    //Possys
@@ -7403,21 +7407,31 @@ public class Query {
     }
 
     public static Cursor GetTax() {
-        String sql = "SELECT Tax.Rate, Tax.Type, Tax.Name " +
-                "  FROM Tax " +
-                "  inner join TaxType on TaxType.ID = Tax.Type Where ServiceCharges = 0 ";
+        try {
+            String sql = "SELECT Tax.Rate, Tax.Type, Tax.Name " +
+                    "  FROM Tax " +
+                    "  inner join TaxType on TaxType.ID = Tax.Type Where ServiceCharges = 0 ";
 //        if (taxID > 0){
 //            sql += " WHERE Tax.ID = "+taxID;
 //        }
-        Log.i("TAX__","tax___"+sql);
-        return DBFunc.Query(sql,true);
+            Log.i("TAX__","tax___"+sql);
+            return DBFunc.Query(sql,true);
+
+        } catch (Exception e){
+            return null;
+        }
 
     }
     public static Cursor GetServiceCharges() {
-        String sql = "SELECT Tax.Rate, Tax.Type, Tax.Name " +
-                "  FROM Tax " +
-                "  inner join TaxType on TaxType.ID = Tax.Type Where ServiceCharges = 1 ";
-        return DBFunc.Query(sql,true);
+        try {
+
+            String sql = "SELECT Tax.Rate, Tax.Type, Tax.Name " +
+                    "  FROM Tax " +
+                    "  inner join TaxType on TaxType.ID = Tax.Type Where ServiceCharges = 1 ";
+            return DBFunc.Query(sql,true);
+        }catch (Exception e){
+            return null;
+        }
 
     }
 
@@ -7441,7 +7455,7 @@ public class Query {
                     Integer taxType = Cursor_tax.getInt(1);
                     str_inc_taxname = Cursor_tax.getString(2);
                     str_exc_taxname = Cursor_tax.getString(2);
-                    Log.i("DFD___","taxType__ddd_"+taxType);
+
                     //1=> None , 2=>Inclusive , 3=>Exclusive
                     if (taxType == 2){
                         amt_inclusive = 0.0;
@@ -11192,17 +11206,22 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
     }
 
     public static void SweetAlertWarningYesOnly(Context context, String header, String description) {
-        new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
-                //.setTitleText("Cancelled Bill")
-                .setContentText(header)
-                .setConfirmText(description)
-                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog sDialog) {
-                        sDialog.dismissWithAnimation();
-                    }
-                })
-                .show();
+       try {
+
+           new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
+                   //.setTitleText("Cancelled Bill")
+                   .setContentText(header)
+                   .setConfirmText(description)
+                   .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                       @Override
+                       public void onClick(SweetAlertDialog sDialog) {
+                           sDialog.dismissWithAnimation();
+                       }
+                   })
+                   .show();
+       } catch (Exception e){
+           Log.i("Alertboxexception_","execption_chkkkk_"+e.getMessage());
+       }
     }
 
     public static void SweetAlertWarningNoOnly(Context context, String header, String description) {
@@ -12401,17 +12420,66 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
 //    }
 
     public static boolean appInstalledOrNot(Context context,String uri) {
-        //public static boolean appInstalledOrNot(Context context, String uri) {
-            PackageManager pm = context.getPackageManager();
-            List<PackageInfo> packageInfoList = pm.getInstalledPackages(PackageManager.GET_ACTIVITIES);
-            if (packageInfoList != null) {
-                for (PackageInfo packageInfo : packageInfoList) {
-                    String packageName = packageInfo.packageName;
-                    if (packageName != null && packageName.equals(uri)) {
-                        return true;
-                    }
+        PackageManager pm = context.getPackageManager();
+        List<PackageInfo> packageInfoList = pm.getInstalledPackages(PackageManager.GET_ACTIVITIES);
+        if (packageInfoList != null) {
+            for (PackageInfo packageInfo : packageInfoList) {
+                String packageName = packageInfo.packageName;
+                Log.i("Sfsf___","Dsf____"+packageName);
+                if (packageName != null && packageName.equals(uri)) {
+                    return true;
                 }
             }
+        }
+        return false;
+    }
+    public static boolean appInstalledOrNotM2(Context context,String uri) {
+
+        Intent sendBackIntent = new Intent();
+//        sendBackIntent.setAction(Intent.ACTION_SEND);
+        sendBackIntent.setAction(Intent.ACTION_VIEW);
+        sendBackIntent.setFlags(0);
+        sendBackIntent =  JeripayPaymentFormat.launchIntent(sendBackIntent,CheckOutActivity.BillNo,0.5);
+//        sendBackIntent.putExtra("first_name", firstName);
+//        sendBackIntent.putExtra("second_name", secondName);
+        sendBackIntent.setType("text/plain");
+
+        // Get all the available applications that can receive your data
+        // (in this case, first name and second name)
+        PackageManager packageManager = context.getPackageManager();
+        List<ResolveInfo> activities = packageManager.queryIntentActivities(sendBackIntent,
+                PackageManager.MATCH_DEFAULT_ONLY);
+
+        ////////////////// Get the other application package name //////////////////
+        ActivityInfo activityInfo = null;
+        for (ResolveInfo activity: activities) {
+            // Specify here the package name of the other application
+            if (activity.activityInfo.packageName.equals(DeclarationConf.PACKAGE_NAME_JERIPAY)) {
+                activityInfo = activity.activityInfo;
+                break;
+            }
+        }
+        Log.i("dsfsdf___activityInfo","activityInfo__"+activityInfo);
+        Log.i("dsfsdf___activityInfo","activityInfo_packageName_"+activityInfo.applicationInfo.packageName);
+        if (activityInfo != null) {
+            return true;
+            // Same as before, this will open up the other application
+//            ComponentName name = new ComponentName(activityInfo.applicationInfo.packageName,
+//                    activityInfo.name);
+//            sendBackIntent.setComponent(name);
+
+            //startActivity(sendBackIntent);
+        }
+//        Intent intent = new Intent(Intent.ACTION_SEND);
+//        // Verify it resolves
+//        PackageManager packageManager = getPackageManager();
+//        List<ResolveInfo> activities = packageManager.queryIntentActivities(intent, 0);
+//        boolean isIntentSafe = activities.size() > 0;
+//
+//        // Start an activity if it's safe
+//        if (isIntentSafe) {
+//            startActivity(intent);
+//        }
             return false;
         //}
     }
@@ -14389,7 +14457,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                         //convertQRCodeImage(dcsQrCodeString);
                         //bitmapQRCode[0] = convertQRCodeImage(context, qrcodestring);
                         //bitmapQRCode = convertQRCodeImage(context, qrcodestring);
-                        convertQRCodeImage(context, qrcodestring, pDialog,BillNo,sales_id);
+                        TransactionDetailsActivity.convertQRCodeImage(context, qrcodestring, pDialog,BillNo,sales_id);
                     }
                 }, new Response.ErrorListener() {
             @Override

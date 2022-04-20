@@ -976,14 +976,14 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
                     if (c.getInt(9) != -1){
 
                         sldQtyArrCheckout.add(c.getString(0));
-                        Log.i("Dfdfdfarr__","array_dddd__"+c.getString(11));
+
                         if (c.getString(11) != null && !(c.getString(11).equals("")) && c.getString(11).trim().length() > 0 && !(c.getString(11).equals("0"))) {
                             String chkicno_on = Query.GetOptions(26);
                             if (chkicno_on.equals("1")) {
                                 //HPB
                                 if (c.getString(11) != null && c.getString(11).length() == 9) {
                                     String remarkstransaction = Constraints.PASSFirstDigits + c.getString(11).substring(5, 9);
-                                    Log.i("Dfdfdfarr__", "array__remarkstransaction_" + c.getString(11));
+
                                     sldNameArrCheckout.add(c.getString(1) + "\n" + "(" + remarkstransaction + ")");
                                 } else {
                                     if (c.getString(11) != null && c.getString(11).length() > 0 && !(c.getString(11).equals(null)) && !(c.getString(11).equals("null"))) {
@@ -1080,7 +1080,7 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
     public static Integer getSalesIDByBillNo(String billNo){
         Integer sales_id = 0;
         String sql = "SELECT ID FROM SALES Where BillNo = '"+ billNo +"' ";
-        Log.i("_sql_rrrr_",sql);
+
         Cursor c = DBFunc.Query(sql, false);
         if (c != null) {
             if (c.moveToNext()) {
@@ -1121,17 +1121,13 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
             sldDiscountValue.clear();
             while (c.moveToNext()) {
                 if (!c.isNull(0)) {
-                    Log.i("DSF_",c.getString(0));
-                    Log.i("DSFdd_",c.getString(1));
-                    Log.i("DSFrff_",c.getString(2));
-                    Log.i("DSFrff_",c.getString(2));
                     sldQtyArr.add(c.getString(1));
                     //sldNameArr.add(c.getString(1));
                     sldNameArr.add(c.getString(3));
 
                     //Double totalPrice = c.getDouble(0) * c.getDouble(1);
                     Double totalPrice = c.getDouble(2);
-                    Log.i("totalPrice__","totalPrice___"+totalPrice);
+
                     sltPriceTotalArr.add(String.valueOf(totalPrice));
                     sltPriceTotalEachArr.add(String.valueOf(totalPrice));
 //                    sltPriceTotalArr.add(c.getString(2));
@@ -1141,12 +1137,12 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
                     sldCTaxName.add(c.getString(7));
                     sldCTaxAmount.add(c.getString(8));
                     sldDiscountName.add(c.getString(9));
-                    Log.i("TAGGG","_c.getString10__"+c.getString(10));
+
                     sldDiscountType.add(c.getString(10));
                     sldDiscountValue.add(c.getString(11));
-                    Log.i("taxIDDD", String.valueOf(taxID));
+
                     String str_tax = "Select Type from Tax Where ID = " +taxID;
-                    Log.i("taxIDDD_str_tax", String.valueOf(str_tax));
+
                     Cursor CursortaxObj = DBFunc.Query(str_tax,true);
                     if (CursortaxObj != null){
                         if (CursortaxObj.moveToNext()) {
@@ -1261,20 +1257,15 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
                     new RefreshBill(this,BillNo);
                 break;
             case R.id.img_resync_billno:
-
                     new ResyncBill(this,BillNo);
-
                 break;
             case R.id.img_reprint:
                     new ReprintBill(this,sales_id,BillNo,STATUS,dateFormat3,checkBillnodate);
-
                 break;
             case R.id.btn_refund_or_checkout:
                     new RefundBill(this,sales_id,BillNo,STATUS,dateFormat3,checkBillnodate);
-
                 break;
             case R.id.btn_cancel_bill:
-
                     new CancelBill(this,sales_id,BillNo,STATUS,dateFormat3,checkBillnodate);
                 break;
             case R.id.btn_collected_bill_txt:

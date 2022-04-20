@@ -1,17 +1,12 @@
 package com.dcs.myretailer.app.Activity;
 
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
-//import android.database.sqlite.SQLiteConstraintException;
-//import android.database.sqlite.SQLiteDatabase;
-//import android.database.sqlite.SQLiteStatement;
-import net.sqlcipher.database.SQLiteConstraintException;
-import net.sqlcipher.database.SQLiteDatabase;
-import net.sqlcipher.database.SQLiteStatement;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -52,6 +47,10 @@ import com.dcs.myretailer.app.Setting.StrTextConst.TextType;
 import com.dcs.myretailer.app.Setting.TransactionDatabaseAdapter;
 import com.dcs.myretailer.app.databinding.ActivityDatabaseImportExportBinding;
 
+import net.sqlcipher.database.SQLiteConstraintException;
+import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteStatement;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -63,6 +62,7 @@ import java.util.Map;
 import java.util.Random;
 
 //import com.filebrowser.FileBrowser;
+
 
 public class DatabaseImportExportActivity extends AppCompatActivity {
     private static final String SAMPLE_DB_NAME = "TEXT";
@@ -746,7 +746,8 @@ public class DatabaseImportExportActivity extends AppCompatActivity {
                         this.publishProgress(new Object[]{StrTextConst.GetText(TextType.CFGDB, 24),-1,-1,-1,-1});
                     }
 
-                    SQLiteDatabase dbsrc = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_check.db").getAbsolutePath(),"", null);
+//                    SQLiteDatabase dbsrc = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_check.db").getAbsolutePath(),"", null);
+                    SQLiteDatabase dbsrc = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_check.db").getAbsolutePath(),Constraints.encrypt_password, null);
                     Cursor c = dbsrc.rawQuery("PRAGMA journal_mode=OFF", null);
                     c.close();
                     c = dbsrc.rawQuery("PRAGMA locking_mode=EXCLUSIVE", null);
@@ -755,7 +756,8 @@ public class DatabaseImportExportActivity extends AppCompatActivity {
 
 
                     //create new database for restructuring
-                    SQLiteDatabase dbdest = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_dest.db").getAbsolutePath(),"", null);
+//                    SQLiteDatabase dbdest = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_dest.db").getAbsolutePath(),"", null);
+                    SQLiteDatabase dbdest = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("tmp_dest.db").getAbsolutePath(),Constraints.encrypt_password, null);
                     c = dbdest.rawQuery("PRAGMA journal_mode=OFF", null);
                     c.close();
                     c = dbdest.rawQuery("PRAGMA locking_mode=EXCLUSIVE", null);

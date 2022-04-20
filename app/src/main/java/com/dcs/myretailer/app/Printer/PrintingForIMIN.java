@@ -22,37 +22,10 @@ import java.io.IOException;
 import java.util.List;
 
 public class PrintingForIMIN {
-    public PrintingForIMIN(Context mcontext, String receiptNo) {
+    public PrintingForIMIN(Context mcontext, String receiptNo, Integer sale_id, String status, String billNo,IminPrintUtils mIminPrintUtils) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 
-            mIminPrintUtils = IminPrintUtils.getInstance(mcontext);
-            DeviceListAdapter mAdapter = new DeviceListAdapter(mcontext);;
-            List<BluetoothDevice> printerDevices = BluetoothUtil.getPairedDevices();
-            mAdapter.clear();
-
-            mAdapter.addAll(printerDevices);
-            int bluetoothPosition = 0;
-//                int bluetoothPosition = 1;
-            BluetoothDevice device = mAdapter.getItem(bluetoothPosition);
-
-            try {
-
-                mIminPrintUtils.initPrinter(IminPrintUtils.PrintConnectType.BLUETOOTH, device);
-                DBFunc.DBUserLog(Allocator.cashierName, Allocator.cashierID, Allocator.cashierAuth,
-                        System.currentTimeMillis(), DBFunc.PurifyString("OK-CashLayoutActivity-ReceiptPrint-"
-                                +mIminPrintUtils));
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                DBFunc.DBUserLog(Allocator.cashierName, Allocator.cashierID, Allocator.cashierAuth,
-                        System.currentTimeMillis(), DBFunc.PurifyString("Err-CashLayoutActivity-ReceiptPrint-" +e.getMessage()+"-"+mIminPrintUtils));
-            }
-            mIminPrintUtils.setTextSize(22);
-            mIminPrintUtils.setTextStyle(Typeface.BOLD);
-            mIminPrintUtils.setTextLineSpacing(1.0f);
-
-            mIminPrintUtils.setTextLineSpacing(1.0f);
 
             String chkBarcodeOnReceipt = Query.GetOptions(25);
             if (chkBarcodeOnReceipt.equals("1")) {
@@ -73,6 +46,8 @@ public class PrintingForIMIN {
                     }
                 }
             }
+
+           // CashLayoutActivity.printingReceiptFormat(sale_id, status, billNo, mIminPrintUtils);
         }
     }
 

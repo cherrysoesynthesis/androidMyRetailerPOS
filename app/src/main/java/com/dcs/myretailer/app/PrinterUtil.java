@@ -92,7 +92,7 @@ public class PrinterUtil {
         return result;
     }
 
-    protected synchronized void printBitmap(Bitmap bitmap, boolean cutPaper) {
+    public synchronized void printBitmap(Bitmap bitmap, boolean cutPaper) {
 //        IPrinter printer = FinancialApplication.getApp().getDal().getPrinter();
         IPrinter printer = DemoApp.getDal().getPrinter();
         IPrinter.IPinterListener listener = new IPrinter.IPinterListener() {

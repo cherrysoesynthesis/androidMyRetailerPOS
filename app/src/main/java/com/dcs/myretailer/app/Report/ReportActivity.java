@@ -47,29 +47,29 @@ import androidx.databinding.DataBindingUtil;
 
 import com.dcs.myretailer.app.Allocator;
 import com.dcs.myretailer.app.Activity.BarChartActivity;
-import com.dcs.myretailer.app.Cancellation;
 import com.dcs.myretailer.app.Cashier.MainActivity;
-import com.dcs.myretailer.app.CategorySales;
 import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.DeviceHelper;
 import com.dcs.myretailer.app.DeviceListAdapter;
 import com.dcs.myretailer.app.DialogBox;
-import com.dcs.myretailer.app.Discount;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.FileBrowser;
 import com.dcs.myretailer.app.Logger;
-import com.dcs.myretailer.app.Payment;
-import com.dcs.myretailer.app.ProductSales;
+import com.dcs.myretailer.app.Model.Cancellation;
+import com.dcs.myretailer.app.Model.CategorySales;
+import com.dcs.myretailer.app.Model.Discount;
+import com.dcs.myretailer.app.Model.Payment;
+import com.dcs.myretailer.app.Model.ProductSales;
+import com.dcs.myretailer.app.Model.ReceiptZCloseData;
+import com.dcs.myretailer.app.Model.Refund;
+import com.dcs.myretailer.app.Model.TotalSales;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.ReceiptZCloseData;
-import com.dcs.myretailer.app.Refund;
 import com.dcs.myretailer.app.Activity.RemarkMainActivity;
 import com.dcs.myretailer.app.ScreenSize.ReportActivityScreenSize;
 import com.dcs.myretailer.app.Activity.SettingActivity;
 import com.dcs.myretailer.app.Setting.StrTextConst;
-import com.dcs.myretailer.app.TotalSales;
-import com.dcs.myretailer.app.TxnReceiptGenerator;
+import com.dcs.myretailer.app.PrintReceiptGenerator;
 import com.dcs.myretailer.app.databinding.ActivityReportBinding;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -2966,7 +2966,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
 //             final String status = printer_tester.start();
 
 
-                TxnReceiptGenerator.printZCloseReceipt(rzcd);
+                PrintReceiptGenerator.printZCloseReceipt(rzcd);
          }else if (terminaltype_check.toUpperCase().equals(Constraints.PAX_E600M.toUpperCase())) {
          }
 
@@ -3603,21 +3603,24 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
 
 
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)){
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,"*TOTAL SALES*",Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.DOTLINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.BillPaid,"$"+String.format("%.2f", Double.valueOf(TotalNettSales)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.BillCancel,"$"+String.format("%.2f", Double.valueOf(BillCancel)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.BillRefund,"$"+String.format("%.2f", Double.valueOf(BillRefund)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtySold,String.valueOf(TotalQty));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTNett,"$"+String.format("%.2f", Double.valueOf(TotalNettSales)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.TaxTotal,"$"+String.format("%.2f", Double.valueOf(TotalTaxSales)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTDiscount,"$"+String.format("%.2f", Double.valueOf(TotalBillDisount)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTSurcharge,"$"+String.format("%.2f", Double.valueOf(ServiceChargesSales)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.RoundAdj,"$"+String.format("%.2f", Double.valueOf(TotalRoundAdjSales)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtyCancel,String.valueOf(BillCancelTotalQty));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtyRefund,String.valueOf(BillRefundTotalQty));
-//            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTCancel,String.format("%.2f", Double.valueOf(BillCancel)));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
+
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,"*TOTAL SALES*",Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.DOTLINEIMIN, Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.BillPaid,"$"+String.format("%.2f", Double.valueOf(TotalNettSales)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.BillCancel,"$"+String.format("%.2f", Double.valueOf(BillCancel)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.BillRefund,"$"+String.format("%.2f", Double.valueOf(BillRefund)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtySold,String.valueOf(TotalQty));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTNett,"$"+String.format("%.2f", Double.valueOf(TotalNettSales)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.TaxTotal,"$"+String.format("%.2f", Double.valueOf(TotalTaxSales)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTDiscount,"$"+String.format("%.2f", Double.valueOf(TotalBillDisount)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTSurcharge,"$"+String.format("%.2f", Double.valueOf(ServiceChargesSales)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.RoundAdj,"$"+String.format("%.2f", Double.valueOf(TotalRoundAdjSales)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtyCancel,String.valueOf(BillCancelTotalQty));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtyRefund,String.valueOf(BillRefundTotalQty));
+
+            }//            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTCancel,String.format("%.2f", Double.valueOf(BillCancel)));
         } else {
             str += "\n" + Constraints.LINE;
             str += "\n" + "*TOTAL SALES*";
@@ -3689,13 +3692,16 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
     if (product_sales.equals("1")){
         //str3 = Query.XZDataReportProductShow(TotalQtyProduct,TotalNettSalesProduct,TaxTotalProduct,TotalBillDisountTaxProduct,TotalNettSalesProductCancel,TotalNettSalesProduct);
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)) {
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Product SALES*", Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtySold,String.valueOf(TotalQtyProduct));
-            //Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTNett,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesProduct)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.Amount,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesProduct)));
-            //Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtyCancel,String.valueOf(BillCancelTotalQty));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
+
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Product SALES*", Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtySold,String.valueOf(TotalQtyProduct));
+                //Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTNett,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesProduct)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.Amount,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesProduct)));
+
+            }          //Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtyCancel,String.valueOf(BillCancelTotalQty));
             //Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTCancel,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesProductCancel)));
 
         }else {
@@ -3725,12 +3731,15 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
     if (category.equals("1")){
         // str2 = Query.XZDataReportCategoryShow(TotalQtyCategory,TotalNettSalesCategory,TaxTotalCategory,TotalBillDisountTaxCategory,TotalQtyCategoryCancel,TotalNettSalesCategory);
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)) {
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,"*Category*",Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.DOTLINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtySold,String.valueOf(TotalQtyCategory));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTNett,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesCategory)));
-//            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.Amount,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesCategory)));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,"*Category*",Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.DOTLINEIMIN, Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtySold,String.valueOf(TotalQtyCategory));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTNett,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesCategory)));
+
+            }
+          //            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.Amount,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesCategory)));
 //            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.QtyCancel,String.valueOf(TotalQtyCategoryCancel));
 //            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTCancel,"$"+String.format("%.2f", Double.valueOf(TotalNettSalesCategoryCancel)));
 //            Query.PrintingValueSetForIMINReport(mIminPrintUtils,"Item Discount Qty",String.valueOf(CategoryCancelItemDiscount_Qty));
@@ -3757,9 +3766,11 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
     if (payment.equals("1")){
         //str4 = Query.XZDataReportPaymentShow(PaymentTypeCount,PaymentTypeAmount);
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)) {
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Payment*", Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Payment*", Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+            }
         }else {
             str4 = "\n" +Constraints.LINE;
             str4 += "\n" + "*Payment*";
@@ -3815,9 +3826,11 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
     if (disocunt.equals("1")){
         //str5 = Query.XZDataReportDiscountShow(DicountCount,DicountAmount);
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)) {
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Discount*", Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Discount*", Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+            }
 
         } else {
             str5 = "\n" + Constraints.LINE;
@@ -3843,7 +3856,9 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
         }
 //        str5 += "TotalItemDiscount"+DicountAmount;
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)) {
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, "Total Item Dis", String.valueOf(DicountAmount));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, "Total Item Dis", String.valueOf(DicountAmount));
+            }
         } else {
             str5 += "\n" + "Total Item Dis" + Query.spaceCount2("Total Item Dis", String.valueOf(DicountAmount));
             rzcd_dis.setTotalItemDis(String.valueOf(DicountAmount));
@@ -3876,13 +3891,17 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
             //str6 += Query.XZDataReportCancellationShow(BillCancel,BillCancelTotalQty,BillTax,TotalBillDisountTax);
 
             if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)) {
-                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
-                Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Refund*", Constraints.HEADER);
-                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
-                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.BillRefund,"$"+String.format("%.2f", Double.valueOf(BillRefund)));
-                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.Quantity,String.valueOf(BillRefundTotalQty));
-                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTNett,"$"+String.format("%.2f", Double.valueOf(BillRefund)));
-                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTSurcharge,"$"+String.format("%.2f", Double.valueOf(TotalBillServiceChargesRefund)));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
+
+                    Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Refund*", Constraints.HEADER);
+                    Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+                    Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.BillRefund,"$"+String.format("%.2f", Double.valueOf(BillRefund)));
+                    Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.Quantity,String.valueOf(BillRefundTotalQty));
+                    Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTNett,"$"+String.format("%.2f", Double.valueOf(BillRefund)));
+                    Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.AMTSurcharge,"$"+String.format("%.2f", Double.valueOf(TotalBillServiceChargesRefund)));
+
+                }
             }else {
                 str6 = "\n" +Constraints.LINE;
                 str6 += "\n" + "*Refund*";
@@ -3909,16 +3928,19 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
     if (cancellation.equals("1")){
         //str6 += Query.XZDataReportCancellationShow(BillCancel,BillCancelTotalQty,BillTax,TotalBillDisountTax);
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)) {
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Cancellation*", Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
-//            Query.PrintingValueSetForIMINReport(mIminPrintUtils, "Bill Cancelled", "$"+String.format("%.2f", Double.valueOf(BillCancel)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.Quantity, String.valueOf(BillCancelTotalQty));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.AMTNett, "$"+String.format("%.2f", Double.valueOf(BillCancel)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.TaxTotal, "$"+String.format("%.2f", Double.valueOf(TotalBillDisountTax)));
-//            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.AMTDiscount, "$"+String.format("%.2f", Double.valueOf(TotalBillDisountAmountCancel)));
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.AMTSurcharge, "$"+String.format("%.2f", Double.valueOf(TotalBillServiceChargesCancel)));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,Constraints.LINEIMIN, Constraints.HEADER);
 
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, "*Cancellation*", Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+//            Query.PrintingValueSetForIMINReport(mIminPrintUtils, "Bill Cancelled", "$"+String.format("%.2f", Double.valueOf(BillCancel)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.Quantity, String.valueOf(BillCancelTotalQty));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.AMTNett, "$"+String.format("%.2f", Double.valueOf(BillCancel)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.TaxTotal, "$"+String.format("%.2f", Double.valueOf(TotalBillDisountTax)));
+//            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.AMTDiscount, "$"+String.format("%.2f", Double.valueOf(TotalBillDisountAmountCancel)));
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.AMTSurcharge, "$"+String.format("%.2f", Double.valueOf(TotalBillServiceChargesCancel)));
+
+            }
         } else {
             str6 += "\n" + Constraints.LINE;
             str6 += "\n" + "*Cancellation*";
@@ -4022,6 +4044,7 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
     return rzcd;
 }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void showZClosingReportFooter(String str, String status, IminPrintUtils mIminPrintUtils, String terminaltype_check,
                                           ReceiptZCloseData rzcd) {
         Log.i("DSF__","statudds___"+status);
@@ -4029,20 +4052,25 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
         rzcd.setZClosedt(str);
         if (status.equals("Reprint")) {
             if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)) {
-                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
-                Query.PrintingValueSetForIMINReport(mIminPrintUtils,  status.toUpperCase(), "");
-            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+                    Query.PrintingValueSetForIMINReport(mIminPrintUtils,  status.toUpperCase(), "");
+                }
+           } else {
                 str7 += "\n" + Constraints.DOTLINE;
                 str7 += "\n" + status.toUpperCase();
             }
         }
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN)) {
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, str, "");
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,  status.toUpperCase(), "");
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,"\n", Constraints.HEADER);
-            Query.PrintingValueSetForIMINReport(mIminPrintUtils,"\n", Constraints.HEADER);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, str, "");
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils, Constraints.DOTLINEIMIN, Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,  status.toUpperCase(), "");
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,"\n", Constraints.HEADER);
+                Query.PrintingValueSetForIMINReport(mIminPrintUtils,"\n", Constraints.HEADER);
+            }
         } else {
             str7 += "\n" + Constraints.DOTLINE;
             str7 += "\n" + str;

@@ -19,19 +19,15 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.RemoteException;
 import android.text.Editable;
 import android.text.Html;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -52,7 +48,6 @@ import com.android.volley.toolbox.Volley;
 import com.dcs.myretailer.app.APIActivity;
 import com.dcs.myretailer.app.Allocator;
 import com.dcs.myretailer.app.Model.BillListModel;
-import com.dcs.myretailer.app.BillPaymentValue;
 import com.dcs.myretailer.app.Cashier.MainActivity;
 import com.dcs.myretailer.app.Cashier.RecyclerViewAdapter;
 import com.dcs.myretailer.app.Adapter.CheckOutAdapter;
@@ -62,12 +57,12 @@ import com.dcs.myretailer.app.Database.DBFunc;
 import com.dcs.myretailer.app.DeviceHelper;
 import com.dcs.myretailer.app.DeviceListAdapter;
 import com.dcs.myretailer.app.ENUM.Constraints;
-import com.dcs.myretailer.app.JeripayReceiptData;
 import com.dcs.myretailer.app.LalamoveAPI;
-import com.dcs.myretailer.app.MercatusReceiptData;
-import com.dcs.myretailer.app.Model.KitchenPrinterActivity;
-import com.dcs.myretailer.app.Model.Result;
-import com.dcs.myretailer.app.OrderDetails;
+import com.dcs.myretailer.app.Model.BillPaymentValue;
+import com.dcs.myretailer.app.Model.JeripayReceiptData;
+import com.dcs.myretailer.app.Model.MercatusReceiptData;
+import com.dcs.myretailer.app.Model.OrderDetails;
+import com.dcs.myretailer.app.Model.ReceiptData;
 import com.dcs.myretailer.app.Printer.IngenicoInitialize;
 import com.dcs.myretailer.app.Printer.KitchenPrinter;
 import com.dcs.myretailer.app.Printer.PrintingForIMIN;
@@ -75,12 +70,9 @@ import com.dcs.myretailer.app.Printer.PrintingForIngenico;
 import com.dcs.myretailer.app.Printer.PrintingForPAX;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
-import com.dcs.myretailer.app.ReceiptData;
 import com.dcs.myretailer.app.ScreenSize.CashLayoutActivityScreenSize;
-import com.dcs.myretailer.app.TxnReceiptGenerator;
 import com.dcs.myretailer.app.databinding.ActivityCashLayoutBinding;
 import com.dcs.myretailer.app.e600.printer.PrinterTester;
-import com.epson.eposprint.Builder;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -90,10 +82,6 @@ import com.imin.printerlib.IminPrintUtils;
 import com.imin.printerlib.util.BluetoothUtil;
 import com.pax.dal.IDAL;
 import com.pax.neptunelite.api.NeptuneLiteUser;
-import com.usdk.apiservice.aidl.printer.ASCScale;
-import com.usdk.apiservice.aidl.printer.ASCSize;
-import com.usdk.apiservice.aidl.printer.AlignMode;
-import com.usdk.apiservice.aidl.printer.OnPrintListener;
 import com.usdk.apiservice.aidl.printer.UPrinter;
 
 import org.json.JSONObject;
@@ -108,13 +96,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.nio.charset.IllegalCharsetNameException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -227,7 +213,7 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
         new CashLayoutActivityScreenSize(binding);
 
         String terminalTypeVal = Query.GetDeviceData(Constraints.TERMINAL_TYPE);
-        Log.i("terminalTypeVal__", "terminalTypeVal_" + terminalTypeVal);
+
         if (terminalTypeVal.toUpperCase().equals(Constraints.INGENICO.toUpperCase())) {
             //RegisterForIngenico(context);
             new IngenicoInitialize(this);
@@ -2032,7 +2018,7 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
 
                 if (terminaltype_check.toUpperCase().equals(Constraints.IMIN.toUpperCase())) {
                     receiptCount = MainActivity.receiptCount;
-                }
+                }//here
                 for (int printcount = 0; printcount < receiptCount; printcount++) {
                     PrintFormatFun(mcontext, sale_id, billNo, status, bitmap__, bitmap_qr_shoptima);
                 }
@@ -2117,6 +2103,37 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
                     System.currentTimeMillis(), DBFunc.PurifyString("Err-CL-ChkmIminPrintUtils-"+mIminPrintUtils+"-"+e.getMessage()));
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+
+            mIminPrintUtils = IminPrintUtils.getInstance(mcontext);
+            DeviceListAdapter mAdapter = new DeviceListAdapter(mcontext);
+            ;
+            List<BluetoothDevice> printerDevices = BluetoothUtil.getPairedDevices();
+            mAdapter.clear();
+
+            mAdapter.addAll(printerDevices);
+            int bluetoothPosition = 0;
+//                int bluetoothPosition = 1;
+            BluetoothDevice device = mAdapter.getItem(bluetoothPosition);
+
+            try {
+
+                mIminPrintUtils.initPrinter(IminPrintUtils.PrintConnectType.BLUETOOTH, device);
+                DBFunc.DBUserLog(Allocator.cashierName, Allocator.cashierID, Allocator.cashierAuth,
+                        System.currentTimeMillis(), DBFunc.PurifyString("OK-CashLayoutActivity-ReceiptPrint-"
+                                + mIminPrintUtils));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                DBFunc.DBUserLog(Allocator.cashierName, Allocator.cashierID, Allocator.cashierAuth,
+                        System.currentTimeMillis(), DBFunc.PurifyString("Err-CashLayoutActivity-ReceiptPrint-" + e.getMessage() + "-" + mIminPrintUtils));
+            }
+            mIminPrintUtils.setTextSize(22);
+            mIminPrintUtils.setTextStyle(Typeface.BOLD);
+            mIminPrintUtils.setTextLineSpacing(1.0f);
+
+            mIminPrintUtils.setTextLineSpacing(1.0f);
+        }
 
         ReceiptData receiptDataJson = new ReceiptData();
         try {
@@ -2128,7 +2145,7 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
 
         if (terminaltype_check.toUpperCase().equals(Constraints.IMIN.toUpperCase())) {
 
-            new PrintingForIMIN(mcontext,ReceiptNo);
+            new PrintingForIMIN(mcontext,ReceiptNo,sale_id, status, billNo,mIminPrintUtils);
 
 
         } else if (terminaltype_check.toUpperCase().equals(Constraints.INGENICO.toUpperCase())){
@@ -3380,7 +3397,7 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
 //    }
 
      @RequiresApi(api = Build.VERSION_CODES.N)
-    private static ReceiptData printingReceiptFormat(Integer sale_id, String status,
+    public static ReceiptData printingReceiptFormat(Integer sale_id, String status,
                                               String BillNo, IminPrintUtils mIminPrintUtils) {
          ReceiptData jsonObjectPrint = new ReceiptData();
 

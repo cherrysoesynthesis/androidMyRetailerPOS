@@ -2357,27 +2357,34 @@ public static  void SyncSales(Context context,RequestQueue queue1, String url, f
 //            if (Double.valueOf(statusSyncTotalTax) == 0.0 ) {
 //                statusSyncTotalTax = GetExclusiveTaxValues(statusSyncTotalNettAmt);
 //            }
-            String[] hwid = GetExclusiveTaxValues(statusSyncTotalNettAmt);
+
             double inclTaxValue = 0.0;
             double SalesTaxRate = 0.0;
             String SalesTaxType = "";
 
-            for (int s1 = 0 ; s1 < 1 ; s1 ++){
+            try {
+
+                String[] hwid = GetExclusiveTaxValues(statusSyncTotalNettAmt);
+
+                for (int s1 = 0 ; s1 < 1 ; s1 ++){
 
 
-                inclTaxValue = Double.parseDouble(hwid[0]);
-                SalesTaxRate = Double.parseDouble(String.format("%.2f", Double.parseDouble(hwid[1])));
-                SalesTaxType = hwid[2];
+                    inclTaxValue = Double.parseDouble(hwid[0]);
+                    SalesTaxRate = Double.parseDouble(String.format("%.2f", Double.parseDouble(hwid[1])));
+                    SalesTaxType = hwid[2];
 
 
+                }
+                if (Double.valueOf(statusSyncTotalTax) == 0.0 ) {
+                    statusSyncTotalTax = inclTaxValue;
+                }
+                if (Double.valueOf(statusSyncTotalTax) == 0.0 ){
+                    statusSyncTotalTax = 0.0;
+                }
+
+            } catch (Exception e){
+                Log.i("Exception___e__","ec__"+e.getMessage());
             }
-            if (Double.valueOf(statusSyncTotalTax) == 0.0 ) {
-                statusSyncTotalTax = inclTaxValue;
-            }
-            if (Double.valueOf(statusSyncTotalTax) == 0.0 ){
-                statusSyncTotalTax = 0.0;
-            }
-
 
             if (statusSyncStatus.equals("VOID")){
                 statusSyncTotalTax = (-1) * statusSyncTotalTax;

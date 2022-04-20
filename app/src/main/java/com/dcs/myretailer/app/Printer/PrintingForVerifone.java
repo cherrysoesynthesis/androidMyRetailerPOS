@@ -1,13 +1,5 @@
 package com.dcs.myretailer.app.Printer;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
-
-import com.dcs.myretailer.app.Cashier.MainActivity;
-import com.dcs.myretailer.app.Query.Query;
-import com.dcs.myretailer.app.TxnReceiptGenerator;
-
 public class PrintingForVerifone {
     public PrintingForVerifone() {
 //        // dal = getDal(mcontext);

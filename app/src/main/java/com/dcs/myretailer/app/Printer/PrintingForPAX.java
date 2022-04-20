@@ -6,9 +6,9 @@ import android.util.Log;
 
 import com.dcs.myretailer.app.Activity.CashLayoutActivity;
 import com.dcs.myretailer.app.Cashier.MainActivity;
+import com.dcs.myretailer.app.Model.ReceiptData;
 import com.dcs.myretailer.app.Query.Query;
-import com.dcs.myretailer.app.ReceiptData;
-import com.dcs.myretailer.app.TxnReceiptGenerator;
+import com.dcs.myretailer.app.PrintReceiptGenerator;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 
@@ -79,10 +79,9 @@ public class PrintingForPAX {
 
         for (int printcount = 0; printcount < MainActivity.receiptCount; printcount++) {
 //                    final String status1 = printer_tester.start();
-            TxnReceiptGenerator.printReceipt(receiptDataJson);
+            PrintReceiptGenerator.printReceipt(receiptDataJson);
         }
     }
-
 
     private static Bitmap GetReceiptNoBarCode(String ReceiptNo) {
         Bitmap barCode = null;
