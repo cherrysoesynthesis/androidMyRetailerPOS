@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/androidMyRetailerPOS-3.3.24.iml" filepath="$PROJECT_DIR$/.idea/modules/androidMyRetailerPOS-3.3.24.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/androidMyRetailerPOS-3.3.24.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/androidMyRetailerPOS-3.3.24.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commonlib/androidMyRetailerPOS-3.3.24.commonlib.iml" filepath="$PROJECT_DIR$/.idea/modules/commonlib/androidMyRetailerPOS-3.3.24.commonlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fileBrowser/androidMyRetailerPOS-3.3.24.fileBrowser.iml" filepath="$PROJECT_DIR$/.idea/modules/fileBrowser/androidMyRetailerPOS-3.3.24.fileBrowser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/glwrapper/androidMyRetailerPOS-3.3.24.glwrapper.iml" filepath="$PROJECT_DIR$/.idea/modules/glwrapper/androidMyRetailerPOS-3.3.24.glwrapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qrcodescanner/androidMyRetailerPOS-3.3.24.qrcodescanner.iml" filepath="$PROJECT_DIR$/.idea/modules/qrcodescanner/androidMyRetailerPOS-3.3.24.qrcodescanner.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Model.KitchenPrinter.KitchenPrinterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ic_icon_myretailer_background"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_xml" />
+
+        <LinearLayout
+            android:id="@+id/layKitchenPrinter"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/linear_product_circle3"
+            android:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/LayIPAddressSelect"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/dark_blue">
+
+                <EditText
+                    android:id="@+id/edit_text_product_name1"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/linear_product_circle"
+                    android:hint="IP Address"
+
+                    android:textAllCaps="false"
+                    android:textColor="@color/mine_shaft"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="14sp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/img_receipt_printer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_arrow_down_grey_500" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="10dp">
+
+            <Button
+                android:id="@+id/button_discovery"
+                android:layout_width="200dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/mybutton"
+                android:gravity="center|center_horizontal"
+                android:lineSpacingExtra="8sp"
+                android:text="@string/main_button_discovery"
+                android:textColor="@color/cardview_light_background" />
+
+            <Button
+                android:id="@+id/button_print"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/mybutton"
+                android:gravity="center|center_horizontal"
+                android:lineSpacingExtra="8sp"
+                android:text="Test Print"
+                android:textColor="@color/cardview_light_background" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_printer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_label_printer"
+            android:textColor="#000000"
+            android:visibility="invisible"/>
+        <Spinner
+            android:id="@+id/spinner_printer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/text_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_label_modelname"
+            android:textColor="#000000"
+            android:visibility="invisible" />
+        <Spinner
+            android:id="@+id/spinner_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/text_warnings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_label_warnings"
+            android:textColor="#000000"
+            android:visibility="invisible"/>
+
+        <EditText
+            android:id="@+id/edit_warnings"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:inputType="none"
+            android:visibility="invisible"/>
+    </LinearLayout>
+</layout>

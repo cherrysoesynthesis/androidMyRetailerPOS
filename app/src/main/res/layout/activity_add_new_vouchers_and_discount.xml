@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.AddNewVouchersAndDiscountActivity">
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/colorBgcash">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar_xml" />
+
+            <LinearLayout
+                android:id="@+id/layOverAll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cardview_light_background"
+                android:orientation="vertical">
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="325dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@drawable/linear_product_circle3"-->
+                <!--android:visibility="visible">-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="0dp"-->
+                <!--android:textColorHint="@color/dark_blue">-->
+
+                <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@drawable/linear_product_circle"-->
+                <!--android:hint="TYPE"-->
+                <!--android:inputType="textCapCharacters"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:textColor="@color/mine_shaft"-->
+                <!--android:textColorHint="@color/dark_blue"-->
+                <!--android:textSize="14sp" />-->
+
+                <!--<Button-->
+                <!--android:id="@+id/btn_type"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/mybutton"-->
+                <!--android:text="SELECT TYPE" />-->
+
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+                <!--</LinearLayout>-->
+                <LinearLayout
+                    android:id="@+id/linear_voucher_name"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="gone">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/edit_text_voucher_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="NAME"
+                            android:inputType="textCapCharacters"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_discount_name"
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/edit_text_discount_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="NAME"
+                            android:inputType="textCapCharacters"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_discount_rate"
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/edit_text_discount_rate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="RATE"
+                            android:inputType="textCapCharacters"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lineartype"
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/type_name"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="TYPE"
+                            android:inputType="textCapCharacters"
+                            android:text="DISCOUNT"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/btn_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/ic_arrow_down_grey_500" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_discount_type"
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/btn_discount_type"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="Discount Type"
+                            android:inputType="textCapCharacters"
+                            android:text="Select Discount Type"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/img_discount_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/ic_arrow_down_grey_500" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--<LinearLayout-->
+                <!--android:id="@+id/linear_discount_type"-->
+                <!--android:layout_width="325dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@drawable/linear_product_circle3"-->
+                <!--android:visibility="visible">-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="0dp"-->
+                <!--android:textColorHint="@color/dark_blue">-->
+
+                <!--<EditText-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@drawable/linear_product_circle"-->
+                <!--android:hint="DISCOUNT TYPE"-->
+                <!--android:inputType="textCapCharacters"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:textColor="@color/mine_shaft"-->
+                <!--android:textColorHint="@color/dark_blue"-->
+                <!--android:textSize="14sp" />-->
+
+                <!--<Button-->
+                <!--android:id="@+id/btn_discount_type"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/mybutton"-->
+                <!--android:text="SELECT DISCOUNT TYPE" />-->
+
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+                <!--</LinearLayout>-->
+
+                <LinearLayout
+                    android:id="@+id/linear_discount_value_expiry_date"
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/edit_text_expiry_date"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="EXPIRY DATE"
+                            android:inputType="textCapCharacters"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:id="@+id/voucher_expiry_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/ic_arrow_down_grey_500" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_discount_value_amount"
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:textColorHint="@color/dark_blue">
+
+                        <EditText
+                            android:id="@+id/edit_text_value_amount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/linear_product_circle"
+                            android:hint="VALUE AMOUNT"
+                            android:inputType="textCapCharacters"
+                            android:textAllCaps="true"
+                            android:textColor="@color/mine_shaft"
+                            android:textColorHint="@color/dark_blue"
+                            android:textSize="14sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_voucher_code"
+                    android:layout_width="325dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="250dp"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:textColorHint="@color/dark_blue">
+
+                            <EditText
+                                android:id="@+id/edit_text_voucher_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/linear_product_circle"
+                                android:hint="VOUCHER CODE"
+                                android:inputType="textCapCharacters"
+                                android:textAllCaps="true"
+                                android:textColor="@color/mine_shaft"
+                                android:textColorHint="@color/dark_blue"
+                                android:textSize="14sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/scan_vooucher_code"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="3dp"
+                            android:src="@drawable/ic_scan_white_white" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
+                    android:visibility="gone">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#cccccc" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:paddingLeft="25dp"
+                        android:paddingTop="10dp"
+                        android:text="Options"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="0dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/chk_allow_bill_discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/mine_shaft"
+                            android:checked="false"
+                            android:padding="10dp"
+                            android:textColor="@color/cardview_dark_background" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Bill Discount"
+                            android:textColor="@color/cardview_dark_background" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="0dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/chk_allow_amt_discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/mine_shaft"
+                            android:checked="false"
+                            android:padding="10dp"
+                            android:textColor="@color/cardview_dark_background" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Amount Discount"
+                            android:textColor="@color/cardview_dark_background" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:paddingLeft="25dp"
+                        android:paddingTop="10dp"
+                        android:text="Options"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearopendiscount"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="0dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/chk_open_discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/mine_shaft"
+                            android:checked="false"
+                            android:padding="10dp"
+                            android:textColor="@color/cardview_dark_background" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Open Discount"
+                            android:textColor="@color/cardview_dark_background" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/linear_product_circle3"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="0dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/chk_allow_service_charge_discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/mine_shaft"
+                            android:checked="false"
+                            android:padding="10dp"
+                            android:textColor="@color/cardview_dark_background" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Service Charge Discount"
+                            android:textColor="@color/cardview_dark_background" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/LayBtn"
+                    android:layout_width="378dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/cardview_light_background">
+                    <!--328dp-->
+                    <Button
+                        android:id="@+id/btn_delete_discount"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="21dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/my_delete_button"
+                        android:gravity="center|center_horizontal"
+                        android:lineSpacingExtra="8sp"
+                        android:text="DELETE"
+                        android:textColor="@color/mine_shaft"
+                        android:visibility="visible" />
+
+                    <Button
+                        android:id="@+id/btn_add_discount"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="21dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/my_login_button"
+                        android:gravity="center|center_horizontal"
+                        android:lineSpacingExtra="8sp"
+                        android:text="ADD" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+</layout>

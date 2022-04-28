@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.AddNewConfigurationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_xml" />
+
+        <LinearLayout
+            android:id="@+id/LayBankName"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/linear_product_circle3">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColorHint="@color/dark_blue">
+
+                <EditText
+                    android:id="@+id/edit_text_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/linear_product_circle"
+                    android:hint="Bank Name"
+                    android:inputType="textCapCharacters"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mine_shaft"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LayActivate"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/linear_product_circle3">
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<CheckBox-->
+            <!--android:id="@+id/chk_allow_name_quick_edit"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:checked="false"/>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="0dp">
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/chk_activate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/mine_shaft"
+                    android:checked="false"
+                    android:padding="10dp"
+                    android:textColor="@color/cardview_dark_background" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Activate"
+                    android:textColor="@color/dark_blue" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="378dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="0dp"-->
+        <!--android:layout_marginTop="230dp"-->
+        <!--android:layout_marginBottom="10dp"-->
+        <!--android:background="@color/colorBgcash">-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_add"-->
+        <!--android:layout_width="328dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/indicator_dots"-->
+        <!--android:layout_centerHorizontal="false"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginTop="21dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:background="@drawable/my_login_button"-->
+        <!--android:gravity="center|center_horizontal"-->
+        <!--android:lineSpacingExtra="8sp"-->
+        <!--android:text="SAVE" />-->
+        <!--</LinearLayout>-->
+        <LinearLayout
+            android:id="@+id/LayBtnSave"
+            android:layout_width="378dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/cardview_light_background">
+            <!--328dp-->
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/my_delete_button"
+                android:gravity="center|center_horizontal"
+                android:lineSpacingExtra="8sp"
+                android:text="DELETE"
+                android:textColor="@color/mine_shaft"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/my_login_button"
+                android:gravity="center|center_horizontal"
+                android:lineSpacingExtra="8sp"
+                android:text="ADD" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

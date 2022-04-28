@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7BC043</color>
+    <color name="colorPrimaryText">#000000</color>
+    <color name="colorPrimaryDark">#96CD69</color>
+    <color name="colorAccent">#337AB7</color>
+    <!--<color name="colorAccent">#E96894</color>-->
+    <color name="colorBg">#F2F0EA</color>
+    <color name="colorBgcash">#F6FBFE</color>
+    <color name="white">#ffff</color>
+    <color name="dark_blue">#337AB7</color>
+    <color name="allproduct_bg_color">#F6FBFE</color>
+    <color name="allproduct_bg_color_1">#E3E1E1</color>
+    <!--<color name="pinlocktextcolor">#1d1d1d</color>-->
+    <color name="pinlocktextcolor">#DCDFE4</color>
+    <!--<color name="white">#303030</color>-->
+    <color name="greyish">#AAA8A8</color>
+    <!--<color name="login_button_pin_color">#bac0c2</color>-->
+    <color name="login_button_pin_color">#BAC0C2</color>
+    <!--<color name="login_button_pin_color">#e3e5e6</color>-->
+    <color name="light_greyish">#F3F2F1</color>
+    <color name="mine_shaft">#0F090B</color>
+    <color name="color_red">#FF0000</color>
+    <color name="light_green">#55c75d</color>
+    <color name="dark_white">#0F090B</color>
+    <color name="nasty_green">#9EDD6B</color>
+    <!--<color name="test">#2AB7CA</color>-->
+    <color name="test">#FFFFFFFF</color>
+    <color name="test1">#FED766</color>
+    <color name="qr_code_reader_square">#FFFFFF</color>
+    <color name="color_blue">#337FFF</color>
+    <color name="color_light_blue">#33C3FF</color>
+</resources>
