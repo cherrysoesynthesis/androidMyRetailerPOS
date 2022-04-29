@@ -51,14 +51,13 @@
     <string name="str_tbyte">%.02f TB(s)</string>
 
 
-
     <!-- Kitchen Printer-->
     <string name="main_button_discovery">Printer Discovery / Select</string>
 
     <string name="discovery_label_interfacetype">Interface Type</string>
     <string name="discovery_radio_tcp">TCP(Wi-Fi)</string>
     <string name="discovery_radio_blueooth">Bluetooth</string>
-    <string name="discovery_radio_usb" >USB</string>
+    <string name="discovery_radio_usb">USB</string>
     <string name="discovery_label_printerlist">Printer List</string>
 
     <string name="handlingmsg_err_head">Print head of printer is hot.\n</string>
@@ -120,4 +119,13 @@
     <string name="printername_p20">TM-P20</string>
     <string name="printername_p80">TM-P80</string>
     <string name="printername_m10">TM-m10</string>
+
+
+
+    <string name="ftpSyncFTPIP">IP</string>
+    <string name="ftpSyncFTPType">Type</string>
+    <string name="ftpSyncFTPPort">Port</string>
+    <string name="ftpSyncFTUser">User</string>
+    <string name="ftpSyncFTPassword">Password</string>
+    <string name="ftpEditTextValue">FTP VALUe</string>
 </resources>

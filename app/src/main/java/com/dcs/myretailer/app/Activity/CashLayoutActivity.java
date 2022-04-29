@@ -2237,23 +2237,6 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    public void generateNoteOnSD(Context context, String sFileName, String sBody) {
-        try {
-            File root = new File(Environment.getExternalStorageDirectory(), "Notes");
-            if (!root.exists()) {
-                root.mkdirs();
-            }
-            File gpxfile = new File(root, sFileName);
-            FileWriter writer = new FileWriter(gpxfile);
-            writer.append(sBody);
-            writer.flush();
-            writer.close();
-            Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void SalesData(int sale_id) {
         String sql = "SELECT SUM(TotalItemDisount),SUM(TotalBillDisount)," +
                 "SUM(TotalTaxes),SUM(TotalNettSales),SUM(SubTotal),BillNo,SUM(ServiceCharges),SUM(RoundAdj)," +

@@ -286,145 +286,146 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
             }
             Cursor_Possys.close();
         }
+
     }
-
-//    private void SyncSales(final String str,String tempVar) {
-public static  void SyncSales(Context context,RequestQueue queue1, String url, final String tagName, final String tempVar,
-                            final String billNo, final String statusSyncStatus, final String zCloseStatus,
-                            final String linkStr) {
-//    queue,syncUrl,"submitStockAdjustResult",temp,
-        Cursor Cursor_Possys = Query.GetURLAndCodeFromPossys();
-        if (Cursor_Possys != null) {
-            while (Cursor_Possys.moveToNext()) {
-                syncRetailID = Cursor_Possys.getString(0);
-                syncCompanyCode = Cursor_Possys.getString(1);
-                syncUrl = Cursor_Possys.getString(2);
-                download_retail_ID = Cursor_Possys.getString(3);
-                download_company_code = Cursor_Possys.getString(4);
-                download_url = Cursor_Possys.getString(5);
-            }
-            Cursor_Possys.close();
-        }
-        RequestQueue queue = Volley.newRequestQueue(context);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, syncUrl,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //progressDialog.dismiss();
-                        // response code
-                        String xmlString = response;
-
-                        //Log.i("inv_xmlString",xmlString);
-                        Document xmlparse = null;
-
-                        Document parse = APIActivity.XMLParseFunction(xmlString, xmlparse);
-
-//                        for (int i = 0; i < parse.getElementsByTagName(tagName).getLength(); i++) {
-//                            getSyncResult = (parse.getElementsByTagName(tagName).getLength() > 0)
-//                                    ? parse.getElementsByTagName(tagName).item(i).getTextContent() : " ";
-
-                        for (int i = 0; i < parse.getElementsByTagName("updatePaymentMethodResponse").getLength(); i++) {
-                            getSyncResult = (parse.getElementsByTagName("updatePaymentMethodResponse").getLength() > 0)
-                                    ? parse.getElementsByTagName("updatePaymentMethodResponse").item(i).getTextContent() : " ";
-
-
-
-
-                            if (linkStr.equals("SubmitSales") && !(getSyncResult.equals("Success"))) {
-                                String Status = "";
-                                String TransNo = "";
-                                try {
-                                    JSONObject JObj = new JSONObject(getSyncResult);
-                                    if (JObj.has("Status")) {
-                                        Status = JObj.getString("Status");
-                                    }
-                                    if (JObj.has("TransNo")) {
-                                        TransNo = JObj.getString("TransNo");
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                                getSyncResult = Status;
-
-
-
-                                if (Status.equals("Success")) {
-                                    if (TransNo != null && TransNo.length() > 0) {
-
-                                        Query.UpdateSyncSalesStatusAftSendData(TransNo, statusSyncStatus, zCloseStatus);
-
-                                    }
-                                }
-
-                            } else {
-
-                                if (statusSyncStatus.equals("Success")) {
-
-//                                    returnValue[0] = Result[0]; //Return String value Success
-
-                                    updateSyncSales(0, "SUCCESS", billNo);
-
-                                } else {
-
-                                }
-                            }
-//                        for (int i=0;i< parse.getElementsByTagName("getInventoryResult").getLength();i++) {
-//                            getInventoryResult = (parse.getElementsByTagName("getInventoryResult").getLength() > 0)
-//                                    ? parse.getElementsByTagName("getInventoryResult").item(i).getTextContent() : " ";
+//
+////    private void SyncSales(final String str,String tempVar) {
+//public static  void SyncSales(Context context,RequestQueue queue1, String url, final String tagName, final String tempVar,
+//                            final String billNo, final String statusSyncStatus, final String zCloseStatus,
+//                            final String linkStr) {
+////    queue,syncUrl,"submitStockAdjustResult",temp,
+//        Cursor Cursor_Possys = Query.GetURLAndCodeFromPossys();
+//        if (Cursor_Possys != null) {
+//            while (Cursor_Possys.moveToNext()) {
+//                syncRetailID = Cursor_Possys.getString(0);
+//                syncCompanyCode = Cursor_Possys.getString(1);
+//                syncUrl = Cursor_Possys.getString(2);
+//                download_retail_ID = Cursor_Possys.getString(3);
+//                download_company_code = Cursor_Possys.getString(4);
+//                download_url = Cursor_Possys.getString(5);
+//            }
+//            Cursor_Possys.close();
+//        }
+//        RequestQueue queue = Volley.newRequestQueue(context);
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, syncUrl,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        //progressDialog.dismiss();
+//                        // response code
+//                        String xmlString = response;
+//
+//                        //Log.i("inv_xmlString",xmlString);
+//                        Document xmlparse = null;
+//
+//                        Document parse = APIActivity.XMLParseFunction(xmlString, xmlparse);
+//
+////                        for (int i = 0; i < parse.getElementsByTagName(tagName).getLength(); i++) {
+////                            getSyncResult = (parse.getElementsByTagName(tagName).getLength() > 0)
+////                                    ? parse.getElementsByTagName(tagName).item(i).getTextContent() : " ";
+//
+//                        for (int i = 0; i < parse.getElementsByTagName("updatePaymentMethodResponse").getLength(); i++) {
+//                            getSyncResult = (parse.getElementsByTagName("updatePaymentMethodResponse").getLength() > 0)
+//                                    ? parse.getElementsByTagName("updatePaymentMethodResponse").item(i).getTextContent() : " ";
+//
+//
+//
+//
+//                            if (linkStr.equals("SubmitSales") && !(getSyncResult.equals("Success"))) {
+//                                String Status = "";
+//                                String TransNo = "";
+//                                try {
+//                                    JSONObject JObj = new JSONObject(getSyncResult);
+//                                    if (JObj.has("Status")) {
+//                                        Status = JObj.getString("Status");
+//                                    }
+//                                    if (JObj.has("TransNo")) {
+//                                        TransNo = JObj.getString("TransNo");
+//                                    }
+//                                } catch (JSONException e) {
+//                                    e.printStackTrace();
+//                                }
+//                                getSyncResult = Status;
+//
+//
+//
+//                                if (Status.equals("Success")) {
+//                                    if (TransNo != null && TransNo.length() > 0) {
+//
+//                                        Query.UpdateSyncSalesStatusAftSendData(TransNo, statusSyncStatus, zCloseStatus);
+//
+//                                    }
+//                                }
+//
+//                            } else {
+//
+//                                if (statusSyncStatus.equals("Success")) {
+//
+////                                    returnValue[0] = Result[0]; //Return String value Success
+//
+//                                    updateSyncSales(0, "SUCCESS", billNo);
+//
+//                                } else {
+//
+//                                }
+//                            }
+////                        for (int i=0;i< parse.getElementsByTagName("getInventoryResult").getLength();i++) {
+////                            getInventoryResult = (parse.getElementsByTagName("getInventoryResult").getLength() > 0)
+////                                    ? parse.getElementsByTagName("getInventoryResult").item(i).getTextContent() : " ";
+////                        }
+////                        for (int i=0;i< parse.getElementsByTagName("GetCategoryMenuResponse").getLength();i++) {
+////                            getCategoryResult = (parse.getElementsByTagName("GetCategoryMenuResponse").getLength() > 0)
+////                                    ? parse.getElementsByTagName("GetCategoryMenuResponse").item(i).getTextContent() : " ";
 //                        }
-//                        for (int i=0;i< parse.getElementsByTagName("GetCategoryMenuResponse").getLength();i++) {
-//                            getCategoryResult = (parse.getElementsByTagName("GetCategoryMenuResponse").getLength() > 0)
-//                                    ? parse.getElementsByTagName("GetCategoryMenuResponse").item(i).getTextContent() : " ";
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-//                        // As of f605da3 the following should work
-//                progressDialog.dismiss();
-                NetworkResponse response = error.networkResponse;
-
-                if (error instanceof ServerError && response != null) {
-                    try {
-                        String res = new String(response.data,
-                                HttpHeaderParser.parseCharset(response.headers, "utf-8"));
-
-
-                        //Log.i("res:",res);
-                        // Now you can use any deserializer to make sense of data
-//                                JSONObject obj = new JSONObject(res);
-                    } catch (UnsupportedEncodingException e1) {
-                        // Couldn't properly decode data to string
-                        e1.printStackTrace();
-                        //Log.i("e1",e1.getMessage());
-                    }
-                }
-            }
-        })
-        {
-            @Override
-            public Map<String, String> getParams(){
-                return null;
-            }
-            @Override
-            public byte[] getBody(){
-                String temp = tempVar;
-
-
-                byte[] b = temp.getBytes(Charset.forName("UTF-8"));
-
-                return b;
-            }
-            @Override
-            public String getBodyContentType()
-            {
-                return "text/xml;charset=utf-8";
-            }
-        };
-        queue.add(stringRequest);
-//        progressDialog = Query.showProgressDialog(SyncActivity.this, Constraints.Downaloding);
-    }
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+////                        // As of f605da3 the following should work
+////                progressDialog.dismiss();
+//                NetworkResponse response = error.networkResponse;
+//
+//                if (error instanceof ServerError && response != null) {
+//                    try {
+//                        String res = new String(response.data,
+//                                HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+//
+//
+//                        //Log.i("res:",res);
+//                        // Now you can use any deserializer to make sense of data
+////                                JSONObject obj = new JSONObject(res);
+//                    } catch (UnsupportedEncodingException e1) {
+//                        // Couldn't properly decode data to string
+//                        e1.printStackTrace();
+//                        //Log.i("e1",e1.getMessage());
+//                    }
+//                }
+//            }
+//        })
+//        {
+//            @Override
+//            public Map<String, String> getParams(){
+//                return null;
+//            }
+//            @Override
+//            public byte[] getBody(){
+//                String temp = tempVar;
+//
+//
+//                byte[] b = temp.getBytes(Charset.forName("UTF-8"));
+//
+//                return b;
+//            }
+//            @Override
+//            public String getBodyContentType()
+//            {
+//                return "text/xml;charset=utf-8";
+//            }
+//        };
+//        queue.add(stringRequest);
+////        progressDialog = Query.showProgressDialog(SyncActivity.this, Constraints.Downaloding);
+//    }
 
     private void volleyGetCategory(final String str) {
         Cursor Cursor_Possys = Query.GetURLAndCodeFromPossys();
@@ -550,7 +551,7 @@ public static  void SyncSales(Context context,RequestQueue queue1, String url, f
         progressDialog = Query.showProgressDialog(SyncActivity.this, Constraints.Downaloding);
     }
     private void volleySyncDiscount(Context context,final String str) {
-        volleyUpdatePayment(context);
+        //close//volleyUpdatePayment(context);
 
         if (syncCompanyCode != null && syncCompanyCode.length() > 0) {
             RequestQueue queue = Volley.newRequestQueue(context);
@@ -671,7 +672,7 @@ public static  void SyncSales(Context context,RequestQueue queue1, String url, f
 //    }
     public static void SyncImageUpload(Context context,String base64ImgStr,String imgFileName,String imgType,String itemID,String imgeUrl) {
         GetSyncDataInformationAll();
-        volleyUpdatePayment(context);
+        //close//volleyUpdatePayment(context);
         if (syncCompanyCode != null && syncCompanyCode.length() > 0) {
             RequestQueue queue = Volley.newRequestQueue(context);
 
@@ -692,7 +693,7 @@ public static  void SyncSales(Context context,RequestQueue queue1, String url, f
         }
     }
     private void volleyGetDiscount(Context context,final String str) {
-        volleyUpdatePayment(context);
+        //close//volleyUpdatePayment(context);
         GetSyncDataInformationAll();
         RequestQueue queue = Volley.newRequestQueue(context);
 
@@ -2255,6 +2256,7 @@ public static  void SyncSales(Context context,RequestQueue queue1, String url, f
                                         +"temp-"+temp+"," +"b_bill_no-"+b_bill_no+","+"zCloseStatus-"+zCloseStatus));
                         //String submitSalesResult = Query.StringRequestQueue(queue, syncUrl, result, temp, "", zCloseStatus, "", "SubmitSales");
                         String submitSalesResult = Query.StringRequestQueue(context,queue, syncUrl, result, temp, b_bill_no, zCloseStatus, "", "SubmitSales");
+                        //close//String submitSalesResult = Query.StringRequestQueue(context,queue, syncUrl, result, temp, b_bill_no, zCloseStatus, "", "SubmitSales");
 //                        SyncSales(context,queue, syncUrl, result, temp, b_bill_no, zCloseStatus, "", "SubmitSales");
 
                     }
@@ -3827,125 +3829,170 @@ public static  void SyncSales(Context context,RequestQueue queue1, String url, f
 
     public static void volleyUpdatePayment(Context context) {
         GetSyncDataInformationAll();
-        if (syncCompanyCode != null && syncCompanyCode.length() > 0) {
-            RequestQueue queue = Volley.newRequestQueue(context);
-            JSONObject jsonObject = new JSONObject();
-            final JSONObject jsonObjectC = new JSONObject();
-            final String finalCompany_code = syncCompanyCode;
+        RequestQueue queue = Volley.newRequestQueue(context);
 
-            Cursor config_values_pt = DBFunc.Query("SELECT ID,Name FROM Payment ", true);
-            assert config_values_pt != null;
-            int id = 0;
-            String name = "";
-            JSONArray sales_payement_details_array = new JSONArray();
-            try {
-                while (config_values_pt.moveToNext()) {
-                    jsonObject = new JSONObject();
-                    JSONObject sales_payment_details = new JSONObject();
+        JSONObject sales_payment_details = getAllPaymentTypes();
+        String temp = Query.SendPayment(syncCompanyCode, sales_payment_details);
 
-                    id = config_values_pt.getInt(0);
-                    name = config_values_pt.getString(1);
-                    //Log.i("dsfdsf__name__",name);
+        String updatePaymentResult = Query.StringRequestQueue(context,queue,syncUrl,"updatePaymentMethod",temp,"","","","updatePaymentMethod");
 
-                    sales_payment_details.put("ID", id);
-                    sales_payment_details.put("Name", name);
-                    sales_payment_details.put("Full", name);
-                    sales_payment_details.put("Display", "Y");
-
-                    sales_payement_details_array.put(sales_payment_details);
-                    //Log.i("d_saletails_array", String.valueOf(sales_payement_details_array));
-                    jsonObject.put("PaymentMethods", sales_payement_details_array);
-
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            Log.i("ds___","jsonObject__"+jsonObject.toString());
-            // Log.i("d_saleswwwent_details", String.valueOf(sales_payment_details));
-            //Log.i("d_sales_paywwwils_array", String.valueOf(sales_payement_details_array));
-
-            final JSONObject finalJsonObject = jsonObject;
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, syncUrl,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            //sales_multiple_payement = new JSONArray();
-                            // response code
-                            String xmlString = response;
-
-                            try {
-
-                                //progressDialog.dismiss();
-                            } catch (Exception e){
-
-                            }
-                            success(context);
-                            //Log.i("JsonOBjRes", xmlString);
-                            Document xmlparse = null;
-//                        Document parse = XMLParseFunction(xmlString, xmlparse);
-//                        for (int i = 0; i < parse.getElementsByTagName("submitSalesResult").getLength(); i++) {
-//                            submitSalesResult = (parse.getElementsByTagName("submitSalesResult").getLength() > 0)
-//                                    ? parse.getElementsByTagName("submitSalesResult").item(i).getTextContent() : " ";
+//
+//        Log.i("syncCompanyCode","syncCompanyCode__"+syncCompanyCode);
+//        if (syncCompanyCode != null && syncCompanyCode.length() > 0) {
+//            RequestQueue queue = Volley.newRequestQueue(context);
+//            JSONObject jsonObject = new JSONObject();
+//            final JSONObject jsonObjectC = new JSONObject();
+//            final String finalCompany_code = syncCompanyCode;
+//
+//            Cursor config_values_pt = DBFunc.Query("SELECT ID,Name FROM Payment ", true);
+//            assert config_values_pt != null;
+//            int id = 0;
+//            String name = "";
+//            JSONArray sales_payement_details_array = new JSONArray();
+//            try {
+//                while (config_values_pt.moveToNext()) {
+//                    jsonObject = new JSONObject();
+//                    JSONObject sales_payment_details = new JSONObject();
+//
+//                    id = config_values_pt.getInt(0);
+//                    name = config_values_pt.getString(1);
+//                    //Log.i("dsfdsf__name__",name);
+//
+//                    sales_payment_details.put("ID", id);
+//                    sales_payment_details.put("Name", name);
+//                    sales_payment_details.put("Full", name);
+//                    sales_payment_details.put("Display", "Y");
+//
+//                    sales_payement_details_array.put(sales_payment_details);
+//                    //Log.i("d_saletails_array", String.valueOf(sales_payement_details_array));
+//                    jsonObject.put("PaymentMethods", sales_payement_details_array);
+//
+//                }
+//
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//                Log.i("error__","errPaymentMethods__"+e.getMessage());
+//            }
+//            Log.i("ds___","jsonObject__"+jsonObject.toString());
+//            // Log.i("d_saleswwwent_details", String.valueOf(sales_payment_details));
+//            //Log.i("d_sales_paywwwils_array", String.valueOf(sales_payement_details_array));
+//            Log.i("syncUrl","syncUrl__"+syncUrl);
+//            final JSONObject finalJsonObject = jsonObject;
+//            StringRequest stringRequest = new StringRequest(Request.Method.POST, syncUrl,
+//                    new Response.Listener<String>() {
+//                        @Override
+//                        public void onResponse(String response) {
+//
+//                            //sales_multiple_payement = new JSONArray();
+//                            // response code
+//                            String xmlString = response;
+//                            Log.i("syncUrl","synxmlString_"+xmlString);
+//                            try {
+//
+//                                //progressDialog.dismiss();
+//                            } catch (Exception e){
+//                                e.printStackTrace();
+//                            }
+//                            success(context);
+//                            //Log.i("JsonOBjRes", xmlString);
+//                            Document xmlparse = null;
+////                        Document parse = XMLParseFunction(xmlString, xmlparse);
+////                        for (int i = 0; i < parse.getElementsByTagName("submitSalesResult").getLength(); i++) {
+////                            submitSalesResult = (parse.getElementsByTagName("submitSalesResult").getLength() > 0)
+////                                    ? parse.getElementsByTagName("submitSalesResult").item(i).getTextContent() : " ";
+////                        }
+////                        DBFunc.ExecQuery("UPDATE BillPayment SET SaleSync = 1 WHERE BillNo = " + BillID, false);
 //                        }
-//                        DBFunc.ExecQuery("UPDATE BillPayment SET SaleSync = 1 WHERE BillNo = " + BillID, false);
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    try {
-                        //progressDialog.dismiss();
-                    } catch (Exception e){
+//                    }, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    try {
+//                        //progressDialog.dismiss();
+//                    } catch (Exception e){
+//                        e.printStackTrace();
+//                    }
+//                    // Log.i("JsonOBjerror", String.valueOf(error));
+////                        // As of f605da3 the following should work
+//                    NetworkResponse response = error.networkResponse;
+//                    if (error instanceof ServerError && response != null) {
+//                        try {
+//                            String res = new String(response.data,
+//                                    HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+//
+//                            // Now you can use any deserializer to make sense of data
+////                                JSONObject obj = new JSONObject(res);
+//                        } catch (UnsupportedEncodingException e1) {
+//                            // Couldn't properly decode data to string
+//                            e1.printStackTrace();
+//                        }
+//                    }
+//                }
+//            }) {
+//                @Override
+//                public Map<String, String> getParams() {
+//                    return null;
+//                }
+//
+//                @Override
+//                public byte[] getBody() {
+//
+//                    String temp = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+//                            "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n" +
+//                            "  <soap12:Body>\n" +
+//                            "    <updatePaymentMethod xmlns=\"http://tempuri.org/\">\n" +
+//                            "      <companyCode>" + finalCompany_code + "</companyCode>\n" +
+//                            "      <json>" + finalJsonObject + "</json>\n" +
+//                            "    </updatePaymentMethod>\n" +
+//                            "  </soap12:Body>\n" +
+//                            "</soap12:Envelope>";
+//                    Log.i("temp___","temp__dd_"+temp);
+//                    byte[] b = temp.getBytes(Charset.forName("UTF-8"));
+//
+//                    return b;
+//                }
+//
+//                @Override
+//                public String getBodyContentType() {
+//                    return "text/xml;charset=utf-8";
+//                }
+//            };
+//            queue.add(stringRequest);
+//        }
+//        //progressDialog = Query.showProgressDialog(context, Constraints.Downaloding);
+    }
 
-                    }
-                    // Log.i("JsonOBjerror", String.valueOf(error));
-//                        // As of f605da3 the following should work
-                    NetworkResponse response = error.networkResponse;
-                    if (error instanceof ServerError && response != null) {
-                        try {
-                            String res = new String(response.data,
-                                    HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+    private static JSONObject getAllPaymentTypes() {
+        JSONObject jsonObject = new JSONObject();
+        Cursor config_values_pt = DBFunc.Query("SELECT ID,Name FROM Payment ", true);
+        assert config_values_pt != null;
+        int id = 0;
+        String name = "";
+        JSONArray sales_payement_details_array = new JSONArray();
+        try {
+            while (config_values_pt.moveToNext()) {
+                jsonObject = new JSONObject();
+                JSONObject sales_payment_details = new JSONObject();
 
-                            // Now you can use any deserializer to make sense of data
-//                                JSONObject obj = new JSONObject(res);
-                        } catch (UnsupportedEncodingException e1) {
-                            // Couldn't properly decode data to string
-                            e1.printStackTrace();
-                        }
-                    }
-                }
-            }) {
-                @Override
-                public Map<String, String> getParams() {
-                    return null;
-                }
+                id = config_values_pt.getInt(0);
+                name = config_values_pt.getString(1);
+                //Log.i("dsfdsf__name__",name);
 
-                @Override
-                public byte[] getBody() {
+                sales_payment_details.put("ID", id);
+                sales_payment_details.put("Name", name);
+                sales_payment_details.put("Full", name);
+                sales_payment_details.put("Display", "Y");
 
-                    String temp = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-                            "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n" +
-                            "  <soap12:Body>\n" +
-                            "    <updatePaymentMethod xmlns=\"http://tempuri.org/\">\n" +
-                            "      <companyCode>" + finalCompany_code + "</companyCode>\n" +
-                            "      <json>" + finalJsonObject + "</json>\n" +
-                            "    </updatePaymentMethod>\n" +
-                            "  </soap12:Body>\n" +
-                            "</soap12:Envelope>";
-                    Log.i("temp___","temp___"+temp);
-                    byte[] b = temp.getBytes(Charset.forName("UTF-8"));
+                sales_payement_details_array.put(sales_payment_details);
+                //Log.i("d_saletails_array", String.valueOf(sales_payement_details_array));
+                jsonObject.put("PaymentMethods", sales_payement_details_array);
 
-                    return b;
-                }
+            }
 
-                @Override
-                public String getBodyContentType() {
-                    return "text/xml;charset=utf-8";
-                }
-            };
-            queue.add(stringRequest);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.i("error__","errPaymentMethods__"+e.getMessage());
         }
-        //progressDialog = Query.showProgressDialog(context, Constraints.Downaloding);
+        return jsonObject;
     }
 
     public void getDept() {
@@ -5433,7 +5480,7 @@ public static  void SyncSales(Context context,RequestQueue queue1, String url, f
 //
 //    }
     public static void StockAdjustSynFun(Context context) {
-        volleyUpdatePayment(context);
+        //close//volleyUpdatePayment(context);
 
         GetSyncDataInformationAll();
 

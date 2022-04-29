@@ -89,6 +89,7 @@ import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.Activity.RemarkMainActivity;
 import com.dcs.myretailer.app.Report.ReportActivity;
 import com.dcs.myretailer.app.Activity.AddNewProductActivity;
+import com.dcs.myretailer.app.SFTP.FTPSync;
 import com.dcs.myretailer.app.Setting.ButtonStyle;
 import com.dcs.myretailer.app.Setting.DiscountClass;
 import com.dcs.myretailer.app.Setting.MapButton;
@@ -4812,6 +4813,19 @@ public class Query {
                 "</soap12:Envelope>";
         return temp;
     }
+    public static String SendPayment(String finalCompany_code,JSONObject finalJsonObject) {
+        String temp = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n" +
+                "  <soap12:Body>\n" +
+                "    <updatePaymentMethod xmlns=\"http://tempuri.org/\">\n" +
+                "      <companyCode>" + finalCompany_code + "</companyCode>\n" +
+                "      <json>" + finalJsonObject + "</json>\n" +
+                "    </updatePaymentMethod>\n" +
+                "  </soap12:Body>\n" +
+                "</soap12:Envelope>";
+        Log.i("temp___","temp__dd_"+temp);
+        return temp;
+    }
     public static String GetUsersPermission(String finalCompany_code,String sl_id,String userid) {
         String temp = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
                 "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n" +
@@ -5663,6 +5677,7 @@ public class Query {
         Log.i("url___","url__"+url);
         Log.i("url___","url__"+billNo);
         Log.i("url___","url__"+statusSyncStatus);
+        Log.i("url___","temp__"+temp);
 
         final String[] Result = {""};
         final String[] returnValue = {""};
@@ -14276,7 +14291,8 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                 zc.setRecordStatus(c.getString(21));
                 zc.setRecordUpdate(c.getString(22));
                 zc.setQueueStatus(c.getString(23));
-                zc.setDt(System.currentTimeMillis());
+                zc.setDt(c.getLong(24));
+                //zc.setDt(System.currentTimeMillis());
             }
             c.close();
         }
@@ -14550,6 +14566,78 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
             c.close();
         }
         return cdt;
+    }
+    public static void saveFTPSync(Context context, FTPSync ftpsync) {
+//        String ip;
+//        String type;
+//        String port;
+//        String user;
+//        String password;
+//        String fileFormat;
+//        String ftptype;
+//        String mallcode;
+//        String machineID;
+        try {
+            String sql = "INSERT INTO FTYSync (ip,type,port,user,password," +
+                    "fileFormat,ftptype,mallcode,machineID,DateTime) " +
+                    "VALUES ('" + DBFunc.PurifyString(ftpsync.getIp()) + "'," +
+                    "" + ftpsync.getType() + "," +
+                    "" + ftpsync.getPort() + "," +
+                    "" + ftpsync.getUser() + "," +
+                    "" + ftpsync.getPassword() + "," +
+                    "'" + ftpsync.getFileFormat() + "'," +
+                    "'" + ftpsync.getFtptype() + "'," +
+                    "'" + ftpsync.getMallcode() + "'," +
+                    "'" + ftpsync.getMachineID() + "'," +
+                    System.currentTimeMillis() + ")";
+
+
+            Log.i("SAVEZCLOSESQL__", "SQLL_" + sql);
+
+
+            DBFunc.ExecQuery(sql, false);
+
+
+            //getZClose(context,ftpsync.getUUID(),"resync");
+        } catch (Exception e){
+            Log.i("SAVEZCLOSESQL__", "SQLL_Err_" + e.getMessage());
+        }
+    }
+
+    public static FTPSync getFTYSync(Context context,String uuid , String status) {
+        FTPSync ftpSync = new FTPSync();
+
+        String sql = "SELECT ip,type,port,user,password,"+
+                " fileFormat,ftptype,mallcode,machineID,DateTime FROM FTPSync WHERE UUID = '"+uuid+"' ";
+        Log.i("SAVEZCLOSESQL__","SQLL_"+sql);
+
+        Cursor c = DBFunc.Query(sql, false);
+
+        if (c != null) {
+            if (c.moveToNext()) {
+                String ip = c.getString(0);
+                String type = c.getString(1);
+                String port = c.getString(2);
+                String user = c.getString(3);
+                String password = c.getString(4);
+                String fileFormat = c.getString(5);
+                String ftptype = c.getString(6);
+                String mallcode = c.getString(7);
+                String machineID = c.getString(8);
+
+                ftpSync.setIp(ip);
+                ftpSync.setType(type);
+                ftpSync.setPort(port);
+                ftpSync.setUser(user);
+                ftpSync.setPassword(password);
+                ftpSync.setFileFormat(fileFormat);
+                ftpSync.setFtptype(ftptype);
+                ftpSync.setMallcode(mallcode);
+                ftpSync.setMachineID(machineID);
+            }
+            c.close();
+        }
+        return ftpSync;
     }
 }
 

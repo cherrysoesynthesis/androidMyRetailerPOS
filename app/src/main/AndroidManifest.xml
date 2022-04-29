@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.dcs.myretailer.app"> <!-- android:versionCode="14" -->
-<!--    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />-->
-
+    package="com.dcs.myretailer.app">
+    <!-- android:versionCode="14" -->
+    <!-- <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" /> -->
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
     <uses-permission android:name="com.pax.permission.ICC" />
@@ -43,7 +43,7 @@
     <!-- tools:ignore="GradleOverrides" /> -->
     <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
     <!-- <uses-permission android:name="android.Manifest.permission.READ_PHONE_STATE" /> -->
-<!--    <uses-permission android:name="android.permission.INTERNET" />-->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -69,8 +69,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:node="replace"
+        tools:node="merge"
         tools:replace="android:appComponentFactory">
+        <activity
+            android:name=".SFTP.MallInterfaceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SFTP.FPTFileCreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SFTP.FTPActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SFTP.SFTPActivity"
+            android:exported="false" />
         <activity android:name=".Activity.HelloSQLCipherActivity" />
         <activity android:name=".Activity.ZCloseResyncActivity" />
         <activity android:name=".LicenseKeyActivity" /> <!-- <activity android:name=".RemarkMainActivity"></activity> -->
@@ -96,12 +108,11 @@
         <activity android:name=".Activity.TransactionDetailsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-<!--                <category android:name="android.intent.category.DEFAULT"/>-->
-<!--                <data android:mimeType="text/plain"/>-->
+                <!-- <category android:name="android.intent.category.DEFAULT"/> -->
+                <!-- <data android:mimeType="text/plain"/> -->
             </intent-filter>
-        </activity>
-<!--        <activity android:name="com.WAPP.SetLocation.setLocationActivity"></activity>-->
-<!--        <activity android:name="com.jeripay.payment.MainActivity"></activity>-->
+        </activity> <!-- <activity android:name="com.WAPP.SetLocation.setLocationActivity"></activity> -->
+        <!-- <activity android:name="com.jeripay.payment.MainActivity"></activity> -->
         <activity android:name=".Setting.ActivityMapButtonSetup" />
         <activity android:name=".Activity.AddStaffManagementActivity" />
         <activity android:name=".Activity.AddTaxConfigurationActivity" />
@@ -163,12 +174,11 @@
         <activity
             android:name="com.karumi.dexter.DexterActivity"
             android:theme="@style/Dexter.Internal.Theme.Transparent" />
-
-        <activity android:name=".Model.KitchenPrinter.KitchenPrinterActivity"></activity>
-
-        <activity android:name=".Model.KitchenPrinter.DiscoverPrinterActivity" android:label="@string/app_name" android:screenOrientation="portrait"></activity>
-
-
+        <activity android:name=".Model.KitchenPrinter.KitchenPrinterActivity" />
+        <activity
+            android:name=".Model.KitchenPrinter.DiscoverPrinterActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

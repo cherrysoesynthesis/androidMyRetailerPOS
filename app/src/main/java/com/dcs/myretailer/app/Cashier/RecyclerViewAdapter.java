@@ -51,6 +51,7 @@ import com.dcs.myretailer.app.ProductData;
 import com.dcs.myretailer.app.ProductDataViewModel;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
+import com.dcs.myretailer.app.ScreenSize.RecyclerViewAdapterScreenSize;
 import com.dcs.myretailer.app.Setting.StrTextConst;
 import com.dcs.myretailer.app.Activity.TransactionDetailsActivity;
 import com.dcs.myretailer.app.databinding.CardveiwItemBookBinding;
@@ -216,77 +217,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 //        binding.viewmodel = ProductDataViewModel;
 //        binding.setLifecycleOwner((LifecycleOwner) mContext);
 
-        String chk_hide_img = Query.GetOptions(20);
-        if (chk_hide_img.equals("1")) {
+        //ScreenSize
+        new RecyclerViewAdapterScreenSize(binding);
 
-            String terminalTypeVal = Query.GetDeviceData(Constraints.TERMINAL_TYPE);
-            if (terminalTypeVal.toUpperCase().equals(Constraints.PAX_E600M)){
-                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(180,
-                        180);
-                //params.topMargin = 10;
-                binding.productLinearLayoutId.setLayoutParams(params);
-
-                LinearLayout.LayoutParams paramsCardView = new LinearLayout.LayoutParams(160,
-                        170);
-                paramsCardView.leftMargin = 10;
-                paramsCardView.rightMargin = 10;
-                //paramsCardView.topMargin = 10;
-                paramsCardView.bottomMargin = 10;
-                binding.cardviewId.setLayoutParams(paramsCardView);
-
-
-                binding.bookImgId.setVisibility(View.GONE);
-
-                FrameLayout.LayoutParams paramsTitle = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        70);
-                paramsTitle.leftMargin = 10;
-                paramsTitle.topMargin = 10;
-                binding.bookTitleId.setLayoutParams(paramsTitle);
-
-                FrameLayout.LayoutParams paramsPrice = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        70);
-                paramsPrice.leftMargin = 10;
-                paramsPrice.topMargin = 90;
-                binding.bookPriceId.setLayoutParams(paramsPrice);
-
-                RelativeLayout.LayoutParams totalCountImg = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT);
-                totalCountImg.leftMargin = 70;
-                totalCountImg.topMargin = 100;
-                binding.txtItemCcount.setLayoutParams(totalCountImg);
-
-            }else {
-                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(234,
-                        205);
-                binding.productLinearLayoutId.setLayoutParams(params);
-
-                LinearLayout.LayoutParams paramsCardView = new LinearLayout.LayoutParams(224,
-                        200);
-                paramsCardView.leftMargin = 10;
-                binding.cardviewId.setLayoutParams(paramsCardView);
-
-
-                binding.bookImgId.setVisibility(View.GONE);
-
-                FrameLayout.LayoutParams paramsTitle = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        70);
-                paramsTitle.leftMargin = 10;
-                paramsTitle.topMargin = 10;
-                binding.bookTitleId.setLayoutParams(paramsTitle);
-
-                FrameLayout.LayoutParams paramsPrice = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        70);
-                paramsPrice.leftMargin = 10;
-                paramsPrice.topMargin = 90;
-                binding.bookPriceId.setLayoutParams(paramsPrice);
-
-                RelativeLayout.LayoutParams totalCountImg = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT);
-                totalCountImg.leftMargin = 80;
-                totalCountImg.topMargin = 90;
-                binding.txtItemCcount.setLayoutParams(totalCountImg);
-            }
-        }
         counter = new int[getItemCount()];
 //        mHandler = new Handler();
 //        m_Runnable.run();
@@ -357,15 +290,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     RecyclerViewAdapter.slddisValue.clear();
                     RecyclerViewAdapter.sltBillDisArr.clear();
 
-                    Log.i("remarksVar___","remarksVar___"+remarksVar);
-                    Log.i("openPriceVar___","openPriceVar___"+openPriceVar);
                     if (openPriceVar != null && openPriceVar.equals("1")) {
                         OpenPriceDialog(mContext, prodIDVar, titleVar ,holder,position_val,remarksVar);
                     }else {
-                        Log.i("remarksVar___","remarksVar___"+remarksVar);
-                        Log.i("openPriceVar___","openPriceVarelse___"+openPriceVar);
                         if (remarksVar != null && remarksVar.equals("1")) {
-                            Log.i("rprodIDVar__","rprodIDVar__"+prodIDVar);
                             remarksDialog(mContext, holder , position_val , MainActivity.strbillNo, prodIDVar , openPriceVar,
                                     titleVar,"normal",remarksVar,priceVar);
                         }else {
@@ -395,12 +323,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     if (openPriceVar != null && !(openPriceVar.equals("0"))){
                         sqll += "AND OpenPriceStatus = '" + openPriceVar + "'";
                     }
-                    Log.i("sqll___","longclock_sqll"+sqll);
+
                     Cursor ccc = DBFunc.Query(sqll,false);
                     if (ccc != null) {
                         billDetailsPID = 0;
                         if (ccc.getCount() == 0){
-                            Log.i("sqll___","longclock_openPriceVarl"+openPriceVar);
+
                             if (openPriceVar != null && !(openPriceVar.equals("0"))){//not open price
                                 Toast.makeText(mContext, "Open Price. \n Please edit at checkout page. ", Toast.LENGTH_SHORT).show();
                             }else {
@@ -424,11 +352,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                 EditProductSheetFragment.productID = "0";
                                 EditProductSheetFragment.DetailBillID = "0";
                                 EditProductSheetFragment.FragmentVar = "0";
-                                Log.i("sqll___","longclock_openPriceVarl"+openPriceVar);
+
                                 if (openPriceVar == null || openPriceVar.equals("0")) {
-                                    Log.i("sqll___","lremarksVarnPriceVarl"+remarksVar);
+
                                     if (remarksVar.equals("0")) {
-                                        Log.i("sqll___","lremarksVarnPriceValll"+remarksVar);
 
                                         billDetailsPID = ccc.getInt(1);
 

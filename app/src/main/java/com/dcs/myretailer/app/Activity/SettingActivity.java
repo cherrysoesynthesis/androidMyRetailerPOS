@@ -25,6 +25,8 @@ import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.Model.KitchenPrinterActivity;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
+import com.dcs.myretailer.app.SFTP.FPTFileCreateActivity;
+import com.dcs.myretailer.app.SFTP.MallInterfaceActivity;
 import com.dcs.myretailer.app.Setting.ActivityMapSetup;
 import com.dcs.myretailer.app.Setting.ModifierActivity;
 import com.dcs.myretailer.app.Setting.ProductManagementActivity;
@@ -55,8 +57,8 @@ public class SettingActivity extends AppCompatActivity {
         });
 
 //
-       String[] countryList = {"Product Management", "Category Management", "Hardware","Kitchen Printer", "Payment Types", "Vouchers & Discounts", "Tax Configuration","Receipt Editor", "POS Configuration", "General Settings", "Database Import / Export", "Config Payment Host", "Report Setting", "Sync", "ZClose Resync" , "Support", "Floor Map", "Modifiers", "Stock Management", "Version : "+Constraints.VERSION_NAME};
-        int[] flags = {R.drawable.ic_productmanagement, R.drawable.ic_category, R.drawable.ic_hardware, R.drawable.ic_print_grey_grey_500 , R.drawable.ic_payment, R.drawable.ic_voucher_setting, R.drawable.ic_tax,R.drawable.ic_receipteditor, R.drawable.ic_pos, R.drawable.setting_setting, R.drawable.ic_database,R.drawable.setting_setting ,R.drawable.setting_setting, R.drawable.baseline_sync_alt_black_18, R.drawable.ic_sync, R.drawable.ic_support, R.drawable.ic_floormap, R.drawable.ic_floormap, R.drawable.setting, R.drawable.setting};
+       String[] countryList = {"Product Management", "Category Management", "Hardware","Kitchen Printer", "Payment Types", "Vouchers & Discounts", "Tax Configuration","Receipt Editor", "POS Configuration", "General Settings", "Database Import / Export", "Config Payment Host", "Report Setting", "Sync", "ZClose Resync" , "Support", "Floor Map", "Modifiers", "Stock Management", "FTP Sync", "Version : "+Constraints.VERSION_NAME};
+        int[] flags = {R.drawable.ic_productmanagement, R.drawable.ic_category, R.drawable.ic_hardware, R.drawable.ic_print_grey_grey_500 , R.drawable.ic_payment, R.drawable.ic_voucher_setting, R.drawable.ic_tax,R.drawable.ic_receipteditor, R.drawable.ic_pos, R.drawable.setting_setting, R.drawable.ic_database,R.drawable.setting_setting ,R.drawable.setting_setting, R.drawable.baseline_sync_alt_black_18, R.drawable.ic_sync, R.drawable.ic_support, R.drawable.ic_floormap, R.drawable.ic_floormap, R.drawable.setting, R.drawable.ic_cloud_check_black_48dp, R.drawable.setting};
 
         SettingAdapter settingAdapter = new SettingAdapter(getApplicationContext(), countryList, flags);
         binding.simpleListView.setAdapter(settingAdapter);
@@ -116,6 +118,8 @@ public class SettingActivity extends AppCompatActivity {
                 i = new Intent(context, ModifierActivity.class);
             } else if (position == 18) {
                 i = new Intent(context, StockManagementActivity.class);
+            }else if (position == 19) {
+                i = new Intent(context, MallInterfaceActivity.class);
             }
             startActivity(i);
             finish();

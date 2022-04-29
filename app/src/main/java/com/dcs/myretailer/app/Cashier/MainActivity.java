@@ -67,6 +67,7 @@ import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.Activity.RemarkMainActivity;
 import com.dcs.myretailer.app.Report.ReportActivity;
 import com.dcs.myretailer.app.Activity.ScanActivity;
+import com.dcs.myretailer.app.SFTP.FPTFileCreateActivity;
 import com.dcs.myretailer.app.ScreenSize.MainActivityScreenSize;
 import com.dcs.myretailer.app.Activity.SettingActivity;
 import com.dcs.myretailer.app.databinding.ActivityMainBinding;
@@ -950,7 +951,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     finish();
                     return true;
                 case R.id.navigation_report:
+
+
                     Intent report_setting = new Intent(getApplicationContext(), ReportActivity.class);
+//                    Intent report_setting = new Intent(getApplicationContext(), FPTFileCreateActivity.class);
                     startActivity(report_setting);
                     finish();
                     return true;
