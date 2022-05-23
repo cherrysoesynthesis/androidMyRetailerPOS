@@ -21,3 +21,9 @@ _##ZClose Resync
 _##ZClose API
 
 _##Kitchen Priting via IPAddress 
+
+_##Version 3.3.26
+
+_##Database Encryption with password "Q2gzUjE3QERjJA==";//Ch3R17@Dc$
+
+_##FTP Functions
