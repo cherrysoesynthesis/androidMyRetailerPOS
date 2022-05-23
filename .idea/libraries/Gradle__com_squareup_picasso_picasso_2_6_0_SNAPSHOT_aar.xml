@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.squareup.picasso:picasso:2.6.0-SNAPSHOT@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/098250b87745cab1480abbe0b3de9f71/jetified-picasso-2.6.0-SNAPSHOT/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/098250b87745cab1480abbe0b3de9f71/jetified-picasso-2.6.0-SNAPSHOT/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1559b34259349f0ac5f6c61c763b5d3b/picasso-2.6.0-SNAPSHOT/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/098250b87745cab1480abbe0b3de9f71/jetified-picasso-2.6.0-SNAPSHOT/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/098250b87745cab1480abbe0b3de9f71/jetified-picasso-2.6.0-SNAPSHOT/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.6.0-SNAPSHOT/2e0800a12c5c0399691033143470a838ce87e005/picasso-2.6.0-SNAPSHOT-javadoc.jar!/" />

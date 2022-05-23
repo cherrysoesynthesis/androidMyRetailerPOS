@@ -261,7 +261,7 @@ public class ReportProductFragment extends Fragment {
             if (ReportActivity.previous_report_shift_name.equals("Now")){
                 sql += "AND IsZ IS NULL " ;
             }else {
-                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')" +
+                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')" +
                         " from Sales where isZ IS NULL order by DateTime ASC";
 
                 String isnulldatestr = "";
@@ -280,7 +280,7 @@ public class ReportProductFragment extends Fragment {
 
                 }
             }
-            sql += " AND strftime('"+Constraints.sqldateformat+"', sales.DateTime / 1000, 'unixepoch') "
+            sql += " AND strftime('"+Constraints.sqldateformat+"', sales.DateTime / 1000 + (3600*8), 'unixepoch') "
                     + "BETWEEN '" + from_date + "' AND '" + to_date + "' "
 //                    + "group by DetailsBillProduct.ProductID order by sales.BillNo " ;
 //                    + " group by DetailsBillProduct.ProductID,sales.STATUS " +

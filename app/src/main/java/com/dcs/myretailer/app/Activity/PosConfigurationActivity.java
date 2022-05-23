@@ -1281,6 +1281,16 @@ public class PosConfigurationActivity extends AppCompatActivity {
                     } else {
                         option += "0";
                     }
+                    if (binding_imin.chkAutoSyncToServer.isChecked()) {
+                        option += "1";
+                    } else {
+                        option += "0";
+                    }
+                    if (binding_imin.chkAutoSyncToMallInterface.isChecked()) {
+                        option += "1";
+                    } else {
+                        option += "0";
+                    }
                     String info1 = binding_imin.etInfo1.getText().toString();
                     if (info1.length() > 10) {
                         info1 = info1.substring(0, 10);
@@ -1759,6 +1769,16 @@ public class PosConfigurationActivity extends AppCompatActivity {
                         option += "0";
                     }
                     if (binding.chkPosKitchenPrinter.isChecked()) {
+                        option += "1";
+                    } else {
+                        option += "0";
+                    }
+                    if (binding.chkAutoSyncToServer.isChecked()) {
+                        option += "1";
+                    } else {
+                        option += "0";
+                    }
+                    if (binding.chkAutoSyncToMallInterface.isChecked()) {
                         option += "1";
                     } else {
                         option += "0";
@@ -2434,6 +2454,8 @@ public class PosConfigurationActivity extends AppCompatActivity {
                     binding_imin.chkPos4DigitICNO.setChecked(false);
                     binding_imin.chkPosZclose.setChecked(false);
                     binding_imin.chkPosKitchenPrinter.setChecked(false);
+                    binding_imin.chkAutoSyncToServer.setChecked(false);
+                    binding_imin.chkAutoSyncToMallInterface.setChecked(false);
                 } else {
                     binding.chkPosSelectlast.setChecked(false);
                     binding.chkPosNoprintcondiqty.setChecked(false);
@@ -2463,6 +2485,8 @@ public class PosConfigurationActivity extends AppCompatActivity {
                     binding.chkPos4DigitICNO.setChecked(false);
                     binding.chkPosZclose.setChecked(false);
                     binding.chkPosKitchenPrinter.setChecked(false);
+                    binding.chkAutoSyncToServer.setChecked(false);
+                    binding.chkAutoSyncToMallInterface.setChecked(false);
                 }
                 saveCxPrinterReceipt = "0";
                 saveCxCashDrawer = "0";
@@ -2750,6 +2774,24 @@ public class PosConfigurationActivity extends AppCompatActivity {
                         }
                     }
                 }
+                if (option.length() > 29) {
+                    if (option.charAt(29) == '1'){
+                        if (device.equals("M2-Max")) {
+                            binding_imin.chkAutoSyncToServer.setChecked(true);
+                        }else {
+                            binding.chkAutoSyncToServer.setChecked(true);
+                        }
+                    }
+                }
+                if (option.length() > 30) {
+                    if (option.charAt(30) == '1'){
+                        if (device.equals("M2-Max")) {
+                            binding_imin.chkAutoSyncToMallInterface.setChecked(true);
+                        }else {
+                            binding.chkAutoSyncToMallInterface.setChecked(true);
+                        }
+                    }
+                }
                 db_config.deleteCx();
                 db_config.saveCx("Cx400",saveCxPrinterReceipt,saveCxCashDrawer,saveCxCustomerDisplay,saveCxBarCodeScanner);
 
@@ -2940,6 +2982,8 @@ public class PosConfigurationActivity extends AppCompatActivity {
             binding_imin.chkPos4DigitICNO.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 139));
             binding_imin.chkPosZclose.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 140));
             binding_imin.chkPosKitchenPrinter.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 141));
+            binding_imin.chkAutoSyncToServer.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 142));
+            binding_imin.chkAutoSyncToMallInterface.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 143));
 
             binding_imin.btnLangNew.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 40));
             binding_imin.btnLangDel.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 41));
@@ -2994,6 +3038,8 @@ public class PosConfigurationActivity extends AppCompatActivity {
             binding.chkPos4DigitICNO.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 139));
             binding.chkPosZclose.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 140));
             binding.chkPosKitchenPrinter.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 141));
+            binding.chkAutoSyncToServer.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 142));
+            binding.chkAutoSyncToMallInterface.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 143));
 
             binding.btnLangNew.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 40));
             binding.btnLangDel.setText(StrTextConst.GetText(StrTextConst.TextType.CFGPOS, 41));

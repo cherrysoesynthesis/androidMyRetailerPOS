@@ -23,6 +23,7 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -89,7 +90,13 @@ import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.Activity.RemarkMainActivity;
 import com.dcs.myretailer.app.Report.ReportActivity;
 import com.dcs.myretailer.app.Activity.AddNewProductActivity;
+import com.dcs.myretailer.app.SFTP.FTPFileFormat;
+import com.dcs.myretailer.app.SFTP.FTPInterface;
 import com.dcs.myretailer.app.SFTP.FTPSync;
+import com.dcs.myretailer.app.SFTP.MallInterfaceActivity;
+import com.dcs.myretailer.app.SFTP.ManualFTPMallInterfaceActivity;
+import com.dcs.myretailer.app.SFTP.SFTPInterface;
+import com.dcs.myretailer.app.SFTP.Schedular;
 import com.dcs.myretailer.app.Setting.ButtonStyle;
 import com.dcs.myretailer.app.Setting.DiscountClass;
 import com.dcs.myretailer.app.Setting.MapButton;
@@ -113,6 +120,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Document;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -178,7 +186,7 @@ public class Query {
      static String query = " WHERE (STATUS = 'SALES'   OR STATUS = 'REFUND') ";
      static String query_details_bill = " WHERE (CANCEL = 'SALES'   OR CANCEL = 'REFUND') ";
      static String query_cancel = " WHERE (STATUS = 'CANCEL'   OR STATUS = 'VOID') ";
-     static String groupdtformat = " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') ";
+     static String groupdtformat = " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') ";
 
     public static String EditFragmentOpenPrice = "0";
     public static String EditFragmentRemarks = "0";
@@ -1527,7 +1535,7 @@ public class Query {
 
 //    public static Boolean CheckXReport(String start, String end) {
 ////        Boolean flag = false;
-////        Cursor c = DBFunc.Query("SELECT BillNo FROM Bill where CloseDateTime IS NULL AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '"+ start +"' AND '"+ end +"'" +
+////        Cursor c = DBFunc.Query("SELECT BillNo FROM Bill where CloseDateTime IS NULL AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+ start +"' AND '"+ end +"'" +
 ////                "order by BillNo DESC ", false);
 ////        if (c != null){
 ////            if (c.moveToNext()){
@@ -1542,7 +1550,7 @@ public class Query {
     public static Cursor GeneratePaymentSummary(long starttime, long endtime, String report) {
         //String query =  " WHERE (SALES.STATUS = 'REFUND') ";
         String query =  " ";
-        String groupdtformat_ = " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')," +
+        String groupdtformat_ = " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')," +
                 ",BillNo,PaymentID ";
 
         String previousReportCheck_ = "";
@@ -1550,12 +1558,12 @@ public class Query {
             previousReportCheck_ = " WHERE DateTime BETWEEN "+starttime+ " AND "+endtime+" ";
 //            previousReportCheck_ = " AND DateTime BETWEEN "+starttime+ " AND "+endtime+" ";
         }else {
-//            previousReportCheck_ = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
-            previousReportCheck_ = " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+//            previousReportCheck_ = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
+            previousReportCheck_ = " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' ";
         }
 //        AND SALES.DateTime BETWEEN 1632326400000 AND 1632412799999" +
-////                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000, 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
+////                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000 + (3600*8), 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
 //                "DetailsBillProduct.Remarks  order by DetailsBillProduct.BillNo DESC"
         String sql = "";
         if (report.equals("Report")){
@@ -1601,7 +1609,7 @@ public class Query {
                 SimpleDateFormat sdf = new SimpleDateFormat(Constraints.dateYMD, Locale.US);
                 final Calendar myCalendar2 = Calendar.getInstance();
 
-                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')" +
+                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')" +
                         " from SALES where isZ IS NULL order by DateTime ASC";
                 //" from Sales where isZ IS NULL order by DateTime ASC";
 
@@ -1643,7 +1651,7 @@ public class Query {
     public static Cursor DetailsBillProductReportReceiptNoSummary(long starttime, long endtime, String report) {
         //String query =  " WHERE (SALES.STATUS = 'REFUND') ";
         String query =  " ";
-        String groupdtformat_ = " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')," +
+        String groupdtformat_ = " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')," +
                 " BillNo ";
 
         String previousReportCheck_ = "";
@@ -1651,12 +1659,12 @@ public class Query {
             previousReportCheck_ = " WHERE DateTime BETWEEN "+starttime+ " AND "+endtime+" ";
 //            previousReportCheck_ = " AND DateTime BETWEEN "+starttime+ " AND "+endtime+" ";
         }else {
-//            previousReportCheck_ = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
-            previousReportCheck_ = " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+//            previousReportCheck_ = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
+            previousReportCheck_ = " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' ";
         }
 //        AND SALES.DateTime BETWEEN 1632326400000 AND 1632412799999" +
-////                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000, 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
+////                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000 + (3600*8), 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
 //                "DetailsBillProduct.Remarks  order by DetailsBillProduct.BillNo DESC"
         String sql = "";
         if (report.equals("Report")){
@@ -1702,7 +1710,7 @@ public class Query {
                 SimpleDateFormat sdf = new SimpleDateFormat(Constraints.dateYMD, Locale.US);
                 final Calendar myCalendar2 = Calendar.getInstance();
 
-                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')" +
+                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')" +
                         " from SALES where isZ IS NULL order by DateTime ASC";
                 //" from Sales where isZ IS NULL order by DateTime ASC";
 
@@ -1743,16 +1751,16 @@ public class Query {
 
     public static Cursor DetailsBillProductReportRefund(long starttime, long endtime, String report) {
         String query =  " WHERE (SALES.STATUS = 'REFUND') ";
-        String groupdtformat_ = " group by strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000, 'unixepoch') ";
+        String groupdtformat_ = " group by strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000 + (3600*8), 'unixepoch') ";
 
         String previousReportCheck_ = "";
         if (report.equals("Report")){
             previousReportCheck_ = " AND SALES.DateTime BETWEEN "+starttime+ " AND "+endtime+" ";
         }else {
-            previousReportCheck_ = " AND strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000, 'unixepoch') BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' ";
+            previousReportCheck_ = " AND strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' ";
         }
 //        AND SALES.DateTime BETWEEN 1632326400000 AND 1632412799999" +
-////                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000, 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
+////                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000 + (3600*8), 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
 //                "DetailsBillProduct.Remarks  order by DetailsBillProduct.BillNo DESC"
         String sql = "";
         if (report.equals("Report")){
@@ -1798,7 +1806,7 @@ public class Query {
                 SimpleDateFormat sdf = new SimpleDateFormat(Constraints.dateYMD, Locale.US);
                 final Calendar myCalendar2 = Calendar.getInstance();
 
-                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000, 'unixepoch')" +
+                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000 + (3600*8), 'unixepoch')" +
                         " from DetailsBillProduct where DetailsBillProduct.isZ IS NULL order by SALES.DateTime ASC";
                 //" from Sales where isZ IS NULL order by DateTime ASC";
 
@@ -1838,16 +1846,16 @@ public class Query {
 
     public static Cursor DetailsBillProductReport(long starttime, long endtime, String report) {
         String query =  " WHERE (SALES.STATUS = 'SALES' OR SALES.STATUS = 'REFUND') ";
-        String groupdtformat_ = " group by strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000, 'unixepoch') ";
+        String groupdtformat_ = " group by strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000 + (3600*8), 'unixepoch') ";
 
         String previousReportCheck_ = "";
         if (report.equals("Report")){
             previousReportCheck_ = " AND SALES.DateTime BETWEEN "+starttime+ " AND "+endtime+" ";
         }else {
-            previousReportCheck_ = " AND strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000, 'unixepoch') BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' ";
+            previousReportCheck_ = " AND strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' ";
         }
 //        AND SALES.DateTime BETWEEN 1632326400000 AND 1632412799999" +
-////                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000, 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
+////                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000 + (3600*8), 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
 //                "DetailsBillProduct.Remarks  order by DetailsBillProduct.BillNo DESC"
         String sql = "";
         if (report.equals("Report")){
@@ -1893,7 +1901,7 @@ public class Query {
                 SimpleDateFormat sdf = new SimpleDateFormat(Constraints.dateYMD, Locale.US);
                 final Calendar myCalendar2 = Calendar.getInstance();
 
-                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000, 'unixepoch')" +
+                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000 + (3600*8), 'unixepoch')" +
                         " from DetailsBillProduct where DetailsBillProduct.isZ IS NULL order by SALES.DateTime ASC";
                         //" from Sales where isZ IS NULL order by DateTime ASC";
 
@@ -1968,7 +1976,7 @@ public class Query {
                 SimpleDateFormat sdf = new SimpleDateFormat(Constraints.dateYMD, Locale.US);
                 final Calendar myCalendar2 = Calendar.getInstance();
 
-                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')" +
+                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')" +
                         " from Sales where isZ IS NULL order by DateTime ASC";
 
                 String isnulldatestr = "";
@@ -2040,7 +2048,7 @@ public class Query {
                 SimpleDateFormat sdf = new SimpleDateFormat(Constraints.dateYMD, Locale.US);
                 final Calendar myCalendar2 = Calendar.getInstance();
 
-                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')" +
+                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')" +
                         " from Sales where isZ IS NULL order by DateTime ASC";
 
                 String isnulldatestr = "";
@@ -2098,7 +2106,7 @@ public class Query {
 //                "DetailsBillProduct.ProductPrice,DetailsBillProduct.ID,DetailsBillProduct.OpenPriceStatus,DetailsBillProduct.TaxType,DetailsBillProduct.ProductQty,SALES.STATUS" +
 //                " FROM DetailsBillProduct inner join SALES ON DetailsBillProduct.BillNo = SALES.BillNo" ;
 //                "WHERE (SALES.STATUS = 'SALES')  AND SALES.DateTime BETWEEN 1632326400000 AND 1632412799999" +
-//                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000, 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
+//                "group by strftime('%m/%d/%Y', DetailsBillProduct.DateTime / 1000 + (3600*8), 'unixepoch') ,DetailsBillProduct.ProductID,DetailsBillProduct.OpenPriceStatus," +
 //                "DetailsBillProduct.Remarks  order by DetailsBillProduct.BillNo DESC" ;
 
 
@@ -2115,7 +2123,7 @@ public class Query {
 //                "group by ProductID,OpenPriceStatus,Remarks";
     }
     private static String GetDetailsBillPaymentSummary() {
-        return "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')," +
+        return "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')," +
                 "BillNo,Name,STATUS,Amount,ChangeAmount" +
                 " FROM BillPayment " ;
     }
@@ -2134,11 +2142,11 @@ public class Query {
 //                "       TotalTax (Inclusive) ",
 //                "       Payment Type ",
 //                "       Invoice No ",};
-//        return "SELECT strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000, 'unixepoch')," +
+//        return "SELECT strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000 + (3600*8), 'unixepoch')," +
 //                "DetailsBillProduct.BillNo,SALES.STATUS,SUM(DetailsBillProduct.ProductQty)," +
 //                "SUM(DetailsBillProduct.ProductPrice),SUM(SALES.TotalTaxes) " +
 //                " FROM DetailsBillProduct inner join SALES ON DetailsBillProduct.BillNo = SALES.BillNo " ;
-        return "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')," +
+        return "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')," +
                 "BillNo,STATUS,SUM(TotalQty)," +
                 "SUM(TotalNettSales),SUM(TotalTaxes) " +
                 " FROM SALES " ;
@@ -2355,7 +2363,7 @@ public class Query {
             sql += "left join Sales on Sales.BillNo = BillPayment.BillNo" ;
             sql += " WHERE (Sales.STATUS = 'SALES'   OR Sales.STATUS = 'REFUND') " ;
             sql += " AND Sales.BillID IN ("+billnoall+") " ;
-            sql += " and strftime('"+Constraints.sqldateformat+"', BillPayment.PaymentDateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', BillPayment.PaymentDateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' " +
                     " group by BillPayment.PaymentID,BillPayment.EwalletIssueBanker," +
                     "BillPayment.EwalletStatus,BillPayment.EwalletPaymentType";
@@ -2368,7 +2376,7 @@ public class Query {
                 //sql += "AND isZ != 'Z' ";
                 sql += "AND (isZ != 'Z'  OR  isZ IS NULL ) ";
             }
-            sql += " and strftime('"+Constraints.sqldateformat+"', PaymentDateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', PaymentDateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' " +
                     " group by PaymentID,EwalletIssueBanker,EwalletStatus,EwalletPaymentType,BillPayment.PaymentRemarks";
         }
@@ -2387,7 +2395,7 @@ public class Query {
             sql += "left join Sales on Sales.BillNo = BillPayment.BillNo" ;
             sql += " WHERE (Sales.STATUS = 'SALES'   OR Sales.STATUS = 'REFUND') " ;
             sql += " AND Sales.BillID IN ("+billnoall+") " ;
-            sql += " and strftime('"+Constraints.sqldateformat+"', BillPayment.PaymentDateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', BillPayment.PaymentDateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' " +
                     "and  (EwalletStatus IS NOT NULL OR EwalletStatus = 1) " +
                     " group by BillPayment.Name";
@@ -2400,7 +2408,7 @@ public class Query {
             if (ReportActivity.previous_report_shift_name.equals("Now")){
                 sql += "AND isZ != 'Z' ";
             }
-            sql += " and strftime('"+Constraints.sqldateformat+"',  PaymentDateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"',  PaymentDateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' " +
                     "and  (EwalletStatus IS NOT NULL OR EwalletStatus = 1) " +
                     " group by Name";
@@ -2435,7 +2443,7 @@ public class Query {
             sql = "SELECT SUM(TotalItemDisount) FROM Sales " +
                     query;
             sql +=  " AND BillID IN ("+billnoall+") " ;
-            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' ";
         }else {
             sql = "SELECT SUM(TotalItemDisount) FROM Sales " +
@@ -2443,7 +2451,7 @@ public class Query {
             if (ReportActivity.previous_report_shift_name.equals("Now")) {
                 sql += "  AND isZ IS NULL ";
             }
-            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     " BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'";
         }
         Log.i("SDFSDFggg____","_sqlsql__"+sql);
@@ -2458,12 +2466,12 @@ public class Query {
             sql = "SELECT SUM(TotalBillDisount) FROM Sales " +
                     query;
             sql +=  " AND BillID IN ("+billnoall+") " ;
-            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' ";
         }else {
             sql = "SELECT SUM(TotalBillDisount) FROM Sales " +
                     query;
-            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     " BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'";
             if (ReportActivity.previous_report_shift_name.equals("Now")) {
                 sql += "  AND isZ IS NULL ";
@@ -2480,7 +2488,7 @@ public class Query {
             sql = "SELECT SUM(TotalItemDisount) FROM Sales " +
                     query_cancel;
             sql +=  " AND BillID IN ("+billnoall+") " ;
-            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' ";
         }else {
             sql = "SELECT SUM(TotalItemDisount) FROM Sales " +
@@ -2488,7 +2496,7 @@ public class Query {
             if (ReportActivity.previous_report_shift_name.equals("Now")) {
                 sql += "  AND isZ IS NULL ";
             }
-            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     " BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'";
         }
         return DBFunc.Query(sql, false);
@@ -2502,12 +2510,12 @@ public class Query {
             sql = "SELECT SUM(TotalBillDisount) FROM Sales " +
                     query_cancel;
             sql +=  " AND BillID IN ("+billnoall+") " ;
-            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' ";
         }else {
             sql = "SELECT SUM(TotalBillDisount) FROM Sales " +
                     query_cancel;
-            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     " BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'";
             if (ReportActivity.previous_report_shift_name.equals("Now")) {
                 sql += "  AND isZ IS NULL ";
@@ -2531,7 +2539,7 @@ public class Query {
 
         if (report.equals("Report")){
             str_report_query = " AND Sales.DateTime BETWEEN "+starttime + " AND "+endtime+" ";
-//            str_report_query = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+//            str_report_query = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
 //                    "BETWEEN '"+ActivityGenReport.selected_from_date+"'"+ " AND '"+ActivityGenReport.selected_to_date+"'";
             sql = " SELECT DetailsBillProduct.ProductID,DetailsBillProduct.ProductName,SUM(Sales.TotalQty), "+
                     "SUM(Sales.TotalNettSales),SUM(Sales.TotalTaxes),SUM(Sales.TotalBillDisount),SUM(Sales.ServiceCharges) "+
@@ -2549,7 +2557,7 @@ public class Query {
                         "FROM Sales " +
                         query +
                         " AND BillID IN ("+billnoall+") " +
-                        " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
+                        " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
                         " Group By BillNo";
 
 
@@ -2569,7 +2577,7 @@ public class Query {
                 if (ReportActivity.previous_report_shift_name.equals("Now")){
                     sql += "AND Sales.isZ IS NULL ";
                 }
-                sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
+                sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
                         " Group By BillNo";
             }
         }
@@ -2580,7 +2588,7 @@ public class Query {
 //
 //        if (report.equals("Report")){
 //            str_report_query = " AND Sales.DateTime BETWEEN "+starttime + " AND "+endtime+" ";
-////            str_report_query = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+////            str_report_query = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
 ////                    "BETWEEN '"+ActivityGenReport.selected_from_date+"'"+ " AND '"+ActivityGenReport.selected_to_date+"'";
 //            sql = " SELECT DetailsBillProduct.ProductID,DetailsBillProduct.ProductName,SUM(Sales.TotalQty), "+
 //                    "SUM(Sales.TotalNettSales),SUM(Sales.TotalTaxes),SUM(Sales.TotalBillDisount),SUM(Sales.ServiceCharges) "+
@@ -2598,7 +2606,7 @@ public class Query {
 //                        "FROM Sales " +
 //                        query +
 //                        " AND BillID IN ("+billnoall+") " +
-//                        " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
+//                        " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
 //                        " Group By BillNo";
 //
 //
@@ -2618,7 +2626,7 @@ public class Query {
 //                if (ReportActivity.previous_report_shift_name.equals("Now")){
 //                    sql += "AND Sales.isZ IS NULL ";
 //                }
-//                sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
+//                sql += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
 //                        " Group By BillNo";
 //            }
 //        }
@@ -2658,7 +2666,7 @@ public class Query {
                     " AND Sales.BillID IN (" + billnoall + ") " +
                     " AND DetailsBillProduct.ProductQty != '0'" +
                     " AND DetailsBillProduct.BillNo NOT IN ( "+ReferenceBillNo+" ) "+
-                    " and strftime('" + Constraints.sqldateformat + "', Sales.DateTime / 1000, 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" +
+                    " and strftime('" + Constraints.sqldateformat + "', Sales.DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + ReportActivity.start + "' and '" +
                     ReportActivity.end + "'";
 
             sql += " group by DetailsBillProduct.CategoryID";
@@ -2687,7 +2695,7 @@ public class Query {
             //sql += "AND DetailsBillProduct.CategoryId > 0 " +
             sql +=  " AND DetailsBillProduct.ProductQty != '0'" +
                     " AND DetailsBillProduct.BillNo NOT IN ( "+ReferenceBillNo+" ) "+
-                    " and strftime('" + Constraints.sqldateformat + "', Sales.DateTime / 1000, 'unixepoch') " +
+                    " and strftime('" + Constraints.sqldateformat + "', Sales.DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" +
                     ReportActivity.end + "'";
             sql += " group by DetailsBillProduct.CategoryID";
@@ -2705,7 +2713,7 @@ public class Query {
                 "left join Sales on Sales.BillNo = DetailsBillProduct.BillNo "+
                 "where (DetailsBillProduct.CANCEL = 'CANCEL' OR DetailsBillProduct.CANCEL = 'VOID')  " +
                 //"AND DetailsBillProduct.CategoryId > 0  " +
-                " AND DetailsBillProduct.ProductQty != '0' and strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000, 'unixepoch')  " +
+                " AND DetailsBillProduct.ProductQty != '0' and strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000 + (3600*8), 'unixepoch')  " +
                 "  BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" ;
 
         if (ReportActivity.previous_report_shift_name.equals("Now")){
@@ -2738,39 +2746,39 @@ public class Query {
             //" group by BillPayment.Name";
 
             sql = "SELECT count(ID),BillNo,SUM(TotalQty),SUM(SubTotal),SUM(Totalamount)," +
-                    "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
+                    "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
                     "SUM(TotalBillDisount),SUM(GrossTotal),SUM(ServiceCharges),SUM(TotalNettSales),SUM(TotalTaxes)," +
                     "SalesDateTime FROM Sales " +
                     " WHERE (STATUS = 'REFUND')  " ;
             sql += " AND BillID IN ("+billnoall+") " ;
-            sql += " and strftime('"+Constraints.sqldateformat+"',  DateTime / 1000, 'unixepoch') " +
+            sql += " and strftime('"+Constraints.sqldateformat+"',  DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' " ;
-            sql +=  " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')";
+            sql +=  " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')";
 
 
         }else {
             String str_report_query = "";
             if (report.equals("Report")){
                 str_report_query = " AND DateTime BETWEEN "+starttime + " AND "+endtime+" ";
-                //            str_report_query = " AND strftime('%Y-%m-%d', DateTime / 1000, 'unixepoch') BETWEEN strftime('%Y-%m-%d', "+starttime+" / 1000, 'unixepoch')"+ " AND strftime('%Y-%m-%d', "+endtime+" / 1000, 'unixepoch')";
-                //             str_report_query = " AND strftime('%Y-%m-%d', DateTime / 1000, 'unixepoch') " +
+                //            str_report_query = " AND strftime('%Y-%m-%d', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN strftime('%Y-%m-%d', "+starttime+" / 1000, 'unixepoch')"+ " AND strftime('%Y-%m-%d', "+endtime+" / 1000, 'unixepoch')";
+                //             str_report_query = " AND strftime('%Y-%m-%d', DateTime / 1000 + (3600*8), 'unixepoch') " +
                 //                     "BETWEEN '"+ActivityGenReport.selected_from_date+"'"+ " AND '"+ActivityGenReport.selected_to_date+"'";
             }else {
                 if (ReportActivity.previous_report_shift_name.equals("Now")) {
                     str_report_query = " AND isZ IS NULL ";
                 }
-                str_report_query += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+                str_report_query += " and strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                         "BETWEEN '"+ReportActivity.start+"' and '"+ReportActivity.end+"'";
             }
             sql = "SELECT count(ID),BillNo,SUM(TotalQty),SUM(SubTotal),SUM(Totalamount)," +
-                    "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
+                    "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
                     "SUM(TotalBillDisount),SUM(GrossTotal),SUM(ServiceCharges),SUM(TotalNettSales),SUM(TotalTaxes)," +
                     "SalesDateTime FROM Sales " +
                     " WHERE (STATUS = 'REFUND')  " +
                     //        " WHERE STATUS != 'SALES'  " +
                     //        " WHERE STATUS = 'CANCEL'  " +
                     str_report_query +
-                    " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')";
+                    " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')";
         }
 
         return DBFunc.Query(sql, false);
@@ -2782,7 +2790,7 @@ public class Query {
             String previousReportCheck = GetPreviousReportSQLCheck(report, starttime, endtime);
 
             sql = "SELECT count(ID),BillNo,SUM(TotalQty),SUM(SubTotal),SUM(Totalamount)," +
-                    "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
+                    "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
                     "SUM(TotalBillDisount),SUM(GrossTotal),SUM(ServiceCharges),SUM(TotalNettSales),SUM(TotalTaxes)," +
                     "SalesDateTime FROM Sales " +
                     " WHERE (STATUS = 'CANCEL' OR STATUS = 'VOID')  ";
@@ -2795,7 +2803,7 @@ public class Query {
                 String previousReportCheck = GetPreviousReportSQLCheck(report, starttime, endtime);
 
                 sql = "SELECT count(ID),BillNo,SUM(TotalQty),SUM(SubTotal),SUM(Totalamount)," +
-                        "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
+                        "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
                         "SUM(TotalBillDisount),SUM(GrossTotal),SUM(ServiceCharges),SUM(TotalNettSales),SUM(TotalTaxes)," +
                         "SalesDateTime FROM Sales " +
                         " WHERE (STATUS = 'CANCEL' OR STATUS = 'VOID')  ";
@@ -2810,11 +2818,11 @@ public class Query {
                     if (ReportActivity.previous_report_shift_name.equals("Now")) {
                         str_report_query = " AND isZ IS NULL ";
                     }
-                    str_report_query += " and strftime('" + Constraints.sqldateformat + "', DateTime / 1000, 'unixepoch') " +
+                    str_report_query += " and strftime('" + Constraints.sqldateformat + "', DateTime / 1000 + (3600*8), 'unixepoch') " +
                             "BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'";
                 }
                 sql = "SELECT count(ID),BillNo,SUM(TotalQty),SUM(SubTotal),SUM(Totalamount)," +
-                        "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
+                        "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'),SUM(GrossSales),SUM(TotalItemDisount)," +
                         "SUM(TotalBillDisount),SUM(GrossTotal),SUM(ServiceCharges),SUM(TotalNettSales),SUM(TotalTaxes)," +
                         "SalesDateTime FROM Sales " +
                         " WHERE (STATUS = 'CANCEL' OR STATUS = 'VOID')  " +
@@ -2831,7 +2839,7 @@ public class Query {
         if (report.equals("Report")){
             previousReportCheck = " AND DateTime BETWEEN "+starttime+ " AND "+endtime+" ";
         }else {
-            previousReportCheck = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' ";
+            previousReportCheck = " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' ";
         }
         return previousReportCheck;
     }
@@ -2965,7 +2973,7 @@ public class Query {
     }
 
     public static void CheckDateUpdate() {
-//        String sql = "SELECT DateTime,SalesDateTime,BillNo,ID FROM Sales WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+//        String sql = "SELECT DateTime,SalesDateTime,BillNo,ID FROM Sales WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
 //                "BETWEEN '2020-12-01' AND '2020-12-20' ";
 //        Log.i("DFdfd___sql","SQL___"+sql);
 //        Cursor c = DBFunc.Query(sql, false);
@@ -3013,7 +3021,7 @@ public class Query {
 //            }
 //            c.close();
 //        }
-////        sql = "SELECT DateTime,BillNo,SalesDate FROM SyncSales WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+////        sql = "SELECT DateTime,BillNo,SalesDate FROM SyncSales WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
 ////                "BETWEEN '2020-12-01' AND '2020-12-20' ";
 ////        Log.i("DFdfd___sql","SQL___"+sql);
 ////        c = DBFunc.Query(sql, false);
@@ -3023,7 +3031,7 @@ public class Query {
 ////                long dttt = c.getLong(0) + 28800;
 ////
 ////
-////                String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')",
+////                String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')",
 ////                        "BillNo", c.getString(1) , "Sales", false);
 ////                Log.i("Dfdfdf___dtttt","dtttt____"+dtttt);
 ////
@@ -4631,6 +4639,22 @@ public class Query {
         return fName;
     }
 
+    public static String findfieldNameByTableName(String fieldName,String tbName, Boolean flag) {
+        String fName = "";
+        String sql = "SELECT "+fieldName+" FROM "+tbName+ " ";
+        Log.i("query___","sql__"+sql);
+        Cursor c = DBFunc.Query(sql, flag);
+        if (c != null) {
+            if (c.moveToNext()) {
+                if (!c.isNull(0)) {
+                    fName = c.getString(0);
+                }
+            }
+            c.close();
+        }
+        return fName;
+    }
+
     public static void DeleteForUpdate(String strbillNo,String productName,String productID,String EditOpenPrice) {
         DBFunc.ExecQuery("DELETE FROM BillDetails WHERE BillNo = '"+ strbillNo + "' AND ProductName = '"+productName+"'", false);
         //DBFunc.ExecQuery("DELETE FROM BillDetails WHERE BillNo = '"+ MainActivity.strbillNo + "'", false);
@@ -5490,8 +5514,8 @@ public class Query {
 //    }
 //
 //    public static String GetReceiptNoSaleSync(String bill_no) {
-//        //String sql_ = "SELECT strftime('%Y%m%d', CloseDateTime / 1000, 'unixepoch') FROM Bill WHERE BillNo = '" + bill_no + "'  and Cancel = 0  ";
-//        String sql_ = "SELECT strftime('%Y%m%d', CloseDateTime / 1000, 'unixepoch') FROM Bill WHERE BillNo = '" + bill_no + "' ";
+//        //String sql_ = "SELECT strftime('%Y%m%d', CloseDateTime / 1000 + (3600*8), 'unixepoch') FROM Bill WHERE BillNo = '" + bill_no + "'  and Cancel = 0  ";
+//        String sql_ = "SELECT strftime('%Y%m%d', CloseDateTime / 1000 + (3600*8), 'unixepoch') FROM Bill WHERE BillNo = '" + bill_no + "' ";
 //
 //        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 //        Date date = new Date();
@@ -6946,6 +6970,7 @@ public class Query {
         String firstUUIDZClose = "";
         String lastBillNoZClose = "";
         String lastUUIDZClose = "";
+        List<String> zreadnoList = new ArrayList<>();
         if (sqlSalesZClose != null){
             //String jerifood_tax = Query.GetOptions(24);
 //            if (sqlSalesZClose.moveToNext()) {
@@ -6959,7 +6984,7 @@ public class Query {
                     while (sqlBillZClose.moveToNext()) {
 
                         Log.i("SDFDFSD_____","sqlisZC___"+sqlBillZClose.getString(0)+"__"+sqlBillZClose.getString(1)+"__"+sqlSalesZClose.getString(0));
-
+                        zreadnoList.add(sqlBillZClose.getString(1));
                         billNoAllStr += sqlBillZClose.getString(0);
                         billNoAllStr1 += "'" + sqlBillZClose.getString(0) + "'";
                         billNoAllStr2 += "'" + sqlBillZClose.getString(1) + "'";
@@ -7045,20 +7070,36 @@ public class Query {
         zc.setTransDate(transDate);
 
         Integer zcloseidchk = Query.findLatestID("ID", "ZClose", false);
+        Log.i("dsf__latest_zreadidchk","lzcloseidchk__"+zcloseidchk);
         String zreadno = Constraints.Zeroes;
+        Integer latest_zreadidchk = 0;
+        if (zcloseidchk == 0){
+            zcloseidchk = 1;
+           // latest_zreadidchk = 1;
+        } else {
+            //latest_zreadidchk = Query.findLatestID("ID", "ZClose", false);
+        }
         if (zcloseidchk > 0) {
-            Integer latest_zreadidchk = Query.findLatestID("ID", "ZClose", false);
-
+            latest_zreadidchk = Query.findLatestID("ID", "ZClose", false);
+            Log.i("dsf__latest_zreadidchk","latest_zreadidchk__"+latest_zreadidchk);
             latest_zreadidchk ++;
-
+            Log.i("dsf__latest_zreadidchk","latest_zreadidchk__"+latest_zreadidchk);
             int reduce = zreadno.length() - String.valueOf(latest_zreadidchk).length();
+            Log.i("dsf__latest_zreadidchk","lareduce__"+reduce);
             String loopval = "";
            for (int reducei = 0 ; reducei < reduce ; reducei ++) {
                loopval += "0";
            }
             zreadno =  loopval + latest_zreadidchk;
-
+            Log.i("dsf__latest_zrzreadnok","zreadno__"+zreadno);
         }
+        for (int z = 0 ; z < zreadnoList.size() ; z++){
+           String billnoforZRead = zreadnoList.get(z);
+            String updateSalesZReadNo = "UPDATE Sales SET ZReadNo = '"+Constraints.ZReadNoFormat +zreadno+"' WHERE BillNo = '"+billnoforZRead+"'";
+            Log.i("updateSalesZReadNo___","updateSalesZReadNo__"+updateSalesZReadNo);
+            DBFunc.ExecQuery(updateSalesZReadNo,false);
+        }
+
         zc.setZReadNo(Constraints.ZReadNoFormat + zreadno);
         zc.setZReadDate(transZReadDate);
         zc.setZReadUser("");
@@ -7094,6 +7135,8 @@ public class Query {
                 bno = false;
             }
         }catch (NullPointerException e){
+            bno = false;
+        }catch (Exception e){
             bno = false;
         }
         Boolean checkBillPending = Query.CheckBillListStatus(bno,BNo);
@@ -7131,6 +7174,14 @@ public class Query {
             Log.i("Error","er_repotyz"+e.getMessage());
         } catch (Exception e){
             Log.i("Error","er_repotyzzz"+e.getMessage());
+        }
+
+        try {
+            //String dmy = new SimpleDateFormat(Constraints.dateDMY_FTP).format(new Date());//date need to change//   -> 8
+            String dmy = new SimpleDateFormat(Constraints.dateYMD_FTP).format(new Date());//date need to change//   -> 8
+            MallInterfaceActivity.doFTPSync(MallInterfaceActivity.act, "",dmy,dmy);
+        } catch (Exception e){
+            Log.i("ftpexception_d_","exception___"+e.getMessage());
         }
 
 //        ReportActivity.binding.pagerReport.setCurrentItem(3);
@@ -7593,7 +7644,7 @@ public class Query {
     public static Cursor GetSalesForSync(String bill_no) {
 //        String sql = "SELECT Details_BillProduct.ProductID,Details_BillProduct.ProductName,SUM(Sales.TotalQty), "+
 //                "SUM(Sales.TotalNettSales),SUM(Sales.TotalTaxes),SUM(Sales.TotalBillDisount),SUM(Sales.ServiceCharges)," +
-//                "Sales.STATUS,SUM(RoundAdj),strftime('%Y-%m-%d %H:%M:%S', Sales.DateTime / 1000, 'unixepoch') "+
+//                "Sales.STATUS,SUM(RoundAdj),strftime('%Y-%m-%d %H:%M:%S', Sales.DateTime / 1000 + (3600*8), 'unixepoch') "+
 //                "FROM Sales "+
 //                "INNER JOIN Details_BillProduct on Details_BillProduct.BillNo = Sales.BillNo " +
 //                "WHERE Sales.BillNo = '"+bill_no+"' ";
@@ -8912,6 +8963,10 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                     PaymentTypesCheckoutAdapter.payment_remarks = "";
 
                     Integer sale_id = Query.findLatestID("ID","Sales",false);
+
+                    //Tax Update
+//                    Integer sale_id = Query.findLatestID("ID","Sales",false);
+                    Query.IncTaxInsertIntoTable(sale_id,Double.valueOf(total_nett_sales));
 
                     CashLayoutActivity.SaveSalesItem(BillNo,sub_total,totalQty,sale_id,Changeamount,paymentName,payment_amount,context,System.currentTimeMillis());
 
@@ -11687,7 +11742,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
 ////                String saleitmsql = "SELECT DateTime " +
 ////                        "FROM SalesItem " +
 ////                        "where ID = " + ID;
-//                String saleitmsql = "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch'),DateTime " +
+//                String saleitmsql = "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch'),DateTime " +
 //                        "FROM SalesItem " +
 //                        "where BillNo = '"+BillNo+"'" ;
 //                Log.i("__sql", saleitmsql);
@@ -12127,7 +12182,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
 ////                String saleitmsql = "SELECT DateTime " +
 ////                        "FROM SalesItem " +
 ////                        "where ID = " + ID;
-//            String saleitmsql = "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch'),DateTime " +
+//            String saleitmsql = "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch'),DateTime " +
 //                    "FROM SalesItem " +
 //                    "where BillNo = '"+BillNo+"'" ;
 //            Log.i("__sql", saleitmsql);
@@ -12475,8 +12530,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                 break;
             }
         }
-        Log.i("dsfsdf___activityInfo","activityInfo__"+activityInfo);
-        Log.i("dsfsdf___activityInfo","activityInfo_packageName_"+activityInfo.applicationInfo.packageName);
+
         if (activityInfo != null) {
             return true;
             // Same as before, this will open up the other application
@@ -12827,7 +12881,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                     "      from DetailsBillProduct " +
                     "      inner join Sales on Sales.BillNo = DetailsBillProduct.BillNo " +
                     "      where (Sales.STATUS = 'SALES'  )" +
-                    "      AND strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000, 'unixepoch')  " +
+                    "      AND strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000 + (3600*8), 'unixepoch')  " +
                     "      BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' " +
                     "      and DetailsBillProduct.DiscountID > 0  ";
                     //"      and DetailsBillProduct.DiscountID > 0 AND DetailsBillProduct.CategoryID > 0 ";
@@ -12851,7 +12905,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                             "      from DetailsBillProduct " +
                             "      inner join Sales on Sales.BillNo = DetailsBillProduct.BillNo " +
                             "      where (Sales.STATUS = 'SALES'  )" +
-                            "      AND strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000, 'unixepoch')  " +
+                            "      AND strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000 + (3600*8), 'unixepoch')  " +
                             "      BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "' " +
                             "      and DetailsBillProduct.DiscountID > 0  ";
                             //"      and DetailsBillProduct.DiscountID > 0 AND DetailsBillProduct.CategoryID > 0 ";
@@ -12882,7 +12936,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
             if(ccc.getCount() > 0){
 //
 //                String sqll = "select sum(TotalQty),sum(TotalBillDisount),BillNo from Sales " +
-//                        "   where (STATUS = 'SALES') AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+//                        "   where (STATUS = 'SALES') AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
 //                        "   BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
 //                        "   and DiscountID > 0 AND DetailsBillProduct.CategoryID > 0 " ;
 //
@@ -12893,12 +12947,12 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
 
 //                String sqll = "select sum(Sales.TotalQty),sum(Sales.TotalBillDisount),Sales.BillNo from Sales " +
 //                        "left join DetailsBillProduct on DetailsBillProduct.BillNo = Sales.BillNo " +
-//                        "   where (Sales.STATUS = 'SALES') AND strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000, 'unixepoch') " +
+//                        "   where (Sales.STATUS = 'SALES') AND strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000 + (3600*8), 'unixepoch') " +
 //                        "   BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
 //                        "   and Sales.DiscountID > 0 AND DetailsBillProduct.CategoryID > 0 " ;
                 String sqll = "select (Sales.TotalQty),(Sales.TotalBillDisount),Sales.BillNo from Sales " +
                         "left join DetailsBillProduct on DetailsBillProduct.BillNo = Sales.BillNo " +
-                        "   where (Sales.STATUS = 'SALES') AND strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000, 'unixepoch') " +
+                        "   where (Sales.STATUS = 'SALES') AND strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000 + (3600*8), 'unixepoch') " +
                         "   BETWEEN '" + ReportActivity.start + "' and '" + ReportActivity.end + "'" +
                         "   and Sales.DiscountID > 0  " ;
                         //"   and Sales.DiscountID > 0 AND DetailsBillProduct.CategoryID > 0 " ;
@@ -14011,8 +14065,6 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                 " WHERE BillNo = '"+billNo+"' AND DetailsBillProductID = '" + DetailsBillProductID + "' " ;
         DBFunc.ExecQuery(sqlunselected, false);
 
-        Log.i("sdf___sqlunselected","_____"+sqlunselected);
-
         DBFunc.DBUserLog(Allocator.cashierName, Allocator.cashierID, Allocator.cashierAuth,
                 System.currentTimeMillis(), DBFunc.PurifyString("Update-EditProductSheetFragment -PLUModi-" +
                         sqlunselected));
@@ -14392,10 +14444,10 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
 
     public static String GetDtFromSales(String billNo) {
         String dt = "";
-        String sql = "SELECT strftime('" + Constraints.sqldateformat_kitchenprinter_dmy + "', DateTime / 1000, 'unixepoch')," +
-                "strftime('" + Constraints.sqldateformat_kitchenprinter_h + "', DateTime / 1000, 'unixepoch'), " +
-                "strftime('" + Constraints.sqldateformat_kitchenprinter_m + "', DateTime / 1000, 'unixepoch'), " +
-                "strftime('" + Constraints.sqldateformat_kitchenprinter_s + "', DateTime / 1000, 'unixepoch') " +
+        String sql = "SELECT strftime('" + Constraints.sqldateformat_kitchenprinter_dmy + "', DateTime / 1000 + (3600*8), 'unixepoch')," +
+                "strftime('" + Constraints.sqldateformat_kitchenprinter_h + "', DateTime / 1000 + (3600*8), 'unixepoch'), " +
+                "strftime('" + Constraints.sqldateformat_kitchenprinter_m + "', DateTime / 1000 + (3600*8), 'unixepoch'), " +
+                "strftime('" + Constraints.sqldateformat_kitchenprinter_s + "', DateTime / 1000 + (3600*8), 'unixepoch') " +
                 " FROM Sales WHERE BillNo = '" + billNo + "' ";
         Log.i("SDQL", "sql_" + sql);
         Cursor c = DBFunc.Query(sql, false);
@@ -14534,7 +14586,7 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
 
 //                %m/%d/%Y
         String checkBillnodate = "";
-        String checktodaydate = "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+        String checktodaydate = "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                 "FROM Sales WHERE BillNo = '"+billNo+"'";
         Cursor cursorchecktodaydate = DBFunc.Query(checktodaydate,false);
 
@@ -14552,66 +14604,95 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
         Integer cdt = 0;
         Date date1 = new Date();
         String dateFormat3 = new SimpleDateFormat("MM/dd/yyyy").format(date1).toString();
-        String chlClosingDateForZClose = "SELECT IsZ,strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+        String chlClosingDateForZClose = "SELECT IsZ,strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                 "FROM Sales WHERE IsZ IS NULL Order By BillNo DESC";
+        Log.i("sdfchlClosingDateForZClose_","sdsd_"+chlClosingDateForZClose);
         Cursor c = DBFunc.Query(chlClosingDateForZClose,false);
         if (c != null) {
             if (c.moveToNext()){
                 //cdt = c.getInt(0);
                 String checkBillnodate = c.getString(1);
+                Log.i("sdf___","checkBillnodate____"+checkBillnodate);
                 if (!(dateFormat3.equals(checkBillnodate))) {
                     cdt = 1;
                 }
             }
             c.close();
         }
+        Log.i("sdf___","cdt____"+cdt);
         return cdt;
     }
     public static void saveFTPSync(Context context, FTPSync ftpsync) {
-//        String ip;
-//        String type;
-//        String port;
-//        String user;
-//        String password;
-//        String fileFormat;
-//        String ftptype;
-//        String mallcode;
-//        String machineID;
         try {
-            String sql = "INSERT INTO FTYSync (ip,type,port,user,password," +
-                    "fileFormat,ftptype,mallcode,machineID,DateTime) " +
-                    "VALUES ('" + DBFunc.PurifyString(ftpsync.getIp()) + "'," +
-                    "" + ftpsync.getType() + "," +
-                    "" + ftpsync.getPort() + "," +
-                    "" + ftpsync.getUser() + "," +
-                    "" + ftpsync.getPassword() + "," +
-                    "'" + ftpsync.getFileFormat() + "'," +
-                    "'" + ftpsync.getFtptype() + "'," +
-                    "'" + ftpsync.getMallcode() + "'," +
-                    "'" + ftpsync.getMachineID() + "'," +
-                    System.currentTimeMillis() + ")";
-
-
+            String chkMallInterface = Query.findfieldNameByTableName("uuid","FTPSync", true);
+            String sql = "";
+            if (chkMallInterface != null && chkMallInterface.length() > 2) {
+                sql = "UPDATE FTPSync SET ip = '"+ftpsync.getIp()+"', " +
+                        "type = '"+ftpsync.getType()+"'," +
+                        "port = '"+ftpsync.getPort()+"'," +
+                        "user = '"+ftpsync.getUser()+"'," +
+                        "password = '"+ftpsync.getPassword()+"'," +
+                        "fileFormat = '"+ftpsync.getFileFormat()+"'," +
+                        "ftptype = '"+ftpsync.getFtptype()+"'," +
+                        "mallcode = '"+ftpsync.getMallcode()+"'," +
+                        "machineID = '"+ftpsync.getMachineID()+"'," +
+                        "hours = '"+ftpsync.getHours()+"'," +
+                        "minutes = '"+ftpsync.getMinutes()+"'," +
+                        "seconds = '"+ftpsync.getSeconds()+"'," +
+                        "DateTime = "+System.currentTimeMillis()+"" ;
+            } else {
+                String uniqueId  = UUID.randomUUID().toString();
+                sql = "INSERT INTO FTPSync (uuid,ip,type,port,user,password," +
+                        "fileFormat,ftptype,mallcode,machineID,hours,minutes,seconds,DateTime) " +
+                        "VALUES ('" + uniqueId + "'," +
+                        "'" + ftpsync.getIp() + "'," +
+                        "'" + ftpsync.getType() + "'," +
+                        "'" + ftpsync.getPort() + "'," +
+                        "'" + ftpsync.getUser() + "'," +
+                        "'" + ftpsync.getPassword() + "'," +
+                        "'" + ftpsync.getFileFormat() + "'," +
+                        "'" + ftpsync.getFtptype() + "'," +
+                        "'" + ftpsync.getMallcode() + "'," +
+                        "'" + ftpsync.getMachineID() + "'," +
+                        "'" + ftpsync.getHours() + "'," +
+                        "'" + ftpsync.getMinutes() + "'," +
+                        "'" + ftpsync.getSeconds() + "'," +
+                        System.currentTimeMillis() + ")";
+            }
             Log.i("SAVEZCLOSESQL__", "SQLL_" + sql);
+            DBFunc.ExecQuery(sql, true);
 
 
-            DBFunc.ExecQuery(sql, false);
-
-
+            MallInterfaceActivity.ipValue = "";
+            MallInterfaceActivity.typeValue = "";
+            MallInterfaceActivity.portNoValue = "";
+            MallInterfaceActivity.userValue = "";
+            MallInterfaceActivity.passwordValue = "";
+            MallInterfaceActivity.formatValue = "";
+            MallInterfaceActivity.mallCodeValue = "";
+            MallInterfaceActivity.machineIdValue = "";
+            MallInterfaceActivity.dateValue = "";
+            MallInterfaceActivity.fromDateValue = "";
+            MallInterfaceActivity.toDateValue = "";
+            MallInterfaceActivity.ftpTypeSelectedValue = "0";
+            MallInterfaceActivity.fileFormatSelectedValue = "0";
+            MallInterfaceActivity.redColor = "0";
             //getZClose(context,ftpsync.getUUID(),"resync");
         } catch (Exception e){
             Log.i("SAVEZCLOSESQL__", "SQLL_Err_" + e.getMessage());
         }
     }
 
-    public static FTPSync getFTYSync(Context context,String uuid , String status) {
+    //public static FTPSync getFTYSync(Context context,String uuid , String status) {
+    public static FTPSync getFTPSync() {
         FTPSync ftpSync = new FTPSync();
 
         String sql = "SELECT ip,type,port,user,password,"+
-                " fileFormat,ftptype,mallcode,machineID,DateTime FROM FTPSync WHERE UUID = '"+uuid+"' ";
+                " fileFormat,ftptype,mallcode,machineID,hours,minutes,seconds,DateTime FROM FTPSync ";
+//                " fileFormat,ftptype,mallcode,machineID,DateTime FROM FTPSync WHERE UUID = '"+uuid+"' ";
         Log.i("SAVEZCLOSESQL__","SQLL_"+sql);
 
-        Cursor c = DBFunc.Query(sql, false);
+        Cursor c = DBFunc.Query(sql, true);
 
         if (c != null) {
             if (c.moveToNext()) {
@@ -14624,6 +14705,10 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                 String ftptype = c.getString(6);
                 String mallcode = c.getString(7);
                 String machineID = c.getString(8);
+                String hours = c.getString(9);
+                String minutes = c.getString(10);
+                String seconds = c.getString(11);
+                String dt = c.getString(12);
 
                 ftpSync.setIp(ip);
                 ftpSync.setType(type);
@@ -14634,10 +14719,256 @@ public static void SaveReportSettings(String str_chk_sales, String str_chk_categ
                 ftpSync.setFtptype(ftptype);
                 ftpSync.setMallcode(mallcode);
                 ftpSync.setMachineID(machineID);
+                ftpSync.setHours(hours);
+                ftpSync.setMinutes(minutes);
+                ftpSync.setSeconds(seconds);
+                ftpSync.setDt(dt);
             }
             c.close();
         }
         return ftpSync;
+    }
+    public static void saveSchedular(String filePath,Context context, Schedular schedular) {
+        Log.i("csaveSchedulare_","saveSchedular___");
+//        Integer id;
+//        String uuid;
+//        String filePath;
+//        String fileName;
+//        String setTime;
+//        String status;
+//        long dt;
+        try {
+            String dmy = new SimpleDateFormat(Constraints.dateYMD_FTP).format(new Date());//date need to change//   -> 8
+
+            //String chkMallInterface = Query.findfieldNameByTableName("fileName","Schedular", false);
+            //String chkMallInterface = Query.findfieldNameById("fileName","Schedular", false);
+            String chkFilePath = Query.findfieldNameById("filePath",
+                    "filePath", filePath , "Schedular", false);
+
+            String sql = "";
+            Log.i("chkMallInterface_","chkMallInterface___"+chkFilePath);
+            if (chkFilePath != null && chkFilePath.length() > 2) {
+                sql = "UPDATE Schedular SET filePath = '"+schedular.getFilePath()+"', " +
+                        "fileName = '"+schedular.getFileName()+"'," +
+                        "setTime = '"+schedular.getSetTime()+"'," +
+                        "status = '"+schedular.getStatus()+"'," +
+                        "salesdt =  "+System.currentTimeMillis()+" ," +
+                        "salesdtstr = '"+dmy+"'," +
+                        "DateTime = "+System.currentTimeMillis()+"" ;
+            } else {
+                 String uniqueId  = UUID.randomUUID().toString();
+                sql = "INSERT INTO Schedular (uuid,filePath,fileName,setTime,status,salesdt,salesdtstr,DateTime) " +
+                        "VALUES ('" + uniqueId + "'," +
+                        "'" + schedular.getFileName() + "'," +
+                        "'" + schedular.getFilePath() + "'," +
+                        "'" + schedular.getSetTime() + "'," +
+                        "'" + schedular.getStatus() + "'," +
+                        System.currentTimeMillis()  + "," +
+                        "'" + dmy + "'," +
+                        System.currentTimeMillis() + ")";
+            }
+            Log.i("SAVEZCSchedular__", "SQLL_" + sql);
+            DBFunc.ExecQuery(sql, false);
+
+        } catch (Exception e){
+            Log.i("SAVESchedular__", "SchedularL_Err_" + e.getMessage());
+        }
+    }
+
+//    //public static FTPSync getFTYSync(Context context,String uuid , String status) {
+//    public static Schedular getSchedular() {
+//        Schedular schedular = new Schedular();
+//
+//        String sql = "SELECT uuid,filePath,fileName,setTime,status,DateTime FROM Schedular ";
+////                " fileFormat,ftptype,mallcode,machineID,DateTime FROM FTPSync WHERE UUID = '"+uuid+"' ";
+//        Log.i("SAVEZCLOSESQL__","SQLL_"+sql);
+//
+//        Cursor c = DBFunc.Query(sql, true);
+//
+//        if (c != null) {
+//            if (c.moveToNext()) {
+//                String uuid = c.getString(0);
+//                String filePath = c.getString(1);
+//                String fileName = c.getString(2);
+//                String setTime = c.getString(3);
+//                String status = c.getString(4);
+//                long dt = c.getLong(5);
+//
+//                schedular.setUuid(uuid);
+//                schedular.setFilePath(filePath);
+//                schedular.setFileName(fileName);
+//                schedular.setSetTime(setTime);
+//                schedular.setStatus(status);
+//                schedular.setDt(dt);
+//            }
+//            c.close();
+//        }
+//        return schedular;
+//    }
+    public static void saveFTPFileFormat(Context context, FTPFileFormat ftpFileFormat) {
+
+        try {
+//            String deleteSql = "DELETE FROM FTPFileFormat";
+//            DBFunc.ExecQuery(deleteSql, true);
+
+            String uniqueId  = UUID.randomUUID().toString();
+            String sql = "INSERT INTO FTPFileFormat (uuid,fileFormatTypeNo,fileGenerateCount," +
+                    "fileGenerateCountString,fileName,FTPSyncUUID,ZReadNo,BillNo,DateTime) " +
+                    "VALUES ('" + uniqueId + "'," +
+                    "'" + ftpFileFormat.getFileFormatTypeNo() + "'," +
+                    "'" + ftpFileFormat.getFileGenerateCount() + "'," +
+                    "'" + ftpFileFormat.getFileGenerateCountString() + "'," +
+                    "'" + ftpFileFormat.getFileName() + "'," +
+                    "'" + ftpFileFormat.getFTPSyncUUID() + "'," +
+                    "'" + ftpFileFormat.getZReadNo() + "'," +
+                    "'" + ftpFileFormat.getBillNo() + "'," +
+                    System.currentTimeMillis() + ")";
+
+            Log.i("SAVEZCLOSESQL__", "SFTPFileFormatL_" + sql);
+
+
+            DBFunc.ExecQuery(sql, false);
+
+
+            //getZClose(context,ftpsync.getUUID(),"resync");
+        } catch (Exception e){
+            Log.i("SAVEZCLOSESQL__", "SQLL_Err_" + e.getMessage());
+        }
+//        Log.i("dsfdsf____","__fd___"+ftpFileFormat.getFileName());
+//        String type = Query.findfieldNameByTableName("type","FTPSync", true);
+//        if (type.equals(Constraints.FTP_SELECTED_FTP)) {
+//            new FTPInterface(file, ftpFileFormat.getFileName());
+//        } else {
+//            new SFTPInterface(file, ftpFileFormat.getFileName());
+//        }
+//        new AsyncTaskSendSavedFileToFTPByDate().execute();
+
+    }
+
+//    private static class AsyncTaskSendSavedFileToFTPByDate extends AsyncTask<Void, Void, Void> {
+//        String result;
+//        File fileName;
+//
+//        public AsyncTaskSendSavedFileToFTPByDate() {
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... voids) {
+//            String dmy = new SimpleDateFormat(Constraints.dateYMD_FTP).format(new Date());
+//            ManualFTPMallInterfaceActivity.SendSavedFileToFTPByDate(dmy,dmy);
+//            return null;
+//        }
+//        @Override
+//        protected void onPostExecute(Void aVoid) {
+//            super.onPostExecute(aVoid);
+//        }
+//    }
+
+    //public static FTPSync getFTYSync(Context context,String uuid , String status) {
+    public static FTPFileFormat getFTPFileFormat(String billNo) {
+        FTPFileFormat ftpFileFormat = new FTPFileFormat();
+
+        String sql = "SELECT uuid,fileFormatTypeNo,fileGenerateCount, " +
+                "fileGenerateCountString,fileName,FTPSyncUUID,ZReadNo,BillNo,DateTime FROM FTPFileFormat " +
+                " WHERE BillNo = '"+billNo+"' ORDER BY ID DESC";
+        Log.i("SAVEZCLOSESQL__","SQLL_"+sql);
+
+        Cursor c = DBFunc.Query(sql, false);
+
+        if (c != null) {
+            if (c.moveToNext()) {
+                String uuid = c.getString(0);
+                String fileFormatTypeNo = c.getString(1);
+                String fileGenerateCount = c.getString(2);
+                String fileGenerateCountStr = c.getString(3);
+                String fileName = c.getString(4);
+                String FTPSyncUUID = c.getString(5);
+                String ZReadNo = c.getString(6);
+                String BillNo = c.getString(7);
+                long dt = c.getLong(8);
+
+                ftpFileFormat.setUuid(uuid);
+                ftpFileFormat.setFileFormatTypeNo(fileFormatTypeNo);
+                ftpFileFormat.setFileGenerateCount(fileGenerateCount);
+                ftpFileFormat.setFileGenerateCountString(fileGenerateCountStr);
+                ftpFileFormat.setFileName(fileName);
+                ftpFileFormat.setFTPSyncUUID(FTPSyncUUID);
+                ftpFileFormat.setZReadNo(ZReadNo);
+                ftpFileFormat.setBillNo(BillNo);
+                ftpFileFormat.setDateTime(dt);
+            }
+            c.close();
+        }
+        return ftpFileFormat;
+    }
+
+    public static void IncTaxInsertIntoTable(Integer sales_id,Double total_amt){
+        String inctaxValue = "0";
+        String exctaxValue = "0";
+        Integer taxRate = 0;
+        String str_inc_taxname = "";
+        String str_exc_taxname = "";
+        Double inctax = 0.0;
+        Double amt_inclusive = 0.0;
+        Double amt_exclusive = 0.0;
+        Cursor Cursor_tax = Query.GetTax();
+        if (Cursor_tax != null){
+            if (Cursor_tax.moveToNext()){
+                taxRate = Cursor_tax.getInt(0);
+                Integer taxType = Cursor_tax.getInt(1);
+                str_inc_taxname = Cursor_tax.getString(2);
+                str_exc_taxname = Cursor_tax.getString(2);
+
+                //1=> None , 2=>Inclusive , 3=>Exclusive
+                if (taxType == 2){
+                    amt_inclusive = 0.0;
+                    amt_inclusive = calculateInclusive(total_amt,taxRate);
+                    amt_exclusive = 0.0;
+                }else if (taxType == 3) {
+                    amt_exclusive = 0.0;
+                    amt_exclusive = calculateExclusive(total_amt,taxRate);
+                    amt_inclusive = 0.0;
+                }
+            }
+            Cursor_tax.close();
+        }
+        if (amt_inclusive != 0.0){
+            inctaxValue = String.format("%.2f", amt_inclusive);
+        }
+        if (amt_exclusive != 0.0){
+            str_exc_taxname = str_exc_taxname.toUpperCase()+ "(" + taxRate+"%)";
+            exctaxValue =  String.format("%.2f", Double.valueOf(amt_exclusive));
+        }
+//        Cursor Cursor_tax = Query.GetTax();
+//        if (Cursor_tax != null) {
+//            if (Cursor_tax.moveToNext()) {
+//                String taxRate = Cursor_tax.getString(0);
+//                String taxType = Cursor_tax.getString(1);
+//
+//                String taxName = Cursor_tax.getString(2);
+//
+//                if (taxType.equals("2")) {
+//                    double amt_inclusive = Query.calculateInclusive(Double.valueOf(totalNettAmount), Integer.parseInt(taxRate));
+//                    if (amt_inclusive == 0.0) {
+////                        binding.layExcTransationTax.setVisibility(View.GONE);
+////                        binding.layIncTransationTax.setVisibility(View.GONE);
+//                        inctax = amt_inclusive;
+//                    } else {
+//                        String str_inclusive_amt = Query.ShowAmtMinusCorrectly(amt_inclusive);
+////                        "$" + String.format("%.2f", amt_inclusive);
+//                        inctax = amt_inclusive;
+//                    }
+//                }
+//            }
+//            Cursor_tax.close();
+//        }
+        String query = "UPDATE Sales SET ";
+        query += "IncTax = '"+ inctaxValue +"', ";
+        query += "ExcluTax = '"+ exctaxValue +"' ";
+        query += " WHERE ID = "+sales_id+"";
+
+        Log.i("Sdfquery__","query______"+query);
+        DBFunc.ExecQuery(query, false);
     }
 }
 

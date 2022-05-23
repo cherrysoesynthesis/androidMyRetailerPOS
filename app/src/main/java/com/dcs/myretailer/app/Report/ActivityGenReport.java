@@ -1166,7 +1166,7 @@ public class ActivityGenReport extends Activity {
                 if (c != null) {
                     while (c.moveToNext()) {
 
-//                        return "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')," +
+//                        return "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')," +
 //                                "BillNo,Name,STATUS,Amount,ChangeAmount" +
 //                                " FROM BillPayment " ;
 
@@ -3638,7 +3638,7 @@ public class ActivityGenReport extends Activity {
 ////                    Log.i("DTATE___","DFDFDFdate___"+fmtt.format(new Date((Long)summaryday[0])));
 ////
 //////                    yyyy/MM/dd
-////                    String str_report_query = "  AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') = '"+
+////                    String str_report_query = "  AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') = '"+
 ////                            fmtt.format(new Date((Long)summaryday[0]))+"'";
 ////                    String query = " WHERE (STATUS = 'SALES'   OR STATUS = 'REFUND') ";
 ////                    String sql = "SELECT SUM(TotalQty),SUM(TotalNettSales),SUM(GrossTotal),SUM(TotalBillDisount)," +
@@ -3647,8 +3647,8 @@ public class ActivityGenReport extends Activity {
 ////                            " FROM Sales " +
 ////                            query +
 ////                            str_report_query +
-//////                    " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' " +
-////                            " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')" ;
+//////                    " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+ ReportActivity.start +"' AND '"+ ReportActivity.end +"' " +
+////                            " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')" ;
 ////
 ////                    sql += " order by BillNo DESC ";
 ////                    Log.i("DFDF_____","DFDF_____"+sql);

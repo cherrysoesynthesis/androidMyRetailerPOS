@@ -593,7 +593,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
-                Log.i("dsfsdf___","___onDismiss");
+
                 //Do Something here
                 MainActivity.binding.container.setAlpha(1);
             }
@@ -665,8 +665,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         char pressedKey = (char) keyEvent.getUnicodeChar();
 //        barcode += pressedKey;
 //        Log.i("dsfsdf_____","sdf_barcode____"+barcode);
-        Log.i("dsfsdf_____","sdf_Eve___"+keyEvent.getCharacters());
-        Log.i("event___","event_te___"+pop_up_window_item_remarks.getText().toString());
+
 //        G3825221L05122018#
 //        barcode = pop_up_window_item_remarks.getText().toString();
 //        if (barcode != null && barcode.trim().length() > 17){

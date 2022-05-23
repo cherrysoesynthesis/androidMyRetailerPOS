@@ -212,7 +212,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
 
-                    String checktodaydate = "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+                    String checktodaydate = "SELECT strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                             "FROM Sales WHERE BillNo = '"+billNo+"'";
                     Cursor cursorchecktodaydate = DBFunc.Query(checktodaydate,false);
 
@@ -294,7 +294,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             binding.frontLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    String checktodaydate = "SELECT strftime('" + Constraints.sqldateformat + "', DateTime / 1000, 'unixepoch') " +
+//                    String checktodaydate = "SELECT strftime('" + Constraints.sqldateformat + "', DateTime / 1000 + (3600*8), 'unixepoch') " +
 //                            "FROM Sales WHERE BillNo = '" + recBillNo + "'";
 //                    Cursor cursorchecktodaydate = DBFunc.Query(checktodaydate, false);
 //

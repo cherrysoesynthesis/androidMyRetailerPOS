@@ -706,11 +706,15 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
 
                 DBFunc.ExecQuery(sql, false);
 
+
+
                 PaymentTypesCheckoutAdapter.payment_remarks = "";
 
 
 //
+                //Tax Update
                 Integer sale_id = Query.findLatestID("ID","Sales",false);
+                Query.IncTaxInsertIntoTable(sale_id,total_nett_sales);
 //
                 CashLayoutActivity.SaveSalesItem(BillNo,sub_total,totalQty,sale_id,String.valueOf(Changeamount),
                         paymentName,String.valueOf(payment_amount),context,System.currentTimeMillis());
@@ -5737,7 +5741,7 @@ public class CashLayoutActivity extends AppCompatActivity implements View.OnClic
 
                 if (sales_id > 0) { // if Edit Bill from checkout not sync
                     //SyncActivity.volleySubmitSales(context, billNo,"",amount, "Cancel", ENUM.CANCEL, "Normal");
-                    SyncActivity.ResyncOrNormal(context, BillNo, "", "Normal", "");
+                    SyncActivity.ResyncOrNormal(context, BillNo, "", "Normal", "","","");
                 }
             }
 

@@ -360,8 +360,8 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                     sql += "AND IsZ IS NULL " ;
                 }
                 sql += " AND BillID IN ("+billnoall+") " +
-                        " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '"+ start_task +"' AND '"+ end_task +"' " +
-                        " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')  order by BillNo DESC ";
+                        " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+ start_task +"' AND '"+ end_task +"' " +
+                        " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')  order by BillNo DESC ";
 
 
             }else {
@@ -386,7 +386,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 if (reportShiftName.equals("Now")){
                     sql += "AND IsZ IS NULL " ;
                 }
-                sql += " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '"+ start_task +"' AND '"+ end_task +"' ";
+                sql += " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+ start_task +"' AND '"+ end_task +"' ";
 
 
             }
@@ -621,7 +621,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
         formatter = new SimpleDateFormat(Constraints.dateYMD);
         String today = formatter.format(date);
 
-        String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')" +
+        String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')" +
                 " from Sales " ;
         sql_dt += "where isZ IS NULL ";
         sql_dt += "order by DateTime ASC";
@@ -4375,7 +4375,7 @@ private ReceiptZCloseData getPrintSales(String str_status,String reprintZStatus,
                 TotalBillServiceChargesCancel = 0.0;
                 while (c_productcancel.moveToNext()) {
                     //                String sql = "SELECT count(ID),BillNo,SUM(TotalQty),SUM(SubTotal),SUM(Totalamount)," +
-//                        "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'),
+//                        "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'),
 //                        SUM(GrossSales),SUM(TotalItemDisount)," +
 //                        "SUM(TotalBillDisount),SUM(GrossTotal),SUM(ServiceCharges),SUM(TotalNettSales),SUM(TotalTaxes)," +
 //                        "SalesDateTime FROM Sales " +

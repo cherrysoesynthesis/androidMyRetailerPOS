@@ -655,6 +655,10 @@ public class TransactionDetailsActivity extends AppCompatActivity implements Vie
                     sql += timestamp + ")";
 
                     DBFunc.ExecQuery(sql, false);
+
+                    //Tax Update
+                    Integer sale_id = Query.findLatestID("ID","Sales",false);
+                    Query.IncTaxInsertIntoTable(sale_id,Double.valueOf(payments_amount));
                 }catch (Exception e){
                     DBFunc.DBUserLog(Allocator.cashierName, Allocator.cashierID, Allocator.cashierAuth,
                             System.currentTimeMillis(), DBFunc.PurifyString("saveSales - " +   e.getMessage()));

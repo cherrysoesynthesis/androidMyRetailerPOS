@@ -11,6 +11,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
 import com.dcs.myretailer.app.Activity.SettingActivity;
+import com.dcs.myretailer.app.ScreenSize.PosConfigurationActivityScreenSize;
 import com.dcs.myretailer.app.databinding.ActivityKitchenPrinterBinding;
 import com.epson.eposprint.Builder;
 import com.epson.eposprint.EposException;
@@ -67,7 +69,14 @@ public class KitchenPrinterActivity extends AppCompatActivity implements View.On
             }
         });
 
-
+        String device = Query.GetDeviceData(Constraints.DEVICE);
+        if (device.equals("M2-Max")) {
+            LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(750,
+                    android.widget.Toolbar.LayoutParams.WRAP_CONTENT);
+            params2.leftMargin = 30;
+            params2.topMargin = 10;
+            binding.layKitchenPrinter.setLayoutParams(params2);
+        }
 
         KitchenPrinterModel kpm = Query.GetKitchenPrinter();
         openDeviceName = kpm.getOpenDeviceName();
@@ -424,7 +433,7 @@ public class KitchenPrinterActivity extends AppCompatActivity implements View.On
                 Cursor c = null;
 
                 String sql = "SELECT (ProductQty),ProductName," +
-                        "Datetime,strftime('" + Constraints.sqldateformat_kitchenprinter_dmy + "', Datetime / 1000, 'unixepoch')," +
+                        "Datetime,strftime('" + Constraints.sqldateformat_kitchenprinter_dmy + "', DateTime / 1000 + (3600*8), 'unixepoch')," +
                         "ProductID,ID " +
 //                    "vchQueueNo,QueueStatus,intTableNo " +
                         " FROM DetailsBillProduct WHERE BillNo = '" + billNo + "' order by ProductID ASC";
@@ -621,8 +630,14 @@ public class KitchenPrinterActivity extends AppCompatActivity implements View.On
         String errorMsg = MsgMaker.makeErrorMessage(context, result);
         String warningMsg = MsgMaker.makeWarningMessage(context, result);
 
-        if (!errorMsg.isEmpty()) {
-            ShowMsg.show(context, errorMsg);
+        try {
+
+            if (!errorMsg.isEmpty()) {
+                ShowMsg.show(context, errorMsg);
+            }
+
+        }catch (Exception e){
+
         }
 
         if (!warningMsg.isEmpty()) {

@@ -1,0 +1,33 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation=  "http://maven.apache.org/POM/4.0.0
+  http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.google.android.ads.consent</groupId>
+  <artifactId>consent-library</artifactId>
+  <version>1.0.4</version>
+  <packaging>aar</packaging>
+  <licenses>
+    <license>
+      <name>Android Software Development Kit License</name>
+      <url>https://developer.android.com/studio/terms.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+<dependencies>
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.8.4</version>
+    <packaging>aar</packaging>
+</dependency>
+    
+<dependency>
+    <groupId>com.android.support</groupId>
+    <artifactId>appcompat-v7</artifactId>
+    <version>26.1.0</version>
+    <packaging>aar</packaging>
+</dependency>
+    
+</dependencies>
+</project>

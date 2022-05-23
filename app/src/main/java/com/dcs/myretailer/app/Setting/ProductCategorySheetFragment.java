@@ -96,8 +96,8 @@ public class ProductCategorySheetFragment extends BottomSheetDialogFragment impl
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-            TextView tax_type_name;
-            LinearLayout tax_type_layout;
+            public TextView tax_type_name;
+            public LinearLayout tax_type_layout;
 
             public ViewHolder(View itemView)
             {

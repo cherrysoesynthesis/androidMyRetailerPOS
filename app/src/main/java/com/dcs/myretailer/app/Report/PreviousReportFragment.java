@@ -91,15 +91,15 @@ public class PreviousReportFragment extends BottomSheetDialogFragment implements
         //Cursor c = DBFunc.Query("SELECT ID, ClosingTime FROM ClosingPeriod WHERE ClosingTime BETWEEN " + _tmpfrom.getTimeInMillis() + " AND " + _tmpto.getTimeInMillis() + " ORDER BY ID ASC", false);
         //Cursor c = DBFunc.Query("SELECT ID, ClosingTime FROM ClosingPeriod ORDER BY ID ASC", false);
         //Cursor c = DBFunc.Query("SELECT ID, ClosingTime FROM ZClosing ORDER BY ID ASC", false);
-//        String sqldatepreviousql = "SELECT ID,ClosingTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') FROM ZClosing " +
-//                " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '"+
+//        String sqldatepreviousql = "SELECT ID,ClosingTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') FROM ZClosing " +
+//                " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+
 //                ReportDateSheetFragment.start_date +"' AND '"+ReportDateSheetFragment.end_date+"' "+
-//        String sqldatepreviousql = "SELECT ID,ClosingTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') FROM ZClosing " +
-//                " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '"+
+//        String sqldatepreviousql = "SELECT ID,ClosingTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') FROM ZClosing " +
+//                " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+
 //                ReportDateSheetFragment.edit_text_starting.getText().toString() +"' AND '"+
 //                ReportDateSheetFragment.edit_text_ending.getText().toString()+"' "+
 //                "ORDER BY ID ASC";
-//        String sqldatepreviousql = "SELECT ID,ClosingTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') FROM ZClosing " +
+//        String sqldatepreviousql = "SELECT ID,ClosingTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') FROM ZClosing " +
 //                " WHERE strftime('"+Constraints.sqldateformat+"', OpeningTime / 1000, 'unixepoch') = '"+
 //                ReportDateSheetFragment.edit_text_starting.getText().toString() +"' " +
 //                "AND strftime('"+Constraints.sqldateformat+"', ClosingTime / 1000, 'unixepoch') = '"+
@@ -107,7 +107,7 @@ public class PreviousReportFragment extends BottomSheetDialogFragment implements
 ////                "AND '"+
 ////                ReportDateSheetFragment.edit_text_ending.getText().toString()+"' "+
 //                "ORDER BY ID ASC";
-        String sqldatepreviousql = "SELECT ID,ClosingTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')," +
+        String sqldatepreviousql = "SELECT ID,ClosingTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')," +
                 "OpeningTime FROM ZClosing " +
 //                "WHERE strftime('"+Constraints.sqldateformat+"', ClosingTime / 1000, 'unixepoch') = '"+ReportDateSheetFragment.edit_text_ending.getText().toString()+"' " +
                 "WHERE " +
@@ -115,7 +115,7 @@ public class PreviousReportFragment extends BottomSheetDialogFragment implements
 //                "AND " +
                 "strftime('"+Constraints.sqldateformat+"', " +
 //                "OpeningTime / 1000, 'unixepoch') Between '"+
-                "DateTime / 1000, 'unixepoch') Between '"+
+                "DateTime / 1000 + (3600*8), 'unixepoch') Between '"+
                 ReportDateSheetFragment.binding.editTextStarting.getText().toString()+"' " +
                 "AND '"+ReportDateSheetFragment.binding.editTextEnding.getText().toString()+"'  " +
                 "ORDER BY ID DESC";

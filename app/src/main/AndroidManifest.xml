@@ -4,8 +4,13 @@
     package="com.dcs.myretailer.app">
     <!-- android:versionCode="14" -->
     <!-- <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" /> -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.pax.permission.ICC" />
     <uses-permission android:name="com.pax.permission.PICC" />
     <uses-permission android:name="com.pax.permission.MAGCARD" />
@@ -72,6 +77,9 @@
         tools:node="merge"
         tools:replace="android:appComponentFactory">
         <activity
+            android:name=".SFTP.ManualFTPMallInterfaceActivity"
+            android:exported="false" />
+        <activity
             android:name=".SFTP.MallInterfaceActivity"
             android:exported="false" />
         <activity
@@ -92,6 +100,7 @@
         <activity android:name=".Activity.StockManagementActivity" />
         <activity android:name=".Activity.TransferImageIntoServerActivity" />
         <activity android:name=".Report.ActivityGenReport" />
+        <activity android:name=".Model.DiscoverPrinterActivity" />
         <activity android:name=".Activity.AddModifierActivity" />
         <activity android:name=".Setting.ModifierActivity" />
         <activity android:name=".Setting.ActivityMapSetup" />
@@ -174,11 +183,7 @@
         <activity
             android:name="com.karumi.dexter.DexterActivity"
             android:theme="@style/Dexter.Internal.Theme.Transparent" />
-        <activity android:name=".Model.KitchenPrinter.KitchenPrinterActivity" />
-        <activity
-            android:name=".Model.KitchenPrinter.DiscoverPrinterActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" />
+        <activity android:name=".Model.KitchenPrinterActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -189,6 +194,18 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <service
+            android:name=".SFTP.MyJobService"
+            android:label="Word service"
+            android:permission="android.permission.BIND_JOB_SERVICE"></service>
+
+        <receiver android:name=".SFTP.MyStartServiceReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

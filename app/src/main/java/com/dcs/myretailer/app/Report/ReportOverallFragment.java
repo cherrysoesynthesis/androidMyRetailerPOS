@@ -454,38 +454,38 @@ public class ReportOverallFragment extends Fragment {
             }
 
 //            sql = "SELECT ID,BillNo,TotalQty,SubTotal,Totalamount,PaymentTypeID, " +
-//                    " PaymentAmount,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'),GrossSales, " +
+//                    " PaymentAmount,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'),GrossSales, " +
 //                    " TotalItemDisount,TotalBillDisount, " +
 //                    " GrossTotal,ServiceCharges,TotalNettSales,TotalTaxes,SalesDateTime" +
             sql = "SELECT ID,BillNo, (TotalQty), (SubTotal), (Totalamount),PaymentTypeID, (PaymentAmount), " +
-                    " strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'), " +
+                    " strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'), " +
                     "  (GrossSales), " +
                     "  (TotalItemDisount), (TotalBillDisount), (GrossTotal), (ServiceCharges), (TotalNettSales), " +
                     "  (TotalTaxes), (SalesDateTime)" +
                     " FROM Sales " +
                     query +
                     " AND BillID IN ("+billnoall+") " +
-                    " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '" + from_date + "' AND '" + to_date + "' " +
-                    " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch'),BillID  order by BillNo DESC ";
+                    " AND strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + from_date + "' AND '" + to_date + "' " +
+                    " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch'),BillID  order by BillNo DESC ";
 
 
         }else {
 //            sql = "SELECT ID,BillNo,TotalQty,SubTotal,Totalamount,PaymentTypeID," +
-//                "PaymentAmount,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'),GrossSales," +
+//                "PaymentAmount,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'),GrossSales," +
 //                "TotalItemDisount,TotalBillDisount," +
 //                "GrossTotal,ServiceCharges,TotalNettSales,TotalTaxes,SalesDateTime " +
 //                " FROM Sales " +
-//                "where strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '" + from_date + "' AND '" + to_date + "' " +
+//                "where strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + from_date + "' AND '" + to_date + "' " +
 //                " AND STATUS = 'SALES' " ;
 
 
             sql = "SELECT ID,BillNo, (TotalQty), (SubTotal), (Totalamount),PaymentTypeID, (PaymentAmount)," +
-                    "strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'), " +
+                    "strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'), " +
                     " (GrossSales), " +
                     " (TotalItemDisount), (TotalBillDisount), (GrossTotal), (ServiceCharges), (TotalNettSales)," +
                     " (TotalTaxes), (SalesDateTime) " +
                     " FROM Sales " +
-                    "where strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '" + from_date + "' AND '" + to_date + "' " +
+                    "where strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + from_date + "' AND '" + to_date + "' " +
                     " AND (STATUS = 'SALES'   OR STATUS = 'REFUND') " ;
 
 
@@ -566,21 +566,21 @@ public class ReportOverallFragment extends Fragment {
             }
 
             sql = "SELECT BillHour,ID,BillNo,SUM(TotalQty),SUM(SubTotal), " +
-                    " SUM(Totalamount),PaymentTypeID,PaymentAmount,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'), " +
+                    " SUM(Totalamount),PaymentTypeID,PaymentAmount,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'), " +
                     " SUM(GrossSales),SUM(TotalItemDisount),SUM(TotalBillDisount), " +
                     " GrossTotal,ServiceCharges,SUM(TotalNettSales),TotalTaxes,SalesDateTime" +
                     " FROM Sales " +
                     query +
                     " AND BillID IN ("+billnoall+") " +
-                    " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')  order by BillNo DESC ";
+                    " group by strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')  order by BillNo DESC ";
 
         }else {
 
             sql = "SELECT BillHour,ID,BillNo,SUM(TotalQty),SUM(SubTotal)," +
-                    "SUM(Totalamount),PaymentTypeID,PaymentAmount,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch')," +
+                    "SUM(Totalamount),PaymentTypeID,PaymentAmount,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch')," +
                     "SUM(GrossSales),SUM(TotalItemDisount),SUM(TotalBillDisount)," +
                     "GrossTotal,ServiceCharges,SUM(TotalNettSales),TotalTaxes,SalesDateTime FROM Sales " +
-                    "where strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+                    "where strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "BETWEEN '"+ start_date +"' AND '"+ end_date +"' " +
 //                    "BETWEEN '"+ from_date +"' AND '"+ to_date +"' " +
 //                "AND STATUS = 'SALES' AND isZ IS NULL" +

@@ -157,7 +157,7 @@ public class PaymentCashSuccesActivity extends AppCompatActivity implements View
             }
         }
         if (url != null) {
-            SyncActivity.ResyncOrNormal(getApplicationContext(),CheckOutActivity.BillNo,"","Normal","");
+            SyncActivity.ResyncOrNormal(getApplicationContext(),CheckOutActivity.BillNo,"","Normal","","","");
         }
     }
 
@@ -192,7 +192,7 @@ public class PaymentCashSuccesActivity extends AppCompatActivity implements View
         }else {
             Intent i = new Intent(PaymentCashSuccesActivity.this, MainActivity.class);
             i.putExtra("name", "PrintingActivity");
-            this.startActivity(i);
+            startActivity(i);
             finish();
         }
         MainActivity.St = "1";
@@ -201,6 +201,7 @@ public class PaymentCashSuccesActivity extends AppCompatActivity implements View
     @Override
     public void onBackPressed() {
         Intent i = new Intent(PaymentCashSuccesActivity.this,MainActivity.class);
+        i.putExtra("name", "PaymentCashSuccessBackPress");
         startActivity(i);
         finish();
     }

@@ -1,8 +1,11 @@
 package com.dcs.myretailer.app.SFTP;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.dcs.myretailer.app.Query.Query;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
@@ -19,24 +22,31 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class SFTPInterface {
-    String host = "202.136.18.71";
-    String user = "postest";
-    String password = "postest@2022";
-    public SFTPInterface(File filePath, String fileName) {
-        new SFTPTask(filePath).execute();
+//    String host = "202.136.18.71";
+//    String user = "postest";
+//    String password = "postest@2022";
+//    String port = "22";
+    String host = "";
+    String user = "";
+    String password = "";
+    Integer port = 0;
+    public SFTPInterface(Context context, File filePath, String fileName) {
+        new SFTPTask(context,filePath).execute();
     }
     private class SFTPTask extends AsyncTask<Void, Void, Void> {
         String result;
+        Context context;
         File fileName;
 
-        public SFTPTask(File fn) {
+        public SFTPTask(Context c,File fn) {
+            context = c;
             fileName = fn;
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
 
-            sendFile(fileName);
+            sendFile(context,fileName);
             return null;
         }
         @Override
@@ -45,11 +55,19 @@ public class SFTPInterface {
         }
     }
 
-    private void sendFile(File fileName) {
+    private void sendFile(Context context,File fileName) {
+        user = Query.findfieldNameByTableName("user","FTPSync", true);
+        host = Query.findfieldNameByTableName("ip","FTPSync", true);
+        password = Query.findfieldNameByTableName("password","FTPSync", true);
+        try {
+            port = Integer.parseInt(Query.findfieldNameByTableName("port", "FTPSync", true));
+        } catch (Exception e){
+            port = 0;
+        }
         try {
             JSch ssh = new JSch();
             //Session session = ssh.getSession("username", "myip90000.ordomain.com", 22);
-            Session session = ssh.getSession(user, host, 22);
+            Session session = ssh.getSession(user, host, port);
             // Remember that this is just for testing and we need a quick access, you can add an identity and known_hosts file to prevent
             // Man In the Middle attacks
             java.util.Properties config = new java.util.Properties();
@@ -78,6 +96,20 @@ public class SFTPInterface {
 
             if(success){
                 // The file has been uploaded succesfully
+               // Toast.makeText(context, "File Upload Successfully.", Toast.LENGTH_SHORT).show();
+
+               // File source = new File("/storage/emulated/0/mall/"+fileName.getName());
+                File source = new File("/storage/emulated/0/"+fileName.getName());
+                File destination = new File("/storage/emulated/0/mall/backup/"+fileName.getName());
+
+                if (!destination.exists()) {
+                    source.renameTo(destination);
+                    if (source.renameTo(destination)){
+                        Log.i("ifdsfdsf","BackupSuccessfully");
+                    }else {
+                        Log.i("elsedsfdsf","BackupSuccessfully");
+                    }
+                }
             }
 
             channel.disconnect();

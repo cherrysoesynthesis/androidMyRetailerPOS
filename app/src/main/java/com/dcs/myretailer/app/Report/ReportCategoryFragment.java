@@ -177,8 +177,8 @@ public class ReportCategoryFragment extends Fragment {
 //                    + " where sales.STATUS = '" + ENUM.SALES + "' "
                     + query
                     + " AND sales.BillID IN ("+billnoall+") "
-                    //+ " AND strftime('"+Constraints.sqldateformat+"', sales.DateTime / 1000, 'unixepoch') and DetailsBillProduct.CategoryID > 0  "
-                    + " AND strftime('"+Constraints.sqldateformat+"', sales.DateTime / 1000, 'unixepoch')   "
+                    //+ " AND strftime('"+Constraints.sqldateformat+"', sales.DateTime / 1000 + (3600*8), 'unixepoch') and DetailsBillProduct.CategoryID > 0  "
+                    + " AND strftime('"+Constraints.sqldateformat+"', sales.DateTime / 1000 + (3600*8), 'unixepoch')   "
                     + "BETWEEN '" + from_date + "' AND '" + to_date + "' "
 //                    + " group by DetailsBillProduct.CategoryID";
                     + " group by DetailsBillProduct.CategoryID,DetailsBillProduct.BillNo";
@@ -203,7 +203,7 @@ public class ReportCategoryFragment extends Fragment {
             if (ReportActivity.previous_report_shift_name.equals("Now")){
                 sql += "AND IsZ IS NULL " ;
             }else {
-                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')" +
+                String sql_dt = "select strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')" +
                         " from Sales where isZ IS NULL order by DateTime ASC";
 
                 String isnulldatestr = "";
@@ -222,7 +222,7 @@ public class ReportCategoryFragment extends Fragment {
                     Log.i("sql",sql);
                 }
             }
-            sql += " AND strftime('"+Constraints.sqldateformat+"', sales.DateTime / 1000, 'unixepoch') "
+            sql += " AND strftime('"+Constraints.sqldateformat+"', sales.DateTime / 1000 + (3600*8), 'unixepoch') "
                    // + "BETWEEN '" + from_date + "' AND '" + to_date + "'  and DetailsBillProduct.CategoryID > 0 "
                     + "BETWEEN '" + from_date + "' AND '" + to_date + "'   "
                     //+ " group by DetailsBillProduct.CategoryID";
@@ -234,7 +234,7 @@ public class ReportCategoryFragment extends Fragment {
 //        String sql = "select SalesItem.CategoryName,SUM(SalesItem.Price),sales.STATUS from SalesItem "
 //                +" left join sales on sales.ID = SalesItem.SalesID"
 //                + " where (sales.STATUS = 'SALES' OR sales.STATUS = 'REFUND') AND IsZ IS NULL "
-////                + " AND strftime('"+Constraints.sqldateformat+"', SalesItem.DateTime / 1000, 'unixepoch') "
+////                + " AND strftime('"+Constraints.sqldateformat+"', SalesItem.DateTime / 1000 + (3600*8), 'unixepoch') "
 ////                + "BETWEEN '"+ from_date +"' AND '"+ to_date +"' "
 //                + " group by SalesItem.CategoryName";
 

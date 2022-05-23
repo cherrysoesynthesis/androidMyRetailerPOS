@@ -53,7 +53,7 @@ public class ResyncBill {
 
                             if (syncUrl != null) {
 
-                                SyncActivity.ResyncOrNormal(context,BillNo,"","Normal","");
+                                SyncActivity.ResyncOrNormal(context,BillNo,"","Normal","","","");
                             }
 
                         }

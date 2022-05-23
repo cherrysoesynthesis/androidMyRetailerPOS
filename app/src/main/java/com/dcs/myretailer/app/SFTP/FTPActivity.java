@@ -28,8 +28,6 @@ public class FTPActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ftpactivity);
 
-
-
         FTPClient client = new FTPClient();
 
 //        TextView ausgabe = (TextView) findViewById(R.id.ausgabe);

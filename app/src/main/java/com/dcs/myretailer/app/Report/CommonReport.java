@@ -944,7 +944,7 @@ public class CommonReport {
 //        Cursor bill = null;
 //        try{
 //        //String sql = "SELECT BillNo, Cancel FROM Bill WHERE CloseDateTime BETWEEN "+starttime+" and "+endtime+" ";
-//        String str_report_query = "  strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+//        String str_report_query = "  strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
 //                "BETWEEN strftime('"+Constraints.sqldateformat+"', "+starttime+" / 1000, 'unixepoch')"+ " " +
 //                "AND strftime('"+Constraints.sqldateformat+"', "+endtime+" / 1000, 'unixepoch')";
 
@@ -990,7 +990,7 @@ public class CommonReport {
                 "FROM DetailsBillProduct inner join SALES on SALES.BillNo = DetailsBillProduct.BillNo" +
                 " WHERE " +
                 str_report_query +
-                " Group By strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000, 'unixepoch')," +
+                " Group By strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000 + (3600*8), 'unixepoch')," +
                 "DetailsBillProduct.ProductID,DetailsBillProduct.Cancel," +
                 "DetailsBillProduct.OpenPriceStatus,DetailsBillProduct.Remarks ORDER BY DetailsBillProduct.ProductID ASC ";
 //                        + " Group By ProductID ORDER BY ProductID ASC";
@@ -1193,7 +1193,7 @@ public class CommonReport {
 ////        Cursor bill = null;
 ////        try{
 ////        //String sql = "SELECT BillNo, Cancel FROM Bill WHERE CloseDateTime BETWEEN "+starttime+" and "+endtime+" ";
-////        String str_report_query = "  strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+////        String str_report_query = "  strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
 ////                "BETWEEN strftime('"+Constraints.sqldateformat+"', "+starttime+" / 1000, 'unixepoch')"+ " " +
 ////                "AND strftime('"+Constraints.sqldateformat+"', "+endtime+" / 1000, 'unixepoch')";
 //
@@ -1231,7 +1231,7 @@ public class CommonReport {
 //                "FROM DetailsBillProduct inner join SALES on SALES.BillNo = DetailsBillProduct.BillNo" +
 //                " WHERE " +
 //                str_report_query +
-//                " Group By strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000, 'unixepoch'),DetailsBillProduct.ProductID,DetailsBillProduct.Cancel," +
+//                " Group By strftime('"+Constraints.sqldateformat+"', SALES.DateTime / 1000 + (3600*8), 'unixepoch'),DetailsBillProduct.ProductID,DetailsBillProduct.Cancel," +
 //                "DetailsBillProduct.OpenPriceStatus,DetailsBillProduct.Remarks ORDER BY DetailsBillProduct.ProductID ASC ";
 ////                        + " Group By ProductID ORDER BY ProductID ASC";
 ////                        " BillNo IN ("+billNo+") Group By ProductID ORDER BY ProductID ASC";
@@ -1339,7 +1339,7 @@ public class CommonReport {
                 "FROM StockIn " +
 //                WHERE
         str_report_query +
-                " Group By strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') ORDER BY PLUID ASC ";
+                " Group By strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') ORDER BY PLUID ASC ";
         Log.i("D___sql_billplu",sql_billplu);
         data = DBFunc.Query(sql_billplu, true);
         if(data==null){//return null if cannot connect to database and retrieve data
@@ -1431,7 +1431,7 @@ public class CommonReport {
 //        Cursor bill = null;
 //        try{
 //            //String sql = "SELECT BillNo, Cancel FROM Bill WHERE CloseDateTime BETWEEN "+starttime+" and "+endtime+" ";
-//            String str_report_query = "  strftime('"+Constraints.sqldateformat+"', Bill.CloseDateTime / 1000, 'unixepoch') BETWEEN strftime('"+Constraints.sqldateformat+"', "+starttime+" / 1000, 'unixepoch')"+ " AND strftime('"+Constraints.sqldateformat+"', "+endtime+" / 1000, 'unixepoch')";
+//            String str_report_query = "  strftime('"+Constraints.sqldateformat+"', Bill.CloseDateTime / 1000 + (3600*8), 'unixepoch') BETWEEN strftime('"+Constraints.sqldateformat+"', "+starttime+" / 1000, 'unixepoch')"+ " AND strftime('"+Constraints.sqldateformat+"', "+endtime+" / 1000, 'unixepoch')";
 //
 //            //String sql = "SELECT BillNo, Cancel FROM Bill WHERE CloseDateTime BETWEEN "+starttime+" and "+endtime+" AND CloseDateTime IS NOT NULL";
 //            String sql = "SELECT BillPLU.BillNo, Bill.Cancel FROM Bill " +

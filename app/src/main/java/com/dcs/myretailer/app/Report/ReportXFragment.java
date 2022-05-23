@@ -1237,7 +1237,7 @@ public class ReportXFragment extends Fragment {
             TotalBillServiceChargesCancel = 0.0;
             while (c_productcancel.moveToNext()) {
 //                String sql = "SELECT count(ID),BillNo,SUM(TotalQty),SUM(SubTotal),SUM(Totalamount)," +
-//                        "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'),
+//                        "PaymentTypeID,SUM(PaymentAmount),strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'),
 //                        SUM(GrossSales),SUM(TotalItemDisount)," +
 //                        "SUM(TotalBillDisount),SUM(GrossTotal),SUM(ServiceCharges),SUM(TotalNettSales),SUM(TotalTaxes)," +
 //                        "SalesDateTime FROM Sales " +

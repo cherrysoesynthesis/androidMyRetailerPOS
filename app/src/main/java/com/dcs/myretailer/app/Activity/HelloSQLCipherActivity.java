@@ -5,6 +5,7 @@ import net.sqlcipher.database.SQLiteDatabase;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.R;
 
 public class HelloSQLCipherActivity extends Activity {
@@ -20,7 +21,7 @@ public class HelloSQLCipherActivity extends Activity {
         File databaseFile = getDatabasePath("demo.db");
         databaseFile.mkdirs();
         databaseFile.delete();
-        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(databaseFile, "test123", null);
+        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(databaseFile, Constraints.encrypt_password, null);
         database.execSQL("create table t1(a, b)");
         database.execSQL("insert into t1(a, b) values(?, ?)", new Object[]{"one for the money",
                 "two for the show"});

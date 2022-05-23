@@ -86,7 +86,7 @@ public class Constraints {
     public static String Deny = "Sorry! Please choose other Staff!";
 //    public static Integer billFontSize = 16;
     public static String Zeroes = "00000000";
-    public static String encrypt_password = "test123";
+    public static String encrypt_password = "Q2gzUjE3QERjJA==";//Ch3R17@Dc$
     public static String Downaloding = "Downloading..";
     public static String SyncPassword = "dcsSyn";
     public static String deleteLogPassword = "dcsSynDL";
@@ -114,6 +114,8 @@ public class Constraints {
     public static String InputQtyZero = "Input Qty is zero!";
     public static String InputQtyEmpty = "Input Qty is empty!";
     public static String AddProduct = "Add Product";
+    public static String FTPSyncManagement = "FTP Mall Management";
+    public static String MallFTPMallInterface = "Mall FTP Mall Interface";
     public static String EditProduct = "Edit Product";
     public static String Add = "Add";
     public static String Update = "Update";
@@ -145,6 +147,8 @@ public class Constraints {
     public static Integer checkOutScrollViewWidthIngenico = 370;
 
     //public static String dateYMD = "yyyy-MM-dd";
+    public static String dateYMD_FTP = "yyyyMMdd";
+    public static String dateDMY_FTP = "ddMMyyyy";
     public static String dateYMD_Sync = "yyyy-MM-dd";
     public static String dateYMD_YMDHMS = "yyyy-MM-dd HH:mm:ss";
     public static String dateY = "YY";
@@ -168,7 +172,7 @@ public class Constraints {
     public static String PRODUCT = "PRODUCT";
     public static String TERMINAL_TYPE = "TERMINAL_TYPE";
     public static String TERMINAL_VERSION = "VERSION";
-    public static String VERSION_NAME = "3.3.24";
+    public static String VERSION_NAME = "3.3.26";
     public static String NewLand = "NewLand";
     public static String A930 = "A930";
     public static String E600M = "E600M";
@@ -313,4 +317,28 @@ public class Constraints {
     public static String sqldateformat_kitchenprinter_s = "%S";
 
     public static String APP_NOT_INSTALLED = "Application is not currently installed.";
+
+    public static String CASH = "CASH";
+    public static String TOUCH_AND_GO = "TOUCH_AND_GO";
+    public static String VISA = "VISA";
+    public static String MASTER = "MASTER";
+    public static String AMEX = "AMEX";
+    public static String VOUCHER = "VOUCHER";
+    public static String OTHER = "OTHER";
+
+    public static String FILEFORMAT_1 = "1";
+    public static String FILEFORMAT_24 = "24";
+    public static String FTP_IP = "Mall FTP IP";
+    public static String FTP_TYPE = "Mall FTP Type";
+    public static String FTP_PortNo = "Port No";
+    public static String FTP_User = "User";
+    public static String FTP_Password = "Password";
+    public static String FTP_FileFormat = "File Format";
+    public static String FTP_MallCode = "MallCode";
+    public static String FTP_MachineId = "MachineId";
+    //public static String FTP_Date = "Date";
+    public static String FTP_Time = "Time";
+    public static String FTP_SELECT_TIME = "Select Time";
+    public static String FTP_SELECTED_FTP = "FTP";
+    public static String FTP_SELECTED_SFTP = "SFTP";
 }

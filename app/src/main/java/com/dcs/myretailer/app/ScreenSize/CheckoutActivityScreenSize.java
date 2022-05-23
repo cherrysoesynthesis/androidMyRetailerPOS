@@ -417,6 +417,21 @@ public class CheckoutActivityScreenSize {
             paramscheckoutPaymentList.leftMargin = 5;
             binding.checkoutPaymentList.layPaymentMethod.setLayoutParams(paramscheckoutPaymentList);
 
+        }else if (terminalTypeVal.equals(Constraints.INGENICO)) {
+//            checkOutScrollView.setMinimumWidth(ENUM.checkOutScrollViewWidthIngenico);
+//            checkOutScrollView.setMinimumHeight(ENUM.checkOutScrollViewWidthIngenico);
+
+//            LinearLayout.LayoutParams scrollParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//            ViewGroup.LayoutParams.WRAP_CONTENT);
+//            checkOutScrollView.setLayoutParams(scrollParams);
+//            LinearLayout.LayoutParams scrollParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                    ViewGroup.LayoutParams.WRAP_CONTENT, 2.0f);
+//            checkOutScrollView.setLayoutParams(scrollParams);
+
+//            checkOutScrollView.setLayoutParams(new RelativeLayout.LayoutParams(
+//                    LayoutParams.FILL_PARENT, 350));
+
+
         }
     }
 }

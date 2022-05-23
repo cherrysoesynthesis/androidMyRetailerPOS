@@ -153,16 +153,16 @@ public class DBFunc {
 			if(isMaster){
 				File dirdb = context.getDatabasePath("master.db").getAbsoluteFile().getParentFile();
 				dirdb.mkdir();
-				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(),"test123", null);
+				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(),Constraints.encrypt_password, null);
 
 //				File dirdb = context.getDatabasePath("master.db").getAbsoluteFile().getParentFile();
 //				dirdb.mkdir();
-//				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(),"test123", null);
+//				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("master.db").getAbsolutePath(),"Ch3R17@Dc$", null);
 
 //				File databaseFile = context.getDatabasePath("master.db");
 //				databaseFile.mkdirs();
 //				databaseFile.delete();
-//				db = SQLiteDatabase.openOrCreateDatabase(databaseFile, "test123", null);
+//				db = SQLiteDatabase.openOrCreateDatabase(databaseFile, "Ch3R17@Dc$", null);
 //				database.execSQL("create table t1(a, b)");
 //				database.execSQL("insert into t1(a, b) values(?, ?)", new Object[]{"one for the money",
 //						"two for the show"});
@@ -170,7 +170,7 @@ public class DBFunc {
 			}else{
 				File dirdb = context.getDatabasePath("master.db").getAbsoluteFile().getParentFile();
 				dirdb.mkdir();
-				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("transact.db").getAbsolutePath(),"test123", null);
+				db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("transact.db").getAbsolutePath(),Constraints.encrypt_password, null);
 			}
 
 			Cursor c = db.rawQuery("PRAGMA journal_mode=OFF", null);
@@ -183,7 +183,7 @@ public class DBFunc {
 			c.close();
 
 			for(String tbl : tblmap.keySet()){
-				Log.i("SDf___","df___"+tblmap.get(tbl));
+
 				db.execSQL(tblmap.get(tbl));
 			}
 
@@ -206,7 +206,7 @@ public class DBFunc {
 	public static Map<String,String> LoadTableHeader(Context context, boolean master) throws IOException{
 		SQLiteDatabase.loadLibs(context);
 		DBFunc.OpenDBFromDisk(context.getAssets().open("header_repair.db"), "header_repair.db", context);
-//		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(),"test123", null);
+//		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(),"Ch3R17@Dc$", null);
 		SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(context.getDatabasePath("header_repair.db").getAbsolutePath(),"", null);
 		Cursor c = null;
 		if(master){

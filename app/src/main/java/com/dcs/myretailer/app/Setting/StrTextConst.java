@@ -923,6 +923,8 @@ public class StrTextConst {
         {put(139,"Item Remarks for ICNO");}
         {put(140,"ZClose");}
         {put(141,"Kitchen Printer");}
+        {put(142,"Auto Sync To Server");}
+        {put(143,"Auto Sync To MallInterface");}
 //        {put(136,"Tax Inclusive");}
     };
 

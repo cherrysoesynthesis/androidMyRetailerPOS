@@ -10,6 +10,10 @@ public class FTPSync {
     String ftptype;
     String mallcode;
     String machineID;
+    String hours;
+    String minutes;
+    String seconds;
+    String dt;
 
     public FTPSync(){
 
@@ -85,5 +89,37 @@ public class FTPSync {
 
     public void setMachineID(String machineID) {
         this.machineID = machineID;
+    }
+
+    public String getHours() {
+        return hours;
+    }
+
+    public void setHours(String hours) {
+        this.hours = hours;
+    }
+
+    public String getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(String minutes) {
+        this.minutes = minutes;
+    }
+
+    public String getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(String seconds) {
+        this.seconds = seconds;
+    }
+
+    public String getDt() {
+        return dt;
+    }
+
+    public void setDt(String dt) {
+        this.dt = dt;
     }
 }

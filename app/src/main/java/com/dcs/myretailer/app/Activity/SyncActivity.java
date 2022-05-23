@@ -51,6 +51,8 @@ import com.dcs.myretailer.app.DialogBox;
 import com.dcs.myretailer.app.ENUM.Constraints;
 import com.dcs.myretailer.app.Query.Query;
 import com.dcs.myretailer.app.R;
+import com.dcs.myretailer.app.SFTP.FTPFileCreate;
+import com.dcs.myretailer.app.SFTP.FTPSync;
 import com.dcs.myretailer.app.Setting.ItemDetail;
 import com.dcs.myretailer.app.Setting.JeripaySignature;
 import com.dcs.myretailer.app.Setting.StrTextConst;
@@ -904,7 +906,6 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
-                Log.i("dsfsdf___","___onDismiss");
                 //Do Something here
                 binding.container.setAlpha(1);
             }
@@ -933,7 +934,6 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
                         //progressDialog.dismiss();
                         // response code
                         String xmlString = response;
-                        Log.i("Sdf___","response___"+response);
                         Document xmlparse  = null;
                         Document parse = APIActivity.XMLParseFunction(xmlString, xmlparse);
 //                        for (int i=0;i< parse.getElementsByTagName("getInventoryResult").getLength();i++) {
@@ -952,7 +952,7 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
 
                             JSONObject obj = new JSONObject(getInventoryResult);
                             String inv_obj = obj.getString("inventory");
-                            Log.i("Sdf___","reinv_obj___"+inv_obj);
+
                             JSONArray mJsonArray = new JSONArray(inv_obj);
 
                             JSONObject inventoryObject = null;
@@ -2145,6 +2145,9 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
                                         String to_month, Integer year, Integer to_year) {
         String strQuery = "";
 
+        String fromdate = "";
+        String todate = "";
+
         if (zCloseStatus.equals("Z")) {
             //strQuery = " WHERE IsZ IS NULL";
 
@@ -2169,18 +2172,26 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
             //strQuery = " WHERE SyncStatus = 'FAIL' ";
             strQuery = " ";
         } else {
-            String fromdate = year + "-" + month + "-" + dayOfMonth;
-            String todate = to_year + "-" + to_month + "-" + to_dayOfMonth;
+//            String fromdate = year + "-" + month + "-" + dayOfMonth;
+//            String todate = to_year + "-" + to_month + "-" + to_dayOfMonth;
 
-            //strQuery = " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '" + fromdate + "' and '" + todate + "'";
-            strQuery = " WHERE strftime('"+Constraints.sqldateformat_sync+"', DateTime / 1000, 'unixepoch') BETWEEN '" + fromdate + "' and '" + todate + "'";
+             fromdate = year + "-" + month + "-" + dayOfMonth;
+             todate = to_year + "-" + to_month + "-" + to_dayOfMonth;
+
+            //strQuery = " WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + fromdate + "' and '" + todate + "'";
+            strQuery = " WHERE strftime('"+Constraints.sqldateformat_sync+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + fromdate + "' and '" + todate + "'";
         }
 
-        ResyncOrNormal(context,"",strQuery,"Resync",zCloseStatus);
+        ResyncOrNormal(context,"",strQuery,"Resync",zCloseStatus,fromdate,todate);
 
     }
 
-    public static void ResyncOrNormal(Context context,String billno,String strQuery,String statusResynOrNormal,String zCloseStatus) {
+    public static void ResyncOrNormal(Context context,String billno,String strQuery,String statusResynOrNormal,String zCloseStatus,
+                                      String fromDate,String toDate) {
+
+        String autoSyncToServer = Query.GetOptions(29);
+        if (autoSyncToServer.equals("1")){
+
 
 //        if (syncUrl != null && syncUrl.length() > 10 ) {
             try {
@@ -2201,8 +2212,8 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 String sql = "SELECT BillNo,strftime('%Y-%m-%d %H:%M:%S', " +
-                        "DateTime / 1000, 'unixepoch'), STATUS, TotalNettSales," +
-                        "strftime('%Y%m%d', DateTime / 1000, 'unixepoch') " +
+                        "DateTime / 1000 + (3600*8), 'unixepoch'), STATUS, TotalNettSales," +
+                        "strftime('%Y%m%d', DateTime / 1000 + (3600*8), 'unixepoch') " +
                         "FROM Sales  " +
                         strQuery + " ORDER BY BillNo ASC";
 
@@ -2226,12 +2237,12 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
                         Cursor Cursor_Possys = Query.GetURLAndCodeFromPossys();
                         if (Cursor_Possys != null) {
                             while (Cursor_Possys.moveToNext()) {
-                               // syncRetailID = Cursor_Possys.getString(0);
+                                // syncRetailID = Cursor_Possys.getString(0);
                                 syncCompanyCode = Cursor_Possys.getString(1);
                                 syncUrl = Cursor_Possys.getString(2);
                                 //download_retail_ID = Cursor_Possys.getString(3);
-                               // download_company_code = Cursor_Possys.getString(4);
-                               // download_url = Cursor_Possys.getString(5);
+                                // download_company_code = Cursor_Possys.getString(4);
+                                // download_url = Cursor_Possys.getString(5);
                             }
                             Cursor_Possys.close();
                         }
@@ -2242,7 +2253,7 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
                             JSONObject jsonval = GetJSONArrValueForResyncSales(receipt_no, b_bill_no);
                             temp = Query.SubmitSales(syncCompanyCode, null, jsonval);
                         }
-                       // Log.i("temp__","temp___"+temp);
+                        // Log.i("temp__","temp___"+temp);
                         String chkSubmitSalesOrNot = Query.GetOptions(22);
                         String result = "";
                         if (chkSubmitSalesOrNot.equals("1")) {
@@ -2290,7 +2301,22 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
                         System.currentTimeMillis(), DBFunc.PurifyString("SyncActivity-SubmitSales " +"Exception-"+e.getMessage()));
             }
 //        }
+
+            //doFTPSync(context,billno);
+//        try {
+//            doFTPSync(RemarkMainActivity.context, billno,fromDate,toDate);
+//        } catch (Exception e){
+//            Log.i("ftpexception__","exception___"+e.getMessage());
+//        }
+        }
     }
+
+//    private static void doFTPSync(Context context,String billno,String fromDate,String toDate) {
+//        String ftpSyncMallInterface = Query.GetOptions(30);
+//        if (ftpSyncMallInterface.equals("1")) {
+//            new FTPFileCreate(context,billno,fromDate,toDate);
+//        }
+//    }
 
     private static JSONObject GetJSONArrValueForResyncSales(String receiptno, String bill_no) {
 
@@ -2313,7 +2339,7 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
 
                     long dttt = Cursor_SaleForSync.getLong(9);
 
-                    String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat_sync+"', DateTime / 1000, 'unixepoch')",
+                    String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat_sync+"', DateTime / 1000 + (3600*8), 'unixepoch')",
                             "BillNo", bill_no , "Sales", false);
 
                     DateFormat dateFormat56 = new SimpleDateFormat("HH:mm:ss");
@@ -2612,8 +2638,8 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
                     if (salec != null) {
                         if (salec.moveToNext()) {
                             String referenceBillNo = salec.getString(0);
-                            String salersql = "SELECT UUID,BillNo,STATUS,strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')," +
-                                    "strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch') " +
+                            String salersql = "SELECT UUID,BillNo,STATUS,strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')," +
+                                    "strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch') " +
                                     "FROM Sales " +
                                     "where BillNo = '"+referenceBillNo+"' " ;
                            ;
@@ -3139,7 +3165,7 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
         if (b_date.length() == 0) {
 
             long dttt = 0;
-            String sql = "SELECT DateTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+            String sql = "SELECT DateTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
                     "FROM Sales WHERE BillNo = '" +bill_no +"'";
             Cursor c = DBFunc.Query(sql, false);
             if (c != null) {
@@ -3152,10 +3178,10 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
                     //DateFormat dateFormat55 = new SimpleDateFormat("hh:mm aa");
                     DateFormat dateFormat55 = new SimpleDateFormat("HH:mm aa");
 
-                    //b_date = Query.findfieldNameById("strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch')", "BillNo", bill_no , "BillList", false);
+                    //b_date = Query.findfieldNameById("strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch')", "BillNo", bill_no , "BillList", false);
 
                     //Date resultdate = new Date(dttt);
-                    String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')",
+                    String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')",
                             "BillNo", bill_no , "Sales", false);
 
 
@@ -3281,7 +3307,7 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
 //                    //b_date = Cursor_SaleForSync.getString(9);
 //                    //b_date = Cursor_SaleForSync.getString(9);
 //
-//                    String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')",
+//                    String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')",
 //                            "BillNo", bill_no , "Sales", false);
 //
 //
@@ -3310,7 +3336,7 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
 //            if (b_date.length() == 0) {
 //
 //                long dttt = 0;
-//                String sql = "SELECT DateTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') " +
+//                String sql = "SELECT DateTime,strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') " +
 //                        "FROM Sales WHERE BillNo = '" +bill_no +"'";
 //                Cursor c = DBFunc.Query(sql, false);
 //                if (c != null) {
@@ -3323,10 +3349,10 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
 //                        //DateFormat dateFormat55 = new SimpleDateFormat("hh:mm aa");
 //                        DateFormat dateFormat55 = new SimpleDateFormat("HH:mm aa");
 //
-//                        //b_date = Query.findfieldNameById("strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch')", "BillNo", bill_no , "BillList", false);
+//                        //b_date = Query.findfieldNameById("strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch')", "BillNo", bill_no , "BillList", false);
 //
 //                        //Date resultdate = new Date(dttt);
-//                        String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')",
+//                        String dtttt = Query.findfieldNameById("strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')",
 //                                "BillNo", bill_no , "Sales", false);
 //                        Log.i("Dfdfdf___dtttt","dtttt____"+dtttt);
 //
@@ -5514,7 +5540,7 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
 
         String sqlStockAdj = "SELECT UUID,IDRef,StkAdj_Type,StkAdjDate,StkAdj_Remark,StkAdj_DRemark," +
                 "TransStatus,VarianceQty," +
-                "Qty,TransNo,PLUID,DateTime,strftime('%Y', DateTime / 1000, 'unixepoch') From StockAdjustment";
+                "Qty,TransNo,PLUID,DateTime,strftime('%Y', DateTime / 1000 + (3600*8), 'unixepoch') From StockAdjustment";
         Log.i("sqlStockAdj___", "sqlStockAdj_" + sqlStockAdj);
 
         Integer nextno = 0;
@@ -5849,21 +5875,21 @@ public class SyncActivity extends AppCompatActivity implements View.OnClickListe
 
 //String todate = to_year+"-"+(to_month+1)+"-"+to_dayOfMonth;
 
-//                                    String sql = "SELECT BillNo,strftime('%Y-%m-%d %H:%M:%S', CloseDateTime / 1000, 'unixepoch')" +
-//                                            ", case when Cancel =1 THEn 'VOID' ELSE 'SALES' END AS SalesStatus FROM Bill WHERE strftime('"+Constraints.sqldateformat+"', CloseDateTime / 1000, 'unixepoch') BETWEEN '" + fromdate +"'"+
+//                                    String sql = "SELECT BillNo,strftime('%Y-%m-%d %H:%M:%S', CloseDateTime / 1000 + (3600*8), 'unixepoch')" +
+//                                            ", case when Cancel =1 THEn 'VOID' ELSE 'SALES' END AS SalesStatus FROM Bill WHERE strftime('"+Constraints.sqldateformat+"', CloseDateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + fromdate +"'"+
 //                                            " and '" + todate+"' and Cancel = 0 ORDER BY BillNo ASC";
 
-//                                    String sql = "SELECT BillNo,strftime('%Y-%m-%d %H:%M:%S', CloseDateTime / 1000, 'unixepoch')" +
-//                                            ", case when Cancel =1 THEN 'VOID' ELSE 'SALES' END AS SalesStatus FROM Bill WHERE strftime('"+Constraints.sqldateformat+"', CloseDateTime / 1000, 'unixepoch') BETWEEN '" + fromdate +"'"+
+//                                    String sql = "SELECT BillNo,strftime('%Y-%m-%d %H:%M:%S', CloseDateTime / 1000 + (3600*8), 'unixepoch')" +
+//                                            ", case when Cancel =1 THEN 'VOID' ELSE 'SALES' END AS SalesStatus FROM Bill WHERE strftime('"+Constraints.sqldateformat+"', CloseDateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '" + fromdate +"'"+
 //                                            " and '" + todate+"' and Cancel = 0 ORDER BY BillNo ASC";
-//                                    String sql = "SELECT BillNo,strftime('%Y-%m-%d %H:%M:%S', CloseDateTime / 1000, 'unixepoch')" +
-//                                            ", case when Cancel =1 THEN 'VOID' ELSE 'SALES' END AS SalesStatus FROM Bill WHERE strftime('"+Constraints.sqldateformat+"', CloseDateTime / 1000, 'unixepoch')
+//                                    String sql = "SELECT BillNo,strftime('%Y-%m-%d %H:%M:%S', CloseDateTime / 1000 + (3600*8), 'unixepoch')" +
+//                                            ", case when Cancel =1 THEN 'VOID' ELSE 'SALES' END AS SalesStatus FROM Bill WHERE strftime('"+Constraints.sqldateformat+"', CloseDateTime / 1000 + (3600*8), 'unixepoch')
 //                                            BETWEEN '" + fromdate +"'"+
 //                                            " and '" + todate+"' ORDER BY BillNo ASC";
-//                                    String sql = "SELECT BillNo,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000, 'unixepoch'), STATUS FROM Sales " +
-//                                            "WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch') BETWEEN '"+fromdate+"' and '"+todate+"' ORDER BY BillNo ASC";
-//                                     String sql = "SELECT Sales.BillNo,strftime('%Y-%m-%d %H:%M:%S', Sales.DateTime / 1000, 'unixepoch'), SyncSales.SalesStatus FROM Sales " +
+//                                    String sql = "SELECT BillNo,strftime('%Y-%m-%d %H:%M:%S', DateTime / 1000 + (3600*8), 'unixepoch'), STATUS FROM Sales " +
+//                                            "WHERE strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+fromdate+"' and '"+todate+"' ORDER BY BillNo ASC";
+//                                     String sql = "SELECT Sales.BillNo,strftime('%Y-%m-%d %H:%M:%S', Sales.DateTime / 1000 + (3600*8), 'unixepoch'), SyncSales.SalesStatus FROM Sales " +
 //                                             "left join SyncSales on SyncSales.BillNo = Sales.BillNo " +
-//                                             "WHERE strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000, 'unixepoch') BETWEEN '"+fromdate+"' and '"+todate+"' ORDER BY Sales.BillNo ASC";
+//                                             "WHERE strftime('"+Constraints.sqldateformat+"', Sales.DateTime / 1000 + (3600*8), 'unixepoch') BETWEEN '"+fromdate+"' and '"+todate+"' ORDER BY Sales.BillNo ASC";
 
 

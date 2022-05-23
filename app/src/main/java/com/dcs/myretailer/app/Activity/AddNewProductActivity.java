@@ -534,14 +534,14 @@ public class AddNewProductActivity extends AppCompatActivity implements View.OnC
                 binding.editTextProductOnhandqty.setText(OnHandQty.toString());
 
                 String stockInValue = Query.SearchStockInValueByPLUID(id,"Qty");
-                String stockInDateTime = Query.SearchStockInValueByPLUID(id,"strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')");
+                String stockInDateTime = Query.SearchStockInValueByPLUID(id,"strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')");
                 binding.stockIn.editTextProductStockQty.setText(stockInValue);
                 if (stockInDateTime.length() > 0) {
                     binding.stockIn.editTextProductStockDate.setText(stockInDateTime);
                 }
 
                 String stockAdjValue = Query.SearchStockAdjValueByPLUID(id,"VarianceQty");
-                String stockAdjDateTime = Query.SearchStockInValueByPLUID(id,"strftime('"+Constraints.sqldateformat+"', DateTime / 1000, 'unixepoch')");
+                String stockAdjDateTime = Query.SearchStockInValueByPLUID(id,"strftime('"+Constraints.sqldateformat+"', DateTime / 1000 + (3600*8), 'unixepoch')");
 
                 binding.stockAdj.editTextProductStockAdjQty.setText(stockAdjValue);
                 if (stockAdjDateTime.length() > 0) {

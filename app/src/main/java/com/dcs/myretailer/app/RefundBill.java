@@ -122,7 +122,7 @@ public class RefundBill {
         Query.UpdatStockAgentByStatus(BillNo);
 
 
-        SyncActivity.ResyncOrNormal(context,bno,"","Normal","");
+        SyncActivity.ResyncOrNormal(context,bno,"","Normal","","","");
 
 
     }
