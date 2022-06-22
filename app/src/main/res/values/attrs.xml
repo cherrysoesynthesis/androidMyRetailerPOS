@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="textcolor" format="color" />
+    <attr name="bgcolor" format="color" />
+    <declare-styleable name="com.andrognito.pinlockviewapp.FlatButton">
+        <attr name="textcolor" />
+        <attr name="bgcolor" />
+    </declare-styleable>
+    <declare-styleable name="com.andrognito.pinlockviewapp.Cashier.MetallicButton">
+        <attr name="textcolor" />
+        <attr name="bgcolor" />
+    </declare-styleable>
+    <declare-styleable name="com.andrognito.pinlockviewapp.StyleTextView">
+        <attr name="textinfo" format="string" />
+        <attr name="textinfosize" format="float" />
+        <attr name="textcolor" />
+    </declare-styleable>
+</resources>

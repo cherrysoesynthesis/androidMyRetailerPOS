@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txt_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:id="@+id/lay_val"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+        <!--
+        <com.vtop.pixiepos.StyleTextView
+            xmlns:styletextview="http://schemas.android.com/apk/res/com.vtop.pixiepos"
+            android:id="@+id/et_val"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:editable="false"
+            android:ems="10"
+            android:enabled="false"
+            android:gravity="right|center_vertical"
+            android:lines="1"
+            android:minLines="1"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="50sp"
+            android:typeface="monospace" />
+
+        <com.vtop.pixiepos.StyleTextView
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.vtop.pixiepos"
+            android:id="@+id/et_val1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:editable="false"
+            android:ems="10"
+            android:enabled="false"
+            android:gravity="right|center_vertical"
+            android:lines="1"
+            android:minLines="1"
+            android:text="0"
+            android:textColor="@android:color/white"
+            android:textSize="50sp"
+            android:typeface="monospace" />
+        <EditText
+            android:id="@+id/et_val"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:editable="false"
+            android:ems="10"
+            android:enabled="false"
+            android:gravity="right|center_vertical"
+            android:lines="1"
+            android:minLines="1"
+            android:text="0"
+            android:textColor="@android:color/white"
+            android:textSize="50sp"
+            android:typeface="monospace" />
+-->
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1" >
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="7"
+            android:textSize="40sp" />
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_8"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="8"
+            android:textSize="40sp" />
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_9"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="9"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="4"
+            android:textSize="40sp" />
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="5"
+            android:textSize="40sp" />
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="6"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="1"
+            android:textSize="40sp" />
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="2"
+            android:textSize="40sp" />
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="3"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_00"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="00"
+            android:textSize="40sp" />
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#A0B0B0"
+            android:id="@+id/btn_0"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="0"
+            android:textSize="40sp" />
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#000000"
+            metalbutton:bgcolor="#D0B090"
+            android:id="@+id/btn_bkspc"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="←"
+            android:textSize="40sp"
+            android:width="64dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#FF5533"
+            metalbutton:bgcolor="#C06060"
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="✘"
+            android:textSize="40sp" />
+
+        <com.dcs.myretailer.app.Cashier.MetallicButton
+            xmlns:metalbutton="http://schemas.android.com/apk/res/com.dcs.myretailer.app"
+            metalbutton:textcolor="#55FF33"
+            metalbutton:bgcolor="#60C060"
+            android:id="@+id/btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxWidth="64dp"
+            android:text="✔"
+            android:textSize="40sp" />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

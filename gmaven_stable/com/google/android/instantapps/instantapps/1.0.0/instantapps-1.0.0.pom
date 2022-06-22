@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.google.android.instantapps</groupId>
+  <artifactId>instantapps</artifactId>
+  <packaging>aar</packaging>
+  <version>1.0.0</version>
+  <inceptionYear>2017</inceptionYear>
+  <name>Insant Apps Runtime API</name>
+  <url>https://developer.android.com/topic/instant-apps/index.html</url>
+  <description>Instant Apps Runtime API Library</description>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <organization>
+    <name>Google, Inc.</name>
+    <url>http://www.google.com</url>
+  </organization>
+  <dependencies>
+    <dependency>
+      <groupId>com.android.support</groupId>
+      <artifactId>support-v4</artifactId>
+      <version>23.3.0</version>
+      <type>aar</type>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+  <licenses>
+    <license>
+      <name>Android SDK License</name>
+      <url>https://developer.android.com/studio/terms.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+</project>
+

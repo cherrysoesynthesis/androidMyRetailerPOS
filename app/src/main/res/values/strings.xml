@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">MyRetailerPos</string>
+    <!--<string name="app_name">New UI Design</string>-->
+    <string name="app_login">Login</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_pos_configuration">PosConfigurationActivity</string>
+
+    <string name="str_ok">OK</string>
+    <string name="str_cancel">Cancel</string>
+    <string name="str_updir">Up Dir</string>
+    <string name="str_mkdir">Create Folder</string>
+    <string name="str_rename">Rename</string>
+    <string name="str_del">Delete</string>
+    <string name="str_location">Directory:</string>
+    <string name="str_opendialog">Open...</string>
+    <string name="str_savedialog">Save...</string>
+    <string name="str_emptyfilename">Name is empty!</string>
+    <string name="str_noselected">No File/Folder selected!</string>
+    <string name="str_dircantsave">Selected location cannot be save!</string>
+    <string name="str_titleoverwrite">Overwrite?</string>
+    <string name="str_overwrite">Overwrite</string>
+    <string name="str_filenotexist">%s is not exist!</string>
+    <string name="str_nopermission">"You don't have the permission to access the file!"</string>
+    <string name="str_overwrite_ask">%s is already exist, overwrite?</string>
+    <string name="str_delete_title">Delete?</string>
+    <string name="str_delete_ask">Are you sure you want to delete %s?</string>
+    <string name="str_delete_ok">Deleted %s!</string>
+    <string name="str_delete_err">Failed to delete or no permission!</string>
+    <string name="str_yes">Yes</string>
+    <string name="str_no">No</string>
+    <string name="str_rename_title">Rename...</string>
+    <string name="str_samefilename">Same name already existed!</string>
+    <string name="str_rename_ok">Renamed to %s!</string>
+    <string name="str_rename_err">Cannot rename because of invalid name!</string>
+    <string name="str_mkdir_title">Create Folder...</string>
+    <string name="str_mkdir_err">Cannot Create Folder in this Directory!</string>
+    <string name="str_mkdir_err2">Cannot create folder because of invalid folder name!</string>
+    <string name="str_mkdir_ok">Folder %s created!</string>
+    <string name="str_filecount">Files: %d</string>
+    <string name="str_sizecount">Size: %s</string>
+    <string name="str_byte">%d byte(s)</string>
+    <string name="str_kbyte">%.02f KB(s)</string>
+    <string name="str_mbyte">%.02f MB(s)</string>
+    <string name="str_gbyte">%.02f GB(s)</string>
+    <string name="str_tbyte">%.02f TB(s)</string>
+
+
+    <!-- Kitchen Printer-->
+    <string name="main_button_discovery">Printer Discovery / Select</string>
+
+    <string name="discovery_label_interfacetype">Interface Type</string>
+    <string name="discovery_radio_tcp">TCP(Wi-Fi)</string>
+    <string name="discovery_radio_blueooth">Bluetooth</string>
+    <string name="discovery_radio_usb">USB</string>
+    <string name="discovery_label_printerlist">Printer List</string>
+
+    <string name="handlingmsg_err_head">Print head of printer is hot.\n</string>
+    <string name="handlingmsg_err_motor">Motor Driver IC of printer is hot.\n</string>
+    <string name="handlingmsg_err_battery">Battery of printer is hot.\n</string>
+    <string name="handlingmsg_err_overheat">Please wait until error LED of the printer turns off. \n</string>
+    <string name="handlingmsg_err_no_response">Please check the connection of the printer and the mobile terminal.\nConnection get lost.\n</string>
+    <string name="handlingmsg_err_cover_open">Please close roll paper cover.\n</string>
+    <string name="handlingmsg_err_paper_feed">Please release a paper feed switch.\n</string>
+    <string name="handlingmsg_err_receipt_end">Please check roll paper.\n</string>
+    <string name="handlingmsg_err_wrong_paper">Please set correct roll paper.\n</string>
+    <string name="handlingmsg_err_autocutter">Please remove jammed paper and close roll paper cover.\nIf cannot open roll paper cover, please open cutter cover, and turn knob in the direction of the arrow marked on the inside of the cutter cover until roll paper cover is opened.\n</string>
+    <string name="handlingmsg_err_need_recover">Then, If the printer doesn\'t recover from error, please cycle the power switch.\n</string>
+    <string name="handlingmsg_err_unrecover">Please cycle the power switch of the printer.\nIf same errors occurred even power cycled, the printer may out of order.</string>
+    <string name="handlingmsg_err_battery_real_end">Please connect AC adapter or change the battery.\nBattery of printer is almost empty.\n</string>
+    <string name="handlingmsg_warn_receipt_near_end">Roll paper is nearly end.\n</string>
+    <string name="handlingmsg_warn_battery_near_end">Battery level of printer is low.\n</string>
+    <string name="handlingmsg_ex_param">Programming error: Parameter error has occurred.\n</string>
+    <string name="handlingmsg_ex_open">Please check the connection of the printer and the mobile terminal.\nFailed to open communication port.\n</string>
+    <string name="handlingmsg_ex_connect">Please reconnect the printer and the mobile terminal.\nFailed to communicate with the printer.\n</string>
+    <string name="handlingmsg_ex_timeout">Please check the connection of the printer and the mobile terminal.\nCommunication has timed out.\n</string>
+    <string name="handlingmsg_ex_memory">Please close unnessesary applications.\nFree memory of the mobile terminal is insufficient.</string>
+    <string name="handlingmsg_ex_illegal">Programming error: Some API was called improperly.\n</string>
+    <string name="handlingmsg_ex_processing">Programming error: Please wait until completion of current processing.\n</string>
+    <string name="handlingmsg_ex_unsupported">Programming error: Unsupported printer has selected.\n</string>
+    <string name="handlingmsg_ex_off_line">Printer is offline.\n</string>
+    <string name="handlingmsg_ex_failure">Please check communication settings of the mobile terminal and application execution environment.\nUnknown error has occurred.\n</string>
+    <string name="handlingmsg_ex_application_error">Please contact developer of this application.\nApplication error has occurred.\n</string>
+    <string name="handlingmsg_notice_printer_problems">Printer problems:\n</string>
+    <string name="handlingmsg_notice_failed">Failed to get printer status.\n</string>
+    <string name="handlingmsg_notice_error">Error:\n</string>
+    <string name="handlingmsg_notice_warning">Warning:\n</string>
+    <string name="text_label_printer">Printer Name</string>
+    <string name="text_label_modelname">Printer Model</string>
+    <string name="text_label_warnings">Printer Warnings</string>
+    <string name="model_ank">ANK</string>
+    <string name="model_japanese">JAPANESE</string>
+    <string name="model_chinese">CHINESE</string>
+    <string name="model_taiwan">TAIWAN</string>
+    <string name="model_korean">KOREAN</string>
+    <string name="model_thai">THAI</string>
+    <string name="model_southasia">SOUTH ASIA</string>
+    <string name="model_other">Other</string>
+
+    <string name="printername_t88v">TM-T88V</string>
+    <string name="printername_t70">TM-T70</string>
+    <string name="printername_u220">TM-U220</string>
+    <string name="printername_u330">TM-U330</string>
+    <string name="printername_p60">TM-P60</string>
+    <string name="printername_p60ii">TM-P60II</string>
+    <string name="printername_t20">TM-T20</string>
+    <string name="printername_t82">TM-T82</string>
+    <string name="printername_t81ii">TM-T81II</string>
+    <string name="printername_t82ii">TM-T82II</string>
+    <string name="printername_t83ii">TM-T83II</string>
+    <string name="printername_t70ii">TM-T70II</string>
+    <string name="printername_t90ii">TM-T90II</string>
+    <string name="printername_t20ii">TM-T20II</string>
+    <string name="printername_p20">TM-P20</string>
+    <string name="printername_p80">TM-P80</string>
+    <string name="printername_m10">TM-m10</string>
+
+
+    <string name="ftpSyncFTPIP">IP</string>
+    <string name="ftpSyncFTPType">Type</string>
+    <string name="ftpSyncFTPPort">Port</string>
+    <string name="ftpSyncFTUser">User</string>
+    <string name="ftpSyncFTPassword">Password</string>
+    <string name="ftpEditTextValue">FTP VALUe</string>
+</resources>

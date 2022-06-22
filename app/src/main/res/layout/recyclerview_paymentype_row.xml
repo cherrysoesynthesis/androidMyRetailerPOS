@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ic_icon_myretailer_background"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+            <!--android:background="@color/colorBg"-->
+
+            <!--<Switch-->
+            <!--android:id="@+id/paymenttype_onoff"-->
+            <!--android:layout_width="80dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp" />-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:text="Cash"
+                    android:textColor="@color/cardview_dark_background" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <!--        <android.support.v7.widget.SwitchCompat-->
+                <!--            android:id="@+id/paymenttype_onoff"-->
+                <!--            android:layout_width="80dp"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:layout_alignParentRight="true"-->
+                <!--            android:layout_marginTop="10dp"-->
+                <!--            android:theme="@style/SCBSwitch" />-->
+                <Switch
+                    android:id="@+id/paymenttype_onoff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#cccccc" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/drawable/my_delete_button.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/drawable/my_ftp_sync_Button.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/drawable/my_ftp_sync_button.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_add_new_product.xml" value="0.14166666666666666" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_ftp_recyclerview.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_ftpactivity.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_ftpfile_recyclerview.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_mall_interface.xml" value="0.3333333333333333" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_manual_ftpmall_interface.xml" value="0.13333333333333333" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_payment_cash_succes.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_pos_configuration.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_pos_configuration_imin.xml" value="0.13980716253443526" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_setting.xml" value="0.10729166666666666" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/activity_sync.xml" value="0.12552083333333333" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/cardveiw_item_book.xml" value="0.12447916666666667" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/taxtype_item.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/layout/toolbar_xml.xml" value="0.14947916666666666" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/menu/activity_add_new_product_actions.xml" value="0.10625" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24/app/src/main/res/menu/activity_mall_interface_actions.xml" value="0.1234375" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24_bumblebee/app/src/main/res/drawable/my_login_button.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24_bumblebee/app/src/main/res/drawable/my_selectdate_button.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24_bumblebee/app/src/main/res/layout/activity_check_out.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.24_bumblebee/app/src/main/res/layout/activity_manual_ftpmall_interface.xml" value="0.13333333333333333" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.26/app/src/main/res/drawable/ic_remove_red_eye_black_24dp.xml" value="0.146" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.26/app/src/main/res/layout/activity_ftp_recyclerview.xml" value="0.3333333333333333" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.26/app/src/main/res/layout/activity_mall_interface.xml" value="0.12" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.26/app/src/main/res/layout/activity_manual_ftpmall_interface.xml" value="0.12447916666666667" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.26/app/src/main/res/layout/activity_pos_configuration.xml" value="0.11578947368421053" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.26/app/src/main/res/layout/activity_pos_configuration_imin.xml" value="0.12" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.26/app/src/main/res/layout/fragment_report_date_sheet_dialog.xml" value="0.3333333333333333" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.26/app/src/main/res/menu/activity_mall_interface_actions.xml" value="0.15677083333333333" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.27_08062022/app/src/main/res/layout/activity_add_new_category.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.27_08062022/app/src/main/res/layout/activity_add_new_product.xml" value="0.1625" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.27_08062022/app/src/main/res/layout/activity_ftpmall_interface.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS-3.3.27_08062022/app/src/main/res/layout/activity_mall_interface.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/drawable/my_login_key_button_rounded.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_add_new_product.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_hardware.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_kitchen_printer.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_license_key.xml" value="0.14791666666666667" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_pos_configuration_imin.xml" value="0.13020833333333334" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_receipt_editor.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_remark_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_transaction_details.xml" value="0.13020833333333334" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/activity_z_close_resync.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/discovery.xml" value="0.1359375" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/dlg_license.xml" value="0.14130434782608695" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/fragment_report_overall.xml" value="0.11979166666666667" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/list_at.xml" value="0.1359375" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/main.xml" value="0.11770833333333333" />
+        <entry key="..\:/AndroidStudioProjects/gitProj/androidMyRetailerPOS/app/src/main/res/layout/text_color_selector.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
