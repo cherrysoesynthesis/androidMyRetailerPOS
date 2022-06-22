@@ -32,6 +32,11 @@ _##FTP Functions
 _##Version 3.3.27.7
 
 _##Mall Interface Integration (FTP/SFTP)
+
 _##Mall Interface Management(Password=>visible/invisible)
+
 _##Mall Interface TestConnection(FTP/SFTP)
-_##Mall Interface Auto/Manual
+
+_##Mall Interface File Upload Auto/Manual 
+
+_##2 types File Format (1 ,24)
